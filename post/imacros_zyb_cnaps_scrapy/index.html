@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>iMacros脚本运行三天，爬取了40万行现代化支付行号 - Libido Chateau</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。" /><meta name="keywords" content="数据, 时评, 人文" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.1 with theme even" />
+
+
+<link rel="canonical" href="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号" />
+<meta property="og:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" />
+<meta property="article:published_time" content="2017-11-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-27T00:00:00+00:00" />
+
+<meta itemprop="name" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
+<meta itemprop="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。">
+
+
+<meta itemprop="datePublished" content="2017-11-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6063">
+
+
+
+<meta itemprop="keywords" content="imacros,爬虫,CNAPS,自动化," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号"/>
+<meta name="twitter:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Libido Chateau</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Libido Chateau</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">iMacros脚本运行三天，爬取了40万行现代化支付行号</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-28 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 6063 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#离题万里的开场">离题万里的开场</a></li>
+<li><a href="#这就带来了第一个问题">这就带来了第一个问题</a></li>
+<li><a href="#怎么爬咧">怎么爬咧？</a>
+<ul>
+<li><a href="#首先-选型要精准">首先，选型要精准</a></li>
+<li><a href="#其次-办法要对路">其次，办法要对路</a></li>
+<li><a href="#曲线救国">曲线救国</a></li>
+</ul></li>
+<li><a href="#节外生枝的javascript">节外生枝的JavaScript</a></li>
+<li><a href="#提取银行和省份-城市的控件值">提取银行和省份+城市的控件值</a></li>
+<li><a href="#构建循环">构建循环</a>
+<ul>
+<li><a href="#获取返回结果的页码">获取返回结果的页码</a></li>
+<li><a href="#获得控件标签键">获得控件标签键</a></li>
+<li><a href="#功能集成">功能集成</a></li>
+<li><a href="#运行">运行</a></li>
+<li><a href="#r合并csv">R合并csv</a></li>
+</ul></li>
+<li><a href="#但是">但是！</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="离题万里的开场">离题万里的开场</h2>
+
+<p>码农界有个著名的“三次法则 (rule of three)”：<strong>如果一段代码重复出现了三次，就要考虑抽出来写一个子程序，以便复用</strong>。这是条宝贵的法则，可以衍生出更多的强迫症版本，随随便便就能举出很多喜闻乐见的例子，比如：</p>
+
+<blockquote>
+<ul>
+<li>一个词在同一句话里出现三次就不能忍，必须换近义词；</li>
+<li>一件事手动做三次就不能忍，必须写程序自动化；</li>
+<li>一顿饭重复吃三口就不能忍，必须开发一个喂饭机；</li>
+<li>同一处空气重复呼吸三口就不能忍，必须装一台呼吸机</li>
+</ul>
+</blockquote>
+
+<p>……</p>
+
+<p>发人深省，对不对？这些正是当今最严肃而真实的信仰，有着最为坚定的践行者。<del>在古代</del>2015年全球最大的雄性交友平台GitHub上出了个网红毛子码农、脚本狂魔<a href="https://github.com/NARKOZ/hacker-scripts">Narkoz</a>，他的人生信条是：<strong>如果一件事要耗费自己90秒以上，那就写个脚本</strong>。这些奇葩的脚本包括：</p>
+
+<ul>
+<li>如加班到21点以后就自动给老婆发马屁短信；</li>
+<li>收到蠢货DBA的任何求助邮件后自动恢复数据库的最近备份</li>
+<li>让咖啡机等待17秒然后煮杯咖啡并等待24秒再灌入杯子（正好是作者起身走到咖啡机前的耗时）</li>
+<li>……</li>
+</ul>
+
+<p>从时间效益的经济学评价来讲，这个准则烂透了。这好比为了节约每天通勤的公交车钱，去买了一辆跑车。但跑车本身还是很拉风的。若能竖立起极客死宅的品牌形象，还是可能会产生某些<strong>潜在的</strong>溢价——比如说，会有更多的人请你修电脑。</p>
+
+<p>判断一个人是否天生适合当码农，很重要的一点就是看他/她有没有这种懒癌强迫症。而这种强迫症的形上学本质是：<strong>对自由王国的无尽向往</strong>。——重复劳动太蠢了，它侮辱人类的尊严，阻碍我们证法悟道，必须消灭。这就是自动化的诞生。</p>
+
+<p>所以——尽管技术上跌跌撞撞，也并不妨碍我隔三差五搞个三脚猫爬虫出来。这回的主题又跳跃了：爬取现代化支付行号。</p>
+
+<h2 id="这就带来了第一个问题">这就带来了第一个问题</h2>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/yilianmengbi.jpg"/> <figcaption>
+            <h4>蛤？这是啥？</h4>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>所谓现代化支付行号 (CNAPS)</p>
+
+<p>也叫联行号。</p>
+</blockquote>
+
+<p>就是中国人民银行搞的一套12位银行代码，用来做自动清算的。在通过手机银行app转账时，选择收款方账户时，也会看到这个代码。它的结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">** *    ****    ****           *
+行别码  地区码  分支机构序号   校验码</pre></td></tr></table>
+</div>
+</div>
+<p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/hebbank.png"/> <figcaption>
+            <h4>图 | 河北银行CNAPS查询页</h4>
+        </figcaption>
+</figure>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zsbank.png"/> <figcaption>
+            <h4>图 | 浙商银行CNAPS查询页</h4>
+        </figcaption>
+</figure>
+
+<p>随手上去试了两把，还挺好用。于是思路比较清楚了：穷尽所有查询策略，把返回的结果提出来存好。</p>
+
+<h2 id="怎么爬咧">怎么爬咧？</h2>
+
+<h3 id="首先-选型要精准">首先，选型要精准</h3>
+
+<p>上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家<a href="http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html">中原银行</a>。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zybank.png"/> <figcaption>
+            <h4>图 | 中原银行CNPAS查询页</h4>
+        </figcaption>
+</figure>
+
+<p>这就比较好对付一些，而且信息更多，连网点地址也提供。</p>
+
+<h3 id="其次-办法要对路">其次，办法要对路</h3>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 要理智。当然不能手工复制粘贴。平均查一个结果需要点行名、省、市，输验证码、按确认，超过10次交互动作。几千次这么做下来，非死亦残。更不要提错误率了。<kbd>放弃</kbd></label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 我比较熟悉的<code>rvest</code>这类简单的R爬虫包，只能对付静态网页，无法模拟网页交互行为。<kbd>放弃</kbd></label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Python的<code>scrapy</code>框架很牛，也能对付验证码、AJAX异步之类问题。次一点，R里面也有<code>Rcurl</code>。但我都不会。<kbd>放弃</kbd></label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 要模拟用户交互行为最好的办法是<code>Selenium</code>这类框架(代码版按键精灵)，但是当时我还不会。<kbd>放弃</kbd>。</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 其他。<kbd>不明</kbd></label></li>
+</ul>
+
+<p>所谓“夫未战而庙算者，得算多也”。经过一番严谨的分析，我发现：<strong>技术上搞不定</strong>——再次落入了经典的“看得上的买不起，买得起的看不上”窘境。</p>
+
+<h3 id="曲线救国">曲线救国</h3>
+
+<p>办法还是有的，但就是要先停下来，离题万里去讲另一个故事。</p>
+
+<p>在OA领域，我们经常会把一系列小操作对应的系统指令录下来，套个循环再复用，那就是VBA宏语言。所谓宏，实质上就是定义一组模式替换规则，套用到一组命令上进行<strong>批量批处理</strong>。这不就是“录制-修改-复用”自动化党的福音吗？看看我们平时用的最多的宏，通常就是VBA，SPSS，SAS，以及各种各样的游戏作弊器。那就是宏天生的战场。</p>
+
+<p>对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros.png"/> <figcaption>
+            <h4>图 | iMacros for Chrome界面</h4>
+        </figcaption>
+</figure>
+
+<p>如果自己录一段宏，打开后长这样：</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo1.png"/> <figcaption>
+            <h4>图 | iMacros脚本代码</h4>
+        </figcaption>
+</figure>
+
+<p>由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。</p>
+
+<p>双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo2.gif"/> <figcaption>
+            <h4>图 | iMacros demo</h4>
+        </figcaption>
+</figure>
+
+<p>想象一下你有几千条记录要在网上填入。用imacros，只要在脚本同目录下准备一个csv，整理好数据，然后修改一下上面的代码，读入csv，逐行扫描，按布局顺序提取数据<code>{{!COL1}}</code>、<code>{{!COL2}}</code>、&hellip;，填入对应的控件，提交。接下来边喝茶边看屏幕飞滚，繁复的录入任务就自行完成了。</p>
+
+<h2 id="节外生枝的javascript">节外生枝的JavaScript</h2>
+
+<p>按说imacros已经给了很完美的循环方案：在iim脚本里给内置变量{{!LOOP}}赋一个初始值，然后在执行面板里设置一个（{{!LOOP}}的）Max值，点<kbd>Play Loop</kbd>即可。但这只能对付单层循环。在中原银行这个案例上，单层循环是不够的。理论上需要三层循环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">for i in 所有银行名:
+    for j in 所有省份:
+        for k in 所有城市:
+            查询
+            提取结果表格
+            存入一个文件
+        next k
+    next j
+next i</pre></td></tr></table>
+</div>
+</div>
+<p>大约80个银行类目，34个省份，650个城市，这样完整运行一遍要有17.7万个组合。但实际上34个省份和650个城市不会完整组合，每个省份只可能匹配其属下的那几个城市。省份选择“江苏”后，硬要让脚本到城市下拉框找“杭州”，只能逼它报错。所以省份、城市的两层循环(j, k)实际上应当合并。</p>
+
+<p>饶是如此，仍有两层循环。假如硬是压成单层，就得在csv里把所有组合罗列一遍，imacros表示无力。所幸这个工具还有不错的延展性，可以执行vbs和js脚本。查询、提取、存储之类还是可以用imacros宏来完成，外面搭一个js的循环壳调用<code>iimPlay</code>就行。伪代码看起来大约是这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">银行数</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">省份和城市对数</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">一段imacros宏</span><span class="err">，</span><span class="nx">选好银行</span><span class="err">、</span><span class="nx">省</span><span class="err">、</span><span class="nx">市</span><span class="err">，</span><span class="nx">查询结果</span><span class="p">)</span>
+        <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">另一段imacros宏</span><span class="err">，</span><span class="nx">返回查询结果的页数</span><span class="err">，</span><span class="nx">以便逐页去点</span><span class="p">)</span>
+        <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">另一段imacros宏</span><span class="err">，</span><span class="nx">抽取银行</span><span class="err">、</span><span class="nx">省</span><span class="err">、</span><span class="nx">市的标签名</span><span class="err">，</span><span class="nx">用来给文件命名</span><span class="p">)</span>
+        <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">最后一段imacros宏</span><span class="err">，</span><span class="nx">循环点查询结果页</span><span class="err">，</span><span class="nx">把每一页结果存入csv</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>心里有底了。开工。</p>
+
+<h2 id="提取银行和省份-城市的控件值">提取银行和省份+城市的控件值</h2>
+
+<p>Chrome里F12，可以看到银行下拉菜单的载入值齐齐整整。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/banksite.png"/> <figcaption>
+            <h4>图 | 银行下拉菜单载入值</h4>
+        </figcaption>
+</figure>
+
+<p>选中&rsquo;banksite&rsquo;这个节点，右键copy element复制下来。到R里，赋值给banks。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;select&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;select_170&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;banksite&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>==请选择银行==<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;100&#34;</span><span class="p">&gt;</span>中原银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;102&#34;</span><span class="p">&gt;</span>中国工商银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;103&#34;</span><span class="p">&gt;</span>中国农业银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;104&#34;</span><span class="p">&gt;</span>中国银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;105&#34;</span><span class="p">&gt;</span>中国建设银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;201&#34;</span><span class="p">&gt;</span>国家开发银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;202&#34;</span><span class="p">&gt;</span> ....</code></pre></td></tr></table>
+</div>
+</div>
+<p>用R快速处理一下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">banks <span class="o">&lt;-</span> <span class="kp">unlist</span><span class="p">(</span>banks<span class="p">,</span> <span class="kp">strsplit</span><span class="p">(</span>banks<span class="p">,</span> <span class="s">&#34;&lt;/option&gt;&#34;</span><span class="p">))</span>
+<span class="kp">paste</span><span class="p">(</span><span class="kp">sapply</span><span class="p">(</span>banks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>v<span class="p">)</span>
+    <span class="kp">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> v<span class="p">)),</span> collapses<span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样直接就提取成了一个文本向量。如果在Windows，可以复制outerHTML，用<code>readClipboard</code>来直接读剪贴板。所以定义一个<code>getCbId</code>函数，直接处理成js列表。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>jsonlite<span class="p">)</span>
+getCbId <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>grpId<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+  <span class="c1"># Copy XML nodes from ZYB page by F12</span>
+  a <span class="o">&lt;-</span> readClipboard<span class="p">(</span>format<span class="o">=</span><span class="m">13</span><span class="p">)</span>
+  a <span class="o">&lt;-</span> <span class="kp">unlist</span><span class="p">(</span><span class="kp">strsplit</span><span class="p">(</span>a<span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">))</span>
+    a <span class="o">&lt;-</span> a<span class="p">[</span><span class="kp">seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>a<span class="p">),</span> <span class="m">2</span><span class="p">)]</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>grpId<span class="p">)){</span>
+        toJSON<span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span>a<span class="p">))</span>
+    <span class="p">}</span><span class="kp">else</span><span class="p">{</span>
+        a<span class="o">=</span><span class="kt">matrix</span><span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kp">rep.int</span><span class="p">(</span>grpId<span class="p">,</span> <span class="kp">length</span><span class="p">(</span>a<span class="p">)),</span> a<span class="p">)),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+        toJSON<span class="p">(</span>a<span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>所以这个scrapy_cnaps.js的起头部分就变成了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">banks</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">103</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span><span class="mi">201</span><span class="p">,</span><span class="mi">202</span><span class="p">,</span><span class="mi">203</span><span class="p">,</span><span class="mi">301</span><span class="p">,</span><span class="mi">302</span><span class="p">,</span><span class="mi">303</span><span class="p">,</span><span class="mi">304</span><span class="p">,</span><span class="mi">305</span><span class="p">,</span><span class="mi">306</span><span class="p">,</span><span class="mi">307</span><span class="p">,</span><span class="mi">308</span><span class="p">,</span><span class="mi">309</span><span class="p">,</span>
+    <span class="mi">310</span><span class="p">,</span><span class="mi">313</span><span class="p">,</span><span class="mi">314</span><span class="p">,</span><span class="mi">315</span><span class="p">,</span><span class="mi">316</span><span class="p">,</span><span class="mi">317</span><span class="p">,</span><span class="mi">318</span><span class="p">,</span><span class="mi">319</span><span class="p">,</span><span class="mi">401</span><span class="p">,</span><span class="mi">402</span><span class="p">,</span><span class="mi">403</span><span class="p">,</span><span class="mi">501</span><span class="p">,</span><span class="mi">502</span><span class="p">,</span><span class="mi">503</span><span class="p">,</span><span class="mi">504</span><span class="p">,</span><span class="mi">505</span><span class="p">,</span><span class="mi">506</span><span class="p">,</span><span class="mi">507</span><span class="p">,</span><span class="mi">509</span><span class="p">,</span>
+    <span class="mi">510</span><span class="p">,</span><span class="mi">512</span><span class="p">,</span><span class="mi">531</span><span class="p">,</span><span class="mi">532</span><span class="p">,</span><span class="mi">533</span><span class="p">,</span><span class="mi">561</span><span class="p">,</span><span class="mi">562</span><span class="p">,</span><span class="mi">563</span><span class="p">,</span><span class="mi">564</span><span class="p">,</span><span class="mi">565</span><span class="p">,</span><span class="mi">591</span><span class="p">,</span><span class="mi">593</span><span class="p">,</span><span class="mi">594</span><span class="p">,</span><span class="mi">595</span><span class="p">,</span><span class="mi">596</span><span class="p">,</span><span class="mi">597</span><span class="p">,</span><span class="mi">621</span><span class="p">,</span><span class="mi">622</span><span class="p">,</span><span class="mi">623</span><span class="p">,</span>
+    <span class="mi">631</span><span class="p">,</span><span class="mi">641</span><span class="p">,</span><span class="mi">651</span><span class="p">,</span><span class="mi">652</span><span class="p">,</span><span class="mi">661</span><span class="p">,</span><span class="mi">662</span><span class="p">,</span><span class="mi">671</span><span class="p">,</span><span class="mi">672</span><span class="p">,</span><span class="mi">691</span><span class="p">,</span><span class="mi">692</span><span class="p">,</span><span class="mi">693</span><span class="p">,</span><span class="mi">695</span><span class="p">,</span><span class="mi">711</span><span class="p">,</span><span class="mi">712</span><span class="p">,</span><span class="mi">713</span><span class="p">,</span><span class="mi">714</span><span class="p">,</span><span class="mi">715</span><span class="p">,</span><span class="mi">716</span><span class="p">,</span><span class="mi">732</span><span class="p">,</span>
+    <span class="mi">741</span><span class="p">,</span><span class="mi">742</span><span class="p">,</span><span class="mi">751</span><span class="p">,</span><span class="mi">752</span><span class="p">,</span><span class="mi">761</span><span class="p">,</span><span class="mi">771</span><span class="p">,</span><span class="mi">775</span><span class="p">,</span><span class="mi">776</span><span class="p">,</span><span class="mi">781</span><span class="p">,</span><span class="mi">782</span><span class="p">,</span><span class="mi">783</span><span class="p">,</span><span class="mi">785</span><span class="p">,</span><span class="mi">787</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">nBanks</span><span class="o">=</span><span class="nx">banks</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以此类推，把所有省份和城市的组合都找了出来。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cities</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">1100</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1210</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1240</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1260</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1270</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1310</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1340</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1380</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1410</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1430</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1460</span><span class="p">],[</span><span class="mi">13</span><span class="p">,</span><span class="mi">1480</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1610</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1620</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1630</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1640</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1680</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1690</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1710</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1730</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1750</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1770</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">1810</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1910</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1920</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1930</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1940</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1960</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1980</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1990</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2010</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2030</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2050</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2070</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2080</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2210</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2220</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2230</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2240</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2250</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2260</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2270</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2280</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2290</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2310</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2320</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2330</span><span class="p">],[</span><span class="mi">21</span><span class="p">,</span><span class="mi">2340</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2410</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2420</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2430</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2440</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2450</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2460</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2470</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2490</span><span class="p">],[</span><span class="mi">22</span><span class="p">,</span><span class="mi">2520</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2610</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2640</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2650</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2660</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2670</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2680</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2690</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2710</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2720</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2740</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2760</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2780</span><span class="p">],[</span><span class="mi">23</span><span class="p">,</span><span class="mi">2790</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">31</span><span class="p">,</span><span class="mi">2900</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3010</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3020</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3030</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3040</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3050</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3060</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3070</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3080</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3090</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3110</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3120</span><span class="p">],[</span><span class="mi">32</span><span class="p">,</span><span class="mi">3140</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3310</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3320</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3330</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3350</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3360</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3370</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3380</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3410</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3420</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3430</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">3450</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3610</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3620</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3630</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3640</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3650</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3660</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3670</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3680</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3710</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3720</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3740</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3750</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3760</span><span class="p">],[</span><span class="mi">34</span><span class="p">,</span><span class="mi">3790</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3910</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3930</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3940</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3950</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3960</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3970</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">3990</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">35</span><span class="p">,</span><span class="mi">4010</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">4030</span><span class="p">],[</span><span class="mi">35</span><span class="p">,</span><span class="mi">4050</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4210</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4220</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4230</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4240</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4260</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4270</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4280</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4310</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4330</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4350</span><span class="p">],[</span><span class="mi">36</span><span class="p">,</span><span class="mi">4370</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4510</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4520</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4530</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4540</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4550</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4560</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4580</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4610</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4630</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4650</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4660</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4680</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4710</span><span class="p">],[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4730</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">37</span><span class="p">,</span><span class="mi">4750</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4910</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4920</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4930</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4950</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4960</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4970</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">4980</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5010</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5020</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5030</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5040</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5050</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5060</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5080</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5110</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5130</span><span class="p">],[</span><span class="mi">41</span><span class="p">,</span><span class="mi">5150</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5210</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5220</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5230</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5260</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5280</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5310</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5320</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5330</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5350</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5360</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5370</span><span class="p">],[</span><span class="mi">42</span><span class="p">,</span><span class="mi">5410</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5510</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5520</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5530</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5540</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5550</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5570</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5580</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5590</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5610</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5620</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5630</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5650</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5670</span><span class="p">],[</span><span class="mi">43</span><span class="p">,</span><span class="mi">5690</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5810</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5820</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5840</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5850</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5860</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5880</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5890</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5910</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5920</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5930</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5950</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5960</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5970</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5980</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">44</span><span class="p">,</span><span class="mi">5990</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">6010</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">6020</span><span class="p">],[</span><span class="mi">44</span><span class="p">,</span><span class="mi">6030</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6110</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6140</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6170</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6210</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6230</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6240</span><span class="p">],[</span><span class="mi">45</span><span class="p">,</span><span class="mi">6330</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">46</span><span class="p">,</span><span class="mi">6410</span><span class="p">],[</span><span class="mi">46</span><span class="p">,</span><span class="mi">6420</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">6530</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6510</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6550</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6560</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6570</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6580</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6590</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6610</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6620</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6630</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6650</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6670</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6690</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6710</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6730</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6750</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6770</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6790</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6810</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6840</span><span class="p">],[</span><span class="mi">51</span><span class="p">,</span><span class="mi">6870</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7010</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7020</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7030</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7050</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7070</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7090</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7110</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7130</span><span class="p">],[</span><span class="mi">52</span><span class="p">,</span><span class="mi">7150</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7310</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7340</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7360</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7380</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7410</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7430</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7450</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7470</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7490</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7510</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7530</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7540</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7550</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7560</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7570</span><span class="p">],[</span><span class="mi">53</span><span class="p">,</span><span class="mi">7580</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7700</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7720</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7730</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7740</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7750</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7760</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7770</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7790</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7810</span><span class="p">],[</span><span class="mi">54</span><span class="p">,</span><span class="mi">7830</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7800</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7910</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7920</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7930</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7950</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7970</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">7990</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">61</span><span class="p">,</span><span class="mi">8010</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">8030</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">8040</span><span class="p">],[</span><span class="mi">61</span><span class="p">,</span><span class="mi">8060</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8210</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8220</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8230</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8240</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8250</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8260</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8270</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8280</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8290</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8310</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8330</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8340</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8360</span><span class="p">],[</span><span class="mi">62</span><span class="p">,</span><span class="mi">8380</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8510</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8520</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8540</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8550</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8560</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8570</span><span class="p">],[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8580</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">63</span><span class="p">,</span><span class="mi">8590</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="mi">8710</span><span class="p">],[</span><span class="mi">64</span><span class="p">,</span><span class="mi">8720</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8810</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8820</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8830</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8840</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8850</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8870</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8880</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8910</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8930</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8940</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8960</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">8980</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">9010</span><span class="p">],[</span><span class="mi">65</span><span class="p">,</span><span class="mi">9020</span><span class="p">]]</span>
+<span class="kd">var</span> <span class="nx">nCities</span><span class="o">=</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="构建循环">构建循环</h2>
+
+<p>由于解析返回结果的页码需要用到正则，里面一大堆转义符，如果通过js来拼接脚本源文本，会让难度雪上加霜。所以我决定把最难的脚本单元提出来，最后拼到主脚本里。</p>
+
+<h3 id="获取返回结果的页码">获取返回结果的页码</h3>
+
+<p>点了查询之后，结果是分页显示的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">首页    上一页  1 2 3 下一页    末页</pre></td></tr></table>
+</div>
+</div>
+<p>所以只要探一下下一页和末页的链接有没有绑<code>onclick</code>事件，就知道是不是有效。</p>
+
+<ul>
+<li>如果搜出结果，“下一页”能点，说明不止一页，那么就可以往下点开页面，直到末页。</li>
+<li>如果点不了，就不用费劲循环了。</li>
+</ul>
+
+<p>于是写了个脚本getNextLastPage.iim，用<code>SEARCH</code>正则表达式的方法从页面源代码里提取js绑定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">VERSION BUILD=844
+SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPage\\(&#39;(\\d+)&#39;\\)\&#34;[^&gt;]*&gt;下一页&#34; EXTRACT=&#34;$1&#34;
+SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPage\\(&#39;(\\d+)&#39;\\)\&#34;[^&gt;]*&gt;末页&#34; EXTRACT=&#34;$1&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>imacros提供了一个<code>iimGetLastExtract</code>的接口，能把iim脚本提取的结果以数组形式拿出来交给javascript或者vbs。</p>
+
+<h3 id="获得控件标签键">获得控件标签键</h3>
+
+<p>脚本交互时用到的是控件值，所以js工作脚本里只提供了100、101这类值列表。但我希望最终下载的csv以“银行_省份_城市_页码”，而不是“银行value_省份value_城市value_页码”的纯编码方式命名，所以得再写个getBankProvCity.iim，从三个下拉框控件属性标签里把“北京”、“天津”这些键取回来。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">VERSION BUILD=844
+Tab T=1
+
+TAG POS=1 TYPE=SELECT ATTR=ID:banksite EXTRACT=TXT
+SET !VAR1 {{!EXTRACT}}
+SET !EXTRACT NULL
+SEARCH SOURCE=REGEXP:&#34;&lt;option value=\&#34;{{!VAR1}}\&#34;&gt;([^\&#34;&lt;]+)&lt;&#34; EXTRACT=&#34;$1&#34;
+SET !VAR2 {{!EXTRACT}}
+SET !EXTRACT NULL
+
+TAG POS=1 TYPE=SELECT ATTR=ID:province EXTRACT=TXT
+SET !VAR1 {{!EXTRACT}}
+SET !EXTRACT NULL
+SEARCH SOURCE=REGEXP:&#34;&lt;option value=\&#34;{{!VAR1}}\&#34;&gt;([^\&#34;&lt;]+)&lt;&#34; EXTRACT=&#34;$1&#34;
+SET !VAR3 {{!EXTRACT}}
+SET !EXTRACT NULL
+
+TAG POS=1 TYPE=SELECT ATTR=ID:city EXTRACT=TXT
+SET !VAR1 {{!EXTRACT}}
+SET !EXTRACT NULL
+SEARCH SOURCE=REGEXP:&#34;&lt;option value=\&#34;{{!VAR1}}\&#34;&gt;([^\&#34;&lt;]+)&lt;&#34; EXTRACT=&#34;$1&#34;
+SET !VAR4 {{!EXTRACT}}
+
+TAG POS=1 TYPE=SELECT ATTR=ID:city CONTENT=%{{!VAR1}}
+
+SET !EXTRACT {{!VAR2}}
+ADD !EXTRACT {{!VAR3}}
+ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
+</div>
+</div>
+<p>事后想想，直接在预处理时把键和值都解析出来写进js里岂不是最方便。真是智商捉急。</p>
+
+<h3 id="功能集成">功能集成</h3>
+
+<p>写好两个工作脚本，就可以着手搭集成脚本了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//上面已述。var banks和cities的定义
+</span><span class="c1">//主工作脚本：
+</span><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nBanks</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>  <span class="c1">// 遍历所有银行
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">nCities</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>  <span class="c1">//遍历所有省份+城市
+</span><span class="c1"></span>        <span class="cm">/* 拼接iim脚本，分别点击银行、省、市下拉框，点查询
+</span><span class="cm">        注意wait seconds，不能太短，否则页面来不及反应*/</span>
+        <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s2">&#34;CODE:&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;VERSION BUILD=844   &#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=1 TYPE=SELECT ATTR=ID:banksite CONTENT=%&#34;</span>
+            <span class="o">+</span> <span class="nx">banks</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=1 TYPE=SELECT ATTR=ID:province CONTENT=%&#34;</span>
+            <span class="o">+</span> <span class="nx">cities</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;WAIT SECONDS=3&#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=1 TYPE=SELECT ATTR=ID:city CONTENT=%&#34;</span>
+            <span class="o">+</span> <span class="nx">cities</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=1 TYPE=A ATTR=ID:search&#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;WAIT SECONDS=4&#34;</span><span class="p">;</span>
+        <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>  <span class="c1">//执行
+</span><span class="c1"></span>        <span class="c1">// 执行外部iim脚本，获取最末一页的页码
+</span><span class="c1"></span>        <span class="nx">iimPlay</span><span class="p">(</span><span class="s2">&#34;getNextLastPage.iim&#34;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">nextPge</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">iimGetLastExtract</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+        <span class="kd">var</span> <span class="nx">lastPge</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">iimGetLastExtract</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+        <span class="c1">// 执行另一个iim脚本，获取省份和城市的取值，用来给文件起名
+</span><span class="c1"></span>        <span class="nx">iimPlay</span><span class="p">(</span><span class="s2">&#34;getBankProvCity.iim&#34;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">bankName</span> <span class="o">=</span> <span class="nx">iimGetLastExtract</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">provName</span> <span class="o">=</span> <span class="nx">iimGetLastExtract</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">cityName</span> <span class="o">=</span> <span class="nx">iimGetLastExtract</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="cm">/* 如果有下一页，则继续点下一页链接，知道最后一页，
+</span><span class="cm">        并将表格内容存入‘银行_省_市_页码_时间’.csv*/</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nextPge</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;=</span> <span class="nx">lastPge</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">){</span>
+                <span class="nx">m</span> <span class="o">=</span> <span class="s2">&#34;CODE:VERSION BUILD=844          &#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+                <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=1 TYPE=A ATTR=TXT:&#34;</span> <span class="o">+</span> <span class="nx">k</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+                <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;TAG POS=2 TYPE=TABLE ATTR=TXT:* EXTRACT=TXT&#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+                <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;SAVEAS TYPE=EXTRACT FOLDER=* FILE=&#34;</span> <span class="o">+</span> <span class="nx">bankName</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span>
+                    <span class="o">+</span> <span class="nx">provName</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span> <span class="o">+</span> <span class="nx">cityName</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span> <span class="o">+</span> <span class="nx">k</span>
+                    <span class="o">+</span> <span class="s2">&#34;_{{!NOW:yymmddhhnnss}}.csv&#34;</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+                <span class="nx">m</span> <span class="o">+=</span> <span class="s2">&#34;WAIT SECONDS=1&#34;</span><span class="p">;</span>
+                <span class="nx">iimPlay</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>   <span class="c1">//执行
+</span><span class="c1"></span>            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>说时容易做时难。因为技术三脚猫，调试这些玩意儿花了很多时间。最坑爹的环节就是正则转义。</p>
+
+<h3 id="运行">运行</h3>
+
+<p>工程搭好后，把脚本放在虚拟机上跑了三天，幸运的是网站似乎没有反爬虫策略，夜间也不关服务，于是让我顺顺利利地跑完了。</p>
+
+<p>看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas_tbl.png"/> <figcaption>
+            <h4>图 | 爬下来的csv文件</h4>
+        </figcaption>
+</figure>
+
+<p>里面的文件纷纷长这样：</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnaps_raw.png"/> <figcaption>
+            <h4>图 | csv的原始面目</h4>
+        </figcaption>
+</figure>
+
+<h3 id="r合并csv">R合并csv</h3>
+
+<p>为啥之前费尽周章地格式化命名下载结果呢？因为我需要把文件名里的信息提取出来，合并到数据集里。下面这个R脚本定义了一个<code>parseCsvTbl</code>函数，就负责把csv文件名里的银行、省份、城市解析出来合并到数据集中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># -------载库，配环境----------</span>
+<span class="kp">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>parallel<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>compiler<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>magrittr<span class="p">)</span>
+<span class="c1"># -------读数据---------------</span>
+files <span class="o">&lt;-</span> <span class="kp">list.files</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
+<span class="c1">## 剔除.zip和.bat</span>
+files <span class="o">&lt;-</span> files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;zip$|bat$&#34;</span><span class="p">,</span> files<span class="p">)]</span>
+<span class="c1">## 某些文件莫名奇妙没有拿到后缀名，强制重命名</span>
+<span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">all</span><span class="p">(</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">))){</span>
+  <span class="kp">file.rename</span><span class="p">(</span>files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)],</span>
+            <span class="kp">paste0</span><span class="p">(</span>files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)],</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
+<span class="p">}</span>
+<span class="c1">## 文件名全名显示</span>
+files <span class="o">&lt;-</span> <span class="kp">list.files</span><span class="p">(</span><span class="kp">getwd</span><span class="p">(),</span> pattern<span class="o">=</span><span class="s">&#34;\\.csv$&#34;</span><span class="p">,</span> full.names<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="kp">stopifnot</span><span class="p">(</span><span class="kp">all</span><span class="p">(</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)))</span>
+<span class="kp">message</span><span class="p">(</span><span class="s">&#34;A total of &#34;</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>files<span class="p">),</span> <span class="s">&#34; files read.&#34;</span><span class="p">)</span>
+<span class="c1"># ---------------自定义函数-----------------</span>
+parseCsvTbl <span class="o">&lt;-</span> cmpfun<span class="p">(</span><span class="kr">function</span><span class="p">(</span>
+    csvfile<span class="p">,</span> header<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&#34;CNAPS&#34;</span><span class="p">,</span> <span class="s">&#34;Bank&#34;</span><span class="p">,</span> <span class="s">&#34;Tel&#34;</span><span class="p">,</span> <span class="s">&#34;Addr&#34;</span><span class="p">)){</span>
+    <span class="c1"># for parallel use, duplicate the global settings</span>
+    <span class="kp">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>header<span class="p">)</span> <span class="o">==</span> <span class="m">4</span><span class="p">)</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">file.exists</span><span class="p">(</span>csvfile<span class="p">))</span>
+    dat <span class="o">&lt;-</span> readr<span class="o">::</span>read_csv<span class="p">(</span>csvfile<span class="p">,</span> col_types<span class="o">=</span><span class="s">&#34;nccc&#34;</span><span class="p">)</span>
+    <span class="kp">names</span><span class="p">(</span>dat<span class="p">)</span> <span class="o">&lt;-</span> header
+    dat<span class="o">$</span>bank <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
+    dat<span class="o">$</span>prov <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\2&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
+    dat<span class="o">$</span>city <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\3&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
+    <span class="kr">return</span><span class="p">(</span>dat<span class="p">)</span>
+<span class="p">})</span>
+<span class="c1"># --------------调用解析函数，解析csv并合并---------------------</span>
+<span class="c1">## 如果文件超过1000个，调用并行计算</span>
+<span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>files<span class="p">)</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">){</span>
+	cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span>detectCores<span class="p">())</span>
+	df <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> parLapply<span class="p">(</span>cl<span class="p">,</span> files<span class="p">,</span> parseCsvTbl<span class="p">))</span>
+	stopCluster<span class="p">(</span>cl<span class="p">)</span>
+<span class="p">}</span><span class="kp">else</span><span class="p">{</span>
+	df <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="kp">lapply</span><span class="p">(</span>files<span class="p">,</span> parseCsvTbl<span class="p">))</span>
+<span class="p">}</span>
+<span class="c1">## 合并后的结果输出到一个大csv</span>
+write_csv<span class="p">(</span>df<span class="p">,</span> <span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;cnaps_&#34;</span><span class="p">,</span> <span class="kp">format</span><span class="p">(</span><span class="kp">Sys.time</span><span class="p">(),</span> <span class="s">&#34;%Y%m%d%H%M%S&#34;</span><span class="p">),</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
+<span class="kp">message</span><span class="p">(</span><span class="s">&#34;output cnaps csv is generated.&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>跑完脚本，数据变成了：</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas.png"/> <figcaption>
+            <h4>图 | 成品数据效果</h4>
+        </figcaption>
+</figure>
+
+<p>一共40多万条记录。谢天谢地，老泪纵横。</p>
+
+<h2 id="但是">但是！</h2>
+
+<p>你以为这是一篇萌蠢拙计、热情洋溢的imacros软文？那你错了。我只是为了说明一件事：</p>
+
+<blockquote>
+<p>为了偷懒，我勤奋到废寝忘食。</p>
+</blockquote>
+
+<p>但至于imacros，我绝不推荐。这是一段技术弯路，所有有志于自动化的，应该直接去学Python和Selenium，不要给无良付费软件一毛线的活路。</p>
+
+<p>首先，今年的11月份，Firefox发布了新版Quantum，运行速度快了很多，但是API全变了。一众网红扩展纷纷蒙圈，统统跑不起来了。其中就包括了imacros。官网很快发了一则通告，大意是“用不了啦，大家赶紧降级Firefox。要不给Mozilla写个万民伞，让他们重新把废掉的那些API弄回来吧。”</p>
+
+<p>开历史倒车还开出情怀来了。</p>
+
+<p>随即，就在前两天，这家“全球最流行的浏览器自动化解决方案”提供者，升级了imacros浏览器插件，样子少许好看了点。然而免费版的功能却从猛犸缩水到野猪。</p>
+
+<ul>
+<li>免费版最多只能录50个动作</li>
+<li>免费版不再能读取本地文件</li>
+<li>免费版不能回放iim脚本</li>
+<li>只有IE版插件能用csv作输入源，不能超过100行、3列
+&hellip;</li>
+</ul>
+
+<p>要达到以往免费版的功能，需要升级到个人版。价钱比企业版可便宜多了，大约只需要……700大洋吧。</p>
+
+<p>瞧这点出息，难怪欧洲软件企业而今越来越排不上号。市占率套现的玩法千千万，它却选择直接杀鸡取卵。这应该是我第一次，也是最后一次吹imacros。写完此文，我就把imacros彻底卸了。</p>
+
+<p>工具没那么重要，重要的是理念。</p>
+
+<p>Save your life. Automate everything.</p>
+
+<p>[完]</p>
+
+<hr />
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="50%"/> <figcaption>
+            <h4>扫码关注我的的我的公众号</h4>
+        </figcaption>
+</figure>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">迷幻主义搬砖号子</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-12-27
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/imacros/">imacros</a>
+          <a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+          <a href="/tags/cnaps/">CNAPS</a>
+          <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/flask-site-demo/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">edx作业：用flask建一个简易Web应用</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/song_ming_qing_jinshi_interactive/">
+            <span class="next-text nav-default">【动态图版】北宋、明清进士空间可视化分析</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'madlogos-gh';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:madlogos@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/5455754/madlogos?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/madlogos" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/madlogos" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://www.linkedin.com/in/yiying-wang/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://plus.google.com/&#43;%E6%B1%AA%E8%BD%B6%E9%A2%96madlogos" class="iconfont icon-google" title="google"></a>
+      <a href="http://github.com/madlogos" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/madlogos/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/madlogos/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/Jandeaux/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://jandeaux.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    
+    <span class="author">madlogos</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

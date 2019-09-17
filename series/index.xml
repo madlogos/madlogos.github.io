@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Libido Chateau</title>
+    <link>http://madlogos.github.io/series/</link>
+    <description>Recent content in Series on Libido Chateau</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>madlogos</copyright>
+    
+	<atom:link href="http://madlogos.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>政治坐标</title>
+      <link>http://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>法定传染病</title>
+      <link>http://madlogos.github.io/series/%E6%B3%95%E5%AE%9A%E4%BC%A0%E6%9F%93%E7%97%85/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://madlogos.github.io/series/%E6%B3%95%E5%AE%9A%E4%BC%A0%E6%9F%93%E7%97%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>自动化爬取</title>
+      <link>http://madlogos.github.io/series/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%88%AC%E5%8F%96/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://madlogos.github.io/series/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%88%AC%E5%8F%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>辱母杀人</title>
+      <link>http://madlogos.github.io/series/%E8%BE%B1%E6%AF%8D%E6%9D%80%E4%BA%BA/</link>
+      <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://madlogos.github.io/series/%E8%BE%B1%E6%AF%8D%E6%9D%80%E4%BA%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>进士空间分析</title>
+      <link>http://madlogos.github.io/series/%E8%BF%9B%E5%A3%AB%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://madlogos.github.io/series/%E8%BF%9B%E5%A3%AB%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

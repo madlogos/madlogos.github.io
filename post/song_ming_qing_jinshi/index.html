@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>北宋、明清进士空间分析 - Libido Chateau</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。" /><meta name="keywords" content="数据, 时评, 人文" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.1 with theme even" />
+
+
+<link rel="canonical" href="https://madlogos.github.io/post/song_ming_qing_jinshi/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="北宋、明清进士空间分析" />
+<meta property="og:description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://madlogos.github.io/post/song_ming_qing_jinshi/" />
+<meta property="article:published_time" content="2017-04-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-04-23T00:00:00+00:00" /><meta property="og:see_also" content="https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/" />
+
+<meta itemprop="name" content="北宋、明清进士空间分析">
+<meta itemprop="description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。">
+
+
+<meta itemprop="datePublished" content="2017-04-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-04-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5667">
+
+
+
+<meta itemprop="keywords" content="进士,地理分析," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="北宋、明清进士空间分析"/>
+<meta name="twitter:description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Libido Chateau</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Libido Chateau</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">北宋、明清进士空间分析</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-04-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+            </div>
+          <span class="more-meta"> 约 5667 字 </span>
+          <span class="more-meta"> 预计阅读 12 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#哈佛人文地理可视化平台">哈佛人文地理可视化平台</a></li>
+<li><a href="#进士最大来源地">进士最大来源地？</a>
+<ul>
+<li><a href="#北宋">北宋</a></li>
+<li><a href="#明朝">明朝</a></li>
+<li><a href="#清朝">清朝</a></li>
+</ul></li>
+<li><a href="#地理可视化">地理可视化</a>
+<ul>
+<li><a href="#当代疆域">当代疆域</a></li>
+<li><a href="#古代疆域">古代疆域</a></li>
+<li><a href="#进士来源地">进士来源地</a></li>
+</ul></li>
+<li><a href="#来源地的时间趋势">来源地的时间趋势</a>
+<ul>
+<li><a href="#cbdb数据库">CBDB数据库</a></li>
+<li><a href="#北宋-1">北宋</a></li>
+<li><a href="#明朝-1">明朝</a></li>
+<li><a href="#清朝-1">清朝</a></li>
+</ul></li>
+<li><a href="#姓氏">姓氏</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="哈佛人文地理可视化平台">哈佛人文地理可视化平台</h2>
+
+<p>周末找在线GIS素材，误打误撞进到了worldmap.harvard.edu——一座名副其实的学术宝库。它是哈佛大学搞的一个<strong>开源</strong>地理可视化平台，社会、经济、历史学科的学者可以自己创建、上传数据集，方便地做多图层地理可视化。这个设计充满学术理想，也为有志于成为世界一流名校的大学树立了一座看得见摸得着的价值标杆：<strong>卓越、开放、自治、共享</strong>。</p>
+
+<p>中国地图 <worldmap.harvard.edu/chinamap> 是其中一个子站，已经上线多个数据层，包括社会/人口、经济、交通、能源、环境/气候、公共卫生，甚至历史地图。比如下面的视图，就是细化到县级的人口密度热力图，默认叠加在OpenStreetMap底图上，效果非常棒。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/wmap_harvard.png"/> <figcaption>
+            <h4>图|哈佛中国地图</h4>
+        </figcaption>
+</figure>
+
+<p>让我特别感兴趣的是历史地图部分。上面赫然列着北宋、明、清的进士散点图和热力图。当把它们和当今人口密度热力图叠加显示，我们会惊讶地发现过去一千年来盛产进士的地方，几乎严丝合缝地对应着今天中国人口最稠密的地区。进士分布只能指示那个时代的财富分布。但把千年以来的进士之乡叠加起来（如同叠加起无数个财富变迁的历史断面），就能看到这些财富分布的残影。而古今之间的这种辉映，说明今天的人们依然在从宋以降的这种“地气”大格局中受惠。</p>
+
+<p>右键这三个进士数据层，选择“Share Layer”，就能看到一个分享页面。除了视图本身，还有参考数据集的链接，可以导出多种格式。我们导一个Excel出来。Excel的名称是CBDB_exams_NSong_WGS84_kto.xls。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/cbdb_data.png"/> <figcaption>
+            <h4>图|CBDB科举数据集</h4>
+        </figcaption>
+</figure>
+
+<p>这就十分厉害了：</p>
+
+<ol>
+<li>CBDB，是大名鼎鼎的哈佛中国历代人物传记数据库(China Biographical Database)。这个图层的基础，来自CBDB，可靠性就有保障了。这个数据库内容非常丰富，后面还会用到；</li>
+<li>WGS84，说明坐标系用的是WGS-84坐标系，所以只要利用基于WGS-84的GIS工具，就不需要针对GCJ-02或BD-09做逆偏置了。</li>
+</ol>
+
+<h2 id="进士最大来源地">进士最大来源地？</h2>
+
+<p>先把北宋、明、清三个进士数据集都载入R。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
+nsong.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_NSong_WGS84_kto.csv&#34;</span><span class="p">)</span>
+ming.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Ming_WGS84_MbJ.csv&#34;</span><span class="p">)</span>
+qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Qing_WGS84_GWU.csv&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>简单看一下哪个地方来的进士最多。</p>
+
+<h3 id="北宋">北宋</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>nsong.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">来源地</th>
+<th align="right">人数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">莆田</td>
+<td align="right">194</td>
+</tr>
+
+<tr>
+<td align="left">2</td>
+<td align="left">吳縣</td>
+<td align="right">121</td>
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">閩縣</td>
+<td align="right">94</td>
+</tr>
+
+<tr>
+<td align="left">4</td>
+<td align="left">晉江</td>
+<td align="right">88</td>
+</tr>
+
+<tr>
+<td align="left">5</td>
+<td align="left">仙遊</td>
+<td align="right">69</td>
+</tr>
+
+<tr>
+<td align="left">6</td>
+<td align="left">侯官</td>
+<td align="right">62</td>
+</tr>
+
+<tr>
+<td align="left">7</td>
+<td align="left">開封</td>
+<td align="right">60</td>
+</tr>
+
+<tr>
+<td align="left">8</td>
+<td align="left">眉山</td>
+<td align="right">60</td>
+</tr>
+
+<tr>
+<td align="left">9</td>
+<td align="left">武進</td>
+<td align="right">51</td>
+</tr>
+
+<tr>
+<td align="left">10</td>
+<td align="left">德興</td>
+<td align="right">50</td>
+</tr>
+</tbody>
+</table>
+
+<p>大胡建第一名！这还不算，胡建里的第一名是莆田！</p>
+
+<h3 id="明朝">明朝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>ming.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">来源地</th>
+<th align="right">人数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">莆田</td>
+<td align="right">109</td>
+</tr>
+
+<tr>
+<td align="left">2</td>
+<td align="left">鄞縣</td>
+<td align="right">40</td>
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">華亭</td>
+<td align="right">37</td>
+</tr>
+
+<tr>
+<td align="left">4</td>
+<td align="left">吉水</td>
+<td align="right">33</td>
+</tr>
+
+<tr>
+<td align="left">5</td>
+<td align="left">慈溪</td>
+<td align="right">28</td>
+</tr>
+
+<tr>
+<td align="left">6</td>
+<td align="left">安福</td>
+<td align="right">25</td>
+</tr>
+
+<tr>
+<td align="left">7</td>
+<td align="left">平湖</td>
+<td align="right">22</td>
+</tr>
+
+<tr>
+<td align="left">8</td>
+<td align="left">吳縣</td>
+<td align="right">22</td>
+</tr>
+
+<tr>
+<td align="left">9</td>
+<td align="left">餘姚</td>
+<td align="right">21</td>
+</tr>
+
+<tr>
+<td align="left">10</td>
+<td align="left">常熟</td>
+<td align="right">20</td>
+</tr>
+</tbody>
+</table>
+
+<p>到明朝，浙江赶上来了。但莆田还是第一名，并且是等于2-4名总和的那种第一名！</p>
+
+<h3 id="清朝">清朝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>qing.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">来源地</th>
+<th align="right">人数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">錢塘</td>
+<td align="right">93</td>
+</tr>
+
+<tr>
+<td align="left">2</td>
+<td align="left">仁和</td>
+<td align="right">91</td>
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">大興</td>
+<td align="right">60</td>
+</tr>
+
+<tr>
+<td align="left">4</td>
+<td align="left">吳縣</td>
+<td align="right">39</td>
+</tr>
+
+<tr>
+<td align="left">5</td>
+<td align="left">長洲</td>
+<td align="right">39</td>
+</tr>
+
+<tr>
+<td align="left">6</td>
+<td align="left">侯官</td>
+<td align="right">38</td>
+</tr>
+
+<tr>
+<td align="left">7</td>
+<td align="left">桐城</td>
+<td align="right">37</td>
+</tr>
+
+<tr>
+<td align="left">8</td>
+<td align="left">歙縣</td>
+<td align="right">36</td>
+</tr>
+
+<tr>
+<td align="left">9</td>
+<td align="left">武進</td>
+<td align="right">36</td>
+</tr>
+
+<tr>
+<td align="left">10</td>
+<td align="left">歸安</td>
+<td align="right">35</td>
+</tr>
+</tbody>
+</table>
+
+<p>到清朝，浙江兴盛依旧，而莆田却掉队看不见了。
+事实上，莆田在科举史上的衰落是非常惊人的。我们可以把图画出来。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>ggthemes<span class="p">)</span>
+jinshi <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="kt">list</span><span class="p">(</span>nsong.js<span class="p">,</span> ming.js<span class="p">,</span> qing.js<span class="p">))</span>
+jinshi.putian <span class="o">&lt;-</span> jinshi<span class="p">[</span>jinshi<span class="o">$</span>AddrChn<span class="o">==</span><span class="s">&#39;莆田&#39;</span><span class="p">,]</span>
+jinshi.putian <span class="o">&lt;-</span> dcast<span class="p">(</span>jinshi.putian<span class="p">,</span> EntryYear<span class="o">~</span><span class="m">.</span><span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
+jinshi.putian<span class="o">$</span>EntryYear <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span>jinshi.putian<span class="o">$</span>EntryYear<span class="p">)</span>
+ggplot<span class="p">()</span> <span class="o">+</span> geom_bar<span class="p">(</span>aes<span class="p">(</span>EntryYear<span class="p">,</span> <span class="m">.</span><span class="p">),</span> stat<span class="o">=</span><span class="s">&#39;identity&#39;</span><span class="p">,</span> data<span class="o">=</span>jinshi.putian<span class="p">)</span> <span class="o">+</span>
+    theme_hc<span class="p">()</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;莆田进士数变迁&#34;</span><span class="p">)</span> <span class="o">+</span> xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;人数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/PutianJinshi.png"/> <figcaption>
+            <h4>图|莆田进士人数的变迁</h4>
+        </figcaption>
+</figure>
+
+<p>南宋、元代没有数据，所以是空白。明代自1560年代后，进士数就突然非常稀疏。原因很简单：这一年倭寇攻陷莆田并屠城。从此莆田文脉衰颓，再也没有复兴。</p>
+
+<p>即使在500年前就已弃赛，把北宋、明、清三代的进士数合起来统计，莆田还是遥遥领先。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>jinshi<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">来源地</th>
+<th align="right">人数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">莆田</td>
+<td align="right">311</td>
+</tr>
+
+<tr>
+<td align="left">2</td>
+<td align="left">吳縣</td>
+<td align="right">182</td>
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">錢塘</td>
+<td align="right">157</td>
+</tr>
+
+<tr>
+<td align="left">4</td>
+<td align="left">閩縣</td>
+<td align="right">137</td>
+</tr>
+
+<tr>
+<td align="left">5</td>
+<td align="left">晉江</td>
+<td align="right">118</td>
+</tr>
+
+<tr>
+<td align="left">6</td>
+<td align="left">鄞縣</td>
+<td align="right">108</td>
+</tr>
+
+<tr>
+<td align="left">7</td>
+<td align="left">侯官</td>
+<td align="right">107</td>
+</tr>
+
+<tr>
+<td align="left">8</td>
+<td align="left">武進</td>
+<td align="right">103</td>
+</tr>
+
+<tr>
+<td align="left">9</td>
+<td align="left">仁和</td>
+<td align="right">99</td>
+</tr>
+
+<tr>
+<td align="left">10</td>
+<td align="left">歸安</td>
+<td align="right">72</td>
+</tr>
+</tbody>
+</table>
+
+<p>所以，以后碰到“南蛮、南蛮”的地图炮可以硬怼——过于可笑了，以千年尺度来衡量，进士生源地的前十名都是南蛮。</p>
+
+<h2 id="地理可视化">地理可视化</h2>
+
+<p>接下来，我要把这些信息用ggplot2可视化到地图上，需要采集很多额外的GIS数据。</p>
+
+<h3 id="当代疆域">当代疆域</h3>
+
+<p>当代疆域作为底图，需要拿国/省边界数据。在R中，<code>mapdata</code>配合<code>maps</code>可以取到国界数据，但太老了（重庆都没有）。反正只是示意，精度要求不那么高，我们可以到开放数据平台Diva-GIS.org去找数据。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/divagis.png"/> <figcaption>
+            <h4>图|Diva-GIS网站</h4>
+        </figcaption>
+</figure>
+
+<p>需要分别下载CHN和TWN的地图数据（香港HKG和澳门MAC就不去下载了，反正都很小，不影响主要效果）。把CHN的Level1和TWN的Level0数据拼合起来，就大致妥了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">cn.mapdata <span class="o">&lt;-</span> readOGR<span class="p">(</span><span class="s">&#34;下载/Regime_Bou/CHN_adm1.shp&#34;</span><span class="p">)</span>
+tw.mapdata <span class="o">&lt;-</span> readOGR<span class="p">(</span><span class="s">&#34;下载/Regime_Bou/TWN_adm0.shp&#34;</span><span class="p">)</span>
+p.chn <span class="o">&lt;-</span> ggplot<span class="p">()</span> <span class="o">+</span> geom_polygon<span class="p">(</span>
+    aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>group<span class="p">),</span> data<span class="o">=</span>cn.mapdata<span class="p">,</span>
+    fill<span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> color<span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> linetype<span class="o">=</span><span class="m">2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
+    geom_polygon<span class="p">(</span>
+        aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>group<span class="p">),</span> data<span class="o">=</span>tw.mapdata<span class="p">,</span>
+        fill<span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> color<span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> linetype<span class="o">=</span><span class="m">2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
+    theme_minimal<span class="p">()</span> <span class="o">+</span> coord_map<span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这个p.chn对象后面可以反复复用。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/ChnMap.png"/> <figcaption>
+            <h4>图|中国地图底图</h4>
+        </figcaption>
+</figure>
+
+<h3 id="古代疆域">古代疆域</h3>
+
+<p>古代疆域就不太容易下载到现成的了，好在我们也有开源平台可以用：发现中国（webdog.cn）。这是一个基于WebGIS技术的公益网站，用户可以自己创建地图，最简单的玩法是衬一张历史地图底图，然后创建图层描点。地图数据以KML格式存储，可以导出来。KML本质是一种XML标记语言，Google地图就使用它。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/webdog.png"/> <figcaption>
+            <h4>图|发现中国（Webdog）</h4>
+        </figcaption>
+</figure>
+
+<p>我们可以登进去，复制其他用户创建好的地图，然后导出来。导出的KMZ是KML的压缩包，Zip解压即可。</p>
+
+<p>创建两个工作函数，把KML转化为list，然后从list中提取出坐标数据，并清理转化为数据框。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">get_xml_list <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>xml<span class="p">){</span>
+    <span class="kn">library</span><span class="p">(</span>XML<span class="p">)</span>
+    xmlToList<span class="p">(</span>xmlParse<span class="p">(</span>xml<span class="p">))</span>
+<span class="p">}</span>
+get_coord_df <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>lst<span class="p">,</span> split<span class="o">=</span><span class="s">&#34;[ ,]&#34;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">){</span>
+    staging <span class="o">&lt;-</span> <span class="kp">strsplit</span><span class="p">(</span>lst<span class="p">,</span> <span class="kp">split</span><span class="p">)</span>
+    out <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span>
+        <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">unlist</span><span class="p">(</span>staging<span class="p">)),</span> byrow<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">))</span>
+    <span class="kp">names</span><span class="p">(</span>out<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;long&#34;</span><span class="p">,</span> <span class="s">&#34;lat&#34;</span><span class="p">)</span>
+    out<span class="o">$</span>id <span class="o">&lt;-</span> id
+    <span class="kr">return</span><span class="p">(</span>out<span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>由于每张地图都有多个边界节点（大陆、海南、台湾），所以要串成list提出来。这就需要利用mapply了：提取、命名map_id、合并数据框，一气呵成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 北宋</span>
+nsong.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/northSong.kml&#34;</span><span class="p">)</span>
+nsong.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
+    nsong.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>Polygon<span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    nsong.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">4</span><span class="p">]]</span><span class="o">$</span>Polygon<span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
+nsong.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> nsong.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="kp">names</span><span class="p">(</span>nsong.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span>
+nsong.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> nsong.bou<span class="p">)</span>
+<span class="c1"># 明朝</span>
+ming.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/ming.kml&#34;</span><span class="p">)</span>
+ming.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
+    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">4</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">5</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
+ming.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> ming.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="kp">names</span><span class="p">(</span>ming.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+ming.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> ming.bou<span class="p">)</span>
+<span class="c1"># 清朝</span>
+qing.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/qing.kml&#34;</span><span class="p">)</span>
+qing.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
+    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">4</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">5</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
+    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">6</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
+qing.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> qing.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="kp">names</span><span class="p">(</span>qing.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span>
+qing.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> qing.bou<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>宋、明火德，咱涂个红色。清没有官宣自己什么德，但坊间一般认为丫是水德，咱给涂个黑色。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">p.song <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
+	data<span class="o">=</span>nsong.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;北宋疆域&#34;</span><span class="p">)</span>
+p.ming <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
+	data<span class="o">=</span>ming.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;明朝疆域&#34;</span><span class="p">)</span>
+p.qing <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
+	data<span class="o">=</span>qing.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;清朝疆域&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongMap.png"/> <figcaption>
+            <h4>图|北宋疆域示意图</h4>
+        </figcaption>
+</figure>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingMap.png"/> <figcaption>
+            <h4>图|明朝疆域示意图</h4>
+        </figcaption>
+</figure>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingMap.png"/> <figcaption>
+            <h4>图|清朝疆域示意图</h4>
+        </figcaption>
+</figure>
+
+<p>完美。</p>
+
+<h3 id="进士来源地">进士来源地</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">p.song <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>nsong.js<span class="p">,</span>
+	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span>
+p.song <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
+    data<span class="o">=</span>nsong.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi2.png" alt="" /></p>
+
+<p>北宋的进士来源地呈现江浙、福建双巨头，江西、四川、河南三极的格局。元祐新旧党争，旧党分为朔、洛、蜀，正好对应于河南、四川这两极，而司马光特别瞧不起闽、楚之人，正是进士热图上特别炽热的福建、江西。之所以敌意这么重，就是因为这几个地方科举太厉害了，却聊不到一块儿去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">p.ming <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>ming.js<span class="p">,</span>
+	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span>
+p.ming <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
+	data<span class="o">=</span>ming.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi2.png" alt="" /></p>
+
+<p>到明代，双巨头格局不复存在，只剩下江浙一极独大，其余几个热点地区分别是北直隶、江西、福建、河南。四川从多极格局中完全消失，可见蒙元入侵影响之深远。天启中，东林党与阉党争权，前者恰好对应于江南单极，于是剩下几极（齐党、楚党、浙党）不得不寄身阉党羽翼下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">p.qing <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>qing.js<span class="p">,</span>
+	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span>
+p.qing <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
+	data<span class="o">=</span>qing.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi2.png" alt="" /></p>
+
+<p>清代继续沿袭江浙单极格局。福建进一步萎缩，而长江中下游的安徽、湖北、湖南、江西都呈现相当的强势，另一个强势的地区则是京畿的直隶、山东。</p>
+
+<p>从进士热图来看：</p>
+
+<ol>
+<li>长江中下游的整体强势千年未减；</li>
+<li>福建、四川逐渐褪色;</li>
+<li>京畿总能额外占据一极，这一点，今天依然如故。</li>
+</ol>
+
+<p>把历代数据叠起来看，更加清晰。江浙赣闽文脉相连，而另一个特别明显的现象是淮河流域有一整片真空——这里不怎么出进士，相应地比较适合出皇帝和武将。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">p.chn <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>jinshi<span class="p">,</span>
+	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span>
+p.chn <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
+	data<span class="o">=</span>jinshi<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    ggtitle<span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi2.png" alt="" /></p>
+
+<h2 id="来源地的时间趋势">来源地的时间趋势</h2>
+
+<p>上面这些图都是把历时因素剔除后看的叠影效应。然而，这些来源地有没有什么时间上的变化趋势呢？</p>
+
+<p>进士数据集包含EntryYear和AddrChn，但地名颗粒太细（县级），有必要归集到一级行政区。这就需要拿辅助数据了。</p>
+
+<h3 id="cbdb数据库">CBDB数据库</h3>
+
+<p>CBDB数据库有两种离线版本：MS Access和SQLite。我用Linux，所以只能选后者。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/harvard_cbdb.png"/> <figcaption>
+            <h4>图|哈佛CBDB数据库</h4>
+        </figcaption>
+</figure>
+
+<p>下下来之后，用RSQLite来抽数据。我的用法不复杂，只要取出Addresses表就行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>RSQLite<span class="p">)</span>
+con <span class="o">&lt;-</span> dbConnect<span class="p">(</span>SQLite<span class="p">(),</span> <span class="s">&#34;下载/cbdb_sqlite.db&#34;</span><span class="p">)</span>
+addr <span class="o">&lt;-</span> dbReadTable<span class="p">(</span>con<span class="p">,</span> <span class="s">&#34;ADDRESSES&#34;</span><span class="p">)</span>
+dbDisconnect<span class="p">(</span>con<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>数据表里有一列c_name_chn，对应于最小细度的地名，之后有belongs2_name，belongs3_name等上级政区名。merge一下，就能取到一级政区名了。</p>
+
+<p>构造一个函数<code>get_stat</code>，来构成某朝代的政区字典，merge进进士数据集，并统计出时间分布。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">get_stat <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>addr<span class="p">,</span> jsdt<span class="p">,</span> dyn.name<span class="p">,</span> yr.begin<span class="p">,</span> yr.end<span class="p">){</span>
+	addr.dyn <span class="o">&lt;-</span> addr<span class="p">[</span>addr<span class="o">$</span>belongs3_Name <span class="o">==</span> dyn.name <span class="o">|</span>
+					  addr<span class="o">$</span>belongs4_Name <span class="o">==</span> dyn.name <span class="o">|</span>
+                      addr<span class="o">$</span>belongs5_Name <span class="o">==</span> dyn.name<span class="p">,]</span>
+	addr.dyn <span class="o">&lt;-</span>addr.dyn<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>addr.dyn<span class="o">$</span>c_name_chn<span class="p">),]</span>
+	addr.dyn<span class="o">$</span>Prov <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs2_Name
+	i <span class="o">&lt;-</span> <span class="kp">which</span><span class="p">(</span>addr.dyn<span class="o">$</span>belongs4_Name <span class="o">==</span> dyn.name<span class="p">)</span>
+	addr.dyn<span class="o">$</span>Prov<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs3_Name<span class="p">[</span>i<span class="p">]</span>
+	i <span class="o">&lt;-</span> <span class="kp">which</span><span class="p">(</span>addr.dyn<span class="o">$</span>belongs5_Name <span class="o">==</span> dyn.name<span class="p">)</span>
+	addr.dyn<span class="o">$</span>Prov<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs4_Name<span class="p">[</span>i<span class="p">]</span>
+	addr.dyn <span class="o">&lt;-</span> addr.dyn<span class="p">[</span><span class="o">!</span><span class="kp">duplicated</span><span class="p">(</span>addr.dyn<span class="o">$</span>c_name_chn<span class="p">),]</span>
+	js <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>jsdt<span class="p">,</span> addr.dyn<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> <span class="s">&#34;Prov&#34;</span><span class="p">)],</span>
+                by.x<span class="o">=</span><span class="s">&#34;AddrChn&#34;</span><span class="p">,</span> by.y<span class="o">=</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> all.x<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+	js<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">cut</span><span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span>js<span class="o">$</span>EntryYear<span class="p">),</span> <span class="kp">seq</span><span class="p">(</span>yr.begin<span class="p">,</span> yr.end<span class="p">,</span> <span class="m">10</span><span class="p">))</span>
+	js<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>js<span class="o">$</span>Decade<span class="p">,</span>
+		labels<span class="o">=</span><span class="kp">seq</span><span class="p">(</span>yr.begin<span class="p">,</span> yr.end<span class="p">,</span> <span class="m">10</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>nsong.js<span class="o">$</span>Decade<span class="p">)])</span>
+
+	stat1 <span class="o">&lt;-</span> dcast<span class="p">(</span>js<span class="p">,</span> Prov<span class="o">~</span><span class="m">.</span><span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
+	stat1 <span class="o">&lt;-</span> stat1<span class="p">[</span><span class="kp">order</span><span class="p">(</span>stat1<span class="o">$</span><span class="m">.</span><span class="p">,</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">),]</span>
+
+	stat <span class="o">&lt;-</span> dcast<span class="p">(</span>js<span class="p">,</span> Decade<span class="o">~</span>Prov<span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
+	stat <span class="o">&lt;-</span> melt<span class="p">(</span>stat<span class="p">,</span> id<span class="o">=</span><span class="s">&#34;Decade&#34;</span><span class="p">,</span> stringsAsFactors<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+	stat<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>stat<span class="o">$</span>Decade<span class="p">))</span>
+	stat<span class="o">$</span>variable <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>stat<span class="o">$</span>variable<span class="p">,</span> levels<span class="o">=</span>stat1<span class="o">$</span>Prov<span class="p">)</span>
+	stat <span class="o">&lt;-</span> stat<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>stat<span class="o">$</span>variable<span class="p">)</span> <span class="o">&amp;</span> stat<span class="o">$</span>variable <span class="o">!=</span> <span class="s">&#39;NA&#39;</span><span class="p">,]</span>
+	<span class="kr">return</span><span class="p">(</span>stat<span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样做未必精确。有些地名匹配不到，有些一级行政区的名称有歧称。有时间还可以进一步审查，没时间就粗粗看个大概。</p>
+
+<h3 id="北宋-1">北宋</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">palcols <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>hc_pal<span class="p">()(</span><span class="m">10</span><span class="p">),</span> tableau_color_pal<span class="p">()(</span><span class="m">10</span><span class="p">),</span> wsj_pal<span class="p">()(</span><span class="m">6</span><span class="p">),</span>
+		  canva_pal<span class="p">()(</span><span class="m">4</span><span class="p">),</span> economist_pal<span class="p">()(</span><span class="m">10</span><span class="p">))</span>
+nsong.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> nsong.js<span class="p">,</span> <span class="s">&#34;宋朝&#34;</span><span class="p">,</span> <span class="m">960</span><span class="p">,</span> <span class="m">1130</span><span class="p">)</span>
+cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>nsong.stat<span class="o">$</span>variable<span class="p">))]</span>
+<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>nsong.stat<span class="o">$</span>variable<span class="p">)</span>
+ggplot<span class="p">(</span>nsong.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
+    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
+    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
+    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp2.png" alt="" /></p>
+
+<p>宋初主要仍从后周控制区取士，之后京畿路和河北东路等北方地区比重急剧下跌，而福建路、两浙西、两浙东路等地进士比重不断攀升。这是北宋时地气南倾的明显表现。</p>
+
+<h3 id="明朝-1">明朝</h3>
+
+<p>明朝的情况比较特别，一级行政区会同时出现布政司、巡抚等并列。需要额外归并一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">ming.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> ming.js<span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="m">1360</span><span class="p">,</span> <span class="m">1650</span><span class="p">)</span>
+ming.stat<span class="o">$</span>variable <span class="o">&lt;-</span> <span class="kp">gsub</span><span class="p">(</span><span class="s">&#34;(^.+)(布政司|巡撫|總督|留守司)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span>
+							ming.stat<span class="o">$</span>variable<span class="p">)</span>
+ming.stat <span class="o">&lt;-</span> dcast<span class="p">(</span>ming.stat<span class="p">,</span> Decade <span class="o">~</span> variable<span class="p">,</span> <span class="kp">sum</span><span class="p">)</span>
+ming.stat<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span>ming.stat<span class="o">$</span>Decade<span class="p">)</span>
+cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>ming.stat<span class="o">$</span>variable<span class="p">))]</span>
+<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>ming.stat<span class="o">$</span>variable<span class="p">)</span>
+ggplot<span class="p">(</span>ming.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
+    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
+    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
+    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp2.png" alt="" /></p>
+
+<p>明代江西进士的比重一直在下降，而浙江、中都留守司（大体包括江苏和安徽）的比重明显升高。来自中都留守司辖区的进士比重在隆庆年间达到高峰，之后逐步下降。神宗后，来自山东、京师等北方地区的进士比重升高了。这也就是后来东林和阉党党争的人事基础。</p>
+
+<h3 id="清朝-1">清朝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">qing.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> qing.js<span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="m">1640</span><span class="p">,</span> <span class="m">1910</span><span class="p">)</span>
+cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>qing.stat<span class="o">$</span>variable<span class="p">))]</span>
+<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>qing.stat<span class="o">$</span>variable<span class="p">)</span>
+ggplot<span class="p">(</span>qing.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
+    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
+    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
+    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp1.png" alt="" /></p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp2.png" alt="" /></p>
+
+<p>清代前期江苏和浙江占了大头，中后期逐渐下降，而一个醒目的变化是湖南、广东比重的上升。这些人构成清后期变法维新的主力。</p>
+
+<h2 id="姓氏">姓氏</h2>
+
+<p>哪些姓氏的进士最多呢？</p>
+
+<p>进士数据集有进士姓名。我们把这些姓名的首字提出来看一看（复姓就不管了。除非以后找一个语料库来细化）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>stringr<span class="p">)</span>
+fam.name <span class="o">&lt;-</span> str_sub<span class="p">(</span>jinshi<span class="o">$</span>NameChn<span class="p">,</span> <span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>fam.name<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>不知为什么，“張”写作了“瀳”，“陳”写作了“隇”。修正后，这个分布其实与整个大人群相差不大。</p>
+
+<p>王   李  瀳  隇   劉  吳  楊   黃  林  周   孫  方  朱   徐  酁  胡   許 <br />
+630 477 375 373 306 242 207 196 184 182 166 164 143 138 127 124 108 <br />
+ 趙   沈  陸  何   汪  馮  葉   郭  江  錢   程  蔡  董   呂  范  曹   彭 <br />
+ 99  98  95  93  85  77  73  72  71  70  69  68  68  63  62  61  60 <br />
+ 宋   石  謝  曾   章  丁  高   梁  馬  唐   邵  余  蔣   姚  傅  潘   史 <br />
+ 60  59  59  58  58  57  56  55  55  55  53  49  48  48  47  47  46 <br />
+ 戴   蘇  袁  蕭   韓  毛  魏   金  俞  洪   羅  鄧  田   顧  秦  譚   夏 <br />
+ 43  42  42  40  39  39  37  36  36  35  35  34  32  31  31  31  31 <br />
+ 盧   秊  葛  黎   翁  熊  薛   孔  廖  歐   陶  詹  杜   侯  阮  嚴   鄒 <br />
+ 28  28  27  26  26  26  25  24  24  24  24  24  23  23  23  23  22 <br />
+ 倪   鮑  崔  柯   顬  上  虞   賈  闉  費   湯  萬  于   任  施  左   查 <br />
+ 21  20  20  20  20  20  20  19  18  17  17  17  17  16  16  16  15 <br />
+ 喬   姜  凌  柳   饒  易  應   莊  梅  齊   司  晏  尹   游  臧  晁   段 <br />
+ 15  14  14  14  14  14  14  14  13  13  13  13  13  13  13  12  12 <br />
+ 關   莫  龐  盛   祝  包  樊   管  華  武   伍  白  畢   聶  丘  韋   衛 <br />
+ 12  12  12  12  12  11  11  11  11  11  11  10  10  10  10  10  10</p>
+
+<p>把前十名拿出来，做个地理分布可视化。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r">jinshi<span class="o">$</span>FamilyName <span class="o">&lt;-</span> fam.name
+<span class="kr">for</span> <span class="p">(</span>famName <span class="kr">in</span> <span class="kt">c</span><span class="p">(</span>
+	<span class="s">&#34;王&#34;</span><span class="p">,</span> <span class="s">&#34;李&#34;</span><span class="p">,</span> <span class="s">&#34;瀳&#34;</span><span class="p">,</span> <span class="s">&#34;隇&#34;</span><span class="p">,</span> <span class="s">&#34;劉&#34;</span><span class="p">,</span> <span class="s">&#34;吳&#34;</span><span class="p">,</span> <span class="s">&#34;楊&#34;</span><span class="p">,</span> <span class="s">&#34;黃&#34;</span><span class="p">,</span> <span class="s">&#34;林&#34;</span><span class="p">,</span> <span class="s">&#34;周&#34;</span><span class="p">)){</span>
+    pp <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span>
+			data<span class="o">=</span>jinshi<span class="p">[</span>jinshi<span class="o">$</span>FamilyName<span class="o">==</span>famName<span class="p">,],</span>
+            color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+        stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
+                        data<span class="o">=</span>jinshi<span class="p">[</span>jinshi<span class="o">$</span>FamilyName<span class="o">==</span>famName<span class="p">,],</span>
+						geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+        scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+        ggtitle<span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;北宋、明、清&#34;</span><span class="p">,</span> fam.name<span class="p">,</span> <span class="s">&#34;姓进士来源地&#34;</span><span class="p">))</span>
+    <span class="kp">print</span><span class="p">(</span>pp<span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Wang.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Li.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Zhang.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Chen.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Liu.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Wu.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Yang.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Huang.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Lin.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Zhou.png" alt="" /></p>
+
+<p>哈，都是全国性的大姓，所以热点来自五湖四海。唯一的例外是“林”，基本上就是福建一地。</p>
+
+<p>受此启发，看一下“钱”、“沈”、“陆”。果然是无锡钱、吴兴沈、苏州陆。</p>
+
+<p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Qian.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Shen.png" alt="" />
+<img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/Jinshi_Lu.png" alt="" /></p>
+
+<p>姓氏地理分析意思相对不是那么大。差不多是各姓氏的随机抽样。</p>
+
+<p>数据集和分析代码都存着。以后想到什么好玩的，还可以继续玩。</p>
+
+<p>[完]</p>
+
+<hr />
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="50%"/> <figcaption>
+            <h4>扫码关注我的的我的公众号</h4>
+        </figcaption>
+</figure>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">迷幻主义搬砖号子</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-04-23
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.github.io/post/song_ming_qing_jinshi/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%BF%9B%E5%A3%AB/">进士</a>
+          <a href="/tags/%E5%9C%B0%E7%90%86%E5%88%86%E6%9E%90/">地理分析</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/song_ming_qing_jinshi_interactive/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">【动态图版】北宋、明清进士空间可视化分析</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/infectdis_stat3/">
+            <span class="next-text nav-default">一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'madlogos-gh';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:madlogos@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/5455754/madlogos?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/madlogos" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/madlogos" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://www.linkedin.com/in/yiying-wang/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://plus.google.com/&#43;%E6%B1%AA%E8%BD%B6%E9%A2%96madlogos" class="iconfont icon-google" title="google"></a>
+      <a href="http://github.com/madlogos" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/madlogos/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/madlogos/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/Jandeaux/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://jandeaux.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    
+    <span class="author">madlogos</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

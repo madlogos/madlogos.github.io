@@ -1,0 +1,284 @@
+<?xml-stylesheet type="text/xsl" href="https://madlogos.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/flask-site-demo/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/flask/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/python/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/web/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/cnaps/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/imacros/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%88%AC%E5%8F%96/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E4%BA%A4%E4%BA%92%E5%9B%BE/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E5%9C%B0%E7%90%86%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E8%BF%9B%E5%A3%AB/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/%E8%BF%9B%E5%A3%AB%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/song_ming_qing_jinshi/</loc>
+    <lastmod>2017-04-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2017-04-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/rvest/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/infectdis_stat3/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E4%BC%A0%E6%9F%93%E7%97%85/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/%E6%B3%95%E5%AE%9A%E4%BC%A0%E6%9F%93%E7%97%85/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E7%96%AB%E6%83%85%E6%8A%A5%E5%91%8A/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/infectdis_stat2/</loc>
+    <lastmod>2017-04-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/infectdis_stat1/</loc>
+    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%97%B6%E8%AF%84/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E7%A4%BC%E6%B3%95/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/defensive-assassin/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/%E8%BE%B1%E6%AF%8D%E6%9D%80%E4%BA%BA/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E5%9D%90%E6%A0%87%E7%BD%91/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/political-compass/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

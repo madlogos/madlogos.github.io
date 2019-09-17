@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://madlogos.github.io/sitemap.xml
