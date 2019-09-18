@@ -325,7 +325,10 @@ def sign_off():
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask01-login.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask01-login.mp4" type="video/mp4">
+</video>
+
 
 
 ### 注册
@@ -411,7 +414,9 @@ def sign_up():
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask02-signup.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask02-signup.mp4" type="video/mp4">
+</video>
 
 
 ### 检索书籍
@@ -514,7 +519,9 @@ def index():
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask04-search.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask04-search.mp4" type="video/mp4">
+</video>
 
 
 ### 书籍明细
@@ -687,7 +694,9 @@ def review(book_id):
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask05-book.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask05-book.mp4" type="video/mp4">
+</video>
 
 
 ### 评分评级
@@ -697,7 +706,9 @@ def review(book_id):
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask06-rate.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask06-rate.mp4" type="video/mp4">
+</video>
 
 
 ### API
@@ -730,7 +741,9 @@ def api():
 
 效果如下。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask07-API.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask07-API.mp4" type="video/mp4">
+</video>
 
 
 ### 响应式布局
@@ -769,7 +782,10 @@ def api():
 }
 ```
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask03-responsive.mp4" width="960" height="440" allowFullScreen frameBorder="0"></iframe>
+<video width="760" height="440" controls>
+  <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask03-responsive.mp4" type="video/mp4">
+</video>
+
 
 ### 其他
 
