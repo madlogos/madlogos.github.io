@@ -138,25 +138,37 @@ makeTsPlot&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;sta&lt;span class=&#34;p&#
 
 &lt;p&gt;说是大海，视觉上其实就是类似这样的一张表格：&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png&#34; width=&#34;60%&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|法定传染病统计表&lt;/h4&gt;
+            &lt;h4&gt;图 | 法定传染病统计表&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|卫计委传染病控制动态&lt;/h4&gt;
+            &lt;h4&gt;图 | 卫计委传染病控制动态&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;!-- {% endraw %} --&gt;
+
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|法定传染病月报&lt;/h4&gt;
+            &lt;h4&gt;图 | 法定传染病月报&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？&lt;/p&gt;
 

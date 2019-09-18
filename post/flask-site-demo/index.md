@@ -87,21 +87,21 @@ conn.close()
 ### 项目结构
 
 ```
-- application.py
-- /static
-    - /css
-        - style.css
-        - star-rating.min.css
-    - /js
-        - main.js
-        - star-rating.min.js
-- /templates
-    - base.html
-    - book.html
-    - index.html
-    - login.html
-    - register.html
-- db.db
+|- application.py
+|- /static
+|  |- /css
+|  |  |- style.css
+|  |  |- star-rating.min.css
+|  |- /js
+|     |- main.js
+|     |- star-rating.min.js
+|- /templates
+|  |- base.html
+|  |- book.html
+|  |- index.html
+|  |- login.html
+|  |- register.html
+|- db.db
 ```
 
 这个应用比较简单，所以结构很扁平。
@@ -120,8 +120,9 @@ base.html是框架模板。简单写一下。
     - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
     - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
     - 后续写其他模板时，引用base.html就行了。
+
 <!-- {% endraw %} -->
-      
+
 <!-- {% raw %} -->
 ```html
 <!DOCTYPE html>
@@ -325,10 +326,9 @@ def sign_off():
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask01-login.mp4" type="video/mp4">
 </video>
-
 
 
 ### 注册
@@ -371,7 +371,7 @@ Sign Up
 
 后段部分分别对'GET'和'POST'两种方法做了定义。GET的话，渲染注册页模板而已。POST的话，就比较pwd和repwd的值是否相同，然而提交执行INSERT。继续转眺回登录页。
 
-考究点的话当然还要有反机器人的措施。反正作业没这要求，就不贴金了。
+考究点的话当然还要有反机器人的措施。我是那种考究的人嘛？作业又没这要求，就不贴金了。
 
 ```python
 @app.route("/signup", methods=['GET', 'POST'])
@@ -414,7 +414,7 @@ def sign_up():
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask02-signup.mp4" type="video/mp4">
 </video>
 
@@ -423,7 +423,7 @@ def sign_up():
 
 登录进去后，进入真正的index页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。
 
-此处应有分页，但是要去配插件。作为一个懒人，就不去多事了。5000条也崩不了，是吧。
+此处应有分页，但是要去配插件。比如Flask-Pagination。不过作为一个懒人，就不去多事了。5000条记录又崩不了，是吧。
 
 <!-- {% raw %} -->
 ```html
@@ -487,7 +487,7 @@ Books
 
 后端主要是读取控件的值，然后执行查询，把books返回到网页。'GET'方法主要是直接访问网页，或者从主路由直接登入（未退出账号）。这时候干脆给books赋个空列表，减小点开销。
 
-我不太会写查询条件的复合拼接，用了生成式。这是python里我最喜欢的语法糖。
+我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法糖。
 
 ```python
 app.route('/index', methods=['GET', 'POST'])
@@ -519,7 +519,7 @@ def index():
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask04-search.mp4" type="video/mp4">
 </video>
 
@@ -618,13 +618,13 @@ def index():
 后端做了很多工作
 
 1. 定义一个`get_gr()`函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。
-2. 路由写成"/book/<int:book_id>"这种动态形式。
+2. 路由写成"/book/&lt;int:book_id&gt;"这种动态形式。
 3. 分别拿到book，gr_data和review三处数据，丢到index函数处理。
 
 
 ```python
-def get_gr(isbn, api='review_counts', proxy='http://127.0.0.1:55205'
-           , success_code=200):
+def get_gr(isbn, api='review_counts', proxy='http://127.0.0.1:55205',
+           success_code=200):
     """Goodreads API data
     """
     urls = {'review_counts': 'https://www.goodreads.com/book/review_counts.json'}
@@ -636,6 +636,7 @@ def get_gr(isbn, api='review_counts', proxy='http://127.0.0.1:55205'
         return res.json()
     else:
         return None
+
 
 @app.route('/book/<int:book_id>', methods=['GET', 'POST'])
 def review(book_id):
@@ -694,7 +695,7 @@ def review(book_id):
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask05-book.mp4" type="video/mp4">
 </video>
 
@@ -706,7 +707,7 @@ def review(book_id):
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask06-rate.mp4" type="video/mp4">
 </video>
 
@@ -715,7 +716,7 @@ def review(book_id):
 
 自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。
 
-在这里，我用request.args.get()方法取id，调用起来就变成xxxx/api/book?id=xx，而不再是xxx/api/book/xx。
+在这里，我用`request.args.get()`方法取id，调用起来就变成<url_head>/api/book?id=xx，而不再是<url_head>/api/book/xx。
 
 ```python
 @app.route('/api/book', methods=['GET'])
@@ -741,14 +742,14 @@ def api():
 
 效果如下。
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask07-API.mp4" type="video/mp4">
 </video>
 
 
 ### 响应式布局
 
-参考bootstrap案例写了几个可有可无的@media选择器，概念上有响应式布局的意思了。效果如下。
+参考bootstrap案例写了几个可有可无的@media选择器，**概念上**有响应式布局的意思了。效果如下。
 
 ```css
 .form-signin .form-control {
@@ -782,7 +783,7 @@ def api():
 }
 ```
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask03-responsive.mp4" type="video/mp4">
 </video>
 

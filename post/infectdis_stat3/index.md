@@ -245,4 +245,6 @@ makeTsPlot(dat.flu, "流感每月发病数", xlab="年月", ylab="例数", gvar=
 
 ----
 
+<!-- {% raw %} -->
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+<!-- {% endraw %} -->

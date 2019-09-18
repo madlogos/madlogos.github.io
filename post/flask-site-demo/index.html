@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-09-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="5541">
+<meta itemprop="wordCount" content="5608">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 5541 字 </span>
+          <span class="more-meta"> 约 5608 字 </span>
           <span class="more-meta"> 预计阅读 12 分钟 </span>
         
       </div>
@@ -315,21 +315,21 @@
 </span><span class="lnt">15
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">- application.py
-- /static
-    - /css
-        - style.css
-        - star-rating.min.css
-    - /js
-        - main.js
-        - star-rating.min.js
-- /templates
-    - base.html
-    - book.html
-    - index.html
-    - login.html
-    - register.html
-- db.db</pre></td></tr></table>
+<pre class="chroma">|- application.py
+|- /static
+|  |- /css
+|  |  |- style.css
+|  |  |- star-rating.min.css
+|  |- /js
+|     |- main.js
+|     |- star-rating.min.js
+|- /templates
+|  |- base.html
+|  |- book.html
+|  |- index.html
+|  |- login.html
+|  |- register.html
+|- db.db</pre></td></tr></table>
 </div>
 </div>
 <p>这个应用比较简单，所以结构很扁平。</p>
@@ -344,16 +344,22 @@
 
 <p>base.html是框架模板。简单写一下。</p>
 
+<!-- {% raw %} -->
+
 <ul>
 <li>样式主要靠bootstrap</li>
-
-<li><p>body部分放了几个通用块，head, flash, disp, control, misc之类。用jinja2结构{% block xxx %}{% endblock %}来占位。</p>
+<li>body部分放了几个通用块，head, flash, disp, control, misc之类。用jinja2结构<code>{% block xxx %}{% endblock %}</code>来占位。
 
 <ul>
 <li>块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。</li>
 <li>flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用<code>flash</code>函数就能实现告警框。</li>
+<li>后续写其他模板时，引用base.html就行了。</li>
+</ul></li>
+</ul>
 
-<li><p>后续写其他模板时，引用base.html就行了。</p>
+<!-- {% endraw %} -->
+
+<!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
@@ -425,73 +431,72 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">CharacterSet</span><span class="o">=</span><span class="s">&#39;UTF-8&#39;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;X-UA-Compatible&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;IE=edge&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;css/style.css&#39;) }}&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;css/star-rating.min.css&#39;) }}&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://code.jquery.com/jquery-3.4.1.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/main.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/star-rating.min.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- head --&gt;</span>
-<span class="p">&lt;</span><span class="nt">nav</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;navbar&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar navbar-default&#34;</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;navigation&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container-fluid&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-header&#34;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-brand mb-0&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>Book Review<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">CharacterSet</span><span class="o">=</span><span class="s">&#39;UTF-8&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;X-UA-Compatible&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;IE=edge&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;css/style.css&#39;) }}&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;css/star-rating.min.css&#39;) }}&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://code.jquery.com/jquery-3.4.1.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/main.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/star-rating.min.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- head --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;navbar&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar navbar-default&#34;</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;navigation&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container-fluid&#34;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-header&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-brand mb-0&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>Book Review<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                {% if act_user is not none %}
+                <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-form navbar-right&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;sign_off&#39;) }}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Welcome, {{ act_user[&#39;username&#39;] }}.<span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;logout&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-default btn-sm&#34;</span><span class="p">&gt;</span>Log out<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+                {% endif %}
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- flash --&gt;</span>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;alert alert-{{ category }} alert-dismissable&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;close&#34;</span> <span class="na">data-dismiss</span><span class="o">=</span><span class="s">&#34;alert&#34;</span><span class="p">&gt;</span><span class="ni">&amp;times;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                    {{ message }}
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <span class="c">&lt;!-- body --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
+            {% block control %}
+            {% endblock %}            
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        {% if act_user is not none %}
-        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;navbar-form navbar-right&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;sign_off&#39;) }}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Welcome, {{ act_user[&#39;username&#39;] }}.<span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;logout&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-default btn-sm&#34;</span><span class="p">&gt;</span>Log out<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-        {% endif %}
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- flash --&gt;</span>
-{% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;alert alert-{{ category }} alert-dismissable&#34;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;close&#34;</span> <span class="na">data-dismiss</span><span class="o">=</span><span class="s">&#34;alert&#34;</span><span class="p">&gt;</span><span class="ni">&amp;times;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-            {{ message }}
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
+            {% block disp %}
+            {% endblock %}            
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
-<span class="c">&lt;!-- body --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
-    {% block control %}
-    {% endblock %}            
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
-    {% block disp %}
-    {% endblock %}            
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
-    {% block misc %}
-    {% endblock %}            
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- bottom --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer fixed-bottom&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="ni">&amp;copy;</span> 2019 madlogos<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>            
+            {% block misc %}
+            {% endblock %}            
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- bottom --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer fixed-bottom&#34;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="ni">&amp;copy;</span> 2019 madlogos<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ul>
+</div>
+<!-- {% endraw %} -->
 
 <p>对应地，在application.py里定义一些基本代码。&rdquo;db.db&rdquo;被export到环境变量<code>DATABASE_URL</code>，application.py被export到环境变量<code>FLASK_APP</code>，方便后面直接<code>flask run</code>。</p>
 <div class="highlight"><div class="chroma">
@@ -565,6 +570,8 @@
 <h3 id="登录">登录</h3>
 
 <p>登录页login.html很简单，首先继承base.html的元素，然后在control块里放一个<code>form-signin</code>控件。套了一些bootstrap的元素，对前端技术不熟，丑得很。</p>
+
+<!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
@@ -627,6 +634,8 @@ Sign In
 {% endblock %}</code></pre></td></tr></table>
 </div>
 </div>
+<!-- {% endraw %} -->
+
 <p>后台部分写两个路由函数。主路由下，如果当前session没有用户登录，就转跳去登录页/login，否则直接进书籍列表页/index。如果进登录页，那么&rsquo;GET&rsquo;方法下跟主路由差不多逻辑，&rsquo;POST&rsquo;方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就<code>flash</code>一个错误来。利用application.py里定义的<code>sign_in</code>函数和模板form中的<code>url_for</code>函数，就把后端功能绑定到前端了。</p>
 
 <p>Flask是用SQLAlchemy的，SQLAlchemy是很高效的ORM工具，坊间一直认为它好过Django自带的ORM。不过这门课要求不用ORM，直接硬写SQL。</p>
@@ -733,13 +742,15 @@ Sign In
 </div>
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask01-login.mp4" type="video/mp4">
 </video>
 
 <h3 id="注册">注册</h3>
 
 <p>注册页和登录页差不多。</p>
+
+<!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
@@ -804,9 +815,11 @@ Sign Up
 {% endblock %}</code></pre></td></tr></table>
 </div>
 </div>
+<!-- {% endraw %} -->
+
 <p>后段部分分别对&rsquo;GET&rsquo;和&rsquo;POST&rsquo;两种方法做了定义。GET的话，渲染注册页模板而已。POST的话，就比较pwd和repwd的值是否相同，然而提交执行INSERT。继续转眺回登录页。</p>
 
-<p>考究点的话当然还要有反机器人的措施。反正作业没这要求，就不贴金了。</p>
+<p>考究点的话当然还要有反机器人的措施。我是那种考究的人嘛？作业又没这要求，就不贴金了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -885,7 +898,7 @@ Sign Up
 </div>
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask02-signup.mp4" type="video/mp4">
 </video>
 
@@ -893,7 +906,9 @@ Sign Up
 
 <p>登录进去后，进入真正的index页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。</p>
 
-<p>此处应有分页，但是要去配插件。作为一个懒人，就不去多事了。5000条也崩不了，是吧。</p>
+<p>此处应有分页，但是要去配插件。比如Flask-Pagination。不过作为一个懒人，就不去多事了。5000条记录又崩不了，是吧。</p>
+
+<!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
@@ -1010,9 +1025,11 @@ Books
 {% endblock %}</code></pre></td></tr></table>
 </div>
 </div>
+<!-- {% endraw %} -->
+
 <p>后端主要是读取控件的值，然后执行查询，把books返回到网页。&rsquo;GET&rsquo;方法主要是直接访问网页，或者从主路由直接登入（未退出账号）。这时候干脆给books赋个空列表，减小点开销。</p>
 
-<p>我不太会写查询条件的复合拼接，用了生成式。这是python里我最喜欢的语法糖。</p>
+<p>我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法糖。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -1071,7 +1088,7 @@ Books
 </div>
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask04-search.mp4" type="video/mp4">
 </video>
 
@@ -1086,6 +1103,8 @@ Books
 </ol>
 
 <p>由于作业要求一个用户只能对一本书作评价，所以还有一个用来判断当前用户对此书评论数量的my_review对象。在模板里写一个条件，一旦my_review&gt;0，就禁用提交按钮。</p>
+
+<!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
@@ -1244,11 +1263,13 @@ Books
 {% endblock %}</code></pre></td></tr></table>
 </div>
 </div>
+<!-- {% endraw %} -->
+
 <p>后端做了很多工作</p>
 
 <ol>
 <li>定义一个<code>get_gr()</code>函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。</li>
-<li>路由写成&rdquo;/book/<a href="int:book_id">int:book_id</a>&ldquo;这种动态形式。</li>
+<li>路由写成&rdquo;/book/&lt;int:book_id&gt;&ldquo;这种动态形式。</li>
 
 <li><p>分别拿到book，gr_data和review三处数据，丢到index函数处理。</p>
 <div class="highlight"><div class="chroma">
@@ -1320,10 +1341,11 @@ Books
 </span><span class="lnt">65
 </span><span class="lnt">66
 </span><span class="lnt">67
+</span><span class="lnt">68
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="p">,</span> <span class="n">api</span><span class="o">=</span><span class="s1">&#39;review_counts&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:55205&#39;</span>
-       <span class="p">,</span> <span class="n">success_code</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="p">,</span> <span class="n">api</span><span class="o">=</span><span class="s1">&#39;review_counts&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="s1">&#39;http://127.0.0.1:55205&#39;</span><span class="p">,</span>
+       <span class="n">success_code</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
 <span class="s2">&#34;&#34;&#34;Goodreads API data
 </span><span class="s2">&#34;&#34;&#34;</span>
 <span class="n">urls</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;review_counts&#39;</span><span class="p">:</span> <span class="s1">&#39;https://www.goodreads.com/book/review_counts.json&#39;</span><span class="p">}</span>
@@ -1335,6 +1357,7 @@ Books
     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">return</span> <span class="bp">None</span>
+
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/book/&lt;int:book_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">review</span><span class="p">(</span><span class="n">book_id</span><span class="p">):</span>
@@ -1395,7 +1418,7 @@ Books
 
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask05-book.mp4" type="video/mp4">
 </video>
 
@@ -1405,7 +1428,7 @@ Books
 
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask06-rate.mp4" type="video/mp4">
 </video>
 
@@ -1413,7 +1436,7 @@ Books
 
 <p>自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。</p>
 
-<p>在这里，我用request.args.get()方法取id，调用起来就变成xxxx/api/book?id=xx，而不再是xxx/api/book/xx。</p>
+<p>在这里，我用<code>request.args.get()</code>方法取id，调用起来就变成<url_head>/api/book?id=xx，而不再是<url_head>/api/book/xx。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -1460,13 +1483,13 @@ Books
 </div>
 <p>效果如下。</p>
 
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask07-API.mp4" type="video/mp4">
 </video>
 
 <h3 id="响应式布局">响应式布局</h3>
 
-<p>参考bootstrap案例写了几个可有可无的@media选择器，概念上有响应式布局的意思了。效果如下。</p>
+<p>参考bootstrap案例写了几个可有可无的@media选择器，<strong>概念上</strong>有响应式布局的意思了。效果如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-css" data-lang="css"><span class="lnt"> 1
@@ -1531,11 +1554,9 @@ Books
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-
-<video width="760" height="440" controls>
+<video width="100%" height="auto" controls>
   <source src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/flask03-responsive.mp4" type="video/mp4">
 </video>
-
 
 <h3 id="其他">其他</h3>
 
@@ -1579,12 +1600,16 @@ Books
 
 <hr />
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
     </div>
 
     <div class="post-copyright">

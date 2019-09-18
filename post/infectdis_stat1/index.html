@@ -168,25 +168,37 @@
 
 <p>说是大海，视觉上其实就是类似这样的一张表格：</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png" width="60%"/> <figcaption>
-            <h4>图|法定传染病统计表</h4>
+            <h4>图 | 法定传染病统计表</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png"/> <figcaption>
-            <h4>图|卫计委传染病控制动态</h4>
+            <h4>图 | 卫计委传染病控制动态</h4>
         </figcaption>
 </figure>
 
+<!-- {% endraw %} -->
+
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png"/> <figcaption>
-            <h4>图|法定传染病月报</h4>
+            <h4>图 | 法定传染病月报</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？</p>
 
@@ -269,11 +281,15 @@
 
 <p>每一篇信息动态都在一个列表节点<li>里，最终都被包进一个无序列表父节点<ul>里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：<a>节点内有标题和链接，<span ml>节点内有发布日期。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/sourcecode_dir.png"/> <figcaption>
-            <h4>图|网页源码</h4>
+            <h4>图 | 网页源码</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
@@ -395,11 +411,15 @@ toc<span class="o">$</span>date <span class="o">&lt;-</span> <span class="kp">as
 </div>
 <p><code>toc</code>数据集长这样：</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/toc_tbl.png"/> <figcaption>
-            <h4>图|toc表格</h4>
+            <h4>图 | toc表格</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>万里长征踏出了第一步。</p>
 
@@ -617,11 +637,15 @@ ggplot<span class="p">(</span>genl.stat<span class="p">)</span> <span class="o">
 </div>
 <p>年周期性还是很显著的。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_mot_infectdis.png"/> <figcaption>
-            <h4>图|发病/死亡月度统计</h4>
+            <h4>图 | 发病/死亡月度统计</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <h2 id="抽取各明细病种数据">抽取各明细病种数据</h2>
 
@@ -816,11 +840,15 @@ foreach<span class="p">(</span>i<span class="o">=</span><span class="kp">seq_alo
 </div>
 <p>看到这些文件齐齐整整码在硬盘里，心下暂时宽慰了一点。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/downfiles.png"/> <figcaption>
-            <h4>图|附件下载</h4>
+            <h4>图 | 附件下载</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>然而让我们回头看看疫情月报附表们可恨的多样性吧。</p>
 <div class="highlight"><div class="chroma">
@@ -850,12 +878,16 @@ foreach<span class="p">(</span>i<span class="o">=</span><span class="kp">seq_alo
 
 <hr />
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
     </div>
 
     <div class="post-copyright">

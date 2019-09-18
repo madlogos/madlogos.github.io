@@ -7,13 +7,19 @@
 
 说是大海，视觉上其实就是类似这样的一张表格：
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png" title="图|法定传染病统计表" width="60%" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png" title="图 | 法定传染病统计表" width="60%" %}}
+<!-- {% endraw %} -->
 
 一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png" title="图|卫计委传染病控制动态" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png" title="图 | 卫计委传染病控制动态" %}}
+<!-- {% endraw %} -->
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png" title="图|法定传染病月报" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png" title="图 | 法定传染病月报" %}}
+<!-- {% endraw %} -->
 
 这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？
 
@@ -77,7 +83,9 @@ urls <- paste0(
 
 每一篇信息动态都在一个列表节点<li>里，最终都被包进一个无序列表父节点<ul>里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：<a>节点内有标题和链接，<span ml>节点内有发布日期。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/sourcecode_dir.png" title="图|网页源码" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/sourcecode_dir.png" title="图 | 网页源码" %}}
+<!-- {% endraw %} -->
 
 ```r
 library(rvest)
@@ -143,7 +151,9 @@ toc$date <- as.Date(toc$date)
 
 `toc`数据集长这样：
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/toc_tbl.png" title="图|toc表格" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/toc_tbl.png" title="图 | toc表格" %}}
+<!-- {% endraw %} -->
 
 万里长征踏出了第一步。
 
@@ -267,7 +277,9 @@ ggplot(genl.stat) + geom_line(aes(Date, value, color=variable)) + theme_hc() +
 
 年周期性还是很显著的。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_mot_infectdis.png" title="图|发病/死亡月度统计" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_mot_infectdis.png" title="图 | 发病/死亡月度统计" %}}
+<!-- {% endraw %} -->
 
 ## 抽取各明细病种数据
 
@@ -373,7 +385,9 @@ foreach(i=seq_along(toc$href)) %dopar%
 
 看到这些文件齐齐整整码在硬盘里，心下暂时宽慰了一点。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/downfiles.png" title="图|附件下载" %}}
+<!-- {% raw %} -->
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/downfiles.png" title="图 | 附件下载" %}}
+<!-- {% endraw %} -->
 
 然而让我们回头看看疫情月报附表们可恨的多样性吧。
 
@@ -395,4 +409,6 @@ csv doc gif jpg png xls
 
 ----
 
+<!-- {% raw %} -->
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+<!-- {% endraw %} -->

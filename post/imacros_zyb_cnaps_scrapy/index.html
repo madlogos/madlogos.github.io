@@ -227,6 +227,8 @@
 </div>
 <p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/hebbank.png"/> <figcaption>
             <h4>图 | 河北银行CNAPS查询页</h4>
@@ -239,6 +241,8 @@
         </figcaption>
 </figure>
 
+<!-- {% endraw %} -->
+
 <p>随手上去试了两把，还挺好用。于是思路比较清楚了：穷尽所有查询策略，把返回的结果提出来存好。</p>
 
 <h2 id="怎么爬咧">怎么爬咧？</h2>
@@ -247,11 +251,15 @@
 
 <p>上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家<a href="http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html">中原银行</a>。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zybank.png"/> <figcaption>
             <h4>图 | 中原银行CNPAS查询页</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>这就比较好对付一些，而且信息更多，连网点地址也提供。</p>
 
@@ -275,13 +283,19 @@
 
 <p>对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros.png"/> <figcaption>
             <h4>图 | iMacros for Chrome界面</h4>
         </figcaption>
 </figure>
 
+<!-- {% endraw %} -->
+
 <p>如果自己录一段宏，打开后长这样：</p>
+
+<!-- {% raw %} -->
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo1.png"/> <figcaption>
@@ -289,15 +303,21 @@
         </figcaption>
 </figure>
 
+<!-- {% endraw %} -->
+
 <p>由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。</p>
 
 <p>双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。</p>
+
+<!-- {% raw %} -->
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo2.gif"/> <figcaption>
             <h4>图 | iMacros demo</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>想象一下你有几千条记录要在网上填入。用imacros，只要在脚本同目录下准备一个csv，整理好数据，然后修改一下上面的代码，读入csv，逐行扫描，按布局顺序提取数据<code>{{!COL1}}</code>、<code>{{!COL2}}</code>、&hellip;，填入对应的控件，提交。接下来边喝茶边看屏幕飞滚，繁复的录入任务就自行完成了。</p>
 
@@ -358,13 +378,17 @@ next i</pre></td></tr></table>
 
 <h2 id="提取银行和省份-城市的控件值">提取银行和省份+城市的控件值</h2>
 
-<p>Chrome里F12，可以看到银行下拉菜单的载入值齐齐整整。</p>
+<p>Chrome里<kbd>F12</kbd>，可以看到银行下拉菜单的载入值齐齐整整。</p>
+
+<!-- {% raw %} -->
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/banksite.png"/> <figcaption>
             <h4>图 | 银行下拉菜单载入值</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>选中&rsquo;banksite&rsquo;这个节点，右键copy element复制下来。到R里，赋值给banks。</p>
 <div class="highlight"><div class="chroma">
@@ -785,19 +809,27 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 
 <p>看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas_tbl.png"/> <figcaption>
             <h4>图 | 爬下来的csv文件</h4>
         </figcaption>
 </figure>
 
+<!-- {% endraw %} -->
+
 <p>里面的文件纷纷长这样：</p>
+
+<!-- {% raw %} -->
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnaps_raw.png"/> <figcaption>
             <h4>图 | csv的原始面目</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <h3 id="r合并csv">R合并csv</h3>
 
@@ -900,11 +932,15 @@ write_csv<span class="p">(</span>df<span class="p">,</span> <span class="kp">pas
 </div>
 <p>跑完脚本，数据变成了：</p>
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas.png"/> <figcaption>
             <h4>图 | 成品数据效果</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
 
 <p>一共40多万条记录。谢天谢地，老泪纵横。</p>
 
@@ -944,12 +980,16 @@ write_csv<span class="p">(</span>df<span class="p">,</span> <span class="kp">pas
 
 <hr />
 
+<!-- {% raw %} -->
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
+
+<!-- {% endraw %} -->
     </div>
 
     <div class="post-copyright">

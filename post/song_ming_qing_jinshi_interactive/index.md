@@ -1,8 +1,6 @@
 
 {{% admonition info 注意 %}}
-   
 如果浏览器提示本文加载了不安全的脚本，请点允许。
-   
 {{% /admonition %}}
 
 今次主题比较简单。上个话题留了点冷饭，看起来还没馊，咱敲个鸡蛋炒个蛋炒饭。
@@ -363,4 +361,6 @@ echartR(js.order.ec, CN, value, t=variable, type="map_china", subtype="average")
 
 ----
 
+<!-- {% raw %} -->
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+<!-- {% endraw %} -->

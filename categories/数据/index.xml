@@ -23,21 +23,29 @@
 
 &lt;p&gt;中国地图 &lt;worldmap.harvard.edu/chinamap&gt; 是其中一个子站，已经上线多个数据层，包括社会/人口、经济、交通、能源、环境/气候、公共卫生，甚至历史地图。比如下面的视图，就是细化到县级的人口密度热力图，默认叠加在OpenStreetMap底图上，效果非常棒。&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/wmap_harvard.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|哈佛中国地图&lt;/h4&gt;
+            &lt;h4&gt;图 | 哈佛中国地图&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;让我特别感兴趣的是历史地图部分。上面赫然列着北宋、明、清的进士散点图和热力图。当把它们和当今人口密度热力图叠加显示，我们会惊讶地发现过去一千年来盛产进士的地方，几乎严丝合缝地对应着今天中国人口最稠密的地区。进士分布只能指示那个时代的财富分布。但把千年以来的进士之乡叠加起来（如同叠加起无数个财富变迁的历史断面），就能看到这些财富分布的残影。而古今之间的这种辉映，说明今天的人们依然在从宋以降的这种“地气”大格局中受惠。&lt;/p&gt;
 
 &lt;p&gt;右键这三个进士数据层，选择“Share Layer”，就能看到一个分享页面。除了视图本身，还有参考数据集的链接，可以导出多种格式。我们导一个Excel出来。Excel的名称是CBDB_exams_NSong_WGS84_kto.xls。&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/cbdb_data.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|CBDB科举数据集&lt;/h4&gt;
+            &lt;h4&gt;图 | CBDB科举数据集&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;这就十分厉害了：&lt;/p&gt;
 
@@ -174,25 +182,37 @@ makeTsPlot&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;sta&lt;span class=&#34;p&#
 
 &lt;p&gt;说是大海，视觉上其实就是类似这样的一张表格：&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png&#34; width=&#34;60%&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|法定传染病统计表&lt;/h4&gt;
+            &lt;h4&gt;图 | 法定传染病统计表&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。&lt;/p&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|卫计委传染病控制动态&lt;/h4&gt;
+            &lt;h4&gt;图 | 卫计委传染病控制动态&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;!-- {% endraw %} --&gt;
+
+&lt;!-- {% raw %} --&gt;
+
 &lt;figure&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png&#34;/&gt; &lt;figcaption&gt;
-            &lt;h4&gt;图|法定传染病月报&lt;/h4&gt;
+            &lt;h4&gt;图 | 法定传染病月报&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;!-- {% endraw %} --&gt;
 
 &lt;p&gt;这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？&lt;/p&gt;
 
