@@ -115,13 +115,13 @@ conn.close()
 base.html是框架模板。简单写一下。
 
 - 样式主要靠bootstrap
-- body部分放了几个通用块，head, flash, disp, control, misc之类。用jinja2结构{% block xxx %}{% endblock %}来占位。
+- body部分放了几个通用块，head, flash, disp, control, misc之类。用jinja2结构`{% block xxx %}{% endblock %}`来占位。
     - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
     - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
     - 后续写其他模板时，引用base.html就行了。
-
+    
       
-
+<!-- {% raw %} -->
 ```html
 <!DOCTYPE html>
 <html lang='en'>
@@ -189,6 +189,7 @@ base.html是框架模板。简单写一下。
     </body>
 </html>
 ```
+<!-- {% endraw %} -->
 
 对应地，在application.py里定义一些基本代码。"db.db"被export到环境变量`DATABASE_URL`，application.py被export到环境变量`FLASK_APP`，方便后面直接`flask run`。
 
@@ -230,6 +231,7 @@ def remove_session(ex=None):
 
 登录页login.html很简单，首先继承base.html的元素，然后在control块里放一个`form-signin`控件。套了一些bootstrap的元素，对前端技术不熟，丑得很。
 
+<!-- {% raw %} -->
 ```html
 {% extends "base.html" %}
 
@@ -260,6 +262,7 @@ Sign In
 &nbsp;
 {% endblock %}
 ```
+<!-- {% endraw %} -->
 
 后台部分写两个路由函数。主路由下，如果当前session没有用户登录，就转跳去登录页/login，否则直接进书籍列表页/index。如果进登录页，那么'GET'方法下跟主路由差不多逻辑，'POST'方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就`flash`一个错误来。利用application.py里定义的`sign_in`函数和模板form中的`url_for`函数，就把后端功能绑定到前端了。
 
@@ -328,6 +331,7 @@ def sign_off():
 
 注册页和登录页差不多。
 
+<!-- {% raw %} -->
 ```html
 {% extends "base.html" %}
 
@@ -359,6 +363,7 @@ Sign Up
 &nbsp;
 {% endblock %}
 ```
+<!-- {% endraw %} -->
 
 后段部分分别对'GET'和'POST'两种方法做了定义。GET的话，渲染注册页模板而已。POST的话，就比较pwd和repwd的值是否相同，然而提交执行INSERT。继续转眺回登录页。
 
@@ -414,7 +419,7 @@ def sign_up():
 
 此处应有分页，但是要去配插件。作为一个懒人，就不去多事了。5000条也崩不了，是吧。
 
-
+<!-- {% raw %} -->
 ```html
 {% extends "base.html" %}
 
@@ -472,6 +477,7 @@ Books
 &nbsp;
 {% endblock %}
 ```
+<!-- {% endraw %} -->
 
 后端主要是读取控件的值，然后执行查询，把books返回到网页。'GET'方法主要是直接访问网页，或者从主路由直接登入（未退出账号）。这时候干脆给books赋个空列表，减小点开销。
 
@@ -520,6 +526,7 @@ def index():
 
 由于作业要求一个用户只能对一本书作评价，所以还有一个用来判断当前用户对此书评论数量的my_review对象。在模板里写一个条件，一旦my_review>0，就禁用提交按钮。
 
+<!-- {% raw %} -->
 ```html
 {% extends "base.html" %}
 
@@ -598,6 +605,7 @@ def index():
 </form>
 {% endblock %}
 ```
+<!-- {% endraw %} -->
 
 后端做了很多工作
 
@@ -788,4 +796,6 @@ $(document).ready(function(){
 
 ---
 
+<!-- {% raw %} -->
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+<!-- {% endraw %} -->
