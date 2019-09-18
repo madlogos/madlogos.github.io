@@ -114,12 +114,13 @@ conn.close()
 
 base.html是框架模板。简单写一下。
 
+<!-- {% raw %} -->
 - 样式主要靠bootstrap
 - body部分放了几个通用块，head, flash, disp, control, misc之类。用jinja2结构`{% block xxx %}{% endblock %}`来占位。
     - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
     - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
     - 后续写其他模板时，引用base.html就行了。
-    
+<!-- {% endraw %} -->
       
 <!-- {% raw %} -->
 ```html
