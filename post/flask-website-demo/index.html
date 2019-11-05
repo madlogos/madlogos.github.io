@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7195">
+<meta itemprop="wordCount" content="6955">
 
 
 
@@ -131,8 +131,8 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7195 字 </span>
-          <span class="more-meta"> 预计阅读 15 分钟 </span>
+          <span class="more-meta"> 约 6955 字 </span>
+          <span class="more-meta"> 预计阅读 14 分钟 </span>
         
       </div>
     </header>
@@ -617,7 +617,11 @@
 </div>
 <h3 id="登录">登录</h3>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png&quot;</a> title=&ldquo;图 | 登录页&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png"/> <figcaption>
+            <h4>图 | 登录页</h4>
+        </figcaption>
+</figure>
 
 <p>登录页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html">login.html</a>很简单，首先继承base.html的元素，然后在control块里放一个<code>form-signin</code>控件。套了一些bootstrap的元素。action绑定sign_in，也就是<code>signin()</code>函数。</p>
 
@@ -783,7 +787,11 @@ Sign In
 </div>
 <h3 id="注册">注册</h3>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png&quot;</a> title=&ldquo;图 | 注册页&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png"/> <figcaption>
+            <h4>图 | 注册页</h4>
+        </figcaption>
+</figure>
 
 <p>注册页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html">register.html</a>和登录页差不多。</p>
 
@@ -919,7 +927,11 @@ Sign Up
 </div>
 <h3 id="检索书籍">检索书籍</h3>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png&quot;</a> title=&ldquo;图 | 初始载入空列表&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png"/> <figcaption>
+            <h4>图 | 初始载入空列表</h4>
+        </figcaption>
+</figure>
 
 <p>登录进去后，进入真正的<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html">index.html</a>页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。</p>
 
@@ -1067,7 +1079,11 @@ Books
 </div>
 <!-- {% endraw %} -->
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png&quot;</a> title=&ldquo;图 | 所有书籍分页显示&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png"/> <figcaption>
+            <h4>图 | 所有书籍分页显示</h4>
+        </figcaption>
+</figure>
 
 <h4 id="后端">后端</h4>
 
@@ -1157,11 +1173,19 @@ Books
         <span class="n">pagination</span><span class="o">=</span><span class="n">pagination</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png&quot;</a> title=&ldquo;图 | 搜索标题含china的书籍&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png"/> <figcaption>
+            <h4>图 | 搜索标题含china的书籍</h4>
+        </figcaption>
+</figure>
 
 <h3 id="书籍明细">书籍明细</h3>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png&quot;</a> title=&ldquo;图 | 书籍明细&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png"/> <figcaption>
+            <h4>图 | 书籍明细</h4>
+        </figcaption>
+</figure>
 
 <p>生成的书籍列表，可以点id访问明细。这里包含三部分：</p>
 
@@ -1511,9 +1535,17 @@ Books
 
 <p>这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。</p>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png&quot;</a> title=&ldquo;图 | 给图书打分&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png"/> <figcaption>
+            <h4>图 | 给图书打分</h4>
+        </figcaption>
+</figure>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png&quot;</a> title=&ldquo;图 | 打完分后按钮失效&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png"/> <figcaption>
+            <h4>图 | 打完分后按钮失效</h4>
+        </figcaption>
+</figure>
 
 <h3 id="api">API</h3>
 
@@ -1576,9 +1608,17 @@ Books
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">rslt</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png&quot;</a> title=&ldquo;图 | API请求成功&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png"/> <figcaption>
+            <h4>图 | API请求成功</h4>
+        </figcaption>
+</figure>
 
-<p>{% figure src=&ldquo;<a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png&quot;">https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png&quot;</a> title=&ldquo;图 | API请求失败&rdquo; %}</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png"/> <figcaption>
+            <h4>图 | API请求失败</h4>
+        </figcaption>
+</figure>
 
 <h3 id="响应式布局">响应式布局</h3>
 

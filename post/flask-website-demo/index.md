@@ -257,7 +257,7 @@ def remove_session(ex=None):
 
 ### 登录
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png" title="图 | 登录页" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png" title="图 | 登录页" %}}
 
 登录页[login.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html)很简单，首先继承base.html的元素，然后在control块里放一个`form-signin`控件。套了一些bootstrap的元素。action绑定sign_in，也就是`signin()`函数。
 
@@ -356,7 +356,7 @@ def sign_off():
 
 ### 注册
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png" title="图 | 注册页" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png" title="图 | 注册页" %}}
 
 注册页[register.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html)和登录页差不多。
 
@@ -432,7 +432,7 @@ def sign_up():
 
 ### 检索书籍
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png" title="图 | 初始载入空列表" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png" title="图 | 初始载入空列表" %}}
 
 登录进去后，进入真正的[index.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html)页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。
 
@@ -514,7 +514,7 @@ Books
 ```
 <!-- {% endraw %} -->
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png" title="图 | 所有书籍分页显示" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png" title="图 | 所有书籍分页显示" %}}
 
 #### 后端
 
@@ -567,11 +567,11 @@ def index():
         pagination=pagination)
 ```
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}}
 
 ### 书籍明细
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png" title="图 | 书籍明细" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png" title="图 | 书籍明细" %}}
 
 生成的书籍列表，可以点id访问明细。这里包含三部分：
 
@@ -759,9 +759,9 @@ def review(book_id):
 
 这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}}
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后按钮失效" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后按钮失效" %}}
 
 ### API
 
@@ -797,9 +797,9 @@ def api():
         return jsonify(rslt)
 ```
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png" title="图 | API请求成功" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png" title="图 | API请求成功" %}}
 
-{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png" title="图 | API请求失败" %}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png" title="图 | API请求失败" %}}
 
 
 ### 响应式布局
