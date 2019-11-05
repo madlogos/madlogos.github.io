@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技术 on Libido Chateau</title>
@@ -12,20 +12,25 @@
     
     
     <item>
-      <title>edx作业：用flask建一个简易Web应用</title>
-      <link>https://madlogos.github.io/post/flask-site-demo/</link>
+      <title>edx作业：用flask建一个简易图书查询Web应用</title>
+      <link>https://madlogos.github.io/post/flask-website-demo/</link>
       <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/flask-site-demo/</guid>
+      <guid>https://madlogos.github.io/post/flask-website-demo/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
   
-本文记录了一则慕课作业。如果你也注册了这门课，千万不要抄。
+记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 
 &lt;/div&gt;
 
-&lt;h2 id=&#34;其实这是edx慕课的作业&#34;&gt;其实这是edx慕课的作业&lt;/h2&gt;
+&lt;h2 id=&#34;缘起&#34;&gt;缘起&lt;/h2&gt;
 
-&lt;p&gt;出于不可自拔的技能焦虑，跑到edx上撸课，结果撸到一门偏前端的纯码农培训课。说出来吓死你，&lt;strong&gt;哈佛【继续教育学院】&lt;/strong&gt;（对，就是范玮琪读的那个哈佛）开的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt;。它的主要卖点是用了Flask框架，就是号称一个 .py + 一个 .html就能欢快地hello world的小快灵建站利器。我朴素地想，学会多快好省地做一个网站，将来再学一点小程序啥的，起码搞起数据科学工程产品来，或许能派上一丢丢的用场。再不济，也能在简历上自吹全栈工程师嘛。&lt;/p&gt;
+&lt;p&gt;出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛&lt;strong&gt;【继续教育学院】&lt;/strong&gt;（对，就是范玮琪读的那个哈佛）开的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt;。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。&lt;/p&gt;
+
+&lt;p&gt;想想看，上一个号称小快灵的神器还是PHP呢。那都是二十年前的事儿了。&lt;/p&gt;
+
+&lt;p&gt;Flask最好的好处是可以多快好省地做网站，迅速实现一个原型或弄出一个0.1功能版本。若将来再学一点小程序啥的，起码搞起数据科学工程产品来，能派上一丢丢的用场——也算走向「全网没人肯要的中老年」全栈工程师的第一步罢。&lt;/p&gt;
 
 &lt;p&gt;事实很打脸。这个作业只是整个课程的五大作业里的一个，我拿出所有业余时间埋头苦干，做了足足两个礼拜。以这个效率去搬砖，你猜老板会用什么武功揍我？&lt;/p&gt;</description>
     </item>

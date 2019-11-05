@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.1 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat2/" />
@@ -222,20 +222,20 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>docxtractr<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>readxl<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
-readMsoTbl <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>mso.file<span class="p">,</span> header<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
-    file.type <span class="o">&lt;-</span> <span class="kp">tolower</span><span class="p">(</span>str_replace<span class="p">(</span>
-        mso.file<span class="p">,</span> <span class="s">&#34;.+\\.([^\\.]+)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-    <span class="kr">if</span> <span class="p">(</span>file.type <span class="o">==</span> <span class="s">&#34;csv&#34;</span><span class="p">){</span>
-        <span class="kp">invisible</span><span class="p">(</span>read_csv<span class="p">(</span>mso.file<span class="p">,</span> col_names<span class="o">=</span>header<span class="p">))</span>
-    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>file.type <span class="o">==</span> <span class="s">&#34;docx&#34;</span><span class="p">){</span>
-        docx <span class="o">&lt;-</span> <span class="kp">invisible</span><span class="p">(</span>read_docx<span class="p">(</span>mso.file<span class="p">))</span>
-        docx_extract_tbl<span class="p">(</span>docx<span class="p">,</span> <span class="m">1</span><span class="p">,</span> header<span class="o">=</span>header<span class="p">)</span>
-    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>file.type <span class="o">==</span> <span class="s">&#34;xlsx&#34;</span><span class="p">){</span>
-        <span class="kp">invisible</span><span class="p">(</span>read_excel<span class="p">(</span>mso.file<span class="p">,</span> col_names<span class="o">=</span>header<span class="p">))</span>
-    <span class="p">}</span><span class="kp">else</span><span class="p">{</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">docxtractr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<span class="n">readMsoTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+        <span class="n">mso.file</span><span class="p">,</span> <span class="s">&#34;.+\\.([^\\.]+)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;csv&#34;</span><span class="p">){</span>
+        <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span><span class="n">header</span><span class="p">))</span>
+    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;docx&#34;</span><span class="p">){</span>
+        <span class="n">docx</span> <span class="o">&lt;-</span> <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_docx</span><span class="p">(</span><span class="n">mso.file</span><span class="p">))</span>
+        <span class="nf">docx_extract_tbl</span><span class="p">(</span><span class="n">docx</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;xlsx&#34;</span><span class="p">){</span>
+        <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_excel</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span><span class="n">header</span><span class="p">))</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
         <span class="kc">NULL</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></td></tr></table>
@@ -248,8 +248,8 @@ readMsoTbl <span class="o">&lt;-</span> <span class="kr">function</span><span cl
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">data <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span><span class="kp">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">,</span> full.names<span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-               <span class="kp">invisible</span><span class="p">(</span>readMsoTbl<span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">,</span> <span class="n">full.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+               <span class="nf">invisible</span><span class="p">(</span><span class="n">readMsoTbl</span><span class="p">))</span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="数据清理">数据清理</h2>
@@ -318,40 +318,40 @@ readMsoTbl <span class="o">&lt;-</span> <span class="kr">function</span><span cl
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 重定义首行</span>
-redefCol <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>df<span class="p">){</span>
+<span class="n">redefCol</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
     <span class="c1">## Arg</span>
     <span class="c1">##     df: data.frame</span>
-    <span class="kr">if</span> <span class="p">(</span><span class="kp">all</span><span class="p">(</span>str_detect<span class="p">(</span><span class="kp">colnames</span><span class="p">(</span>df<span class="p">),</span> <span class="s">&#34;[Xx]\\d&#34;</span><span class="p">))){</span>
-        <span class="kp">colnames</span><span class="p">(</span>df<span class="p">)</span> <span class="o">&lt;-</span> df<span class="p">[</span><span class="m">1</span><span class="p">,]</span>
-        df <span class="o">&lt;-</span> df<span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>df<span class="p">),]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s">&#34;[Xx]\\d&#34;</span><span class="p">))){</span>
+        <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">df[1</span><span class="p">,</span><span class="n">]</span>
+        <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df[2</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="n">]</span>
     <span class="p">}</span>
-    <span class="kp">colnames</span><span class="p">(</span>df<span class="p">)</span> <span class="o">&lt;-</span> str_replace_all<span class="p">(</span>
-        <span class="kp">colnames</span><span class="p">(</span>df<span class="p">),</span> <span class="s">&#34;\\s|\\*&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="kr">return</span><span class="p">(</span>df<span class="p">)</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span>
+        <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s">&#34;\\s|\\*&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1"># 数据整形</span>
-cleanTbl <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>df<span class="p">){</span>
+<span class="n">cleanTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
     <span class="c1">## Args</span>
     <span class="c1">##    df: data.frame</span>
     <span class="c1">##    dop: date of publication</span>
 
     <span class="c1"># 去掉空列、空行</span>
-    is.colallNA <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span>df<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>vec<span class="p">){</span>
-        <span class="kp">all</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>vec<span class="p">))</span> <span class="o">|</span> <span class="kp">all</span><span class="p">(</span><span class="kp">nchar</span><span class="p">(</span>vec<span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
-    is.rowallNA <span class="o">&lt;-</span> <span class="kp">apply</span><span class="p">(</span>df<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span>vec<span class="p">){</span>
-        <span class="kp">all</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>vec<span class="p">))</span> <span class="o">|</span> <span class="kp">all</span><span class="p">(</span><span class="kp">nchar</span><span class="p">(</span>vec<span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
-    o <span class="o">&lt;-</span> df<span class="p">[</span><span class="o">!</span>is.rowallNA<span class="p">,</span> <span class="o">!</span>is.colallNA<span class="p">]</span>
+    <span class="n">is.colallNA</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
+        <span class="nf">all</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span> <span class="o">|</span> <span class="nf">all</span><span class="p">(</span><span class="nf">nchar</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
+    <span class="n">is.rowallNA</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
+        <span class="nf">all</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span> <span class="o">|</span> <span class="nf">all</span><span class="p">(</span><span class="nf">nchar</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
+    <span class="n">o</span> <span class="o">&lt;-</span> <span class="n">df[</span><span class="o">!</span><span class="n">is.rowallNA</span><span class="p">,</span> <span class="o">!</span><span class="n">is.colallNA]</span>
     <span class="c1"># 去掉首列空格，名称规范化</span>
-    o<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="o">&lt;-</span> stringr<span class="o">::</span>str_replace_all<span class="p">(</span>
-        o<span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="s">&#34;[\\s＊\\*（）]&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+    <span class="n">o[[1]]</span> <span class="o">&lt;-</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace_all</span><span class="p">(</span>
+        <span class="n">o[[1]]</span><span class="p">,</span> <span class="s">&#34;[\\s＊\\*（）]&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
     <span class="c1"># 确保发病和死亡都是整数</span>
-    <span class="kp">invisible</span><span class="p">(</span><span class="kp">lapply</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span>i<span class="p">){</span>
-        o<span class="p">[[</span>i<span class="p">]]</span> <span class="o">&lt;&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>stringr<span class="o">::</span>str_replace<span class="p">(</span>
-            o<span class="p">[[</span>i<span class="p">]],</span> <span class="s">&#34;\\D&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
-        o<span class="p">[[</span>i<span class="p">]][</span><span class="kp">is.na</span><span class="p">(</span>o<span class="p">[[</span>i<span class="p">]])]</span> <span class="o">&lt;&lt;-</span> <span class="m">0</span>
+    <span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">o[[i]]</span> <span class="o">&lt;&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace</span><span class="p">(</span>
+            <span class="n">o[[i]]</span><span class="p">,</span> <span class="s">&#34;\\D&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
+        <span class="n">o[[i]]</span><span class="nf">[is.na</span><span class="p">(</span><span class="n">o[[i]]</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;&lt;-</span> <span class="m">0</span>
     <span class="p">}))</span>
-    <span class="kr">return</span><span class="p">(</span><span class="kp">as.data.frame</span><span class="p">(</span>o<span class="p">))</span>
+    <span class="nf">return</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -364,8 +364,8 @@ cleanTbl <span class="o">&lt;-</span> <span class="kr">function</span><span clas
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>parallel<span class="p">)</span>
-cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span><span class="kp">getOption</span><span class="p">(</span><span class="s">&#34;cl.cores&#34;</span><span class="p">,</span> detectCores<span class="p">()))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">parallel</span><span class="p">)</span>
+<span class="n">cl</span> <span class="o">&lt;-</span> <span class="nf">makeCluster</span><span class="p">(</span><span class="nf">getOption</span><span class="p">(</span><span class="s">&#34;cl.cores&#34;</span><span class="p">,</span> <span class="nf">detectCores</span><span class="p">()))</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>创建集群，就是为了用<code>parLapply</code>，这其实就是<code>lapply</code>的并行版本。原来是<code>snow</code>包里的。并行调用<code>cleanTbl</code>后，清干净的列表存为dat。尺寸上明显小了很多。</p>
@@ -374,7 +374,7 @@ cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span><span class="
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">dat <span class="o">&lt;-</span> parLapply<span class="p">(</span>cl<span class="p">,</span> dat<span class="p">,</span> <span class="kp">invisible</span><span class="p">(</span>cleanTbl<span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat</span> <span class="o">&lt;-</span> <span class="nf">parLapply</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="nf">invisible</span><span class="p">(</span><span class="n">cleanTbl</span><span class="p">))</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>dat用日期命名，然后再用一次lapply隐式循环，遍历dat的同时为每张表新增一列DOP。这里要用超赋值符&lt;&lt;-。</p>
@@ -386,10 +386,10 @@ cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span><span class="
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">names</span><span class="p">(</span>dat<span class="p">)</span> <span class="o">&lt;-</span> str_replace<span class="p">(</span>
-    <span class="kp">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">),</span> <span class="s">&#34;^(.+)\\..+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">)</span>
-<span class="kp">invisible</span><span class="p">(</span><span class="kp">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>dat<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>i<span class="p">){</span>
-    dat<span class="p">[[</span>i<span class="p">]]</span><span class="o">$</span>DOP <span class="o">&lt;&lt;-</span> <span class="kp">as.Date</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>dat<span class="p">)[</span>i<span class="p">])}))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
+    <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">),</span> <span class="s">&#34;^(.+)\\..+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">)</span>
+<span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+    <span class="n">dat[[i]]</span><span class="o">$</span><span class="n">DOP</span> <span class="o">&lt;&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="n">[i]</span><span class="p">)}))</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>清理完毕！最后调用<code>dplyr</code>的<code>bind_rows</code>，把这些列表中包裹的数据框提出来合并成一个大数据框。这个框就是后续分析的基础了。</p>
@@ -399,8 +399,8 @@ cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span><span class="
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-dat <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> dat<span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">dat</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="n">dat</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="归并同类">归并同类</h3>
@@ -427,22 +427,22 @@ dat <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">dict <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>
-    pattern<span class="o">=</span><span class="kt">c</span><span class="p">(</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dict</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span>
         <span class="s">&#34;^.*甲乙丙类.*$&#34;</span><span class="p">,</span> <span class="s">&#34;甲乙类传染病小计&#34;</span><span class="p">,</span>
         <span class="s">&#34;丙类传染病合计&#34;</span><span class="p">,</span> <span class="s">&#34;([甲乙丙丁戊])肝&#34;</span><span class="p">,</span> <span class="s">&#34;^未分型$|未分型肝炎&#34;</span><span class="p">,</span>
         <span class="s">&#34;其他&#34;</span><span class="p">,</span> <span class="s">&#34;人感染H7N9禽流感&#34;</span><span class="p">,</span> <span class="s">&#34;布病&#34;</span><span class="p">,</span> <span class="s">&#34;钩体病&#34;</span><span class="p">,</span> <span class="s">&#34;^.*出血热.*$&#34;</span><span class="p">,</span>
         <span class="s">&#34;^.*斑疹伤寒.*$&#34;</span><span class="p">,</span> <span class="s">&#34;伤寒\\+副伤寒&#34;</span><span class="p">),</span>
-    replace<span class="o">=</span><span class="kt">c</span><span class="p">(</span>
+    <span class="n">replace</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span>
         <span class="s">&#34;合计&#34;</span><span class="p">,</span> <span class="s">&#34;甲乙类传染病合计&#34;</span><span class="p">,</span> <span class="s">&#34;丙类传染病小计&#34;</span><span class="p">,</span> <span class="s">&#34;\\1型肝炎&#34;</span><span class="p">,</span>
         <span class="s">&#34;肝炎未分型&#34;</span><span class="p">,</span> <span class="s">&#34;其它&#34;</span><span class="p">,</span> <span class="s">&#34;人感染高致病性禽流感&#34;</span><span class="p">,</span> <span class="s">&#34;布鲁氏菌病&#34;</span><span class="p">,</span>
         <span class="s">&#34;钩端螺旋体病&#34;</span><span class="p">,</span> <span class="s">&#34;流行性出血热&#34;</span><span class="p">,</span> <span class="s">&#34;流行性和地方性斑疹伤寒&#34;</span><span class="p">,</span>
         <span class="s">&#34;伤寒和副伤寒&#34;</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="c1"># 按行遍历dict，将dat$病名中符合&#39;pattern&#39;的，替换为&#39;replace&#39;</span>
-<span class="kp">apply</span><span class="p">(</span>dict<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span>vec<span class="p">)</span> <span class="p">{</span>
-    <span class="kp">invisible</span><span class="p">(</span>
-        dat<span class="o">$</span>病名 <span class="o">&lt;&lt;-</span> str_replace<span class="p">(</span>dat<span class="o">$</span>病名<span class="p">,</span> vec<span class="p">[</span><span class="m">1</span><span class="p">],</span> vec<span class="p">[</span><span class="m">2</span><span class="p">]))</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">invisible</span><span class="p">(</span>
+        <span class="n">dat</span><span class="o">$</span>病名 <span class="o">&lt;&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">vec[1]</span><span class="p">,</span> <span class="n">vec[2]</span><span class="p">))</span>
 <span class="p">})</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -466,21 +466,21 @@ dat <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">dat<span class="o">$</span>Class <span class="o">&lt;-</span> <span class="kc">NA</span>
-dat<span class="o">$</span>Class<span class="p">[</span>dat<span class="o">$</span>病名 <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;霍乱&#34;</span><span class="p">,</span> <span class="s">&#34;鼠疫&#34;</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="s">&#34;甲类&#34;</span>
-dat<span class="o">$</span>Class<span class="p">[</span>dat<span class="o">$</span>病名 <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat</span><span class="o">$</span><span class="n">Class</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">dat</span><span class="o">$</span><span class="n">Class[dat</span><span class="o">$</span>病名 <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;霍乱&#34;</span><span class="p">,</span> <span class="s">&#34;鼠疫&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;甲类&#34;</span>
+<span class="n">dat</span><span class="o">$</span><span class="n">Class[dat</span><span class="o">$</span>病名 <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span>
     <span class="s">&#34;病毒性肝炎&#34;</span><span class="p">,</span> <span class="s">&#34;细菌性和阿米巴性痢疾&#34;</span><span class="p">,</span> <span class="s">&#34;伤寒和副伤寒&#34;</span><span class="p">,</span> <span class="s">&#34;艾滋病&#34;</span><span class="p">,</span>
     <span class="s">&#34;淋病&#34;</span><span class="p">,</span> <span class="s">&#34;梅毒&#34;</span><span class="p">,</span> <span class="s">&#34;脊髓灰质炎&#34;</span><span class="p">,</span> <span class="s">&#34;麻疹&#34;</span><span class="p">,</span> <span class="s">&#34;百日咳&#34;</span><span class="p">,</span> <span class="s">&#34;白喉&#34;</span><span class="p">,</span>
     <span class="s">&#34;流行性脑脊髓膜炎&#34;</span><span class="p">,</span> <span class="s">&#34;猩红热&#34;</span><span class="p">,</span> <span class="s">&#34;流行性出血热&#34;</span><span class="p">,</span> <span class="s">&#34;狂犬病&#34;</span><span class="p">,</span>
     <span class="s">&#34;钩端螺旋体病&#34;</span><span class="p">,</span> <span class="s">&#34;布鲁氏菌病&#34;</span><span class="p">,</span> <span class="s">&#34;炭疽&#34;</span><span class="p">,</span> <span class="s">&#34;流行性乙型脑炎&#34;</span><span class="p">,</span>
     <span class="s">&#34;疟疾&#34;</span><span class="p">,</span> <span class="s">&#34;登革热&#34;</span><span class="p">,</span> <span class="s">&#34;新生儿破伤风&#34;</span><span class="p">,</span> <span class="s">&#34;肺结核&#34;</span><span class="p">,</span> <span class="s">&#34;传染性非典型肺炎&#34;</span><span class="p">,</span>
-    <span class="s">&#34;人感染高致病性禽流感&#34;</span><span class="p">,</span> <span class="s">&#34;血吸虫病&#34;</span><span class="p">,</span> <span class="s">&#34;甲型H1N1流感&#34;</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="s">&#34;乙类&#34;</span>
-dat<span class="o">$</span>Class<span class="p">[</span>dat<span class="o">$</span>病名 <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span>
+    <span class="s">&#34;人感染高致病性禽流感&#34;</span><span class="p">,</span> <span class="s">&#34;血吸虫病&#34;</span><span class="p">,</span> <span class="s">&#34;甲型H1N1流感&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;乙类&#34;</span>
+<span class="n">dat</span><span class="o">$</span><span class="n">Class[dat</span><span class="o">$</span>病名 <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span>
     <span class="s">&#34;流行性感冒&#34;</span><span class="p">,</span> <span class="s">&#34;流行性腮腺炎&#34;</span><span class="p">,</span> <span class="s">&#34;风疹&#34;</span><span class="p">,</span> <span class="s">&#34;急性出血性结膜炎&#34;</span><span class="p">,</span>
      <span class="s">&#34;麻风病&#34;</span><span class="p">,</span> <span class="s">&#34;包虫病&#34;</span><span class="p">,</span> <span class="s">&#34;丝虫病&#34;</span><span class="p">,</span> <span class="s">&#34;其它感染性腹泻病&#34;</span><span class="p">,</span> <span class="s">&#34;手足口病&#34;</span><span class="p">,</span>
-    <span class="s">&#34;流行性和地方性斑疹伤寒&#34;</span><span class="p">,</span> <span class="s">&#34;黑热病&#34;</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="s">&#34;丙类&#34;</span>
-<span class="kp">names</span><span class="p">(</span>dat<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="s">&#34;发病数&#34;</span><span class="p">,</span> <span class="s">&#34;死亡数&#34;</span><span class="p">,</span> <span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="s">&#34;分类&#34;</span><span class="p">)</span>
-dat<span class="o">$</span>分类 <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>dat<span class="o">$</span>分类<span class="p">,</span> levels<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&#34;丙类&#34;</span><span class="p">,</span> <span class="s">&#34;乙类&#34;</span><span class="p">,</span> <span class="s">&#34;甲类&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+    <span class="s">&#34;流行性和地方性斑疹伤寒&#34;</span><span class="p">,</span> <span class="s">&#34;黑热病&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;丙类&#34;</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="s">&#34;发病数&#34;</span><span class="p">,</span> <span class="s">&#34;死亡数&#34;</span><span class="p">,</span> <span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="s">&#34;分类&#34;</span><span class="p">)</span>
+<span class="n">dat</span><span class="o">$</span>分类 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span>分类<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;丙类&#34;</span><span class="p">,</span> <span class="s">&#34;乙类&#34;</span><span class="p">,</span> <span class="s">&#34;甲类&#34;</span><span class="p">))</span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="通用作图函数">通用作图函数</h2>
@@ -559,12 +559,12 @@ dat<span class="o">$</span>分类 <span class="o">&lt;-</span> <span class="kp">
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>ggthemes<span class="p">)</span>
-makeTsPlot <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>
-    df<span class="p">,</span> title<span class="p">,</span> unit<span class="o">=</span><span class="s">&#34;4 months&#34;</span><span class="p">,</span> xlab<span class="o">=</span>xvar<span class="p">,</span> ylab<span class="o">=</span>yvar<span class="p">,</span>
-    xvar<span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> yvar<span class="o">=</span><span class="s">&#34;value&#34;</span><span class="p">,</span> gvar<span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">,</span>
-    legend.position<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span> <span class="m">1.05</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
+<span class="n">makeTsPlot</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#34;4 months&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="n">xvar</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="n">yvar</span><span class="p">,</span>
+    <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;value&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">,</span>
+    <span class="n">legend.position</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span> <span class="m">1.05</span><span class="p">)</span>
 <span class="p">){</span>
     <span class="c1"># Arg:</span>
     <span class="c1">##    df: data.frame, source data</span>
@@ -574,53 +574,53 @@ makeTsPlot <span class="o">&lt;-</span> <span class="kr">function</span><span cl
     <span class="c1">##    xvar, yvar, gvar: var name of x, y, group</span>
     <span class="c1">##    legend.position: a value that ggplot2::theme() accepts</span>
 
-    <span class="kr">if</span> <span class="p">(</span><span class="kp">inherits</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">],</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">))){</span>
-        breaks <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="kp">min</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> <span class="kp">max</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> unit<span class="p">)</span>
-        labels <span class="o">&lt;-</span> <span class="kp">format</span><span class="p">(</span>breaks<span class="p">,</span> <span class="s">&#34;%m\n%y&#34;</span><span class="p">)</span>
-        min.mon <span class="o">&lt;-</span> <span class="kp">sort</span><span class="p">(</span><span class="kp">format</span><span class="p">(</span>breaks<span class="p">,</span><span class="s">&#34;%m&#34;</span><span class="p">))[</span><span class="m">1</span><span class="p">]</span>
-        <span class="kp">labels</span><span class="p">[</span><span class="o">!</span>str_detect<span class="p">(</span><span class="kp">labels</span><span class="p">,</span> <span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> min.mon<span class="p">))]</span> <span class="o">&lt;-</span> <span class="kp">format</span><span class="p">(</span>
-            breaks<span class="p">[</span><span class="o">!</span>str_detect<span class="p">(</span><span class="kp">labels</span><span class="p">,</span> <span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> min.mon<span class="p">))],</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span>
-        labels <span class="o">&lt;-</span> str_replace<span class="p">(</span><span class="kp">labels</span><span class="p">,</span> <span class="s">&#34;^0&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="kp">is.numeric</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">])){</span>
-        breaks <span class="o">&lt;-</span> labels <span class="o">&lt;-</span>
-            <span class="kp">seq</span><span class="p">(</span><span class="kp">min</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> <span class="kp">max</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> unit<span class="p">)</span>
-    <span class="p">}</span><span class="kp">else</span><span class="p">{</span>
-        breaks <span class="o">&lt;-</span> labels <span class="o">&lt;-</span> <span class="kp">unique</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">])</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">))){</span>
+        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">format</span><span class="p">(</span><span class="n">breaks</span><span class="p">,</span> <span class="s">&#34;%m\n%y&#34;</span><span class="p">)</span>
+        <span class="n">min.mon</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">format</span><span class="p">(</span><span class="n">breaks</span><span class="p">,</span><span class="s">&#34;%m&#34;</span><span class="p">))</span><span class="n">[1]</span>
+        <span class="n">labels[</span><span class="o">!</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> <span class="n">min.mon</span><span class="p">))</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">format</span><span class="p">(</span>
+            <span class="n">breaks[</span><span class="o">!</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> <span class="n">min.mon</span><span class="p">))</span><span class="n">]</span><span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="s">&#34;^0&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
+        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="n">labels</span> <span class="o">&lt;-</span>
+            <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)</span>
     <span class="p">}</span>
-    pal <span class="o">&lt;-</span> ggthemes_data<span class="o">$</span>hc<span class="o">$</span>palettes<span class="o">$</span>default<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">10</span><span class="p">)]</span>
-    <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>pal<span class="p">)</span> <span class="o">&lt;</span> <span class="kp">length</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>df<span class="p">[,</span>gvar<span class="p">]))){</span>
-        pal <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span>pal<span class="p">,</span> <span class="kp">ceiling</span><span class="p">(</span>
-            <span class="kp">length</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>df<span class="p">[,</span>gvar<span class="p">]))</span> <span class="o">/</span> <span class="kp">length</span><span class="p">(</span>pal<span class="p">)))</span>
+    <span class="n">pal</span> <span class="o">&lt;-</span> <span class="n">ggthemes_data</span><span class="o">$</span><span class="n">hc</span><span class="o">$</span><span class="n">palettes</span><span class="o">$</span><span class="n">default</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="n">]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">pal</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">))){</span>
+        <span class="n">pal</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">pal</span><span class="p">,</span> <span class="nf">ceiling</span><span class="p">(</span>
+            <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">))</span> <span class="o">/</span> <span class="nf">length</span><span class="p">(</span><span class="n">pal</span><span class="p">)))</span>
     <span class="p">}</span>
-    pal <span class="o">&lt;-</span> pal<span class="p">[</span><span class="kp">seq_len</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>df<span class="p">[,</span>gvar<span class="p">])))]</span>
-    p <span class="o">&lt;-</span> ggplot<span class="p">(</span>df<span class="p">,</span> aes<span class="p">(</span><span class="kp">eval</span><span class="p">(</span><span class="kp">parse</span><span class="p">(</span>text<span class="o">=</span>xvar<span class="p">)),</span>
-                   <span class="kp">eval</span><span class="p">(</span><span class="kp">parse</span><span class="p">(</span>text<span class="o">=</span>yvar<span class="p">)),</span>
-                   color<span class="o">=</span><span class="kp">eval</span><span class="p">(</span><span class="kp">parse</span><span class="p">(</span>text<span class="o">=</span>gvar<span class="p">)),</span>
-                   fill<span class="o">=</span><span class="kp">eval</span><span class="p">(</span><span class="kp">parse</span><span class="p">(</span>text<span class="o">=</span>gvar<span class="p">))))</span> <span class="o">+</span>
-        geom_area<span class="p">(</span>alpha<span class="o">=</span><span class="m">0.25</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;stack&#34;</span><span class="p">)</span> <span class="o">+</span>
-        theme_hc<span class="p">()</span> <span class="o">+</span>
-        scale_fill_manual<span class="p">(</span>
-            guide<span class="o">=</span>guide_legend<span class="p">(</span>title<span class="o">=</span>gvar<span class="p">),</span> values<span class="o">=</span>pal<span class="p">)</span> <span class="o">+</span>
-        scale_color_manual<span class="p">(</span>
-            guide<span class="o">=</span>guide_legend<span class="p">(</span>title<span class="o">=</span>gvar<span class="p">),</span> values<span class="o">=</span>pal<span class="p">)</span> <span class="o">+</span>
-        theme<span class="p">(</span>axis.ticks<span class="o">=</span>element_line<span class="p">(</span>linetype<span class="o">=</span><span class="m">0</span><span class="p">),</span>
-              legend.position<span class="o">=</span>legend.position<span class="p">,</span>
-              legend.direction<span class="o">=</span><span class="s">&#34;horizontal&#34;</span><span class="p">)</span> <span class="o">+</span>
-        xlab<span class="p">(</span>xlab<span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span>ylab<span class="p">)</span>
-    <span class="kr">if</span> <span class="p">(</span><span class="kp">inherits</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">],</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">)))</span> <span class="p">{</span>
-        p <span class="o">&lt;-</span> p <span class="o">+</span> scale_x_date<span class="p">(</span>breaks<span class="o">=</span>breaks<span class="p">,</span> labels<span class="o">=</span><span class="kp">labels</span><span class="p">)</span> <span class="o">+</span>
-            labs<span class="p">(</span>title<span class="o">=</span>title<span class="p">,</span> subtitle<span class="o">=</span><span class="kp">paste</span><span class="p">(</span>
-                <span class="kp">format</span><span class="p">(</span><span class="kp">min</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span>
-                <span class="kp">format</span><span class="p">(</span><span class="kp">max</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span> sep<span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
-    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="kp">is.numeric</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">])){</span>
-        p <span class="o">&lt;-</span> p <span class="o">+</span> scale_x_continuous<span class="p">(</span>breaks<span class="o">=</span>breaks<span class="p">,</span> labels<span class="o">=</span><span class="kp">labels</span><span class="p">)</span> <span class="o">+</span>
-            labs<span class="p">(</span>title<span class="o">=</span>title<span class="p">,</span> subtitle<span class="o">=</span><span class="kp">paste</span><span class="p">(</span>
-                <span class="kp">min</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> <span class="kp">max</span><span class="p">(</span>df<span class="p">[,</span>xvar<span class="p">]),</span> sep<span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
-    <span class="p">}</span><span class="kp">else</span><span class="p">{</span>
-        p <span class="o">&lt;-</span> p <span class="o">+</span> scale_x_discrete<span class="p">(</span>breaks<span class="o">=</span>breaks<span class="p">,</span> labels<span class="o">=</span><span class="kp">labels</span><span class="p">)</span> <span class="o">+</span>
-            labs<span class="p">(</span>title<span class="o">=</span>title<span class="p">,</span> subtitle<span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+    <span class="n">pal</span> <span class="o">&lt;-</span> <span class="n">pal</span><span class="nf">[seq_len</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">)))</span><span class="n">]</span>
+    <span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="nf">eval</span><span class="p">(</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">xvar</span><span class="p">)),</span>
+                   <span class="nf">eval</span><span class="p">(</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">yvar</span><span class="p">)),</span>
+                   <span class="n">color</span><span class="o">=</span><span class="nf">eval</span><span class="p">(</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">gvar</span><span class="p">)),</span>
+                   <span class="n">fill</span><span class="o">=</span><span class="nf">eval</span><span class="p">(</span><span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">gvar</span><span class="p">))))</span> <span class="o">+</span>
+        <span class="nf">geom_area</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="m">0.25</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&#34;stack&#34;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span>
+        <span class="nf">scale_fill_manual</span><span class="p">(</span>
+            <span class="n">guide</span><span class="o">=</span><span class="nf">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">gvar</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="n">pal</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nf">scale_color_manual</span><span class="p">(</span>
+            <span class="n">guide</span><span class="o">=</span><span class="nf">guide_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">gvar</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="n">pal</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nf">theme</span><span class="p">(</span><span class="n">axis.ticks</span><span class="o">=</span><span class="nf">element_line</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="m">0</span><span class="p">),</span>
+              <span class="n">legend.position</span><span class="o">=</span><span class="n">legend.position</span><span class="p">,</span>
+              <span class="n">legend.direction</span><span class="o">=</span><span class="s">&#34;horizontal&#34;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nf">xlab</span><span class="p">(</span><span class="n">xlab</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="n">ylab</span><span class="p">)</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_date</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span>
+                <span class="nf">format</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span>
+                <span class="nf">format</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
+    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
+        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span>
+                <span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
     <span class="p">}</span>
-    p
+    <span class="n">p</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>

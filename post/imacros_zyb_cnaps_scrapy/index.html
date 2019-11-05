@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.1 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" />
@@ -411,9 +411,9 @@ next i</pre></td></tr></table>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">banks <span class="o">&lt;-</span> <span class="kp">unlist</span><span class="p">(</span>banks<span class="p">,</span> <span class="kp">strsplit</span><span class="p">(</span>banks<span class="p">,</span> <span class="s">&#34;&lt;/option&gt;&#34;</span><span class="p">))</span>
-<span class="kp">paste</span><span class="p">(</span><span class="kp">sapply</span><span class="p">(</span>banks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>v<span class="p">)</span>
-    <span class="kp">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> v<span class="p">)),</span> collapses<span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">banks</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="s">&#34;&lt;/option&gt;&#34;</span><span class="p">))</span>
+<span class="nf">paste</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span> <span class="n">collapses</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>这样直接就提取成了一个文本向量。如果在Windows，可以复制outerHTML，用<code>readClipboard</code>来直接读剪贴板。所以定义一个<code>getCbId</code>函数，直接处理成js列表。</p>
@@ -434,17 +434,17 @@ next i</pre></td></tr></table>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>jsonlite<span class="p">)</span>
-getCbId <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>grpId<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
+<span class="n">getCbId</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">grpId</span><span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
   <span class="c1"># Copy XML nodes from ZYB page by F12</span>
-  a <span class="o">&lt;-</span> readClipboard<span class="p">(</span>format<span class="o">=</span><span class="m">13</span><span class="p">)</span>
-  a <span class="o">&lt;-</span> <span class="kp">unlist</span><span class="p">(</span><span class="kp">strsplit</span><span class="p">(</span>a<span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">))</span>
-    a <span class="o">&lt;-</span> a<span class="p">[</span><span class="kp">seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>a<span class="p">),</span> <span class="m">2</span><span class="p">)]</span>
-    <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>grpId<span class="p">)){</span>
-        toJSON<span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span>a<span class="p">))</span>
-    <span class="p">}</span><span class="kp">else</span><span class="p">{</span>
-        a<span class="o">=</span><span class="kt">matrix</span><span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kp">rep.int</span><span class="p">(</span>grpId<span class="p">,</span> <span class="kp">length</span><span class="p">(</span>a<span class="p">)),</span> a<span class="p">)),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
-        toJSON<span class="p">(</span>a<span class="p">)</span>
+  <span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">readClipboard</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="m">13</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="nf">[seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span><span class="n">]</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">grpId</span><span class="p">)){</span>
+        <span class="nf">toJSON</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+        <span class="n">a</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="nf">rep.int</span><span class="p">(</span><span class="n">grpId</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="n">a</span><span class="p">)),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+        <span class="nf">toJSON</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
@@ -884,50 +884,50 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># -------载库，配环境----------</span>
-<span class="kp">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>parallel<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>compiler<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>magrittr<span class="p">)</span>
+<span class="nf">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">parallel</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">compiler</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
 <span class="c1"># -------读数据---------------</span>
-files <span class="o">&lt;-</span> <span class="kp">list.files</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
 <span class="c1">## 剔除.zip和.bat</span>
-files <span class="o">&lt;-</span> files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;zip$|bat$&#34;</span><span class="p">,</span> files<span class="p">)]</span>
+<span class="n">files</span> <span class="o">&lt;-</span> <span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;zip$|bat$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span>
 <span class="c1">## 某些文件莫名奇妙没有拿到后缀名，强制重命名</span>
-<span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">all</span><span class="p">(</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">))){</span>
-  <span class="kp">file.rename</span><span class="p">(</span>files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)],</span>
-            <span class="kp">paste0</span><span class="p">(</span>files<span class="p">[</span><span class="o">!</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)],</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">))){</span>
+  <span class="nf">file.rename</span><span class="p">(</span><span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span><span class="p">,</span>
+            <span class="nf">paste0</span><span class="p">(</span><span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
 <span class="p">}</span>
 <span class="c1">## 文件名全名显示</span>
-files <span class="o">&lt;-</span> <span class="kp">list.files</span><span class="p">(</span><span class="kp">getwd</span><span class="p">(),</span> pattern<span class="o">=</span><span class="s">&#34;\\.csv$&#34;</span><span class="p">,</span> full.names<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
-<span class="kp">stopifnot</span><span class="p">(</span><span class="kp">all</span><span class="p">(</span><span class="kp">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> files<span class="p">)))</span>
-<span class="kp">message</span><span class="p">(</span><span class="s">&#34;A total of &#34;</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>files<span class="p">),</span> <span class="s">&#34; files read.&#34;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="nf">getwd</span><span class="p">(),</span> <span class="n">pattern</span><span class="o">=</span><span class="s">&#34;\\.csv$&#34;</span><span class="p">,</span> <span class="n">full.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">stopifnot</span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)))</span>
+<span class="nf">message</span><span class="p">(</span><span class="s">&#34;A total of &#34;</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">files</span><span class="p">),</span> <span class="s">&#34; files read.&#34;</span><span class="p">)</span>
 <span class="c1"># ---------------自定义函数-----------------</span>
-parseCsvTbl <span class="o">&lt;-</span> cmpfun<span class="p">(</span><span class="kr">function</span><span class="p">(</span>
-    csvfile<span class="p">,</span> header<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&#34;CNAPS&#34;</span><span class="p">,</span> <span class="s">&#34;Bank&#34;</span><span class="p">,</span> <span class="s">&#34;Tel&#34;</span><span class="p">,</span> <span class="s">&#34;Addr&#34;</span><span class="p">)){</span>
+<span class="n">parseCsvTbl</span> <span class="o">&lt;-</span> <span class="nf">cmpfun</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span>
+    <span class="n">csvfile</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;CNAPS&#34;</span><span class="p">,</span> <span class="s">&#34;Bank&#34;</span><span class="p">,</span> <span class="s">&#34;Tel&#34;</span><span class="p">,</span> <span class="s">&#34;Addr&#34;</span><span class="p">)){</span>
     <span class="c1"># for parallel use, duplicate the global settings</span>
-    <span class="kp">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
-    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>header<span class="p">)</span> <span class="o">==</span> <span class="m">4</span><span class="p">)</span>
-    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">file.exists</span><span class="p">(</span>csvfile<span class="p">))</span>
-    dat <span class="o">&lt;-</span> readr<span class="o">::</span>read_csv<span class="p">(</span>csvfile<span class="p">,</span> col_types<span class="o">=</span><span class="s">&#34;nccc&#34;</span><span class="p">)</span>
-    <span class="kp">names</span><span class="p">(</span>dat<span class="p">)</span> <span class="o">&lt;-</span> header
-    dat<span class="o">$</span>bank <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
-    dat<span class="o">$</span>prov <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\2&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
-    dat<span class="o">$</span>city <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\3&#34;</span><span class="p">,</span> csvfile<span class="p">)</span>
-    <span class="kr">return</span><span class="p">(</span>dat<span class="p">)</span>
+    <span class="nf">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
+    <span class="nf">stopifnot</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">==</span> <span class="m">4</span><span class="p">)</span>
+    <span class="nf">stopifnot</span><span class="p">(</span><span class="nf">file.exists</span><span class="p">(</span><span class="n">csvfile</span><span class="p">))</span>
+    <span class="n">dat</span> <span class="o">&lt;-</span> <span class="n">readr</span><span class="o">::</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">col_types</span><span class="o">=</span><span class="s">&#34;nccc&#34;</span><span class="p">)</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">header</span>
+    <span class="n">dat</span><span class="o">$</span><span class="n">bank</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
+    <span class="n">dat</span><span class="o">$</span><span class="n">prov</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\2&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
+    <span class="n">dat</span><span class="o">$</span><span class="n">city</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\3&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="c1"># --------------调用解析函数，解析csv并合并---------------------</span>
 <span class="c1">## 如果文件超过1000个，调用并行计算</span>
-<span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>files<span class="p">)</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">){</span>
-	cl <span class="o">&lt;-</span> makeCluster<span class="p">(</span>detectCores<span class="p">())</span>
-	df <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> parLapply<span class="p">(</span>cl<span class="p">,</span> files<span class="p">,</span> parseCsvTbl<span class="p">))</span>
-	stopCluster<span class="p">(</span>cl<span class="p">)</span>
-<span class="p">}</span><span class="kp">else</span><span class="p">{</span>
-	df <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="kp">lapply</span><span class="p">(</span>files<span class="p">,</span> parseCsvTbl<span class="p">))</span>
+<span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">){</span>
+	<span class="n">cl</span> <span class="o">&lt;-</span> <span class="nf">makeCluster</span><span class="p">(</span><span class="nf">detectCores</span><span class="p">())</span>
+	<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="nf">parLapply</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">parseCsvTbl</span><span class="p">))</span>
+	<span class="nf">stopCluster</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span>
+<span class="p">}</span><span class="n">else</span><span class="p">{</span>
+	<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">parseCsvTbl</span><span class="p">))</span>
 <span class="p">}</span>
 <span class="c1">## 合并后的结果输出到一个大csv</span>
-write_csv<span class="p">(</span>df<span class="p">,</span> <span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;cnaps_&#34;</span><span class="p">,</span> <span class="kp">format</span><span class="p">(</span><span class="kp">Sys.time</span><span class="p">(),</span> <span class="s">&#34;%Y%m%d%H%M%S&#34;</span><span class="p">),</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
-<span class="kp">message</span><span class="p">(</span><span class="s">&#34;output cnaps csv is generated.&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;cnaps_&#34;</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span><span class="nf">Sys.time</span><span class="p">(),</span> <span class="s">&#34;%Y%m%d%H%M%S&#34;</span><span class="p">),</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
+<span class="nf">message</span><span class="p">(</span><span class="s">&#34;output cnaps csv is generated.&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>跑完脚本，数据变成了：</p>
@@ -1032,9 +1032,9 @@ write_csv<span class="p">(</span>df<span class="p">,</span> <span class="kp">pas
           <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/flask-site-demo/">
+        <a class="prev" href="/post/flask-website-demo/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">edx作业：用flask建一个简易Web应用</span>
+            <span class="prev-text nav-default">edx作业：用flask建一个简易图书查询Web应用</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/song_ming_qing_jinshi_interactive/">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.1 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/song_ming_qing_jinshi/" />
@@ -220,10 +220,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
-nsong.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_NSong_WGS84_kto.csv&#34;</span><span class="p">)</span>
-ming.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Ming_WGS84_MbJ.csv&#34;</span><span class="p">)</span>
-qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Qing_WGS84_GWU.csv&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<span class="n">nsong.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_NSong_WGS84_kto.csv&#34;</span><span class="p">)</span>
+<span class="n">ming.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Ming_WGS84_MbJ.csv&#34;</span><span class="p">)</span>
+<span class="n">qing.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Qing_WGS84_GWU.csv&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>简单看一下哪个地方来的进士最多。</p>
@@ -234,7 +234,7 @@ qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>nsong.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <table>
@@ -317,7 +317,7 @@ qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>ming.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">ming.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <table>
@@ -400,7 +400,7 @@ qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>qing.js<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">qing.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <table>
@@ -490,15 +490,15 @@ qing.js <span class="o">&lt;-</span> read_csv<span class="p">(</span><span class
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>ggthemes<span class="p">)</span>
-jinshi <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="kt">list</span><span class="p">(</span>nsong.js<span class="p">,</span> ming.js<span class="p">,</span> qing.js<span class="p">))</span>
-jinshi.putian <span class="o">&lt;-</span> jinshi<span class="p">[</span>jinshi<span class="o">$</span>AddrChn<span class="o">==</span><span class="s">&#39;莆田&#39;</span><span class="p">,]</span>
-jinshi.putian <span class="o">&lt;-</span> dcast<span class="p">(</span>jinshi.putian<span class="p">,</span> EntryYear<span class="o">~</span><span class="m">.</span><span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
-jinshi.putian<span class="o">$</span>EntryYear <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span>jinshi.putian<span class="o">$</span>EntryYear<span class="p">)</span>
-ggplot<span class="p">()</span> <span class="o">+</span> geom_bar<span class="p">(</span>aes<span class="p">(</span>EntryYear<span class="p">,</span> <span class="m">.</span><span class="p">),</span> stat<span class="o">=</span><span class="s">&#39;identity&#39;</span><span class="p">,</span> data<span class="o">=</span>jinshi.putian<span class="p">)</span> <span class="o">+</span>
-    theme_hc<span class="p">()</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;莆田进士数变迁&#34;</span><span class="p">)</span> <span class="o">+</span> xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;人数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
+<span class="n">jinshi</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">nsong.js</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">))</span>
+<span class="n">jinshi.putian</span> <span class="o">&lt;-</span> <span class="n">jinshi[jinshi</span><span class="o">$</span><span class="n">AddrChn</span><span class="o">==</span><span class="s">&#39;莆田&#39;</span><span class="p">,</span><span class="n">]</span>
+<span class="n">jinshi.putian</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">jinshi.putian</span><span class="p">,</span> <span class="n">EntryYear</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span>
+<span class="n">jinshi.putian</span><span class="o">$</span><span class="n">EntryYear</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">jinshi.putian</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">EntryYear</span><span class="p">,</span> <span class="n">.)</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#39;identity&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">jinshi.putian</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;莆田进士数变迁&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;人数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <!-- {% raw %} -->
@@ -519,7 +519,7 @@ ggplot<span class="p">()</span> <span class="o">+</span> geom_bar<span class="p"
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>jinshi<span class="o">$</span>AddrChn<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">jinshi</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <table>
@@ -628,15 +628,15 @@ ggplot<span class="p">()</span> <span class="o">+</span> geom_bar<span class="p"
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">cn.mapdata <span class="o">&lt;-</span> readOGR<span class="p">(</span><span class="s">&#34;下载/Regime_Bou/CHN_adm1.shp&#34;</span><span class="p">)</span>
-tw.mapdata <span class="o">&lt;-</span> readOGR<span class="p">(</span><span class="s">&#34;下载/Regime_Bou/TWN_adm0.shp&#34;</span><span class="p">)</span>
-p.chn <span class="o">&lt;-</span> ggplot<span class="p">()</span> <span class="o">+</span> geom_polygon<span class="p">(</span>
-    aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>group<span class="p">),</span> data<span class="o">=</span>cn.mapdata<span class="p">,</span>
-    fill<span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> color<span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> linetype<span class="o">=</span><span class="m">2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
-    geom_polygon<span class="p">(</span>
-        aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>group<span class="p">),</span> data<span class="o">=</span>tw.mapdata<span class="p">,</span>
-        fill<span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> color<span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> linetype<span class="o">=</span><span class="m">2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
-    theme_minimal<span class="p">()</span> <span class="o">+</span> coord_map<span class="p">()</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cn.mapdata</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&#34;下载/Regime_Bou/CHN_adm1.shp&#34;</span><span class="p">)</span>
+<span class="n">tw.mapdata</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&#34;下载/Regime_Bou/TWN_adm0.shp&#34;</span><span class="p">)</span>
+<span class="n">p.chn</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span>
+    <span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">cn.mapdata</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linetype</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">geom_polygon</span><span class="p">(</span>
+        <span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tw.mapdata</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s">&#39;gray97&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linetype</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span> <span class="nf">coord_map</span><span class="p">()</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>这个p.chn对象后面可以反复复用。</p>
@@ -684,17 +684,17 @@ p.chn <span class="o">&lt;-</span> ggplot<span class="p">()</span> <span class="
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">get_xml_list <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>xml<span class="p">){</span>
-    <span class="kn">library</span><span class="p">(</span>XML<span class="p">)</span>
-    xmlToList<span class="p">(</span>xmlParse<span class="p">(</span>xml<span class="p">))</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">get_xml_list</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">xml</span><span class="p">){</span>
+    <span class="nf">library</span><span class="p">(</span><span class="n">XML</span><span class="p">)</span>
+    <span class="nf">xmlToList</span><span class="p">(</span><span class="nf">xmlParse</span><span class="p">(</span><span class="n">xml</span><span class="p">))</span>
 <span class="p">}</span>
-get_coord_df <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>lst<span class="p">,</span> split<span class="o">=</span><span class="s">&#34;[ ,]&#34;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">){</span>
-    staging <span class="o">&lt;-</span> <span class="kp">strsplit</span><span class="p">(</span>lst<span class="p">,</span> <span class="kp">split</span><span class="p">)</span>
-    out <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span>
-        <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">unlist</span><span class="p">(</span>staging<span class="p">)),</span> byrow<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">))</span>
-    <span class="kp">names</span><span class="p">(</span>out<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;long&#34;</span><span class="p">,</span> <span class="s">&#34;lat&#34;</span><span class="p">)</span>
-    out<span class="o">$</span>id <span class="o">&lt;-</span> id
-    <span class="kr">return</span><span class="p">(</span>out<span class="p">)</span>
+<span class="n">get_coord_df</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s">&#34;[ ,]&#34;</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="m">1</span><span class="p">){</span>
+    <span class="n">staging</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">split</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span>
+        <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="n">staging</span><span class="p">)),</span> <span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">))</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;long&#34;</span><span class="p">,</span> <span class="s">&#34;lat&#34;</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">$</span><span class="n">id</span> <span class="o">&lt;-</span> <span class="n">id</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -731,32 +731,32 @@ get_coord_df <span class="o">&lt;-</span> <span class="kr">function</span><span 
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 北宋</span>
-nsong.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/northSong.kml&#34;</span><span class="p">)</span>
-nsong.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
-    nsong.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>Polygon<span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    nsong.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">4</span><span class="p">]]</span><span class="o">$</span>Polygon<span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
-nsong.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> nsong.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
-<span class="kp">names</span><span class="p">(</span>nsong.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span>
-nsong.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> nsong.bou<span class="p">)</span>
+<span class="n">nsong.xml</span> <span class="o">&lt;-</span> <span class="nf">get_xml_list</span><span class="p">(</span><span class="s">&#34;~/下载/northSong.kml&#34;</span><span class="p">)</span>
+<span class="n">nsong.bou</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
+    <span class="n">nsong.xml[[1]][[3]][[3]]</span><span class="o">$</span><span class="n">Polygon</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">nsong.xml[[1]][[3]][[4]]</span><span class="o">$</span><span class="n">Polygon</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">nsong.bou</span> <span class="o">&lt;-</span> <span class="nf">mapply</span><span class="p">(</span><span class="n">get_coord_df</span><span class="p">,</span> <span class="n">nsong.bou</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">SIMPLIFY</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">nsong.bou</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span>
+<span class="n">nsong.bou</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> <span class="n">nsong.bou</span><span class="p">)</span>
 <span class="c1"># 明朝</span>
-ming.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/ming.kml&#34;</span><span class="p">)</span>
-ming.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
-    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">4</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    ming.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">5</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
-ming.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> ming.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
-<span class="kp">names</span><span class="p">(</span>ming.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
-ming.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> ming.bou<span class="p">)</span>
+<span class="n">ming.xml</span> <span class="o">&lt;-</span> <span class="nf">get_xml_list</span><span class="p">(</span><span class="s">&#34;~/下载/ming.kml&#34;</span><span class="p">)</span>
+<span class="n">ming.bou</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
+    <span class="n">ming.xml[[1]][[3]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">ming.xml[[1]][[4]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">ming.xml[[1]][[5]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">ming.bou</span> <span class="o">&lt;-</span> <span class="nf">mapply</span><span class="p">(</span><span class="n">get_coord_df</span><span class="p">,</span> <span class="n">ming.bou</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">SIMPLIFY</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">ming.bou</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+<span class="n">ming.bou</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> <span class="n">ming.bou</span><span class="p">)</span>
 <span class="c1"># 清朝</span>
-qing.xml <span class="o">&lt;-</span> get_xml_list<span class="p">(</span><span class="s">&#34;~/下载/qing.kml&#34;</span><span class="p">)</span>
-qing.bou <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
-    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">3</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">4</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">5</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">,</span>
-    qing.xml<span class="p">[[</span><span class="m">1</span><span class="p">]][[</span><span class="m">6</span><span class="p">]][[</span><span class="m">3</span><span class="p">]]</span><span class="o">$</span>outerBoundaryIs<span class="o">$</span>LinearRing<span class="o">$</span>coordinates<span class="p">)</span>
-qing.bou <span class="o">&lt;-</span> <span class="kp">mapply</span><span class="p">(</span>get_coord_df<span class="p">,</span> qing.bou<span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> SIMPLIFY<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
-<span class="kp">names</span><span class="p">(</span>qing.bou<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span>
-qing.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> qing.bou<span class="p">)</span></code></pre></td></tr></table>
+<span class="n">qing.xml</span> <span class="o">&lt;-</span> <span class="nf">get_xml_list</span><span class="p">(</span><span class="s">&#34;~/下载/qing.kml&#34;</span><span class="p">)</span>
+<span class="n">qing.bou</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
+    <span class="n">qing.xml[[1]][[3]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">qing.xml[[1]][[4]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">qing.xml[[1]][[5]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
+    <span class="n">qing.xml[[1]][[6]][[3]]</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">qing.bou</span> <span class="o">&lt;-</span> <span class="nf">mapply</span><span class="p">(</span><span class="n">get_coord_df</span><span class="p">,</span> <span class="n">qing.bou</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">SIMPLIFY</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">qing.bou</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span>
+<span class="n">qing.bou</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#39;rbind&#39;</span><span class="p">,</span> <span class="n">qing.bou</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>宋、明火德，咱涂个红色。清没有官宣自己什么德，但坊间一般认为丫是水德，咱给涂个黑色。</p>
@@ -773,15 +773,15 @@ qing.bou <span class="o">&lt;-</span> <span class="kp">do.call</span><span class
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">p.song <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
-	data<span class="o">=</span>nsong.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;北宋疆域&#34;</span><span class="p">)</span>
-p.ming <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
-	data<span class="o">=</span>ming.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;明朝疆域&#34;</span><span class="p">)</span>
-p.qing <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<span class="p">(</span>aes<span class="p">(</span>long<span class="p">,</span> lat<span class="p">,</span> group<span class="o">=</span>id<span class="p">),</span>
-	data<span class="o">=</span>qing.bou<span class="p">,</span> fill<span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.1</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;清朝疆域&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">nsong.bou</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋疆域&#34;</span><span class="p">)</span>
+<span class="n">p.ming</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">ming.bou</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;明朝疆域&#34;</span><span class="p">)</span>
+<span class="n">p.qing</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">qing.bou</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;清朝疆域&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <!-- {% raw %} -->
@@ -820,13 +820,13 @@ p.qing <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_polygon<
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">p.song <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>nsong.js<span class="p">,</span>
-	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span>
-p.song <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
-    data<span class="o">=</span>nsong.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">nsong.js</span><span class="p">,</span>
+	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span>
+<span class="n">p.song</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">nsong.js</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi1.png" alt="" /></p>
@@ -845,13 +845,13 @@ p.song <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span 
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">p.ming <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>ming.js<span class="p">,</span>
-	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span>
-p.ming <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
-	data<span class="o">=</span>ming.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.ming</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">ming.js</span><span class="p">,</span>
+	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span>
+<span class="n">p.ming</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">ming.js</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi1.png" alt="" /></p>
@@ -870,13 +870,13 @@ p.ming <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span 
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">p.qing <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>qing.js<span class="p">,</span>
-	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span>
-p.qing <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
-	data<span class="o">=</span>qing.js<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.qing</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">qing.js</span><span class="p">,</span>
+	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span>
+<span class="n">p.qing</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">qing.js</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi1.png" alt="" /></p>
@@ -905,13 +905,13 @@ p.qing <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span 
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">p.chn <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span> data<span class="o">=</span>jinshi<span class="p">,</span>
-	color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span>
-p.chn <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
-	data<span class="o">=</span>jinshi<span class="p">,</span> geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
-    ggtitle<span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">jinshi</span><span class="p">,</span>
+	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span>
+<span class="n">p.chn</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
+	<span class="n">data</span><span class="o">=</span><span class="n">jinshi</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi1.png" alt="" /></p>
@@ -947,10 +947,10 @@ p.chn <span class="o">+</span> stat_density_2d<span class="p">(</span>aes<span c
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>RSQLite<span class="p">)</span>
-con <span class="o">&lt;-</span> dbConnect<span class="p">(</span>SQLite<span class="p">(),</span> <span class="s">&#34;下载/cbdb_sqlite.db&#34;</span><span class="p">)</span>
-addr <span class="o">&lt;-</span> dbReadTable<span class="p">(</span>con<span class="p">,</span> <span class="s">&#34;ADDRESSES&#34;</span><span class="p">)</span>
-dbDisconnect<span class="p">(</span>con<span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
+<span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="s">&#34;下载/cbdb_sqlite.db&#34;</span><span class="p">)</span>
+<span class="n">addr</span> <span class="o">&lt;-</span> <span class="nf">dbReadTable</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#34;ADDRESSES&#34;</span><span class="p">)</span>
+<span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>数据表里有一列c_name_chn，对应于最小细度的地名，之后有belongs2_name，belongs3_name等上级政区名。merge一下，就能取到一级政区名了。</p>
@@ -987,32 +987,32 @@ dbDisconnect<span class="p">(</span>con<span class="p">)</span></code></pre></td
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">get_stat <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>addr<span class="p">,</span> jsdt<span class="p">,</span> dyn.name<span class="p">,</span> yr.begin<span class="p">,</span> yr.end<span class="p">){</span>
-	addr.dyn <span class="o">&lt;-</span> addr<span class="p">[</span>addr<span class="o">$</span>belongs3_Name <span class="o">==</span> dyn.name <span class="o">|</span>
-					  addr<span class="o">$</span>belongs4_Name <span class="o">==</span> dyn.name <span class="o">|</span>
-                      addr<span class="o">$</span>belongs5_Name <span class="o">==</span> dyn.name<span class="p">,]</span>
-	addr.dyn <span class="o">&lt;-</span>addr.dyn<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>addr.dyn<span class="o">$</span>c_name_chn<span class="p">),]</span>
-	addr.dyn<span class="o">$</span>Prov <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs2_Name
-	i <span class="o">&lt;-</span> <span class="kp">which</span><span class="p">(</span>addr.dyn<span class="o">$</span>belongs4_Name <span class="o">==</span> dyn.name<span class="p">)</span>
-	addr.dyn<span class="o">$</span>Prov<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs3_Name<span class="p">[</span>i<span class="p">]</span>
-	i <span class="o">&lt;-</span> <span class="kp">which</span><span class="p">(</span>addr.dyn<span class="o">$</span>belongs5_Name <span class="o">==</span> dyn.name<span class="p">)</span>
-	addr.dyn<span class="o">$</span>Prov<span class="p">[</span>i<span class="p">]</span> <span class="o">&lt;-</span> addr.dyn<span class="o">$</span>belongs4_Name<span class="p">[</span>i<span class="p">]</span>
-	addr.dyn <span class="o">&lt;-</span> addr.dyn<span class="p">[</span><span class="o">!</span><span class="kp">duplicated</span><span class="p">(</span>addr.dyn<span class="o">$</span>c_name_chn<span class="p">),]</span>
-	js <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>jsdt<span class="p">,</span> addr.dyn<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> <span class="s">&#34;Prov&#34;</span><span class="p">)],</span>
-                by.x<span class="o">=</span><span class="s">&#34;AddrChn&#34;</span><span class="p">,</span> by.y<span class="o">=</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> all.x<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-	js<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">cut</span><span class="p">(</span><span class="kp">as.numeric</span><span class="p">(</span>js<span class="o">$</span>EntryYear<span class="p">),</span> <span class="kp">seq</span><span class="p">(</span>yr.begin<span class="p">,</span> yr.end<span class="p">,</span> <span class="m">10</span><span class="p">))</span>
-	js<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>js<span class="o">$</span>Decade<span class="p">,</span>
-		labels<span class="o">=</span><span class="kp">seq</span><span class="p">(</span>yr.begin<span class="p">,</span> yr.end<span class="p">,</span> <span class="m">10</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>nsong.js<span class="o">$</span>Decade<span class="p">)])</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">get_stat</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">jsdt</span><span class="p">,</span> <span class="n">dyn.name</span><span class="p">,</span> <span class="n">yr.begin</span><span class="p">,</span> <span class="n">yr.end</span><span class="p">){</span>
+	<span class="n">addr.dyn</span> <span class="o">&lt;-</span> <span class="n">addr[addr</span><span class="o">$</span><span class="n">belongs3_Name</span> <span class="o">==</span> <span class="n">dyn.name</span> <span class="o">|</span>
+					  <span class="n">addr</span><span class="o">$</span><span class="n">belongs4_Name</span> <span class="o">==</span> <span class="n">dyn.name</span> <span class="o">|</span>
+                      <span class="n">addr</span><span class="o">$</span><span class="n">belongs5_Name</span> <span class="o">==</span> <span class="n">dyn.name</span><span class="p">,</span><span class="n">]</span>
+	<span class="n">addr.dyn</span> <span class="o">&lt;-</span><span class="n">addr.dyn[</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">addr.dyn</span><span class="o">$</span><span class="n">c_name_chn</span><span class="p">),</span><span class="n">]</span>
+	<span class="n">addr.dyn</span><span class="o">$</span><span class="n">Prov</span> <span class="o">&lt;-</span> <span class="n">addr.dyn</span><span class="o">$</span><span class="n">belongs2_Name</span>
+	<span class="n">i</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">addr.dyn</span><span class="o">$</span><span class="n">belongs4_Name</span> <span class="o">==</span> <span class="n">dyn.name</span><span class="p">)</span>
+	<span class="n">addr.dyn</span><span class="o">$</span><span class="n">Prov[i]</span> <span class="o">&lt;-</span> <span class="n">addr.dyn</span><span class="o">$</span><span class="n">belongs3_Name[i]</span>
+	<span class="n">i</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">addr.dyn</span><span class="o">$</span><span class="n">belongs5_Name</span> <span class="o">==</span> <span class="n">dyn.name</span><span class="p">)</span>
+	<span class="n">addr.dyn</span><span class="o">$</span><span class="n">Prov[i]</span> <span class="o">&lt;-</span> <span class="n">addr.dyn</span><span class="o">$</span><span class="n">belongs4_Name[i]</span>
+	<span class="n">addr.dyn</span> <span class="o">&lt;-</span> <span class="n">addr.dyn[</span><span class="o">!</span><span class="nf">duplicated</span><span class="p">(</span><span class="n">addr.dyn</span><span class="o">$</span><span class="n">c_name_chn</span><span class="p">),</span><span class="n">]</span>
+	<span class="n">js</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="n">jsdt</span><span class="p">,</span> <span class="n">addr.dyn[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> <span class="s">&#34;Prov&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">,</span>
+                <span class="n">by.x</span><span class="o">=</span><span class="s">&#34;AddrChn&#34;</span><span class="p">,</span> <span class="n">by.y</span><span class="o">=</span><span class="s">&#34;c_name_chn&#34;</span><span class="p">,</span> <span class="n">all.x</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+	<span class="n">js</span><span class="o">$</span><span class="n">Decade</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">),</span> <span class="nf">seq</span><span class="p">(</span><span class="n">yr.begin</span><span class="p">,</span> <span class="n">yr.end</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span>
+	<span class="n">js</span><span class="o">$</span><span class="n">Decade</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">js</span><span class="o">$</span><span class="n">Decade</span><span class="p">,</span>
+		<span class="n">labels</span><span class="o">=</span><span class="nf">seq</span><span class="p">(</span><span class="n">yr.begin</span><span class="p">,</span> <span class="n">yr.end</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span><span class="n">[1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">Decade</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
 
-	stat1 <span class="o">&lt;-</span> dcast<span class="p">(</span>js<span class="p">,</span> Prov<span class="o">~</span><span class="m">.</span><span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
-	stat1 <span class="o">&lt;-</span> stat1<span class="p">[</span><span class="kp">order</span><span class="p">(</span>stat1<span class="o">$</span><span class="m">.</span><span class="p">,</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">),]</span>
+	<span class="n">stat1</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">js</span><span class="p">,</span> <span class="n">Prov</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span>
+	<span class="n">stat1</span> <span class="o">&lt;-</span> <span class="n">stat1</span><span class="nf">[order</span><span class="p">(</span><span class="n">stat1</span><span class="o">$</span><span class="n">.,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">]</span>
 
-	stat <span class="o">&lt;-</span> dcast<span class="p">(</span>js<span class="p">,</span> Decade<span class="o">~</span>Prov<span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
-	stat <span class="o">&lt;-</span> melt<span class="p">(</span>stat<span class="p">,</span> id<span class="o">=</span><span class="s">&#34;Decade&#34;</span><span class="p">,</span> stringsAsFactors<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
-	stat<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>stat<span class="o">$</span>Decade<span class="p">))</span>
-	stat<span class="o">$</span>variable <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>stat<span class="o">$</span>variable<span class="p">,</span> levels<span class="o">=</span>stat1<span class="o">$</span>Prov<span class="p">)</span>
-	stat <span class="o">&lt;-</span> stat<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>stat<span class="o">$</span>variable<span class="p">)</span> <span class="o">&amp;</span> stat<span class="o">$</span>variable <span class="o">!=</span> <span class="s">&#39;NA&#39;</span><span class="p">,]</span>
-	<span class="kr">return</span><span class="p">(</span>stat<span class="p">)</span>
+	<span class="n">stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">js</span><span class="p">,</span> <span class="n">Decade</span><span class="o">~</span><span class="n">Prov</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+	<span class="n">stat</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;Decade&#34;</span><span class="p">,</span> <span class="n">stringsAsFactors</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+	<span class="n">stat</span><span class="o">$</span><span class="n">Decade</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">stat</span><span class="o">$</span><span class="n">Decade</span><span class="p">))</span>
+	<span class="n">stat</span><span class="o">$</span><span class="n">variable</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">stat</span><span class="o">$</span><span class="n">variable</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">stat1</span><span class="o">$</span><span class="n">Prov</span><span class="p">)</span>
+	<span class="n">stat</span> <span class="o">&lt;-</span> <span class="n">stat[</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">stat</span><span class="o">$</span><span class="n">variable</span> <span class="o">!=</span> <span class="s">&#39;NA&#39;</span><span class="p">,</span><span class="n">]</span>
+	<span class="nf">return</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -1034,17 +1034,17 @@ dbDisconnect<span class="p">(</span>con<span class="p">)</span></code></pre></td
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">palcols <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>hc_pal<span class="p">()(</span><span class="m">10</span><span class="p">),</span> tableau_color_pal<span class="p">()(</span><span class="m">10</span><span class="p">),</span> wsj_pal<span class="p">()(</span><span class="m">6</span><span class="p">),</span>
-		  canva_pal<span class="p">()(</span><span class="m">4</span><span class="p">),</span> economist_pal<span class="p">()(</span><span class="m">10</span><span class="p">))</span>
-nsong.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> nsong.js<span class="p">,</span> <span class="s">&#34;宋朝&#34;</span><span class="p">,</span> <span class="m">960</span><span class="p">,</span> <span class="m">1130</span><span class="p">)</span>
-cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>nsong.stat<span class="o">$</span>variable<span class="p">))]</span>
-<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>nsong.stat<span class="o">$</span>variable<span class="p">)</span>
-ggplot<span class="p">(</span>nsong.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
-    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
-    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
-    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;北宋进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
-    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">palcols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">hc_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">tableau_color_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">wsj_pal</span><span class="p">()(</span><span class="m">6</span><span class="p">),</span>
+		  <span class="nf">canva_pal</span><span class="p">()(</span><span class="m">4</span><span class="p">),</span> <span class="nf">economist_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">))</span>
+<span class="n">nsong.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">nsong.js</span><span class="p">,</span> <span class="s">&#34;宋朝&#34;</span><span class="p">,</span> <span class="m">960</span><span class="p">,</span> <span class="m">1130</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">&lt;-</span> <span class="n">palcols</span><span class="nf">[</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">nsong.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="n">]</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="n">nsong.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">nsong.stat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">Decade</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">geom_area</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp1.png" alt="" /></p>
@@ -1073,19 +1073,19 @@ ggplot<span class="p">(</span>nsong.stat<span class="p">,</span> aes<span class=
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">ming.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> ming.js<span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="m">1360</span><span class="p">,</span> <span class="m">1650</span><span class="p">)</span>
-ming.stat<span class="o">$</span>variable <span class="o">&lt;-</span> <span class="kp">gsub</span><span class="p">(</span><span class="s">&#34;(^.+)(布政司|巡撫|總督|留守司)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span>
-							ming.stat<span class="o">$</span>variable<span class="p">)</span>
-ming.stat <span class="o">&lt;-</span> dcast<span class="p">(</span>ming.stat<span class="p">,</span> Decade <span class="o">~</span> variable<span class="p">,</span> <span class="kp">sum</span><span class="p">)</span>
-ming.stat<span class="o">$</span>Decade <span class="o">&lt;-</span> <span class="kp">as.integer</span><span class="p">(</span>ming.stat<span class="o">$</span>Decade<span class="p">)</span>
-cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>ming.stat<span class="o">$</span>variable<span class="p">))]</span>
-<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>ming.stat<span class="o">$</span>variable<span class="p">)</span>
-ggplot<span class="p">(</span>ming.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
-    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
-    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
-    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;明朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
-    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">ming.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="m">1360</span><span class="p">,</span> <span class="m">1650</span><span class="p">)</span>
+<span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;(^.+)(布政司|巡撫|總督|留守司)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span>
+							<span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
+<span class="n">ming.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">ming.stat</span><span class="p">,</span> <span class="n">Decade</span> <span class="o">~</span> <span class="n">variable</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
+<span class="n">ming.stat</span><span class="o">$</span><span class="n">Decade</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">ming.stat</span><span class="o">$</span><span class="n">Decade</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">&lt;-</span> <span class="n">palcols</span><span class="nf">[</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="n">]</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">ming.stat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">Decade</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">geom_area</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;明朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp1.png" alt="" /></p>
@@ -1108,15 +1108,15 @@ ggplot<span class="p">(</span>ming.stat<span class="p">,</span> aes<span class="
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">qing.stat <span class="o">&lt;-</span> get_stat<span class="p">(</span>addr<span class="p">,</span> qing.js<span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="m">1640</span><span class="p">,</span> <span class="m">1910</span><span class="p">)</span>
-cols <span class="o">&lt;-</span> palcols<span class="p">[(</span><span class="m">1</span><span class="o">:</span><span class="kp">nlevels</span><span class="p">(</span>qing.stat<span class="o">$</span>variable<span class="p">))]</span>
-<span class="kp">names</span><span class="p">(</span>cols<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">levels</span><span class="p">(</span>qing.stat<span class="o">$</span>variable<span class="p">)</span>
-ggplot<span class="p">(</span>qing.stat<span class="p">,</span> aes<span class="p">(</span>Decade<span class="p">,</span> value<span class="p">,</span> fill<span class="o">=</span>variable<span class="p">))</span><span class="o">+</span>
-    geom_area<span class="p">(</span>stat<span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
-    scale_fill_manual<span class="p">(</span>values<span class="o">=</span>cols<span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span>
-    scale_y_continuous<span class="p">(</span>labels<span class="o">=</span>scales<span class="o">::</span>percent<span class="p">)</span><span class="o">+</span>
-    xlab<span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> ylab<span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&#34;清朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
-    theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">qing.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="m">1640</span><span class="p">,</span> <span class="m">1910</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">&lt;-</span> <span class="n">palcols</span><span class="nf">[</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">qing.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="n">]</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="n">qing.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">qing.stat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">Decade</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span><span class="o">+</span>
+    <span class="nf">geom_area</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&#34;fill&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.75</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="nf">theme_minimal</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">scales</span><span class="o">::</span><span class="n">percent</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">xlab</span><span class="p">(</span><span class="s">&#34;年份&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&#34;比重&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;清朝进士来源地比重变迁&#34;</span><span class="p">)</span><span class="o">+</span>
+    <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="o">=</span><span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp1.png" alt="" /></p>
@@ -1137,9 +1137,9 @@ ggplot<span class="p">(</span>qing.stat<span class="p">,</span> aes<span class="
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>stringr<span class="p">)</span>
-fam.name <span class="o">&lt;-</span> str_sub<span class="p">(</span>jinshi<span class="o">$</span>NameChn<span class="p">,</span> <span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
-<span class="kp">sort</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>fam.name<span class="p">),</span> decreasing<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+<span class="n">fam.name</span> <span class="o">&lt;-</span> <span class="nf">str_sub</span><span class="p">(</span><span class="n">jinshi</span><span class="o">$</span><span class="n">NameChn</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">fam.name</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>不知为什么，“張”写作了“瀳”，“陳”写作了“隇”。修正后，这个分布其实与整个大人群相差不大。</p>
@@ -1179,18 +1179,18 @@ fam.name <span class="o">&lt;-</span> str_sub<span class="p">(</span>jinshi<span
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r">jinshi<span class="o">$</span>FamilyName <span class="o">&lt;-</span> fam.name
-<span class="kr">for</span> <span class="p">(</span>famName <span class="kr">in</span> <span class="kt">c</span><span class="p">(</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jinshi</span><span class="o">$</span><span class="n">FamilyName</span> <span class="o">&lt;-</span> <span class="n">fam.name</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">famName</span> <span class="n">in</span> <span class="nf">c</span><span class="p">(</span>
 	<span class="s">&#34;王&#34;</span><span class="p">,</span> <span class="s">&#34;李&#34;</span><span class="p">,</span> <span class="s">&#34;瀳&#34;</span><span class="p">,</span> <span class="s">&#34;隇&#34;</span><span class="p">,</span> <span class="s">&#34;劉&#34;</span><span class="p">,</span> <span class="s">&#34;吳&#34;</span><span class="p">,</span> <span class="s">&#34;楊&#34;</span><span class="p">,</span> <span class="s">&#34;黃&#34;</span><span class="p">,</span> <span class="s">&#34;林&#34;</span><span class="p">,</span> <span class="s">&#34;周&#34;</span><span class="p">)){</span>
-    pp <span class="o">&lt;-</span> p.chn <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">),</span>
-			data<span class="o">=</span>jinshi<span class="p">[</span>jinshi<span class="o">$</span>FamilyName<span class="o">==</span>famName<span class="p">,],</span>
-            color<span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
-        stat_density_2d<span class="p">(</span>aes<span class="p">(</span>x_coord<span class="p">,</span> y_coord<span class="p">,</span> fill<span class="o">=</span><span class="m">..</span>level..<span class="p">),</span>
-                        data<span class="o">=</span>jinshi<span class="p">[</span>jinshi<span class="o">$</span>FamilyName<span class="o">==</span>famName<span class="p">,],</span>
-						geom<span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
-        scale_fill_gradient<span class="p">(</span>low<span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> high<span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
-        ggtitle<span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#34;北宋、明、清&#34;</span><span class="p">,</span> fam.name<span class="p">,</span> <span class="s">&#34;姓进士来源地&#34;</span><span class="p">))</span>
-    <span class="kp">print</span><span class="p">(</span>pp<span class="p">)</span>
+    <span class="n">pp</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span>
+			<span class="n">data</span><span class="o">=</span><span class="n">jinshi[jinshi</span><span class="o">$</span><span class="n">FamilyName</span><span class="o">==</span><span class="n">famName</span><span class="p">,</span><span class="n">]</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
+        <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
+                        <span class="n">data</span><span class="o">=</span><span class="n">jinshi[jinshi</span><span class="o">$</span><span class="n">FamilyName</span><span class="o">==</span><span class="n">famName</span><span class="p">,</span><span class="n">]</span><span class="p">,</span>
+						<span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
+        <span class="nf">ggtitle</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;北宋、明、清&#34;</span><span class="p">,</span> <span class="n">fam.name</span><span class="p">,</span> <span class="s">&#34;姓进士来源地&#34;</span><span class="p">))</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
