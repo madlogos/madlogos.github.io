@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6955">
+<meta itemprop="wordCount" content="7080">
 
 
 
@@ -131,8 +131,8 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6955 字 </span>
-          <span class="more-meta"> 预计阅读 14 分钟 </span>
+          <span class="more-meta"> 约 7080 字 </span>
+          <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
     </header>
@@ -178,7 +178,7 @@
     <div class="post-content">
       <div class="admonition abstract"><p class="admonition-title">摘要</p>
   
-记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。
+记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。<br/>
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 
 </div>
@@ -1352,7 +1352,9 @@ Books
 </div>
 <!-- {% endraw %} -->
 
-<p>后端做了很多工作。首先，定义一个<code>get_gr()</code>函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。</p>
+<p>可以看到，reviews是一个嵌套列表，每个review列表都是长度为5的列表。这个review的结构定义在后端代码里（<code>review_qry</code>)。</p>
+
+<p>后端做了很多工作。首先，定义一个<code>get_gr()</code>函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。key和secret原则上不能写进源代码里，我这里偷懒了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -1543,7 +1545,7 @@ Books
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png"/> <figcaption>
-            <h4>图 | 打完分后按钮失效</h4>
+            <h4>图 | 打完分后Submit按钮失效</h4>
         </figcaption>
 </figure>
 
@@ -1551,7 +1553,7 @@ Books
 
 <p>自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。</p>
 
-<p>在这里，我用<code>request.args.get()</code>方法取id，调用起来就变成<url_head>/api/book?id=xx，而不再是<url_head>/api/book/xx。</p>
+<p>在这里，我用<code>request.args.get()</code>方法取id，调用起来就变成<url_head>/api/book?id=xx的形式，而不再是默认的<url_head>/api/book/xx。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -1727,7 +1729,7 @@ Books
 </div>
 <h3 id="其他">其他</h3>
 
-<p><code>flash</code>自动消失和star-rating需要专门适配一些javascript。在main.js里。</p>
+<p><code>flash</code>自动消失和star-rating需要专门适配一些javascript，在main.js里。主要是一些jQuery。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
@@ -1818,7 +1820,11 @@ Books
           <a href="/tags/web/">web</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/flask-socketio-site-demo/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">edx作业：用flask建一个简易Web聊天室</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/imacros_zyb_cnaps_scrapy/">
             <span class="next-text nav-default">iMacros脚本运行三天，爬取了40万行现代化支付行号</span>
             <span class="next-text nav-mobile">下一篇</span>

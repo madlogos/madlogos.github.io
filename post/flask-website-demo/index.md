@@ -1,6 +1,6 @@
 
 {{% admonition abstract 摘要 %}}
-记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。
+记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。<br/>
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
@@ -660,7 +660,9 @@ def index():
 ```
 <!-- {% endraw %} -->
 
-后端做了很多工作。首先，定义一个`get_gr()`函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。
+可以看到，reviews是一个嵌套列表，每个review列表都是长度为5的列表。这个review的结构定义在后端代码里（`review_qry`)。
+
+后端做了很多工作。首先，定义一个`get_gr()`函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。key和secret原则上不能写进源代码里，我这里偷懒了。
 
 ```python
 def get_gr(isbn, api='review_counts', success_code=200):
@@ -761,13 +763,13 @@ def review(book_id):
 
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后按钮失效" %}}
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后Submit按钮失效" %}}
 
 ### API
 
 自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。
 
-在这里，我用`request.args.get()`方法取id，调用起来就变成<url_head>/api/book?id=xx，而不再是<url_head>/api/book/xx。
+在这里，我用`request.args.get()`方法取id，调用起来就变成<url_head>/api/book?id=xx的形式，而不再是默认的<url_head>/api/book/xx。
 
 ```python
 @app.route('/api/book', methods=['GET'])
@@ -862,7 +864,7 @@ main {
 
 ### 其他
 
-`flash`自动消失和star-rating需要专门适配一些javascript。在main.js里。
+`flash`自动消失和star-rating需要专门适配一些javascript，在main.js里。主要是一些jQuery。
 
 ```javascript
 $(document).ready(function () {

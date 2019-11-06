@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AJAX on Libido Chateau</title>
+    <link>https://madlogos.github.io/tags/ajax/</link>
+    <description>Recent content in AJAX on Libido Chateau</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>madlogos</copyright>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://madlogos.github.io/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>edx作业：用flask建一个简易Web聊天室</title>
+      <link>https://madlogos.github.io/post/flask-socketio-site-demo/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://madlogos.github.io/post/flask-socketio-site-demo/</guid>
+      <description>摘要 记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。 【honor code警告】如果你刚巧也</description>
+    </item>
+    
+  </channel>
+</rss>

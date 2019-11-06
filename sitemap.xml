@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://madlogos.github.io/tags/ajax/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://madlogos.github.io/categories/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/flask-website-demo/</loc>
+    <loc>https://madlogos.github.io/post/flask-socketio-site-demo/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -44,6 +51,13 @@
   </url>
   
   <url>
+    <loc>https://madlogos.github.io/tags/socketio/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://madlogos.github.io/tags/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -59,6 +73,13 @@
   
   <url>
     <loc>https://madlogos.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/flask-website-demo/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -219,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%97%B6%E8%AF%84/</loc>
     <lastmod>2017-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%97%B6%E8%AF%84/</loc>
+    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
     <lastmod>2017-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -261,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <loc>https://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
