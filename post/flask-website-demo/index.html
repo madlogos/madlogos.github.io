@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7080">
+<meta itemprop="wordCount" content="7048">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7080 字 </span>
+          <span class="more-meta"> 约 7048 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
@@ -231,9 +231,11 @@
 
 <p>建三张表，<code>mbr</code>，<code>book</code>和<code>review</code>。<code>review</code>表里<code>mbr_id</code>和<code>book_id</code>分别外键关联到<code>mbr</code>和<code>book</code>。</p>
 
-<blockquote>
-<p>为啥不用<code>user</code>？因为postgresql不同意我用这个表名，所以在sqlite里也这么干。</p>
-</blockquote>
+<div class="admonition question"><p class="admonition-title">为啥不用`user`？</p>
+  
+因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
+
+</div>
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png"/> <figcaption>
@@ -546,7 +548,12 @@
 </div>
 <!-- {% endraw %} -->
 
-<p>对应地，在application.py里定义一些基本代码。&rdquo;db.db&rdquo;被export到环境变量<code>DATABASE_URL</code>，为了避免thread不一致问题，写成&rdquo;sqlite:////absolute/path/to/db?check_same_thread=false&rdquo;。application.py被export到环境变量<code>FLASK_APP</code>，方便后面直接命令行<code>flask run</code>启动应用。</p>
+<p>对应地，在application.py里定义一些基本代码。</p>
+
+<ul>
+<li>&ldquo;db.db&rdquo;被export到环境变量<code>DATABASE_URL</code>，为了避免thread不一致问题，写成&rdquo;sqlite:////absolute/path/to/db?check_same_thread=false&rdquo;。</li>
+
+<li><p>application.py被export到环境变量<code>FLASK_APP</code>，方便后面直接命令行<code>flask run</code>启动应用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -586,7 +593,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> \
-    <span class="n">redirect</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
+<span class="n">redirect</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Markup</span>
 <span class="kn">from</span> <span class="nn">flask_session</span> <span class="kn">import</span> <span class="n">Session</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
@@ -597,7 +604,7 @@
 
 <span class="c1"># Check for environment variable</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL&#34;</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL is not set&#34;</span><span class="p">)</span>
+<span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL is not set&#34;</span><span class="p">)</span>
 
 <span class="c1"># Configure session to use filesystem</span>
 <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;SESSION_PERMANENT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
@@ -612,9 +619,11 @@
 
 <span class="nd">@app.teardown_request</span>
 <span class="k">def</span> <span class="nf">remove_session</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h3 id="登录">登录</h3>
 
 <figure>
@@ -1091,16 +1100,17 @@ Books
 
 <p>我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法。</p>
 
-<p>假如isbn=&lsquo;123&rsquo;，title=&lsquo;war&rsquo;，author=&lsquo;rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s2">&#34;isbn LIKE &#39;</span><span class="si">%123%</span><span class="s2">&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;title LIKE &#39;%war%&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;author LIKE &#39;</span><span class="si">%r</span><span class="s2">ider%&#39;&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<div class="admonition example"><p class="admonition-title">举个栗子</p>
+  
+假如isbn='123'，title='war'，author='rider'，那么`["%s LIKE '%%%s%%'" % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']`的结果就是这么一个列表:
+
+```python
+["isbn LIKE '%123%'", "title LIKE '%war%'", "author LIKE '%rider%'"]
+```
+
+一下就把三个查询条件都生成好了。Very pythonic.
+
 </div>
-</div>
-<p>一下就把三个查询条件都生成好了。Very pythonic.</p>
 
 <p>定义了一个<code>subset_rec()</code>函数，对列表进行切片，用来对查询结果分页。最后几行是人工生成分页对象pagination。最后把pagination和分页筛出的记录返回给前端。随着用户点击翻页，pagination和page_books都会跟着更新。</p>
 <div class="highlight"><div class="chroma">

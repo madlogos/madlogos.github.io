@@ -17,7 +17,30 @@
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://madlogos.github.io/post/flask-socketio-site-demo/</guid>
-      <description>摘要 记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。 【honor code警告】如果你刚巧也</description>
+      <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
+  
+记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。&lt;br/&gt;
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
+
+&lt;/div&gt;
+
+&lt;p&gt;这是哈佛&lt;strong&gt;继续教育学院&lt;/strong&gt;开的的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt; 第三个作业项目。&lt;/p&gt;
+
+&lt;h2 id=&#34;作业要求-https-docs-cs50-net-web-2019-x-projects-2-project2-html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/2/project2.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;做一个仿&lt;a href=&#34;www.slack.com&#34;&gt;Slack&lt;/a&gt;概念的聊天应用。这次不需要用数据库了，但得&lt;/p&gt;
+
+&lt;p&gt;要实现以下功能：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;能自定义用户名（不能和已有的重复）&lt;/li&gt;
+&lt;li&gt;能创建频道&lt;/li&gt;
+&lt;li&gt;能看频道列表&lt;/li&gt;
+&lt;li&gt;进频道能看到所有消息，但最多显示100条&lt;/li&gt;
+&lt;li&gt;能在频道中发送消息&lt;/li&gt;
+&lt;li&gt;能记住频道，下次回来能立即进去&lt;/li&gt;
+&lt;li&gt;延伸功能：比如删除自己的消息，上传附件等&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>

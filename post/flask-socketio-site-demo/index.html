@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7047">
+<meta itemprop="wordCount" content="7150">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7047 字 </span>
+          <span class="more-meta"> 约 7150 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
@@ -164,9 +164,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<div class="admonition abstract"><p class="admonition-title">摘要</p>
+      <div class="admonition abstract"><p class="admonition-title">摘要</p>
   
 记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。<br/>
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
@@ -245,7 +243,7 @@
 
 <h3 id="基础模板">基础模板</h3>
 
-<p>[_base.html]()是框架模板，后续其他页面模板都会套用(extend)它。</p>
+<p><a href="https://github.com/madlogos/edx_cs50/blob/master/project2/templates/_base.html">_base.html</a>是框架模板，后续其他页面模板都会套用(extend)它。</p>
 
 <ul>
 <li>样式主要靠bootstrap</li>
@@ -423,7 +421,7 @@
 }</pre></td></tr></table>
 </div>
 </div>
-<p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created&rsquo;和双层列表&rsquo;chats&rsquo;：</p>
+<p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created&rsquo;、&rsquo;max_id&rsquo;和双层字典&rsquo;chats&rsquo;：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -440,25 +438,45 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></pre></td>
 <td class="lntd">
 <pre class="chroma">{
   &#39;&lt;channel 1&gt;&#39;: 
     {
       &#39;created&#39;: &#39;&lt;creation time of channel 1&gt;&#39;,
+      &#39;max_id&#39;: &lt;max id of chats&gt;,
       &#39;chats&#39;: 
-        [
-          [&#39;&lt;post 1 user&gt;&#39;, &#39;&lt;post 1 time&gt;&#39;, &#39;&lt;post 1 msg&gt;&#39;],
-          [&#39;&lt;post 2 user&gt;&#39;, &#39;&lt;post 2 time&gt;&#39;, &#39;&lt;post 2 msg&gt;&#39;],
+        {
+          &lt;id 1&gt;: 
+            {&#39;user&#39;: &#39;&lt;post 1 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 1 time&gt;&#39;, 
+             &#39;msg&#39;: &#39;&lt;post 1 msg&gt;&#39;
+            },
+          &lt;id 2&gt;: 
+            {&#39;user&#39;: &#39;&lt;post 2 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 2 time&gt;&#39;, 
+             &#39;msg&#39;: &#39;&lt;post 2 msg&gt;&#39;
+            },
           ...,
-          [&#39;&lt;post n user&gt;&#39;, &#39;&lt;post n time&gt;&#39;, &#39;&lt;post n msg&gt;&#39;],
-        ]
+          &lt;id n&gt;: 
+            {&#39;user&#39;: &#39;&lt;post n user&gt;&#39;, &#39;time&#39;: &#39;&lt;post n time&gt;&#39;, 
+             &#39;msg&#39;: &#39;&lt;post n msg&gt;&#39;
+            },,
+        }
     },
   ...
 }</pre></td></tr></table>
 </div>
 </div>
-<p>chats里包含的就是一条条消息。讲究点的话，应该也存成字典，毕竟time和user、msg类型不同。不过偷懒天经地义，简化处理也没啥不可以。</p>
+<p>chats里包含的就是一条条消息，以id为键，包起&rsquo;user&rsquo;、&rsquo;time&rsquo;和&rsquo;msg&rsquo;。</p>
 
 <p>主路由&rdquo;/&ldquo;绑定函数<code>index</code>。假如当前<code>session</code>里有&rsquo;act_user&rsquo;，那么调用<code>get_channels()</code>函数（也就是跑去频道列表），否则跳转去login页。</p>
 <div class="highlight"><div class="chroma">
@@ -519,7 +537,13 @@
         <span class="k">return</span> <span class="n">get_channels</span><span class="p">()</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>最后在<strong>main</strong>里加一点代码，配置日志输出。部署到生产环境时，要记得把<code>app.debug</code>设为False。</p>
+<p>最后在<strong>main</strong>里加一点代码，配置日志输出。运行<code>python application.py</code>时，会自动运行这部分。如果继续用<code>flask run</code>，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。</p>
+
+<div class="admonition tip">
+  
+部署到生产环境时，要记得把`app.debug`设为False。
+
+</div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
@@ -552,15 +576,15 @@
         </figcaption>
 </figure>
 
+<p>一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。</p>
+
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/display_name.png"/> <figcaption>
             <h4>图 | 创建用户</h4>
         </figcaption>
 </figure>
 
-<p>一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。</p>
-
-<p><a name="channels_html"></a>channels.html模板代码：</p>
+<p><a name="channels_html"></a><a href="https://github.com/madlogos/edx_cs50/blob/master/project2/templates/channels.html">channels.html</a>模板代码：</p>
 
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
@@ -723,7 +747,7 @@ Channels
 
 <p>如果act_user不是None，即当前用户已经登录，那就显示另一套内容：本user的前次访问频道，和全部频道列表。具体在<a href="#频道列表">频道列表</a>里讲。</p>
 
-<p>到application.py看看login路由定义了些什么。</p>
+<p>现在到application.py看看login路由定义了些什么。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -789,6 +813,12 @@ Channels
 
 <p>完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。</p>
 
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png"/> <figcaption>
+            <h4>图 | 频道列表</h4>
+        </figcaption>
+</figure>
+
 <p>看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数<code>get_channels()</code>和<code>set_channels()</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -823,10 +853,13 @@ Channels
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_channels</span><span class="p">():</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">channels</span><span class="p">))</span>
     <span class="n">last_visit</span><span class="o">=</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">last_visit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">last_visit</span> <span class="o">=</span> <span class="bp">None</span>
@@ -850,7 +883,8 @@ Channels
                 <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
 </span><span class="s2">                The new channel </span><span class="si">%s</span><span class="s2"> has been created.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">new_channel</span><span class="p">)),</span>
                 <span class="s1">&#39;success&#39;</span><span class="p">)</span>
-            <span class="n">channels</span><span class="p">[</span><span class="n">new_channel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;created&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="s2">&#34;chats&#34;</span><span class="p">:[]}</span>
+            <span class="n">channels</span><span class="p">[</span><span class="n">new_channel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;created&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> 
+                <span class="s2">&#34;max_id&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;chats&#34;</span><span class="p">:{}}</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
             <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-warning&#39;&gt;&lt;/i&gt;
@@ -866,17 +900,11 @@ Channels
         </figcaption>
 </figure>
 
-<p>POST方法下，服务器从表单里提取&rdquo;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就flash甩个错误警报。假如不存在，那就往channels里插入一个新列表，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
+<p>POST方法下，服务器从表单里提取&rdquo;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created&rsquo;、&rsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/new_channel.png"/> <figcaption>
             <h4>图 | 创建频道</h4>
-        </figcaption>
-</figure>
-
-<figure>
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png"/> <figcaption>
-            <h4>图 | 频道列表</h4>
         </figcaption>
 </figure>
 
@@ -977,6 +1005,11 @@ Channels
 </span><span class="lnt">73
 </span><span class="lnt">74
 </span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
@@ -1010,21 +1043,26 @@ Channel {{ channel }}
         <span class="o">&lt;</span><span class="nx">td</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="o">&gt;</span>
             <span class="p">{{</span><span class="err">#</span><span class="k">if</span> <span class="nx">same_user</span> <span class="p">}}</span>
                 <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_msg&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:dodgerblue&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_msg</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;del&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;float:right&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;btn btn-sm btn-danger&#34;</span><span class="o">&gt;</span><span class="nx">Delete</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-            <span class="p">{{</span> <span class="k">else</span> <span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_msg&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:lightsalmon&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_msg</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&#34;{{ post_id }}&#34;</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;del&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;float:right&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;btn btn-sm btn-danger&#34;&#34;&gt;Delete&lt;/button&gt;
+</span><span class="s2">            {{ else }}
+</span><span class="s2">                &lt;span data-class=&#34;</span><span class="nx">post_msg</span><span class="err">&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:lightsalmon&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_msg</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
             <span class="p">{{</span><span class="err">/if}}</span>
         <span class="o">&lt;</span><span class="err">/td&gt;</span>
         <span class="p">{</span><span class="o">%-</span> <span class="nx">endraw</span> <span class="o">%</span><span class="p">}</span>
     <span class="o">&lt;</span><span class="err">/tr&gt;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/chat.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ channel }}&#34;</span><span class="p">);</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
     <span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/chat.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block control %}
 {% endblock %}
 
 {% block disp %}
@@ -1060,9 +1098,12 @@ Channel {{ channel }}
 
 <p>在channel.html模板中，script块里引入一大堆JS。比如用来动态生成HTML内容的handlebars.js，和处理socket的socket.io.js。disp块里定义了显示对话的表格&rdquo;tbl_chat&rdquo;，其中tbody留空，赋个id=&ldquo;msgTbl&rdquo;。</p>
 
-<p>handlebars模板有一些特殊的语法规范，比如要转义的部分需要加<!-- {% raw %} -->{% raw -%}{%- endraw %}<!-- {% endraw %} -->标签、控制结构用{{#if}}{{else}}{{/if}}。它能解析变量，动态合成HTML。</p>
+<!-- {% raw %} -->
 
-<p>html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是msgTbl）。chats要加管道函数tojson，把文本转成json。代码如下：</p>
+<p>handlebars模板有一些特殊的语法规范，比如要转义的部分需要加{% raw -%}&hellip;{%- endraw %} 而标签、控制结构用{{#if}}&hellip;{{else}}&hellip;{{/if}}。它能解析变量，动态合成HTML。上面代码里的handlebars模板主要是根据act_user和发帖人是否为同一人，显示为不同的颜色。
+<!-- {% endraw %} --></p>
+
+<p>html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是msgTbl）。注意：chats要加管道函数tojson，把文本转成json。就是这段：</p>
 
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
@@ -1070,17 +1111,23 @@ Channel {{ channel }}
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-	<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ channel }}&#34;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
 </div>
 <!-- {% endraw %} -->
 
-<p>这段代码用到了<code>format_chats()</code>函数。这是个自定义函数，从chat.js里加载：</p>
+<p>这里定义了两个变量：act_user和act_channel，把当前线程的用户名和当前频道从html模板传到后面引入的javascript里，也就是<a href="https://github.com/madlogos/edx_cs50/blob/master/project2/static/js/chat.js">chat.js</a>。</p>
+
+<p>这段JS代码用到了<code>format_chats()</code>函数。这是个自定义函数，从chat.js里加载：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
@@ -1102,138 +1149,41 @@ Channel {{ channel }}
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// template for chatPost
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#chatPost&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">format_chats</span><span class="p">(</span><span class="nx">json_data</span><span class="p">,</span> <span class="nx">act_user</span><span class="o">=</span><span class="nx">act_user</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json_data</span><span class="p">));</span> 
+    <span class="cm">/* json_data is a dict */</span>
     <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="nx">json_data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">sub_json</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">rslt_date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">sub_json</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-        <span class="kr">const</span> <span class="nx">rslt</span> <span class="o">=</span> <span class="nx">template</span><span class="p">({</span><span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">sub_json</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">json_data</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">rslt_date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">json_data</span><span class="p">[</span><span class="nx">key</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]);</span>
+        <span class="kr">const</span> <span class="nx">rslt</span> <span class="o">=</span> <span class="nx">template</span><span class="p">({</span>
+            <span class="s1">&#39;post_id&#39;</span><span class="o">:</span> <span class="nx">key</span><span class="p">,</span>
+            <span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">json_data</span><span class="p">[</span><span class="nx">key</span><span class="p">][</span><span class="s1">&#39;user&#39;</span><span class="p">]),</span>
             <span class="s1">&#39;post_time&#39;</span><span class="o">:</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">rslt_date</span><span class="p">),</span> 
-            <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">sub_json</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-            <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">sub_json</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nx">act_user</span><span class="p">});</span>
+            <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">json_data</span><span class="p">[</span><span class="nx">key</span><span class="p">][</span><span class="s1">&#39;msg&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">json_data</span><span class="p">[</span><span class="nx">key</span><span class="p">][</span><span class="s1">&#39;user&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nx">act_user</span><span class="p">});</span>
         <span class="nx">output</span> <span class="o">+=</span> <span class="nx">rslt</span><span class="p">;</span>
     <span class="p">});</span>
     <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
 <span class="p">};</span>
-
-<span class="kd">function</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">date</span><span class="p">){</span>
-    <span class="kr">const</span> <span class="nx">yr</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getYear</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1900</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">mo</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
-    <span class="kr">const</span> <span class="nx">hr</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
-    <span class="kr">const</span> <span class="nx">mi</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
-    <span class="kr">const</span> <span class="nx">se</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span> 
-    <span class="kr">const</span> <span class="nx">ms</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
-    <span class="k">return</span> <span class="nx">yr</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">mo</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">dt</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span>
-        <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">hr</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">mi</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">se</span><span class="p">)</span> <span class="o">+</span> 
-        <span class="s2">&#34;.&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="kd">function</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="nx">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">){</span>
-    <span class="cm">/* put zeros in front the num */</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nb">Array</span><span class="p">(</span><span class="nx">digits</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nx">num</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="nx">digits</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="kd">function</span> <span class="nx">format_tz_offset</span><span class="p">(</span><span class="nx">offset_min</span><span class="p">){</span>
-    <span class="kr">const</span> <span class="nx">sign</span> <span class="o">=</span> <span class="p">(</span><span class="nx">offset_min</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;+&#39;</span> <span class="o">:</span> <span class="s1">&#39;-&#39;</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">hr</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">offset_min</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
-    <span class="kr">const</span> <span class="nx">mi</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">offset_min</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">sign</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">hr</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">mi</span><span class="p">);</span>
-<span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>template对象得先用Handlebars编译一下，绑定handlebars模板对象chatPost的innerHTML，把不同的变量json喂给template，就能产生一个个实例。act_user和act_channel指当前用户和频道，起始时置空。</p>
+<p>template对象得先用Handlebars编译一下，绑定handlebars模板对象chatPost的innerHTML，把不同的变量(post_id, post_user&hellip;)json喂给template，就能编译产生一个个实例。</p>
 
-<ul>
-<li><code>format_chats()</code>负责将json数据套入<a href="#channel_html">channel.html模板</a> 中的handlebars模板&rdquo;chatPost&rdquo;里，解析参数后生成相应的html代码。这个输入参数json结构是固定的，包含post_user、post_time、post_msg，也就是全局对象channels里每个channel中的chats字典。
+<p><code>format_chats()</code>负责将json数据套入<a href="#channel_html">channel.html模板</a> 中的handlebars模板&rdquo;chatPost&rdquo;里，解析参数后生成相应的html代码。这个输入参数json结构是固定的，包含post_user、post_time、post_msg，也就是全局对象channels里每个channel中的chats字典。</p>
 
-<ul>
-<li>非常英明地用了<code>decodeURI()</code>和<code>encodeURI()</code>函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。</li>
-</ul></li>
-<li><code>format_date()</code>是一个整形函数，把日期输出为mmmm-yy-dd hh:mm:ss的标准格式。
+<div class="admonition note">
+  
+非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 
-<ul>
-<li><code>lead_zero()</code>是另一个整形函数，在数字前加零补位</li>
-</ul></li>
-<li><code>format_tz_offset()</code>生成时区，以+/-hh:mm的形式输出，比如北京时间就是+08:00，后面有用。</li>
-</ul>
+</div>
 
-<p>先创建socket连接。和服务器实现连接(<code>on('connect')</code>)后，服务器会发一个&rdquo;send username&rdquo;请求，把当前用户名和当前频道发到客户端。客户端接到&rdquo;send username&rdquo;请求，就能获得act_user和act_channel，用于后续的解析计算。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;connect&#34;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">send_username</span><span class="p">():</span>
-    <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;send username&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;act_user&#39;</span><span class="p">:</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">),</span> 
-         <span class="s1">&#39;act_channel&#39;</span><span class="p">:</span> <span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">))})</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>前端JS里，页面监听代码里有一段用来处理&rdquo;send username&rdquo;请求：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-	<span class="cm">/* Some other codes here */</span>
-	
-	<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;send username&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="c1">// console.log(JSON.stringify(data));
-</span><span class="c1"></span>        <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">act_user</span><span class="p">);</span>
-        <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">act_channel</span><span class="p">);</span>
-    <span class="p">});</span>
-	
-	<span class="cm">/* Some other codes here */</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-<p>channel/<channel>路由的代码：</p>
+<p>回过头再看&rsquo;channel/<channel>&lsquo;路由的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
@@ -1268,7 +1218,9 @@ Channel {{ channel }}
 
 <h3 id="发消息">发消息</h3>
 
-<p>当点击<kbd>send</kbd>，客户端就发一个&rdquo;send msg&rdquo;请求，把json<code>{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}</code>发射(socket.emit)到服务器，交给flask_socketio处理。</p>
+<p>当点击<kbd>send</kbd>，客户端就发一个&rdquo;send msg&rdquo;请求，把json<code>{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}</code>发射(<code>socket.emit</code>)到服务器，交给flask_socketio处理。</p>
+
+<p><a name="chatjs"></a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
@@ -1314,19 +1266,19 @@ Channel {{ channel }}
                 <span class="s1">&#39;msg&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">msg</span><span class="p">),</span> <span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_channel</span><span class="p">)});</span>
         <span class="p">};</span>
     <span class="p">});</span>
-    
-	<span class="cm">/* &#39;send username&#39; codes */</span>
 
     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;emit msg&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">posttime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">time</span><span class="p">);</span>
-        <span class="c1">// console.log(JSON.stringify(data));
-</span><span class="c1"></span>        <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">template</span><span class="p">(</span>
-            <span class="p">{</span><span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">),</span> <span class="s1">&#39;post_time&#39;</span><span class="o">:</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">posttime</span><span class="p">),</span> 
-             <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">),</span> <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span><span class="o">==</span><span class="nx">act_user</span><span class="p">});</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">content</span><span class="p">;</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msg&#34;</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-        <span class="cm">/* scroll to the page bottom */</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;emit msg: &#39;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">act_channel</span> <span class="o">==</span> <span class="nx">data</span><span class="p">.</span><span class="nx">channel</span><span class="p">){</span>
+            <span class="kr">const</span> <span class="nx">posttime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">time</span><span class="p">);</span>
+            <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">template</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;post_id&#39;</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">),</span> <span class="s1">&#39;post_time&#39;</span><span class="o">:</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">posttime</span><span class="p">),</span> 
+                 <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">),</span> <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span><span class="o">==</span><span class="nx">act_user</span><span class="p">});</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">content</span><span class="p">;</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msg&#34;</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+            <span class="cm">/* scroll to the page bottom */</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="p">);</span>
+        <span class="p">};</span>
     <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>
@@ -1347,25 +1299,41 @@ Channel {{ channel }}
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;send msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">emit_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># if msg is blank, do not emit</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">channel</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">])</span>
         <span class="n">chats</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span>
-        <span class="n">chats</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]])</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;max_id&#39;</span><span class="p">]</span>
+        <span class="n">chats</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> 
+            <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]}</span>
+        <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;max_id&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chats</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
             <span class="n">chats</span> <span class="o">=</span> <span class="n">chats</span><span class="p">[(</span><span class="nb">len</span><span class="p">(</span><span class="n">chats</span><span class="p">)</span><span class="o">-</span><span class="mi">100</span><span class="p">):]</span>
         <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chats</span>
-        <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;emit msg&#39;</span><span class="p">,</span> 
-             <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]},</span>
-             <span class="n">broadcast</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>假如&rdquo;send msg&rdquo;请求数据不为空，那就各种解析：解析出channel、chats（只保留最后100条），打包成<code>{'user': data['user'], 'time': data['time'], 'msg': data['msg']}</code>这样格式的json，发射(emit)回客户端。这里设<code>broadcast=True</code>，其他聊天室的客户端也都会通过广播机制接到这些数据，并通过ajax更新页面内容。</p>
 
-<p>而JS中，<code>socket.on('emit msg')</code>代码会将从服务器收到的广播数据套进handlebars模板里解析，再拼合成HTML填充到msgTbl里，同时清空输入文本框，自动定位到页面底部。</p>
+        <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;emit msg&#39;</span><span class="p">,</span> 
+             <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> 
+              <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">],</span> <span class="s1">&#39;channel&#39;</span><span class="p">:</span> <span class="n">channel</span><span class="p">},</span> <span class="n">broadcast</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>假如&rdquo;send msg&rdquo;请求数据不为空，那就各种解析：解析出channel、chats（只保留最后100条），打包成<code>{'id': id, 'user': data['user'], 'time': data['time'], 'msg': data['msg'], 'channel': channel}</code>这样格式的json，发射(emit)回客户端。这里设<code>broadcast=True</code>，其他聊天室的客户端也都会通过广播机制接到这些数据，并通过JS实现页面内更新。</p>
+
+<p>而JS中，<code>socket.on('emit msg')</code>部分的<a href="#chatjf">代码</a>会将从服务器收到的广播数据套进handlebars模板里解析，再拼合成HTML填充到&rsquo;#msgTbl&rsquo;里，同时清空输入文本框，自动定位到页面底部。</p>
+
+<div class="admonition note">
+  
+这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
+
+</div>
 
 <p>为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。</p>
 <div class="highlight"><div class="chroma">
@@ -1400,77 +1368,55 @@ Channel {{ channel }}
 <p>删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用remove()方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&#34;//&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">tgt</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">===</span> <span class="s1">&#39;del&#39;</span><span class="p">){</span>
-        <span class="kr">const</span> <span class="nx">tz_offset</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTimezoneOffset</span><span class="p">();</span>
         <span class="kr">const</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">tgt</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
-        <span class="kr">const</span> <span class="nx">elem_user</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">innerText</span><span class="p">;</span>
-        <span class="kr">const</span> <span class="nx">elem_time</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">innerText</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="o">+</span>
-            <span class="nx">format_tz_offset</span><span class="p">(</span><span class="nx">tz_offset</span><span class="p">));</span>
-        <span class="kr">const</span> <span class="nx">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">elem_user</span><span class="p">),</span> 
-            <span class="s1">&#39;time&#39;</span><span class="o">:</span> <span class="nx">elem_time</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_channel</span><span class="p">)};</span>
-        <span class="c1">// console.log(JSON.stringify(output));
-</span><span class="c1"></span>        <span class="nx">elem</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-        <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">,</span> <span class="nx">output</span><span class="p">);</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nx">act_channel</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span><span class="p">});</span>
     <span class="p">};</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>因为没有数据库，所以并没有考虑设置主键。这带来一个问题，前端删除一条消息，怎么同步到服务器呢？如果不能从服务器同步删除，下次回来，这条消息还在，多尴尬。我构造了一个字典<code>{'user': encodeURI(elem_user), 'time': elem_time, 'channel': encodeURI(act_channel)}</code>，回传给服务器。服务器校验用户、时间和频道条件，从channels里删掉对应的消息。</p>
+<p>代码先通过parentElement定位到删除按钮所对应的这条消息，从页面中删除。同时，<code>socket.emit</code>一个字典<code>{'channel': xxx, 'id': xxx}</code>给服务器，告诉它要删除的消息是哪个频道、id是多少。</p>
 
-<p>服务器端的处理代码：</p>
+<p>服务器端收到&rdquo;del msg&rdquo;请求后，收到的data就是个长度为2的字典。这样处理：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">del_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">channel</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">])</span>
     <span class="n">chats</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">chats</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chats</span><span class="p">)):</span>
-        <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]])</span>
-        <span class="k">if</span> <span class="n">chats</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">chats</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]:</span>
-            <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-            <span class="k">break</span></code></pre></td></tr></table>
+    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">chats</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Del: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>每次删除都要遍历整个字典，多字段匹配。感觉效率堪忧。还是有必要考虑一下主键设计。</p>
+<p>先解码channel（因为发过来前先进行了<code>encodeURI</code>），直接从channels对象的当前频道字典里，把键等于data[&lsquo;id&rsquo;]的字典整个pop掉。</p>
 
 <h3 id="其他">其他</h3>
 
-<p><code>flash</code>自动消失和star-rating需要专门适配一些javascript。在main.js里。</p>
+<p><code>flash</code>自动消失需要专门适配一些javascript。在main.js里，用jQuery实现。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
@@ -1510,7 +1456,6 @@ Channel {{ channel }}
 </figure>
 
 <!-- {% endraw %} -->
-
     </div>
 
     <div class="post-copyright">

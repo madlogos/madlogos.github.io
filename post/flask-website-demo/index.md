@@ -45,7 +45,9 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 
 建三张表，`mbr`，`book`和`review`。`review`表里`mbr_id`和`book_id`分别外键关联到`mbr`和`book`。
 
-> 为啥不用`user`？因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
+{{% admonition type="question" title="为啥不用`user`？" %}}
+因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
+{{% /admonition %}}
 
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png" title="图 | 数据库设计" %}}
 
@@ -219,7 +221,10 @@ conn.close()
 ```
 <!-- {% endraw %} -->
 
-对应地，在application.py里定义一些基本代码。"db.db"被export到环境变量`DATABASE_URL`，为了避免thread不一致问题，写成"sqlite:////absolute/path/to/db?check_same_thread=false"。application.py被export到环境变量`FLASK_APP`，方便后面直接命令行`flask run`启动应用。
+对应地，在application.py里定义一些基本代码。
+
+- "db.db"被export到环境变量`DATABASE_URL`，为了避免thread不一致问题，写成"sqlite:////absolute/path/to/db?check_same_thread=false"。
+- application.py被export到环境变量`FLASK_APP`，方便后面直接命令行`flask run`启动应用。
 
 ```python
 # -*- coding: UTF-8 -*-
@@ -522,6 +527,7 @@ Books
 
 我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法。
 
+{{% admonition type="example" title="举个栗子" %}}
 假如isbn='123'，title='war'，author='rider'，那么`["%s LIKE '%%%s%%'" % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']`的结果就是这么一个列表:
 
 ```python
@@ -529,6 +535,7 @@ Books
 ```
 
 一下就把三个查询条件都生成好了。Very pythonic.
+{{% /admonition %}}
 
 定义了一个`subset_rec()`函数，对列表进行切片，用来对查询结果分页。最后几行是人工生成分页对象pagination。最后把pagination和分页筛出的记录返回给前端。随着用户点击翻页，pagination和page_books都会跟着更新。
 
