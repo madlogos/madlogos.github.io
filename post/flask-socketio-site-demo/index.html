@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7150">
+<meta itemprop="wordCount" content="7155">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7150 字 </span>
+          <span class="more-meta"> 约 7155 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
@@ -539,7 +539,7 @@
 </div>
 <p>最后在<strong>main</strong>里加一点代码，配置日志输出。运行<code>python application.py</code>时，会自动运行这部分。如果继续用<code>flask run</code>，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。</p>
 
-<div class="admonition tip">
+<div class="admonition tip"><p class="admonition-title">tip</p>
   
 部署到生产环境时，要记得把`app.debug`设为False。
 
@@ -1177,7 +1177,7 @@ Channel {{ channel }}
 
 <p><code>format_chats()</code>负责将json数据套入<a href="#channel_html">channel.html模板</a> 中的handlebars模板&rdquo;chatPost&rdquo;里，解析参数后生成相应的html代码。这个输入参数json结构是固定的，包含post_user、post_time、post_msg，也就是全局对象channels里每个channel中的chats字典。</p>
 
-<div class="admonition note">
+<div class="admonition note"><p class="admonition-title">要点</p>
   
 非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 
@@ -1329,7 +1329,7 @@ Channel {{ channel }}
 
 <p>而JS中，<code>socket.on('emit msg')</code>部分的<a href="#chatjf">代码</a>会将从服务器收到的广播数据套进handlebars模板里解析，再拼合成HTML填充到&rsquo;#msgTbl&rsquo;里，同时清空输入文本框，自动定位到页面底部。</p>
 
-<div class="admonition note">
+<div class="admonition note"><p class="admonition-title">要点</p>
   
 这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
 
@@ -1499,7 +1499,11 @@ Channel {{ channel }}
           <a href="/tags/web/">web</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/django-website-demo-1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">edx作业：用Django建一个简易Web订单系统(1)</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/flask-website-demo/">
             <span class="next-text nav-default">edx作业：用flask建一个简易图书查询Web应用</span>
             <span class="next-text nav-mobile">下一篇</span>

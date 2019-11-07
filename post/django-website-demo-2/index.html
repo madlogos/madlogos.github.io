@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>edx作业：用Django建一个简易Web订单系统(2) - Libido Chateau</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" /><meta name="keywords" content="数据, 时评, 人文" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="https://madlogos.github.io/post/django-website-demo-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="edx作业：用Django建一个简易Web订单系统(2)" />
+<meta property="og:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://madlogos.github.io/post/django-website-demo-2/" />
+<meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="name" content="edx作业：用Django建一个简易Web订单系统(2)">
+<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统">
+
+
+<meta itemprop="datePublished" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6359">
+
+
+
+<meta itemprop="keywords" content="Python,Django,web," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="edx作业：用Django建一个简易Web订单系统(2)"/>
+<meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Libido Chateau</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Libido Chateau</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">edx作业：用Django建一个简易Web订单系统(2)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-11-07 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 6359 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#admin后台">Admin后台</a></li>
+<li><a href="#控制">控制</a></li>
+<li><a href="#视图">视图</a>
+<ul>
+<li><a href="#菜单">菜单</a>
+<ul>
+<li><a href="#后端">后端</a></li>
+<li><a href="#前端">前端</a></li>
+</ul></li>
+<li><a href="#点单">点单</a>
+<ul>
+<li><a href="#前端-1">前端</a></li>
+<li><a href="#后端-1">后端</a></li>
+</ul></li>
+<li><a href="#购物车">购物车</a>
+<ul>
+<li><a href="#前端-2">前端</a></li>
+<li><a href="#后端-2">后端</a></li>
+</ul></li>
+<li><a href="#订单列表">订单列表</a>
+<ul>
+<li><a href="#前端-3">前端</a></li>
+<li><a href="#后端-3">后端</a></li>
+</ul></li>
+<li><a href="#订单明细">订单明细</a>
+<ul>
+<li><a href="#前端-4">前端</a></li>
+<li><a href="#后端-4">后端</a></li>
+</ul></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="admin后台">Admin后台</h3>
+
+<p>模型做好后，可以在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py">admin.py</a>里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Topping</span><span class="p">,</span> <span class="n">Addition</span><span class="p">,</span> <span class="n">Order</span><span class="p">,</span> <span class="n">Item</span>
+
+<span class="c1"># Register your models here.</span>
+<span class="k">class</span> <span class="nc">CategoryAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">CategoryAdmin</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ProductAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">ProductAdmin</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ToppingAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">ToppingAdmin</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">AdditionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,]</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">AdditionAdmin</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">OrderItemInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">through</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,]</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">class</span> <span class="nc">OrderAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">]</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">(</span><span class="n">OrderItemInline</span><span class="p">,</span> <span class="p">)</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">OrderAdmin</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>比如从admin.ModelAdmin继承一个ProductAdmin类出来，定义好list_display、list_filter和list_editable之类属性，再用<code>admin.site.register</code>把Product类注册到ProductAdmin上，admin页面就能管理Product模型了。非常方便。</p>
+
+<p>值得多说一句的是多对多关系。比如OrderItem，需要专门从admin.TabularInline类继承出一个子类OrderItemInline来，绑定OrderItem模型。再在OrderAdmin中加个字段inlines，将OrderItemInline注册上去。这样就构建好了级联表UI视图，能通过Order来管理每个Order下面的Item了。</p>
+
+<h3 id="控制">控制</h3>
+
+<p>接下来在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/urls.py">urls.py</a>里添加路由。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;pick/&lt;int:id&gt;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">pick_product</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;pick_product&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;cart&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">cart</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;cart&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;orders&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">orders</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;orders&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;order/&lt;int:id&gt;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;order&#34;</span><span class="p">),</span>
+<span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>菜单、点菜、购物车、订单列表、订单明细五个路由都被定义好了。</p>
+
+<h3 id="视图">视图</h3>
+
+<p>开始在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/views.py">views.py</a>里逐个写视图。</p>
+
+<p>要记得把前面定义好的models都导进来。另外在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/udf.py">udf.py</a>里写了几个自定义函数(UDF)，也一并从导进来：</p>
+
+<ul>
+<li><code>clean_from_data()</code>: 用正则表达式清理表单键值对，形成比较规整的{id: value}形式的字典；</li>
+<li><code>to_num()</code>: 把数值型的文本转化为数值，不成功就转为None（为了<code>num()</code>和<code>parseInt()</code>抛Error退出）</li>
+<li><code>show_cart()</code>: 显示某用户的购物车，返回{&lsquo;items&rsquo;: items, &lsquo;price&rsquo;: price}字典</li>
+<li><code>show_item()</code>: 显示某个Item对象的结构，包括product_id和内含的topping和addition对象字典</li>
+</ul>
+
+<h4 id="菜单">菜单</h4>
+
+<h5 id="后端">后端</h5>
+
+<p>菜单页是事实上的首页。后端代码并不复杂，主要用来跳转。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;Cart item added.&#39;</span><span class="p">]})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">products</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/index.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;products&#34;</span><span class="p">:</span> <span class="n">products</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<div class="admonition tip"><p class="admonition-title">要点</p>
+  
+在orders应用里，所有视图函数前都加了修饰器`@login_requied`，这就很便捷地完成了用户校验。
+
+</div>
+
+<p>用GET方法时，取出所有Product对象，返回给前端处理。用POST方法时（点了<kbd>Add to cart</kbd>按钮），发一个Http响应。但事实上不起什么作用，这个按钮绑了onclick事件，将触发点单页面。</p>
+
+<p><a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/index.html">orders/index.html</a>模板定义了两摊东西：导航菜单和产品列表。这里用到Django的一个模板特性<code>regroup</code>，按category分组后再循环输出，就能实现分组显示了。</p>
+
+<h5 id="前端">前端</h5>
+
+<p>本质上是想实现一个按pivot_by size的交叉表，完全通过前端模板实现有点别扭。必要的话还是应该在后端加工好再往前端传。</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+{% load static %}
+
+{% block title %}
+Menu
+{% endblock %}
+
+{% block script %}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{% static &#39;js/menu.js&#39; %}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block nav_list %}
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;active&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>Menu<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;cart&#34;</span><span class="p">&gt;</span>Shopping chart<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;orders&#34;</span><span class="p">&gt;</span>Orders<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block disp %}
+{% regroup products by category as prod_lists %}
+{% for prods in prod_lists %}
+<span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>{{ prods.grouper }}<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;60%&#34;</span><span class="p">&gt;</span>Product<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;20%&#34;</span><span class="p">&gt;</span>Small<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;20%&#34;</span><span class="p">&gt;</span>Large<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+    {% regroup prods.list by name as prodset %}
+    {% for prod in prodset %}
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;60%&#34;</span><span class="p">&gt;</span>{{ prod.grouper }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        {% if prod.list.0.size != &#39;Small&#39; %}
+        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;20%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        {% endif %}
+
+        {% for item in prod.list %}
+        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;20%&#34;</span><span class="p">&gt;</span>
+        ${{ item.price }}<span class="ni">&amp;emsp;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-sm btn-primary&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;prod_{{ item.id }}&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;popupfun(&#39;{{ item.id }}&#39;)&#34;</span><span class="p">&gt;</span>Add to Cart<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+{% endfor %}
+{% endblock %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<p><kbd>Add to cart</kbd>按钮绑定的事件叫<code>popupfun()</code>，写在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/main.js">menu.js</a>里：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">popupfun</span><span class="p">(</span><span class="nx">prod_id</span><span class="p">){</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;pick/&#34;</span> <span class="o">+</span> <span class="nx">prod_id</span><span class="p">,</span> <span class="s2">&#34;Add to cart&#34;</span><span class="p">,</span> <span class="s2">&#34;status=1,height:500,width:300,toolbar=0,resizeable=0&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>也就是弹一个点单页面出来，确认产品数量。这么做的原因是，需要在专门的页面里指定添加品（Topping和Addition）的品种和数量，放在同一个页面里写有点麻烦。</p>
+
+<h4 id="点单">点单</h4>
+
+<h5 id="前端-1">前端</h5>
+
+<p>点单页面从<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/pick_product.html">pick_product.html</a>页面模板讲起。</p>
+
+<p>它继承的是_popup.html模板，根据后端传入的product对象的n_topping数量判断，是否要加载topping和addition列表。一旦加载，就显示这些附加物，和数量录入框。这些表单是动态生成的，所以我没有用forms模板的方法来实现。（不过StackOverflow上查了查，还是有实现方案的。）</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_popup.html&#34; %}
+{% load static %}
+
+{% block title %}
+Topping / Additions
+{% endblock %}
+
+{% block script %}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{% static &#39;js/pick_product.js&#39; %}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block disp %}
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{product.category}} - {{ product.name }} ({{ product.size }})<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;prod_form&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;prod_form&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;pick_product&#39; id=product.id %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> <span class="na">onsubmit</span><span class="o">=</span><span class="s">&#34;return check_toppings()&#34;</span><span class="p">&gt;</span>
+{% csrf_token %}
+<span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+    Unit price: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;font-size:x-large&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;price&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;price&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;font-size:x-large&#34;</span><span class="p">&gt;</span>{{ product.price }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Servings:
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;qty&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;qty&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center;width:50%&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_submit&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-md btn-primary&#34;</span><span class="p">&gt;</span>Confirm<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+{% if product.n_topping &gt; 0 %}
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>You need to choose <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;n_topping&#34;</span><span class="p">&gt;</span>{{ product.n_topping }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> pizza topping(s)<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Topping<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Quantity<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+        {% for topping in toppings %}
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ topping.name }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;topping_price_{{ topping.id }}&#34;</span><span class="p">&gt;</span>{{ topping.price }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;topping_{{ topping.id }}&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center;width:50%&#34;</span>
+                 <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;topping&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ topping.id }}&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">max</span><span class="o">=</span><span class="s">&#34;{{ product.n_topping }}&#34;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+{% endif %}
+
+{% if product.n_addition &gt; 0 %}
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Feel free to choose addition(s) for subs<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Additions<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Quantity<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+        {% for addition in additions %}
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ addition.name }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;addition_price_{{ addition.id }}&#34;</span><span class="p">&gt;</span>{{ addition.price }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;addition_{{ addition.id }}&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center;width:50%&#34;</span>
+                 <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;addition&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ addition.id }}&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        {% endfor %}
+    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+{% endif %}
+
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<p>表单绑定了事件<code>onsubmit()</code>，所以点击<kbd>Confirm</kbd>按钮提交表单后，<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/pick_product.js">pick_product.js</a>里的<code>check_toppings()</code>函数会先运行。如果topping数量之和与limit不符，就返回false。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">check_toppings</span><span class="p">(</span><span class="nx">limit</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">qty</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">limit</span> <span class="o">==</span> <span class="kc">null</span><span class="p">){</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;topping&#39;</span><span class="p">){</span>
+            <span class="nx">qty</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">qty</span> <span class="o">==</span> <span class="nx">limit</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>整个JS脚本在载入点单页面后就开始监听。一旦点了提交按钮就校验数量。一旦改变了文本输入框的值，就调用<code>udpate_price()</code>更新页面小计。</p>
+
+<p>这里用到了<code>evt.target.dataset.class</code>属性。我比较喜欢在前端模板的控件里埋<code>data-xxxx</code>属性，比如<code>data-class</code>、<code>data-value</code>，这样JS只要用<code>dataset.xxx</code>就能引用它。也不知道这是不是好的做法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">submit</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#btn_submit&#39;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">n_topping</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;n_topping&#39;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">qty_limit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n_topping</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">n_topping</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+
+    <span class="nx">submit</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nx">check_toppings</span><span class="p">(</span><span class="nx">qty_limit</span><span class="p">)){</span>
+            <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Please select exactly &#34;</span> <span class="o">+</span> <span class="nx">qty_limit</span> <span class="o">+</span> <span class="s2">&#34; toppings.&#34;</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s1">&#39;prod_form&#39;</span><span class="p">].</span><span class="nx">submit</span><span class="p">();</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;topping&#39;</span> <span class="o">||</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;addition&#39;</span><span class="p">){</span>
+            <span class="nx">update_price</span><span class="p">();</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">update_price</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">price</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;price&#34;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;topping&#39;</span> <span class="o">||</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;addition&#39;</span><span class="p">){</span>
+            <span class="kd">let</span> <span class="nx">add_price</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">+</span> <span class="s2">&#34;_price_&#34;</span> <span class="o">+</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">item</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+            <span class="nx">price</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">add_price</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;price&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">price</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span> 
+</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="后端-1">后端</h5>
+
+<p>通过了JS脚本的校验后，添加物品种和数量提交到后端，python要进一步做一系列处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">pick_product</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+        <span class="n">qty</span> <span class="o">=</span> <span class="n">to_num</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;qty&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">qty</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">qty</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&#34;&lt;script&gt;window.close();&lt;/script&gt;&#34;</span><span class="p">)</span>
+
+        <span class="n">toppings</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="n">n_topping</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">n_topping</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">toppings</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">!=</span> <span class="n">n_topping</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&#34;&lt;script&gt;alert(&#39;This product should have &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_topping</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34; topping\(s\).&#39;)&lt;/script&gt;&#34;</span><span class="p">)</span>
+        <span class="n">additions</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ptn&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;addition_(\d+)$&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">})</span>
+
+        <span class="c1"># prepare cart</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cart</span> <span class="o">=</span> <span class="n">Cart</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">Cart</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="n">cart</span> <span class="o">=</span> <span class="n">Cart</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="n">product</span><span class="o">=</span><span class="n">product</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">qty</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">product</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+        
+        <span class="c1"># judge if duplicated</span>
+        <span class="n">itm_dup</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">itm_trk</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s1">&#39;topping&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span> <span class="s1">&#39;addition&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">toppings</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+                <span class="n">topping</span> <span class="o">=</span> <span class="n">Topping</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                <span class="n">itm_trk</span><span class="p">[</span><span class="s1">&#39;topping&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">toppings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">itm_trk</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">topping</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">toppings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">additions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">additions</span><span class="p">:</span>
+                <span class="n">addition</span> <span class="o">=</span> <span class="n">Addition</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                <span class="n">itm_trk</span><span class="p">[</span><span class="s1">&#39;addition&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">additions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">itm_trk</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">addition</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">additions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="c1">## if duplicate, add 1</span>
+        <span class="k">for</span> <span class="n">itm</span> <span class="ow">in</span> <span class="n">cart</span><span class="o">.</span><span class="n">cartitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">itm_str</span> <span class="o">=</span> <span class="n">show_item</span><span class="p">(</span><span class="n">itm</span><span class="o">.</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">itm_trk</span> <span class="o">==</span> <span class="n">itm_str</span><span class="p">:</span>
+                <span class="n">itm_dup</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">itm</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="n">qty</span>
+                <span class="n">itm</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                <span class="k">break</span>
+        
+        <span class="c1">## if not duplicate, insert record</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">itm_dup</span><span class="p">:</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">toppings</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+                    <span class="n">topping</span> <span class="o">=</span> <span class="n">Topping</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                    <span class="n">ItemTopping</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">topping</span><span class="o">=</span><span class="n">topping</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">toppings</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">topping</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">toppings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">additions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">additions</span><span class="p">:</span>
+                    <span class="n">addition</span> <span class="o">=</span> <span class="n">Addition</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                    <span class="n">ItemAddition</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">addition</span><span class="o">=</span><span class="n">addition</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">additions</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">addition</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">additions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">CartItem</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">cart</span><span class="o">=</span><span class="n">cart</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">qty</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">products</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">toppings</span> <span class="o">=</span> <span class="n">Topping</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">additions</span> <span class="o">=</span> <span class="n">Addition</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">products</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/pick_product.html&#34;</span><span class="p">,</span>
+            <span class="p">{</span><span class="s2">&#34;product&#34;</span><span class="p">:</span> <span class="n">products</span><span class="p">,</span> <span class="s2">&#34;toppings&#34;</span><span class="p">:</span> <span class="n">toppings</span><span class="p">,</span> <span class="s2">&#34;additions&#34;</span><span class="p">:</span> <span class="n">additions</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如为POST方法（提交表单），还是先校验topping和addition数量是否符合产品定义。万一JS没起效，后端还是拦一道。把topping和addition解析为字典格式，再获取/创建一个购物车对象cart。做好准备工作。</p>
+
+<p>接下来判断当前的item是否已经和购物车里重复。所谓重复项目，就是product、topping、addition、price都相同，如果重复，自然就不需要创建一个新的购物车条目了，只要quantity +1就行。而如果不重复，就要创建item，包括item本身，以及ItemTopping和ItemAddition。全部完成后，转跳到购物车，就能看到结果。</p>
+
+<p>隐隐觉得这么实现比较笨拙。不过目前水平有限，就不追求优雅了。</p>
+
+<p>如为GET方法，筛选出product、topping和addition就可以，交给前端渲染。</p>
+
+<h4 id="购物车">购物车</h4>
+
+<h5 id="前端-2">前端</h5>
+
+<p>购物车<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/cart.html">cart.html</a>模板主要完成三个功能：展示当前购物车、修改项目数量、筛选和下单。</p>
+
+<p>这一部分非常考验对ORM模型的理解。传入的对象是items，循环遍历每一个item，那么找到其下挂的topping，就要用item.item.itemtopping_item.all，其中&rdquo;itemtopping_item&rdquo;就是定义模型时起的related_name。</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+{% load static %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block script %}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{% static &#39;js/cart.js&#39; %}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block nav_list %}
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;menu&#34;</span><span class="p">&gt;</span>Menu<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;active&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>Shopping chart<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;orders&#34;</span><span class="p">&gt;</span>Orders<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block disp %}
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;place_order&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;cart&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+{% csrf_token %}
+{% if items|length &gt; 0 %}
+    <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;50%&#34;</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;check_all&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;check_all&#34;</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Cart Item<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">input</span><span class="p">&gt;&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;</span>Servings<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;</span>Unit Price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>Created<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>Updated<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+            {% for item in items %}
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;50%&#34;</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;order_product_{{ item.item.id }}&#34;</span> <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;order&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ item.item.id }}&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ item.item.quantity }}&#34;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;tooltip&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;${{ item.item.product.price }}/serving&#34;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{{ item.item.product.category }}<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> - {{ item.item.product.name}} ({{ item.item.product.size }})
+                        <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;product_{{ item.item.id }}&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;product_{{ item.item.id }}&#34;</span> <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;qty&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ item.item.id }}&#34;</span> 
+                    <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;width:50%&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ item.quantity }}&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;product_price_{{ item.item.id }}&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;product_price_{{ item.item.id }}&#34;</span> <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;price&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ item.item.id }}&#34;</span><span class="p">&gt;</span>
+                    {{ item.item.price }}
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>{{ item.item.created|date:&#34;Y/m/d H:i:s&#34; }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>{{ item.item.updated|date:&#34;Y/m/d H:i:s&#34; }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            
+            {% if item.item.topping.all|length &gt; 0 %}
+                {% for topping in item.item.itemtopping_item.all %}
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;40%&#34;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;tooltip&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;${{ topping.topping.price }}/serving&#34;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:#bbb&#34;</span><span class="p">&gt;</span>+Topping:<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{ topping.topping.name }} x {{ topping.quantity }}
+                        <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                {% endfor %}
+            {% endif %}
+            {% if item.item.addition.all|length &gt; 0 %}
+                {% for addition in item.item.itemaddition_item.all %}
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;40%&#34;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;tooltip&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;${{ addition.addition.price }}/serving&#34;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:#bbb&#34;</span><span class="p">&gt;</span>+Addition:<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{ addition.addition.name }} ({{ addition.addition.size }}) x {{ addition.quantity }}
+                        <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                {% endfor %}
+            {% endif %}
+
+            {% endfor %}
+        <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+{% else %}
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No items found.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endif %}
+
+<span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-1 col-md-1 col-sm-4&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Selected: <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-2 col-md-3 col-sm-8&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:right;font-weight:bold&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;select_price&#34;</span><span class="p">&gt;</span>{{ select_sum }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-1 col-md-1 col-sm-4&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Total: <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-2 col-md-3 col-sm-8&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:right;font-weight:bold&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;total_price&#34;</span><span class="p">&gt;</span>{{ cart_sum }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-3 col-md-4 col-sm-12&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_save&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;btn_save&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-secondary btn-block&#34;</span><span class="p">&gt;</span>Save my cart<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-12&#34;</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-3 col-md-4 col-sm-12&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_submit&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;btn_submit&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary btn-block&#34;</span><span class="p">&gt;</span>Place an order<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock disp %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<p>这里只允许修改product的数量，product下挂的topping、addition就不让改了（有逻辑冲突，太麻烦）。每当修改数量，小计部分就自动更新。这需要用到<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/cart.js">cart.js</a>。</p>
+
+<p>页面里写了tooltip value，所以JS中用jQuery定义一下tooltip，鼠标移到上方时显示数值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[data-toggle=&#34;tooltip&#34;]&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>对页面进行持续监听，一旦文本输入框或复选框选中状态发生改动，就调用<code>update_price()</code>更改小计价格。如果一个都没选中，就<code>preventDefault()</code>，不许提交。如果点了&rdquo;#check_all&rdquo;复选框，那么就<code>batch_check()</code>选中所有项目。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">update_price</span><span class="p">();</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">==</span> <span class="s1">&#39;check_all&#39;</span><span class="p">){</span>
+            <span class="nx">batch_check</span><span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">checked</span><span class="p">);</span>
+            <span class="nx">update_price</span><span class="p">();</span>
+        <span class="p">};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;qty&#39;</span> <span class="o">||</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;order&#39;</span><span class="p">){</span>
+            <span class="nx">update_price</span><span class="p">();</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;btn_submit&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">select</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;select_price&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">select</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Please select at least 1 item.&#34;</span><span class="p">);</span> 
+        <span class="p">};</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">update_price</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">price</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;qty&#39;</span> <span class="o">||</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;order&#39;</span><span class="p">){</span>
+            <span class="kd">let</span> <span class="nx">item_id</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">item</span><span class="p">;</span>
+            <span class="kd">let</span> <span class="nx">unit_price</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;product_price_&#34;</span> <span class="o">+</span> <span class="nx">item_id</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+            <span class="kd">let</span> <span class="nx">qty</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;product_&#39;</span> <span class="o">+</span> <span class="nx">item_id</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+            <span class="kd">let</span> <span class="nx">item_price</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">qty</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">unit_price</span><span class="p">);</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;order&#39;</span><span class="p">){</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">checked</span><span class="p">){</span>
+                    <span class="nx">selected</span> <span class="o">+=</span> <span class="nx">item_price</span><span class="p">;</span>
+                <span class="p">};</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">price</span> <span class="o">+=</span> <span class="nx">item_price</span><span class="p">;</span>
+            <span class="p">};</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;total_price&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">price</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;select_price&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">selected</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span> 
+
+<span class="kd">function</span> <span class="nx">batch_check</span><span class="p">(</span><span class="nx">check</span><span class="o">=</span><span class="kc">true</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;order&#39;</span><span class="p">){</span>
+            <span class="nx">elem</span><span class="p">.</span><span class="nx">checked</span> <span class="o">=</span> <span class="nx">check</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="后端-2">后端</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">cart</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+        <span class="c1"># save the form</span>
+        <span class="n">cart</span> <span class="o">=</span> <span class="n">Cart</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ptn&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;product_(\d+)$&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">},</span> <span class="n">del_val</span><span class="o">=</span><span class="p">())</span>
+        <span class="n">orders</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ptn&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;order_product_(\d+)$&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">})</span>
+        <span class="n">cart_items</span> <span class="o">=</span> <span class="n">cart</span><span class="o">.</span><span class="n">cartitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">cart_items</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">item</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">!=</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">cart</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">cart_det</span> <span class="o">=</span> <span class="n">show_cart</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;btn_save&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/cart.html&#34;</span><span class="p">,</span> 
+                <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">],</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;Cart saved.&#39;</span><span class="p">],</span> <span class="s1">&#39;cart_sum&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]})</span>
+        <span class="k">elif</span> <span class="s1">&#39;btn_submit&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="n">cart_items</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+                    <span class="n">OrderItem</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">quantity</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;orders/orders.html&#39;</span><span class="p">,</span> 
+                <span class="p">{</span><span class="s1">&#39;orders&#39;</span><span class="p">:</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">),</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cart_det</span> <span class="o">=</span> <span class="n">show_cart</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/cart.html&#34;</span><span class="p">,</span> 
+            <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">],</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;cart_sum&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如为POST方法（提交表单），首先保存当前购物车。这就涉及item、itemtopping、itemaddition三张表的改动。如果数量减到0，就直接删除。</p>
+
+<p>接下来判断点的是哪个按钮。如果是submit，那么还要创建订单，并把选中项目的item从cart改关联到order，CartItem拷贝到OrderItem，并删除旧的CartItem（真麻烦）。</p>
+
+<p>假如是GET方法，那么只要把购物车结构解析出来，传到前端渲染就行了。</p>
+
+<h4 id="订单列表">订单列表</h4>
+
+<h5 id="前端-3">前端</h5>
+
+<p>订单列表<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/orders.html">orders.html</a>页面模板如下。跟购物车差不多，也提供了复选框和按钮，用户可以先选中对应的订单批处理操作，或直接点某个订单后的按钮进行单独操作。操作包括支付、取消、删除。利用Django模板的条件渲染能力，根据订单状态的不同，每个按钮的disabled属性各有不同。</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+{% load static %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block script %}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{% static &#39;js/orders.js&#39; %}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block nav_list %}
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;menu&#34;</span><span class="p">&gt;</span>Menu<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;cart&#34;</span><span class="p">&gt;</span>Shopping chart<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;active&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>Orders<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+{% endblock %}
+
+{% block disp %}
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;submit_orders&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;orders&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+{% csrf_token %}
+
+{% if orders|length &gt; 0 %}
+    <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;check_all&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;check_all&#34;</span><span class="p">&gt;</span>Order ID<span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;</span>Items<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>Price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span><span class="p">&gt;</span>Status<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>Created<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>Updated<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;auto&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-right&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;btn_pay&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_pay&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary btn-sm&#34;</span><span class="p">&gt;</span>Pay<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;btn_cancel&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_cancel&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-warning btn-sm&#34;</span><span class="p">&gt;</span>Cancel<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;btn_delete&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;btn_delete&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-danger btn-sm&#34;</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+            {% for order in orders %}
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">th</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;order_{{ order.id }}&#34;</span> <span class="na">data-class</span><span class="o">=</span><span class="s">&#34;order&#34;</span> <span class="na">data-item</span><span class="o">=</span><span class="s">&#34;{{ order.id }}&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ order.price }}&#34;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{% url &#39;order&#39; id=order.id %}&#34;</span><span class="p">&gt;</span># {{ order.id }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">input</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;qty_{{ order.id }}&#34;</span><span class="p">&gt;</span>{{ order.quantity }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;price_{{ order.id }}&#34;</span><span class="p">&gt;</span>{{ order.price }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;10%&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;status_{{ order.id }}&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span>
+                        <span class="s">{%</span> <span class="na">if</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Paid</span><span class="err">&#39;</span> <span class="err">%}&#34;</span><span class="na">text-success</span><span class="err">&#34;</span>
+                        <span class="err">{%</span> <span class="na">elif</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Completed</span><span class="err">&#39;</span> <span class="err">%}&#34;</span><span class="na">text-info</span><span class="err">&#34;</span>
+                        <span class="err">{%</span> <span class="na">elif</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Failed</span><span class="err">&#39;</span> <span class="err">%}&#34;</span><span class="na">text-danger</span><span class="err">&#34;</span>
+                        <span class="err">{%</span> <span class="na">elif</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Cancelled</span><span class="err">&#39;</span> <span class="err">%}&#34;</span><span class="na">text-muted</span><span class="err">&#34;</span>
+                        <span class="err">{%</span> <span class="na">else</span> <span class="err">%}&#34;</span><span class="na">text-primary</span><span class="err">&#34;</span>
+                        <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span><span class="p">&gt;</span>{{ order.status }}
+                    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>
+                    {{ order.created|date:&#34;Y/m/d H:i:s&#34; }}
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;15%&#34;</span><span class="p">&gt;</span>
+                    {{ order.updated|date:&#34;Y/m/d H:i:s&#34; }}
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;auto&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;text-right&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;pay&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ order.id }}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary btn-sm&#34;</span>
+                     <span class="err">{%</span> <span class="na">if</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Paid</span><span class="err">&#39;</span> <span class="na">or</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Completed</span><span class="err">&#39;</span> <span class="na">or</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Cancelled</span><span class="err">&#39;</span> <span class="err">%}</span>
+                      <span class="na">disabled</span><span class="o">=</span><span class="s">&#34;disabled&#34;</span> 
+                     <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span><span class="p">&gt;</span>Pay<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;cancel&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ order.id }}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-warning btn-sm&#34;</span>
+                     <span class="err">{%</span> <span class="na">if</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Paid</span><span class="err">&#39;</span> <span class="na">or</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Cancelled</span><span class="err">&#39;</span> <span class="err">%}</span>
+                      <span class="na">disabled</span><span class="o">=</span><span class="s">&#34;disabled&#34;</span> 
+                     <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span><span class="p">&gt;</span>Cancel<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;delete&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;{{ order.id }}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-danger btn-sm&#34;</span>
+                     <span class="err">{%</span> <span class="na">if</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Paid</span><span class="err">&#39;</span> <span class="na">or</span> <span class="na">order</span><span class="err">.</span><span class="na">status </span><span class="o">=</span><span class="s">=</span> <span class="err">&#39;</span><span class="na">Completed</span><span class="err">&#39;</span> <span class="err">%}</span>
+                      <span class="na">disabled</span><span class="o">=</span><span class="s">&#34;disabled&#34;</span> 
+                     <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            {% endfor %}
+        <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+{% else %}
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No items found.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endif %}
+
+<span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-1 col-md-1 col-sm-4&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Selected: <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-2 col-md-3 col-sm-8&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:right;font-weight:bold&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;select_price&#34;</span><span class="p">&gt;</span>{{ select_sum }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-9 col-md-8&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-1 col-md-1 col-sm-4&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>Total: <span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-lg-2 col-md-3 col-sm-8&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:right;font-weight:bold&#34;</span><span class="p">&gt;</span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;total_price&#34;</span><span class="p">&gt;</span>{{ cart_sum }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock disp %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<p>前端脚本<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/orders.js">orders.js</a>和购物车页面的脚本一样，持续监听，实现批量选中和随时更新小计价格。有所不同的是，还加了一段监听代码，一旦批量选中后点操作按钮，先要<code>check_clickable()</code>校验一下这个按钮是否能点，然后调<code>confirm_submit()</code>跳出一个弹窗，让用户确认操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="nx">btn_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;btn_pay&#39;</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="o">:</span> <span class="s1">&#39;delete&#39;</span><span class="p">};</span>
+	<span class="k">if</span> <span class="p">([</span><span class="s1">&#39;btn_pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span>
+		<span class="nx">elem</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nx">check_clickable</span><span class="p">(</span><span class="nx">btn_dict</span><span class="p">[</span><span class="nx">elem</span><span class="p">.</span><span class="nx">id</span><span class="p">])){</span>
+				<span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+				<span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;No order is selected or \r\nnot all the selected orders can &#39;</span> <span class="o">+</span> <span class="nx">btn_dict</span><span class="p">[</span><span class="nx">elem</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>
+			<span class="p">};</span>
+		<span class="p">});</span>
+	<span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">([</span><span class="s1">&#39;pay&#39;</span><span class="p">,</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span>
+		<span class="nx">elem</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">confirm_submit</span><span class="p">);</span>
+	<span class="p">};</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">check_clickable</span><span class="p">(</span><span class="nx">state</span><span class="p">){</span>
+    <span class="cm">/* check if the pay_all, cancel_all, delete_all buttons are clickable */</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">any_checked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pay&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">],</span> 
+                  <span class="s1">&#39;cancel&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;delete&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Failed&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelled&#39;</span><span class="p">]};</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">==</span> <span class="s1">&#39;order&#39;</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">checked</span><span class="p">){</span>
+                <span class="nx">any_checked</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">item_id</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">item</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">item_status</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;status_&#39;</span> <span class="o">+</span> <span class="nx">item_id</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nx">item_status</span>  <span class="k">in</span> <span class="nx">dict</span><span class="p">[</span><span class="nx">state</span><span class="p">]){</span>
+                    <span class="nx">o</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                <span class="p">};</span>
+            <span class="p">};</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nx">any_checked</span><span class="p">){</span>
+        <span class="nx">o</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">confirm_submit</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="s2">&#34;Confirm with the operation?&#34;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nx">win</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">evt</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="后端-3">后端</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">orders</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">_</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;btn_pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="p">)):</span>
+            <span class="n">orders</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ptn&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;order_(\d+)$&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">})</span>
+            <span class="k">if</span> <span class="s1">&#39;btn_pay&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s1">&#39;Payment function is not available now.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+                    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="s1">&#39;btn_delete&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                        <span class="n">order_items</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">orderitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+                        <span class="k">for</span> <span class="n">itm</span> <span class="ow">in</span> <span class="n">order_items</span><span class="p">:</span>
+                            <span class="n">Item</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">itm</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                        <span class="n">order</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                    <span class="k">elif</span> <span class="s1">&#39;btn_cancel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                        <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Cancelled&#39;</span>
+                        <span class="n">order</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                        <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">btn</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;pay&#39;</span><span class="p">,</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">order_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="n">btn</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="s1">&#39;pay&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s1">&#39;Payment function is not available now.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">order_id</span><span class="p">))</span>
+                <span class="k">if</span> <span class="s1">&#39;delete&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                    <span class="n">order_items</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">orderitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">itm</span> <span class="ow">in</span> <span class="n">order_items</span><span class="p">:</span>
+                        <span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">itm</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="s1">&#39;cancel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Cancelled&#39;</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/orders.html&#34;</span><span class="p">,</span>
+            <span class="p">{</span><span class="s1">&#39;orders&#39;</span><span class="p">:</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">),</span>
+             <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;Orders modified.&#39;</span><span class="p">]})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">orders</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/orders.html&#34;</span><span class="p">,</span>
+            <span class="p">{</span><span class="s1">&#39;orders&#39;</span><span class="p">:</span> <span class="n">orders</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>当按的是<kbd>Pay</kbd>支付按钮时，返回一个404错误（因为支付功能没做）。其他情况下，就批量更改订单状态。</p>
+
+<h4 id="订单明细">订单明细</h4>
+
+<h5 id="前端-4">前端</h5>
+
+<p>订单明细<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/order.html">order.html</a>显示的是订单详情。这个页面上用户依然可以更改各项目的数量。</p>
+
+<p>页面脚本<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/order.js">order.js</a>跟订单列表页脚本差不多，监听页面，动态更新小计，点按钮的话确认操作再放行提交。</p>
+
+<h5 id="后端-4">后端</h5>
+
+<p>其实可以复用<code>orders()</code>的代码。这块没有认真重构。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">_</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;btn_save&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="p">)):</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ptn&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;product_(\d+)$&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">},</span> <span class="n">del_val</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+            <span class="n">order_items</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">orderitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">order</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">to_num</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                <span class="n">order_item</span> <span class="o">=</span> <span class="n">order_items</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">order_item</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">order_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">!=</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                        <span class="n">order_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                        <span class="n">order_item</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">updated</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                        <span class="n">order_item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="n">order</span><span class="o">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">items</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="s1">&#39;btn_pay&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s1">&#39;Payment function is not available now.&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;btn_delete&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                <span class="n">order</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;orders&#39;</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="s1">&#39;btn_cancel&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+                <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Cancelled&#39;</span>
+                <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;orders/order.html&#39;</span><span class="p">,</span>
+                <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">orderitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s1">&#39;order&#39;</span><span class="p">:</span> <span class="n">order</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                 <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;Modification saved.&#39;</span><span class="p">]})</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/order.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">orderitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s1">&#39;order&#39;</span><span class="p">:</span> <span class="n">order</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="其他">其他</h4>
+
+<p><a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/main.js">main.js</a>和<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/css/style.css">style.css</a>主要还是一些全局的基本配置。不展开了。</p>
+
+<p>差不都就是这样。</p>
+
+<p>[完]</p>
+
+<hr />
+
+<!-- {% raw %} -->
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="50%"/> <figcaption>
+            <h4>扫码关注我的的我的公众号</h4>
+        </figcaption>
+</figure>
+
+<!-- {% endraw %} -->
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">迷幻主义搬砖号子</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-11-07
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.github.io/post/django-website-demo-2/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          <a href="/tags/django/">Django</a>
+          <a href="/tags/web/">web</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/django-website-demo-1/">
+            <span class="next-text nav-default">edx作业：用Django建一个简易Web订单系统(1)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'madlogos-gh';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:madlogos@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/5455754/madlogos?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/madlogos" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/madlogos" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://www.linkedin.com/in/yiying-wang/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://plus.google.com/&#43;%E6%B1%AA%E8%BD%B6%E9%A2%96madlogos" class="iconfont icon-google" title="google"></a>
+      <a href="http://github.com/madlogos" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/madlogos/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/madlogos/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/Jandeaux/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://jandeaux.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    
+    <span class="author">madlogos</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

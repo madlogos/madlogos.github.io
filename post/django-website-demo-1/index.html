@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>edx作业：用Django建一个简易Web订单系统(1) - Libido Chateau</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" /><meta name="keywords" content="数据, 时评, 人文" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="https://madlogos.github.io/post/django-website-demo-1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="edx作业：用Django建一个简易Web订单系统(1)" />
+<meta property="og:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://madlogos.github.io/post/django-website-demo-1/" />
+<meta property="article:published_time" content="2019-11-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="name" content="edx作业：用Django建一个简易Web订单系统(1)">
+<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统">
+
+
+<meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5674">
+
+
+
+<meta itemprop="keywords" content="Python,Django,web," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="edx作业：用Django建一个简易Web订单系统(1)"/>
+<meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Libido Chateau</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Libido Chateau</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">edx作业：用Django建一个简易Web订单系统(1)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-11-06 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 5674 字 </span>
+          <span class="more-meta"> 预计阅读 12 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></a></li>
+<li><a href="#准备">准备</a>
+<ul>
+<li><a href="#项目结构">项目结构</a></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#全局配置">全局配置</a>
+<ul>
+<li><a href="#settings-py">settings.py</a></li>
+<li><a href="#urls-py">urls.py</a></li>
+</ul></li>
+<li><a href="#分应用配置">分应用配置</a></li>
+</ul></li>
+<li><a href="#基础模板">基础模板</a></li>
+</ul></li>
+<li><a href="#账户管理-accounts-应用">账户管理(accounts)应用</a>
+<ul>
+<li><a href="#模型">模型</a></li>
+<li><a href="#控制">控制</a></li>
+<li><a href="#视图">视图</a>
+<ul>
+<li><a href="#导入一堆包">导入一堆包</a></li>
+<li><a href="#首页">首页</a></li>
+<li><a href="#登录">登录</a>
+<ul>
+<li><a href="#后端">后端</a></li>
+<li><a href="#前端">前端</a></li>
+</ul></li>
+<li><a href="#注册">注册</a>
+<ul>
+<li><a href="#后端-1">后端</a></li>
+<li><a href="#前端-1">前端</a></li>
+</ul></li>
+<li><a href="#注销">注销</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#订单管理-orders">订单管理(orders)</a>
+<ul>
+<li><a href="#模型-1">模型</a>
+<ul>
+<li><a href="#选择项元组">选择项元组</a></li>
+<li><a href="#模型和元参数">模型和元参数</a></li>
+<li><a href="#多对多关系">多对多关系</a></li>
+<li><a href="#migrate">migrate</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<div class="admonition abstract"><p class="admonition-title">摘要</p>
+  
+还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。
+
+</div>
+
+<p>这是哈佛<strong>继续教育学院</strong>开的的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a> 第四个作业项目。</p>
+
+<h2 id="作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></h2>
+
+<p>做一个仿<a href="http://www.pinocchiospizza.net/menu.html">Pinocchio Pizza</a>的Pizza预订系统。可以看到，这个网站做得很渣。</p>
+
+<p>要实现以下功能：</p>
+
+<ol>
+<li>分析样品菜单，构建模型</li>
+<li>用Django admin或者写Python命令，添加菜单内容</li>
+<li>用户注册、登录、登出</li>
+<li>虚拟购物车</li>
+<li>下订单</li>
+<li>浏览订单和订单明细</li>
+<li>延伸功能：比如系统管理员在后台更新订单状态、用<a href="https://stripe.com/docs">Strip API</a> 完成结算等</li>
+</ol>
+
+<h2 id="准备">准备</h2>
+
+<ul>
+<li>先要有Python（装了Anaconda）</li>
+<li>要装<code>Django</code>包(<code>pip</code>)</li>
+</ul>
+
+<h3 id="项目结构">项目结构</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">|-- application.py
+|-- db.sqlite3
+|-- django.log
+|-- manage.py
+|
+|-- + accounts
+|   |-- + migrations
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- forms.py
+|   |-- models.py
+|   |-- tests.py
+|   |-- urls.py
+|   \-- views.py
+|
+|-- + orders
+|   |-- + migrations
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- forms.py
+|   |-- models.py
+|   |-- tests.py
+|   |-- udf.py
+|   |-- urls.py
+|   \-- views.py
+|
+|-- + pizza
+|   |-- __init__.py
+|   |-- settings.py
+|   |-- urls.py
+|   \-- wsgi.py
+|
+|-- + static
+|   |-- + css
+|   |   \-- style.css
+|   \-- + js
+|       |-- cart.js
+|       |-- main.js
+|       |-- menu.js
+|       |-- order.js
+|       |-- orders.js
+|       \-- pick_product.js
+|
+\-- + templates
+	|-- _base.html
+    |-- _popup.html
+	|
+    |-- + accounts
+    |   |-- login.html
+	|   \-- register.html
+	|
+	\-- + orders
+	    |-- cart.html
+	    |-- index.html
+	    |-- order.html
+	    |-- orders.html
+	    \-- pick_product.html</pre></td></tr></table>
+</div>
+</div>
+<p>Django框架比Flask要复杂。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：</p>
+
+<ul>
+<li>通过<code>django-admin startproject pizza</code>命令，生成一个骨架，包括pizza文件夹及内含的3个 .py文件，以及django命令行工具manage.py。</li>
+<li>进入根目录，运行<code>python manage.py startapp accounts</code>和<code>python manage.py startapp orders</code>，生成accounts和orders两个具体应用。两个文件夹都包含<strong>init</strong>.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
+
+<ul>
+<li>accounts用来管理账户信息、登录和注册等</li>
+<li>orders用来管理菜单、订单和购物车等</li>
+</ul></li>
+</ul>
+
+<p>除了上面这些后台脚本之外，再建两个必要的资源文件夹：</p>
+
+<ul>
+<li>静态文件所在的static，例行包括css和js两个文件夹。</li>
+<li>.html模板文件所在的templates。为了便于管理，框架模板放在根目录，accounts和orders两个应用分别开一个文件夹。</li>
+</ul>
+
+<h3 id="配置">配置</h3>
+
+<h4 id="全局配置">全局配置</h4>
+
+<p>首先，要设置一下超级管理员，控制台运行<code>python manage.py createsuperuser</code>，设置用户名、密码和邮件。这样，后续就可以用这个账户登到Django自带的管理后台，在图形界面上管理数据。</p>
+
+<h5 id="settings-py">settings.py</h5>
+
+<p>pizza/settings.py里已经预置了很多配置项。要做一些调整：</p>
+
+<ul>
+<li>INSTALLED_APPS列表增加两项: &lsquo;accounts.apps.AccountsConfig&rsquo;, &lsquo;orders.apps.OrdersConfig&rsquo;</li>
+
+<li><p>增加LOGGING</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;{asctime} {module}.{funcName} {lineno:3} {levelname:7} =&gt; {message}&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.handlers.RotatingFileHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;django.log&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;maxBytes&#39;</span><span class="p">:</span> <span class="mi">4194304</span><span class="p">,</span>  <span class="c1"># 4 MB</span>
+            <span class="s1">&#39;backupCount&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;django&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>TIME_ZONE 改成 &lsquo;Asia/Shanghai&rsquo;</p></li>
+
+<li><p>STATIC_URL 改为 &lsquo;/static/&rsquo;</p></li>
+
+<li><p>STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, &ldquo;static&rdquo;), &lsquo;/static/&rsquo;]，在这个应用中，生效的是前者</p></li>
+</ul>
+
+<h5 id="urls-py">urls.py</h5>
+
+<p>pizza/urls.py要更新一下urlpatterns：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;accounts.urls&#34;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;orders.urls&#34;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;admin/&#34;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="分应用配置">分应用配置</h4>
+
+<ul>
+<li><p>accounts/apps.py定义应用名称</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">AccountsConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>orders/apps.py定义应用名称</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">OrdersConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>这样，pizza/settings.py的INSTALLED_APPS才能识别accounts和orders这两个应用。将来，这两个包也可以剥离出去给其他项目复用。</p>
+
+<h3 id="基础模板">基础模板</h3>
+
+<p><a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_base.html">_base.html</a>和<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_popup.html">_popup.html</a>是框架模板，后续其他页面模板都会套用它。后者是前者的简化版。</p>
+
+<!-- {% raw %} -->
+
+<ul>
+<li>要记得{% load static %}，载入静态文件。这样定义好以后，Django就知道上哪里动态地找到<code>href=&quot;{% static 'css/style.css' %}&quot;</code>了。</li>
+<li>&ldquo;elem_cont&rdquo;部分添加了通用的message代码。后端传到前端的message对象必须是一个长度为2的列表，其中message.0是&rdquo;info&rdquo;、&rdquo;warning&rdquo;、&rdquo;success&rdquo;、&rdquo;danger&rdquo;这几个Bootstrap认识的类别，message.1则是信息框的具体内容。事实上Django有自己的信息组件，这里没有用到。
+<!-- {% endraw %} --></li>
+</ul>
+
+<h2 id="账户管理-accounts-应用">账户管理(accounts)应用</h2>
+
+<p>进到<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts">accounts</a>目录，构建账户管理模块。</p>
+
+<h3 id="模型">模型</h3>
+
+<p>如果要自己设计一套User体系，可以在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/models.py">models.py</a>里定义。由于这个作业里对用户信息的要求已经被Django自带的User类涵盖，所以直接导进来就可以用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/admin.py">admin.py</a>里，导入下面几个包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.contrib.auth.admin</span> <span class="kn">import</span> <span class="n">UserAdmin</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>控制台运行<code>python manage.py runserver</code>，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin，用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。</p>
+
+<p>当然，我们并不希望通过后台来添加用户，还是由用户自己从前端注册。所以后面会进一步完善前端视图。</p>
+
+<h3 id="控制">控制</h3>
+
+<p>Django通过urlpatterns来控制路由。在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/urls.py">urls.py</a>中修改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;index&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">login_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;login&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;signup&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">signup</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;signup&#34;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;logout&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">logout_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;logout&#34;</span><span class="p">)</span>
+<span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样，就把四个路由绑定到了views.py中对应的函数上，并且都给了别名（可以用<code>reverse()</code>函数快速解析）。</p>
+
+<h3 id="视图">视图</h3>
+
+<p>有了模型，定义好路由绑定，接下来就在视图<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/views.py">views.py</a>中写具体功能。</p>
+
+<h4 id="导入一堆包">导入一堆包</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">logout</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这里，直接使用了Django.contrib.auth模块里的authenticate, login, logout功能，导入了User类。此外，专门在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里编了两套表单模板，也一并导入。</p>
+
+<h4 id="首页">首页</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果request中的user实例并没有通过认证，就返回<code>login_view</code>，也就是显示登录页。否则，就跳转去别名为&rdquo;menu&rdquo;的页面，也就是orders模块的的首页。</p>
+
+<div class="admonition tip"><p class="admonition-title">要点</p>
+  
+Django的视图函数，必须返回一个Http响应，要么是HttpResponse，要么Http404之类。否则就会报内部错误。
+
+</div>
+
+<h4 id="登录">登录</h4>
+
+<h5 id="后端">后端</h5>
+
+<p>views.py里定义<code>login_view()</code>函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">login_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="n">username</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
+                <span class="n">password</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">login_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;index&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="s2">&#34;Invalid credentials.&#34;</span><span class="p">],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>如果user已经认证，就跳去orders首页</li>
+<li>如果没认证，那么
+
+<ul>
+<li>假如是POST方法（提交登录验证表单），就从login_form里提信息出来验证。通过验证就<code>login()</code>，否则跳转回去。</li>
+<li>假如是其他方法，那就渲染登录界面</li>
+</ul></li>
+</ul>
+
+<p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里定义了登录表单模板。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
+    
+    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+
+        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filter_result</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;This username does not exist. Please register first.&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">username</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个<code>clean_username()</code>方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。</p>
+
+<h5 id="前端">前端</h5>
+
+<p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/login.html">login.html</a>页面模板写成这样：</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+
+{% block title %}
+Sign In
+{% endblock %}
+
+{% block control %}
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+    {% csrf_token %}
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.username.errors }}
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sr-only&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span> <span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>        
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign up now!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<div class="admonition tip"><p class="admonition-title">要点</p>
+  
+<!-- {% raw %} -->
+表单内必须加个`{% csrf_token %}`解决跨域问题。模板内部解析form对象，组装出表单。
+<!-- {% endraw %} -->
+
+</div>
+
+<p>后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。</p>
+
+<h4 id="注册">注册</h4>
+
+<h5 id="后端-1">后端</h5>
+
+<p>views.py里定义<code>signup()</code>函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">signup</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+            <span class="n">reg_form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="n">username</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
+                <span class="n">password</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+                <span class="n">first_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;first_name&#34;</span><span class="p">)</span>
+                <span class="n">last_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;last_name&#34;</span><span class="p">)</span>
+                <span class="n">email</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
+                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">reg_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+            
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+                <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="n">last_name</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+                <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;New account </span><span class="si">%s</span><span class="s2"> has been created. Log in now.&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
+            <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>原理跟登陆差不多。主要区别在于出现了ORM操作。当通过校验后，Django就把reg_form表单字段拿过去，创建一个新的User对象。ORM操作语句很直观，<code>&lt;类名&gt;.objects.&lt;操作方法&gt;(&lt;参数列表&gt;)</code>。</p>
+
+<p>reg_form表单模板定义在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">password_cfm</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Confirm Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;First Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Last Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> 
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Email Address&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> 
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">EmailInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+
+        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filter_result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Your username already exists.&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">username</span>
+
+    <span class="k">def</span> <span class="nf">clean_password_cfm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pwd1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+        <span class="n">pwd2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password_cfm&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pwd1</span> <span class="ow">and</span> <span class="n">pwd2</span> <span class="ow">and</span> <span class="n">pwd1</span> <span class="o">!=</span> <span class="n">pwd2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Password mismatch. Please enter again.&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pwd2</span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="前端-1">前端</h5>
+
+<p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/register.html">register.html</a>页面模板写成这样：</p>
+
+<!-- {% raw %} -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block control %}
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+    {% csrf_token %}
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.username.errors }}
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.password_cfm.errors }}
+            {{ form.password_cfm.label_tag }}
+            {{ form.password_cfm }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.first_name.errors }}
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.last_name.errors }}
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+            {{ form.email.errors }}
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock %}</code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% endraw %} -->
+
+<p>同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。</p>
+
+<h4 id="注销">注销</h4>
+
+<p>注销操作比Flask更好些，直接用内置的<code>logout()</code>方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;Logged out.&#34;</span><span class="p">]})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>退出后直接转跳登录页，所以也不必费劲专门写网页模板了。</p>
+
+<p>到此，整个账号管理的功能就写好了。实际使用，还有必要加功能，比如反机器人、密码找回等。</p>
+
+<h2 id="订单管理-orders">订单管理(orders)</h2>
+
+<p>接下来，进<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders">orders</a>目录，构建购物车和订单管理模块。</p>
+
+<h3 id="模型-1">模型</h3>
+
+<p>从定义ORM模型开始。在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/models.py">models.py</a>：</p>
+
+<h4 id="选择项元组">选择项元组</h4>
+
+<p>先定义选择项，结构是key-value元组。后续控件限定合法值，直接绑上去就行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="c1"># Create your models here.</span>
+<span class="n">SIZE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Small&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Regular&#39;</span><span class="p">,</span> <span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">ORDER_STATUS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="s1">&#39;Pending&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Paid&#39;</span><span class="p">,</span> <span class="s1">&#39;Paid&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Completed&#39;</span><span class="p">,</span> <span class="s1">&#39;Completed&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Failed&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelled&#39;</span><span class="p">),</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="模型和元参数">模型和元参数</h4>
+
+<p>model的定义跟表单有点像。以品类(Category)和产品(Product)为例，都继承自models.Model类。定义好字段参数后，可以设定元数据class Meta，定义verbose_name之类元参数。对于Product，我希望实现category、name和size三个字段构成一个复合主键，只要定义进unique_together就可以了。</p>
+
+<p>另外，比较推荐单独定义<code>__str__()</code>方法，这样在Django后台管理数据时，屏显记录名更人性化。</p>
+
+<p>Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name=&ldquo;products&rdquo;。这样将来就可以通过Category.objects.filter(products=&ldquo;xxx&rdquo;)来反查xxx产品的类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;category&#34;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;categories&#34;</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_category&#34;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+
+<span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">SIZE_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
+    <span class="n">n_topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">n_addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;product&#34;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;products&#34;</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_product&#34;</span>
+        <span class="n">unique_together</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">),</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.category} - {self.name} ({self.size})&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="多对多关系">多对多关系</h4>
+
+<p>要特别提一下的是<code>ManyToManyField</code>，比如作为订单组件的Item，可以绑一个或多个Topping或Addition。传统做法是专门建一张Item_Topping_Mapping表，将ItemTopping的ID关联起来，实现多对多关系。Django的做法是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
+    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;toppings&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemTopping&#34;</span><span class="p">)</span>
+    <span class="n">addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;additions&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemAddition&#34;</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item&#34;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;items&#34;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.product} x {self.quantity}&#34;</span>
+
+<span class="k">class</span> <span class="nc">ItemTopping</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_item&#34;</span><span class="p">)</span>
+    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_topping&#34;</span><span class="p">)</span>
+    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item_topping&#34;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;item_toppings&#34;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.item} - {self.topping} x {self.quantity}&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Item的topping字段是个ManyToManyField，外键连接到Topping，而through参数则指定了多对多映射表&rdquo;ItemTopping&rdquo;。在ItemTopping里，除了item和topping外，又额外扩展了一个字段quantity。如果不需要扩展字段，ItemTopping甚至不用写。Django会自动生成这张表（但名字不一定是这个）。</p>
+
+<h4 id="migrate">migrate</h4>
+
+<p>写完所有的model后，控制台运行命令：</p>
+
+<ul>
+<li><code>python manage.py makemigrations</code></li>
+<li><code>python manage.py migrate</code></li>
+</ul>
+
+<p>Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，对后台数据库进行创建/删除/修改操作。如果用sqlite连接到后台去看，就会发现里面已经把表都创建好了。修改model后，再次migrate，Django会直接修改表结构来适配。</p>
+
+<p>各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。</p>
+
+<p>这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。</p>
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg"/> <figcaption>
+            <h4>图 | orders应用的表结构</h4>
+        </figcaption>
+</figure>
+
+<p>[待续]</p>
+
+<hr />
+
+<!-- {% raw %} -->
+
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="50%"/> <figcaption>
+            <h4>扫码关注我的的我的公众号</h4>
+        </figcaption>
+</figure>
+
+<!-- {% endraw %} -->
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">迷幻主义搬砖号子</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-11-07
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.github.io/post/django-website-demo-1/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          <a href="/tags/django/">Django</a>
+          <a href="/tags/web/">web</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/django-website-demo-2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">edx作业：用Django建一个简易Web订单系统(2)</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/flask-socketio-site-demo/">
+            <span class="next-text nav-default">edx作业：用flask建一个简易Web聊天室</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'madlogos-gh';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:madlogos@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/5455754/madlogos?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/madlogos" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/madlogos" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://www.linkedin.com/in/yiying-wang/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://plus.google.com/&#43;%E6%B1%AA%E8%BD%B6%E9%A2%96madlogos" class="iconfont icon-google" title="google"></a>
+      <a href="http://github.com/madlogos" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/madlogos/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/madlogos/" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/Jandeaux/" class="iconfont icon-douban" title="douban"></a>
+      <a href="https://jandeaux.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    
+    <span class="author">madlogos</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

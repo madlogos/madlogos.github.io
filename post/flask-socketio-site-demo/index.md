@@ -214,7 +214,7 @@ def index():
 
 最后在__main__里加一点代码，配置日志输出。运行`python application.py`时，会自动运行这部分。如果继续用`flask run`，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。
 
-{{% admonition tip %}}
+{{% admonition tip "tip" %}}
 部署到生产环境时，要记得把`app.debug`设为False。
 {{% /admonition %}}
 
@@ -558,7 +558,7 @@ template对象得先用Handlebars编译一下，绑定handlebars模板对象chat
 
 `format_chats()`负责将json数据套入[channel.html模板](#channel_html) 中的handlebars模板"chatPost"里，解析参数后生成相应的html代码。这个输入参数json结构是固定的，包含post_user、post_time、post_msg，也就是全局对象channels里每个channel中的chats字典。
 
-{{% admonition note %}}
+{{% admonition note "要点" false %}}
 非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 {{% /admonition %}}
 
@@ -645,7 +645,7 @@ def emit_msg(data):
 
 而JS中，`socket.on('emit msg')`部分的[代码](#chatjf)会将从服务器收到的广播数据套进handlebars模板里解析，再拼合成HTML填充到'#msgTbl'里，同时清空输入文本框，自动定位到页面底部。
 
-{{% admonition note %}}
+{{% admonition note "要点" false %}}
 这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
 {{% /admonition %}}
 

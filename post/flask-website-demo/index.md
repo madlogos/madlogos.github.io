@@ -45,7 +45,7 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 
 建三张表，`mbr`，`book`和`review`。`review`表里`mbr_id`和`book_id`分别外键关联到`mbr`和`book`。
 
-{{% admonition type="question" title="为啥不用`user`？" %}}
+{{% admonition question "为啥不用`user`？" %}}
 因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
 {{% /admonition %}}
 
@@ -527,7 +527,7 @@ Books
 
 我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法。
 
-{{% admonition type="example" title="举个栗子" %}}
+{{% admonition example "举个栗子" %}}
 假如isbn='123'，title='war'，author='rider'，那么`["%s LIKE '%%%s%%'" % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']`的结果就是这么一个列表:
 
 ```python
