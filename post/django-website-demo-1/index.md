@@ -1,13 +1,19 @@
 
 {{% admonition abstract 摘要 %}}
-还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。
+还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。<br/>
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第四个作业项目。
 
 ## [作业要求](https://docs.cs50.net/web/2019/x/projects/3/project3.html)
 
-做一个仿[Pinocchio Pizza](http://www.pinocchiospizza.net/menu.html)的Pizza预订系统。可以看到，这个网站做得很渣。
+做一个仿[Pinocchio Pizza](http://www.pinocchiospizza.net/menu.html)的Pizza预订系统。
+
+{{% admonition bug "可以看到" %}}
+……很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。技术还是不如业务重要。
+{{% /admonition %}}
+
 
 要实现以下功能：
 
@@ -22,7 +28,13 @@
 ## 准备
 
 - 先要有Python（装了Anaconda）
-- 要装`Django`包(`pip`)
+- 要装`Django`包(`pip`)，这里用的是Django 2.2。
+
+{{% admonition tip "提醒" %}}
+开发要锁定工具链版本，否则后患无穷。`virtualenv`或者Docker都可以。
+{{% /admonition %}}
+
+<!--more-->
 
 ### 项目结构
 
@@ -88,10 +100,12 @@
 	    \-- pick_product.html
 ```
 
-Django框架比Flask要复杂。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：
+<!-- more -->
+
+Django框架比Flask要复杂得多。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：
 
 - 通过`django-admin startproject pizza`命令，生成一个骨架，包括pizza文件夹及内含的3个 .py文件，以及django命令行工具manage.py。
-- 进入根目录，运行`python manage.py startapp accounts`和`python manage.py startapp orders`，生成accounts和orders两个具体应用。两个文件夹都包含__init__.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
+- 进入pizza根目录，运行`python manage.py startapp accounts`和`python manage.py startapp orders`，分别生成accounts和orders两个具体应用。两个文件夹都包含__init__.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
 	- accounts用来管理账户信息、登录和注册等
 	- orders用来管理菜单、订单和购物车等
 
@@ -151,7 +165,7 @@ pizza/settings.py里已经预置了很多配置项。要做一些调整：
 	}
 	```
 	
-- TIME_ZONE 改成 'Asia/Shanghai'
+- TIME_ZONE 改成自己所在的时区，比如'Asia/Shanghai'
 - STATIC_URL 改为 '/static/'
 - STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, "static"), '/static/']，在这个应用中，生效的是前者
 
@@ -166,6 +180,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 ```
+
+这样，accounts和orders两个子应用中的路由，都被安排到整个应用的根路由上。即：accounts里的'/'，就等价于整个应用的主页。这当然有隐患，好在应用架构不复杂。推荐的做法是把其中一个子应用映射到主路由，其他应用都丢进下一级。
+
+admin.site.urls要映射进去，这样，后面才能通过"<domain name>/admin"去访问Django后台。
 
 #### 分应用配置
 
@@ -190,31 +208,41 @@ urlpatterns = [
 [_base.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_base.html)和[_popup.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_popup.html)是框架模板，后续其他页面模板都会套用它。后者是前者的简化版。
 
 <!-- {% raw %} -->
-- 要记得{% load static %}，载入静态文件。这样定义好以后，Django就知道上哪里动态地找到`href="{% static 'css/style.css' %}"`了。
+- 要记得{% load static %}，载入静态文件。这样定义好之后，Django就知道上哪里动态地找到`href="{% static 'css/style.css' %}"`了。
 - "elem_cont"部分添加了通用的message代码。后端传到前端的message对象必须是一个长度为2的列表，其中message.0是"info"、"warning"、"success"、"danger"这几个Bootstrap认识的类别，message.1则是信息框的具体内容。事实上Django有自己的信息组件，这里没有用到。
 <!-- {% endraw %} -->
 
 ## 账户管理(accounts)应用
 
-进到[accounts](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts)目录，构建账户管理模块。
+配置部分结束，开始做功能。
+
+首先进到[accounts](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts)目录，构建账户管理模块。
 
 ### 模型
 
 如果要自己设计一套User体系，可以在[models.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/models.py)里定义。由于这个作业里对用户信息的要求已经被Django自带的User类涵盖，所以直接导进来就可以用。
 
 ```python
+# accounts/models.py
 from django.contrib.auth.models import User
 ```
 
 在[admin.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/admin.py)里，导入下面几个包：
 
 ```python
+# accounts/admin.py
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.db import models
 ```
 
-控制台运行`python manage.py runserver`，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin，用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。
+控制台运行`python manage.py runserver`，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_entry.png" title="图 | admin登录页" %}}
+
+用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_ui.png" title="图 | admin管理界面" %}}
 
 当然，我们并不希望通过后台来添加用户，还是由用户自己从前端注册。所以后面会进一步完善前端视图。
 
@@ -223,6 +251,7 @@ from django.db import models
 Django通过urlpatterns来控制路由。在[urls.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/urls.py)中修改：
 
 ```python
+# accounts/urls.py
 from . import views
 
 urlpatterns = [
@@ -242,6 +271,7 @@ urlpatterns = [
 #### 导入一堆包
 
 ```python
+# accounts/views.py
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
@@ -261,7 +291,7 @@ def index(request):
     return HttpResponseRedirect(reverse("menu"), content={"user": request.user})
 ```
 
-如果request中的user实例并没有通过认证，就返回`login_view`，也就是显示登录页。否则，就跳转去别名为"menu"的页面，也就是orders模块的的首页。
+如果request中的user实例并没有通过认证，就返回`login_view()`，也就是显示登录页。否则，就跳转去别名为"menu"的页面，也就是orders模块的的首页。
 
 {{% admonition tip "要点" %}}
 Django的视图函数，必须返回一个Http响应，要么是HttpResponse，要么Http404之类。否则就会报内部错误。
@@ -274,6 +304,7 @@ Django的视图函数，必须返回一个Http响应，要么是HttpResponse，�
 views.py里定义`login_view()`函数。
 
 ```python
+# accounts/views.py
 def login_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse("menu"), content={"user": request.user})
@@ -285,17 +316,21 @@ def login_view(request):
                 password = login_form.cleaned_data.get("password")
             else:
                 return render(request, "accounts/login.html", 
-                    {"message": ["danger", str(login_form.errors.values())], "form": LoginForm()})
+                    {"message": ["danger", str(login_form.errors.values())], 
+                     "form": LoginForm()})
             user = authenticate(request, username=username, password=password)
             if user and user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse("index"), content={"user": request.user})
+                return HttpResponseRedirect(reverse("index"), 
+                    content={"user": request.user})
             else:
                 return render(request, "accounts/login.html", 
-                    {"message": ["danger", "Invalid credentials."], "form": login_form})
+                    {"message": ["danger", "Invalid credentials."], 
+                     "form": login_form})
         else:
             login_form = LoginForm()
-            return render(request, "accounts/login.html", {"message": None, "form": login_form})
+            return render(request, "accounts/login.html", {"message": None, 
+                "form": login_form})
     except Exception as e:
         return render(request, "accounts/login.html", {"message": ["danger", str(e)]})
 ```
@@ -308,6 +343,7 @@ def login_view(request):
 在[forms.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py)里定义了登录表单模板。
 
 ```python
+# accounts/forms.py
 class LoginForm(forms.Form):
     username = forms.CharField(
         label="Username", max_length=128, required=True,
@@ -321,7 +357,8 @@ class LoginForm(forms.Form):
 
         filter_result = User.objects.filter(username__exact=username)
         if not filter_result:
-            raise forms.ValidationError("This username does not exist. Please register first.")
+            raise forms.ValidationError(
+                "This username does not exist. Please register first.")
         return username
 ```
 
@@ -356,22 +393,28 @@ Sign In
         </div>
     </div>
     <label for="signIn" class="sr-only">Click</label>
-    <button id="signIn" class="btn btn-lg btn-primary btn-block" >Sign In</button>        
+    <button id="signIn" class="btn btn-lg btn-primary btn-block" >
+        Sign In
+    </button>        
 </form>
 <form class="form-signin" action="{% url 'signup' %}">
-    <button id="signUp" class="btn btn-lg btn-default btn-block">Sign up now!</button>
+    <button id="signUp" class="btn btn-lg btn-default btn-block">
+        Sign up now!
+    </button>
 </form>
 {% endblock %}
 ```
 <!-- {% endraw %} -->
 
-{{% admonition tip "要点" %}}
 <!-- {% raw %} -->
-表单内必须加个`{% csrf_token %}`解决跨域问题。模板内部解析form对象，组装出表单。
-<!-- {% endraw %} -->
+{{% admonition tip "要点" %}}
+Django表单内都必须加个`{% csrf_token %}`解决跨域问题。模板内部解析form对象，组装出表单。
 {{% /admonition %}}
+<!-- {% endraw %} -->
 
 后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_in.png" title="图 | 用户登录界面" %}}
 
 #### 注册
 
@@ -380,6 +423,7 @@ Sign In
 views.py里定义`signup()`函数。
 
 ```python
+# accounts/views.py
 def signup(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse("menu"), content={"user": request.user})
@@ -394,18 +438,22 @@ def signup(request):
                 email = reg_form.cleaned_data.get("email")
             else:
                 return render(request, "accounts/register.html", 
-                    {"message": ["danger", str(reg_form.errors.values())], "form": RegisterForm()})
+                    {"message": ["danger", str(reg_form.errors.values())], 
+                     "form": RegisterForm()})
             
             user = User.objects.create_user(
-                username=username, password=password, first_name=first_name, last_name=last_name, email=email)
+                username=username, password=password, first_name=first_name,
+                last_name=last_name, email=email)
             user.save()
             user.is_active = True
             user.success = True
 
             return render(request, "accounts/login.html", 
-                {"message": ["success", "New account %s has been created. Log in now." % (username)], "form": LoginForm()})
+                {"message": ["success", """New account %s has been created. 
+                    Log in now.""" % (username)], "form": LoginForm()})
         else:
-            return render(request, "accounts/register.html", {"message": None, "form": RegisterForm()})
+            return render(request, "accounts/register.html", 
+                {"message": None, "form": RegisterForm()})
     except Exception as e:
         return render(request, "accounts/register.html", 
             {"message": ["danger", str(e)], "form": RegisterForm()})
@@ -413,9 +461,10 @@ def signup(request):
 
 原理跟登陆差不多。主要区别在于出现了ORM操作。当通过校验后，Django就把reg_form表单字段拿过去，创建一个新的User对象。ORM操作语句很直观，`<类名>.objects.<操作方法>(<参数列表>)`。
 
-reg_form表单模板定义在[forms.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py)里。
+reg_form表单模板也定义在[forms.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py)里。
 
 ```python
+# accounts/forms.py
 from django import forms
 from django.contrib.auth.models import User
 
@@ -520,23 +569,27 @@ Sign Up
 
 同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_up.png" title="图 | 用户注册界面" %}}
+
 #### 注销
 
 注销操作比Flask更好些，直接用内置的`logout()`方法。
 
 ```python
+# accounts.views.py
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse("login"), content={"message": ["success", "Logged out."]})
+    return HttpResponseRedirect(reverse("login"), content={"message": 
+        ["success", "Logged out."]})
 ```
 
-退出后直接转跳登录页，所以也不必费劲专门写网页模板了。
+退出后直接转跳登录页，所以也不必费劲专门写网页模板了。这里用了`HttpResponseRedirect()`而不是`redirect()`，因为除了转跳以外，还要传一个content回去，用来渲染一个告警。
 
 到此，整个账号管理的功能就写好了。实际使用，还有必要加功能，比如反机器人、密码找回等。
 
 ## 订单管理(orders)
 
-接下来，进[orders](https://github.com/madlogos/edx_cs50/blob/master/project3/orders)目录，构建购物车和订单管理模块。
+接下来，进[orders](https://github.com/madlogos/edx_cs50/blob/master/project3/orders)目录，构建购物车和订单管理模块。这块内容比账号管理复杂一些。
 
 ### 模型
 
@@ -548,6 +601,7 @@ def logout_view(request):
 先定义选择项，结构是key-value元组。后续控件限定合法值，直接绑上去就行。
 
 ```python
+# orders/models.py
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -575,6 +629,7 @@ model的定义跟表单有点像。以品类(Category)和产品(Product)为例�
 Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name="products"。这样将来就可以通过Category.objects.filter(products="xxx")来反查xxx产品的类型。
 
 ```python
+# orders/models.py
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     
@@ -612,6 +667,7 @@ class Product(models.Model):
 要特别提一下的是`ManyToManyField`，比如作为订单组件的Item，可以绑一个或多个Topping或Addition。传统做法是专门建一张Item_Topping_Mapping表，将ItemTopping的ID关联起来，实现多对多关系。Django的做法是：
 
 ```python
+# orders/models.py
 class Item(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="products")
     quantity = models.IntegerField(default=0)
@@ -650,15 +706,17 @@ Item的topping字段是个ManyToManyField，外键连接到Topping，而through�
 - `python manage.py makemigrations`
 - `python manage.py migrate`
 
-Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，对后台数据库进行创建/删除/修改操作。如果用sqlite连接到后台去看，就会发现里面已经把表都创建好了。修改model后，再次migrate，Django会直接修改表结构来适配。
+Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，对后台数据库进行创建/删除/修改操作。如果用sqlite连接到后台去看，就会发现里面已经把表都创建好了。修改model后，再次migrate，Django会直接修改表结构来适配，而不用自己手动写ALTER。
 
 各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。
 
-这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。
-
 {{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg" title="图 | orders应用的表结构" %}}
 
-[待续]
+{{% admonition note "设计缺陷" false %}}
+这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。
+{{% /admonition %}}
+
+[待续](https://madlogos.github.io/post/django-website-demo-2/)
 
 ---
 

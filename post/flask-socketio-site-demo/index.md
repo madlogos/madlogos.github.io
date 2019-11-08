@@ -66,6 +66,7 @@
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/_base.html -->
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -102,7 +103,9 @@
             {% if messages %}
                 {% for category, message in messages %}
                 <div class="alert alert-{{ category }} alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <button type="button" class="close" data-dismiss="alert">
+                      &times;
+                    </button>
                     {{ message }}
                 </div>
                 {% endfor %}
@@ -146,7 +149,7 @@ user是个比较扁平的字典，存用户名和最后一次访问的频道:
   '<user 1>': '<last visited channel of user 1>',
   '<user 2>': '<last visited channel of user 2>', 
   ...,
-  '<user n>': '<last visited channel of user n>', 
+  '<user n>': '<last visited channel of user n>'
 }
 ```
 
@@ -161,18 +164,18 @@ channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含
       'chats': 
         {
           <id 1>: 
-            {'user': '<post 1 user>', 'time': '<post 1 time>', 
-             'msg': '<post 1 msg>'
-            },
+              {'user': '<post 1 user>', 'time': '<post 1 time>', 
+               'msg': '<post 1 msg>'
+              },
           <id 2>: 
-            {'user': '<post 2 user>', 'time': '<post 2 time>', 
-             'msg': '<post 2 msg>'
-            },
+              {'user': '<post 2 user>', 'time': '<post 2 time>', 
+               'msg': '<post 2 msg>'
+              },
           ...,
           <id n>: 
-            {'user': '<post n user>', 'time': '<post n time>', 
-             'msg': '<post n msg>'
-            },,
+              {'user': '<post n user>', 'time': '<post n time>', 
+               'msg': '<post n msg>'
+              }
         }
     },
   ...
@@ -185,7 +188,7 @@ chats里包含的就是一条条消息，以id为键，包起'user'、'time'和'
 
 ```python
 # -*- coding: UTF-8 -*-
-
+# application.py
 import os
 import datetime
 import urllib.parse
@@ -214,11 +217,12 @@ def index():
 
 最后在__main__里加一点代码，配置日志输出。运行`python application.py`时，会自动运行这部分。如果继续用`flask run`，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。
 
-{{% admonition tip "tip" %}}
+{{% admonition tip "注意" %}}
 部署到生产环境时，要记得把`app.debug`设为False。
 {{% /admonition %}}
 
 ```python
+# application.py
 if __name__ == '__main__':
     app.debug = True
     handler = logging.FileHandler("flask.log", encoding="UTF-8")
@@ -242,6 +246,7 @@ if __name__ == '__main__':
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/channels.html -->
 {% extends "_base.html" %}
 
 {% block title %}
@@ -274,11 +279,18 @@ Channels
         <!-- Modal content-->
         <div class="modal-content">
             <form action="{{ url_for('login') }}" method="post">
-                <div class="modal-header"><label for="displayName">Your display name</label></div>
-                <div class="modal-body">
-                    <input type="text" id="displayName" name="displayName" class="form-control validate" placeholder="Your display name">
+                <div class="modal-header">
+                  <label for="displayName">Your display name</label>
                 </div>
-                <div class="modal-footer"><button type="submit" class="btn btn-lg btn-primary">Submit</button></div>
+                <div class="modal-body">
+                    <input type="text" id="displayName" name="displayName"
+                     class="form-control validate" placeholder="Your display name">
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-lg btn-primary">
+                    Submit
+                  </button>
+                </div>
             </form>
         </div>
     </div>
@@ -326,6 +338,7 @@ Channels
 现在到application.py看看login路由定义了些什么。
 
 ```python
+# application.py
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "GET":
@@ -346,11 +359,20 @@ GET方法下，调用`get_channels()`函数，显示频道列表。如果用户�
 
 而POST方法下（也就是提交了inputName表单后），判断一下displayName里填的名字是否已经在全局对象users里，没有的话就创建一个。完事后重定向到get_channels绑定的路由，也就是频道列表。
 
+<!-- {% raw %} -->
+{{% admonition note "flash()函数" false %}}
+上面的Python代码用到了`flash(<text>, <type>)` 函数，它会发送一个`flash`请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的"danger", "warning", "success", "info"这类。
+
+为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把`<i class="xxx">` flash到前端，无法解析出图标，需要包一个`Markup()`，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。
+{{% /admonition %}}
+<!-- {% endraw %} -->
+
 ### 注销
 
 有登录就有注销。_base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。这里的注销也很简单，登出后清空`session`中的`act_user`对象，转跳回登录页。
 
 ```python
+# application.py
 @app.route("/logout")
 def logout():
     session.pop('act_user', None)
@@ -369,6 +391,7 @@ def logout():
 看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数`get_channels()`和`set_channels()`。
 
 ```python
+# application.py
 @app.route("/channels", methods=['GET'])
 def get_channels():
     app.logger.info(str(channels))
@@ -414,7 +437,6 @@ POST方法下，服务器从表单里提取"new_channel"。假如new_channel在�
 
 ### 频道明细
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png" title="图 | 在频道里聊天" %}}
 
 点击频道名，就进到频道明细。其实就是聊天室应用。和常规网络应用相比，它要解决两个特殊问题：
 
@@ -427,6 +449,7 @@ POST方法下，服务器从表单里提取"new_channel"。假如new_channel在�
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/channel.html -->
 {% extends "_base.html" %}
 
 {% block title %}
@@ -443,24 +466,37 @@ Channel {{ channel }}
         {% raw -%}
         <td width="10%">
             {{#if same_user }}
-                <span data-class="post_user" style='color:dodgerblue'>{{ post_user }}</span>
+                <span data-class="post_user" style='color:dodgerblue'>
+                  {{ post_user }}
+                </span>
             {{ else }}
-                <span data-class="post_user" style='color:lightsalmon'>{{ post_user }}</span>
+                <span data-class="post_user" style='color:lightsalmon'>
+                  {{ post_user }}
+                </span>
             {{/if}}
         </td>
         <td width="20%">
             {{#if same_user }}
-                <span data-class="post_time" style='color:dodgerblue'>{{ post_time }}</span>
+                <span data-class="post_time" style='color:dodgerblue'>
+                  {{ post_time }}
+                </span>
             {{ else}}
-                <span data-class="post_time" style='color:lightsalmon'>{{ post_time }}</span>
+                <span data-class="post_time" style='color:lightsalmon'>
+                  {{ post_time }}
+                </span>
             {{/if}}
         </td>
         <td width="auto">
             {{#if same_user }}
-                <span data-class="post_msg" style='color:dodgerblue'>{{ post_msg }}</span>
-                <button data-id="{{ post_id }}" data-class="del" style="float:right" class="btn btn-sm btn-danger"">Delete</button>
+                <span data-class="post_msg" style='color:dodgerblue'>
+                  {{ post_msg }}
+                </span>
+                <button data-id="{{ post_id }}" data-class="del" style="float:right"
+                 class="btn btn-sm btn-danger"">Delete</button>
             {{ else }}
-                <span data-class="post_msg" style='color:lightsalmon'>{{ post_msg }}</span>
+                <span data-class="post_msg" style='color:lightsalmon'>
+                  {{ post_msg }}
+                </span>
             {{/if}}
         </td>
         {%- endraw %}
@@ -500,9 +536,12 @@ Channel {{ channel }}
 <div class="container">
     <div class="form-group" id="inputMsg">
         <label for="msg" class="sr-only">Input your message</label>
-        <textarea id="msg" name="msg" class="form-control" placeholder="Input your message" rows="4" width="75%"></textarea>
+        <textarea id="msg" name="msg" class="form-control" placeholder="Input your message" 
+         rows="4" width="75%"></textarea>
         <label for="send" class="sr-only">Send</label>
-        <button id="send" type="submit" class="btn btn-md btn-primary">Send (Shift+Enter)</button>
+        <button id="send" type="submit" class="btn btn-md btn-primary">
+          Send (Shift+Enter)
+        </button>
         <a href="/channels">&nbsp;&nbsp;&gt;&gt;&gt;Go back to channel list.</a>
     </div>
 </div>
@@ -516,7 +555,7 @@ Channel {{ channel }}
 handlebars模板有一些特殊的语法规范，比如要转义的部分需要加{% raw -%}...{%- endraw %} 而标签、控制结构用{{#if}}...{{else}}...{{/if}}。它能解析变量，动态合成HTML。上面代码里的handlebars模板主要是根据act_user和发帖人是否为同一人，显示为不同的颜色。
 <!-- {% endraw %} -->
 
-html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是msgTbl）。注意：chats要加管道函数tojson，把文本转成json。就是这段：
+html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是#msgTbl）。就是这段：
 
 <!-- {% raw %} -->
 ```javascript
@@ -528,11 +567,16 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 <!-- {% endraw %} -->
 
+{{% admonition tip "注意" %}}
+chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是`对象|方法`，而不是传统的`函数(参数)`形式。
+{{% /admonition %}}
+
 这里定义了两个变量：act_user和act_channel，把当前线程的用户名和当前频道从html模板传到后面引入的javascript里，也就是[chat.js](https://github.com/madlogos/edx_cs50/blob/master/project2/static/js/chat.js)。
 
 这段JS代码用到了`format_chats()`函数。这是个自定义函数，从chat.js里加载：
 
 ```javascript
+/* static/js/chat.js */
 // template for chatPost
 const template = Handlebars.compile(document.querySelector('#chatPost').innerHTML);
 
@@ -562,10 +606,35 @@ template对象得先用Handlebars编译一下，绑定handlebars模板对象chat
 非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 {{% /admonition %}}
 
+在格式化日期时，用到了另外两个函数`format_date()`和`lead_zero()`。也定义在chat.js里。
+
+```javascript
+/* static/js/chat.js */
+function format_date(date){
+    const yr = date.getYear() + 1900;
+    const mo = date.getMonth() + 1;
+    const dt = date.getDate();
+    const hr = date.getHours();
+    const mi = date.getMinutes();
+    const se = date.getSeconds(); 
+    const ms = date.getMinutes();
+    return yr + "-" + lead_zero(mo) + "-" + lead_zero(dt) + " " +
+        lead_zero(hr) + ":" + lead_zero(mi) + ":" + lead_zero(se) + 
+        "." + lead_zero(ms, 3);
+};
+
+function lead_zero(num, digits=2){
+    /* put zeros in front the num */
+    return (Array(digits).join(0) + num).slice(-digits);
+};
+```
+
+不这样处理也可以，Javascript会按默认的格式渲染日期。
 
 回过头再看'channel/<channel>'路由的代码：
 
 ```python
+# application.py
 @app.route("/channel/<channel>", methods=['GET'])
 def get_channel(channel):
     if session.get('act_user') is None:
@@ -585,10 +654,13 @@ def get_channel(channel):
 
 ### 发消息
 
-当点击<kbd>send</kbd>，客户端就发一个"send msg"请求，把json`{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}`发射(`socket.emit`)到服务器，交给flask_socketio处理。
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png" title="图 | test1和test2在频道里聊天" %}}
+
+当点击<kbd>send</kbd>，客户端就发一个"send msg"请求，把json`{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}` "发射"(`socket.emit`)到服务器，交给flask_socketio处理。
 
 <a name="chatjs"></a>
 ```javascript
+/* static/js/chat.js */
 document.addEventListener('DOMContentLoaded', () => {
     /* connect to socket */
     var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port);
@@ -608,8 +680,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (act_channel == data.channel){
             const posttime = new Date(data.time);
             const content = template(
-                {'post_id': data.id, 'post_user': decodeURI(data.user), 'post_time': format_date(posttime), 
-                 'post_msg': decodeURI(data.msg), 'same_user': decodeURI(data.user)==act_user});
+                {'post_id': data.id, 'post_user': decodeURI(data.user), 
+                 'post_time': format_date(posttime), 
+                 'post_msg': decodeURI(data.msg), 
+                 'same_user': decodeURI(data.user)==act_user});
             document.querySelector("#msgTbl").innerHTML += content;
             document.querySelector("#msg").value = '';
             /* scroll to the page bottom */
@@ -622,6 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
 服务器接到这个"send msg"请求后，怎么处理呢？看application.py：
 
 ```python
+# application.py
 @socketio.on("send msg")
 def emit_msg(data):
     # if msg is blank, do not emit
@@ -649,9 +724,12 @@ def emit_msg(data):
 这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
 {{% /admonition %}}
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/dif_channel.png" title="图 | 不同频道不会'串台'" %}}
+
 为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。
 
 ```javascript
+/* static/js/chat.js */
 window.onload = function(){
     const msgArea = document.getElementById("msg");
     msgArea.addEventListener('keypress', evt => {
@@ -667,9 +745,12 @@ window.onload = function(){
 
 由于定义了`same_user`变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。
 
-删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用remove()方法：
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/del_msg.png" title="图 | 只能删除自己发的消息" %}}
+
+删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用`remove()`方法：
 
 ```javascript
+/* static/js/chat.js */
 document.addEventListener("click", evt => {
     var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port);
     const tgt = evt.target;
@@ -686,6 +767,7 @@ document.addEventListener("click", evt => {
 服务器端收到"del msg"请求后，收到的data就是个长度为2的字典。这样处理：
 
 ```python
+# application.py
 @socketio.on("del msg")
 def del_msg(data):
     channel = urllib.parse.unquote(data['channel'])
@@ -702,6 +784,7 @@ def del_msg(data):
 `flash`自动消失需要专门适配一些javascript。在main.js里，用jQuery实现。
 
 ```javascript
+/* static/js/main.js */
 $(document).ready(function () {
     /* alert-dismissable dismiss automatically in 3s */
     window.setTimeout(function() {

@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7155">
+<meta itemprop="wordCount" content="7461">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7155 字 </span>
+          <span class="more-meta"> 约 7461 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
@@ -151,9 +151,6 @@
 <li><a href="#项目结构">项目结构</a></li>
 <li><a href="#基础模板">基础模板</a></li>
 <li><a href="#登录">登录</a></li>
-<li><a href="#注销">注销</a></li>
-<li><a href="#频道列表">频道列表</a></li>
-<li><a href="#频道明细">频道明细</a></li>
 <li><a href="#发消息">发消息</a></li>
 <li><a href="#删除消息">删除消息</a></li>
 <li><a href="#其他">其他</a></li>
@@ -326,9 +323,13 @@
 </span><span class="lnt">66
 </span><span class="lnt">67
 </span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/_base.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">CharacterSet</span><span class="o">=</span><span class="s">&#39;UTF-8&#39;</span><span class="p">&gt;</span>
@@ -364,7 +365,9 @@
             {% if messages %}
                 {% for category, message in messages %}
                 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;alert alert-{{ category }} alert-dismissable&#34;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;close&#34;</span> <span class="na">data-dismiss</span><span class="o">=</span><span class="s">&#34;alert&#34;</span><span class="p">&gt;</span><span class="ni">&amp;times;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;close&#34;</span> <span class="na">data-dismiss</span><span class="o">=</span><span class="s">&#34;alert&#34;</span><span class="p">&gt;</span>
+                      <span class="ni">&amp;times;</span>
+                    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
                     {{ message }}
                 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 {% endfor %}
@@ -417,7 +420,7 @@
   &#39;&lt;user 1&gt;&#39;: &#39;&lt;last visited channel of user 1&gt;&#39;,
   &#39;&lt;user 2&gt;&#39;: &#39;&lt;last visited channel of user 2&gt;&#39;, 
   ...,
-  &#39;&lt;user n&gt;&#39;: &#39;&lt;last visited channel of user n&gt;&#39;, 
+  &#39;&lt;user n&gt;&#39;: &#39;&lt;last visited channel of user n&gt;&#39;
 }</pre></td></tr></table>
 </div>
 </div>
@@ -458,18 +461,18 @@
       &#39;chats&#39;: 
         {
           &lt;id 1&gt;: 
-            {&#39;user&#39;: &#39;&lt;post 1 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 1 time&gt;&#39;, 
-             &#39;msg&#39;: &#39;&lt;post 1 msg&gt;&#39;
-            },
+              {&#39;user&#39;: &#39;&lt;post 1 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 1 time&gt;&#39;, 
+               &#39;msg&#39;: &#39;&lt;post 1 msg&gt;&#39;
+              },
           &lt;id 2&gt;: 
-            {&#39;user&#39;: &#39;&lt;post 2 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 2 time&gt;&#39;, 
-             &#39;msg&#39;: &#39;&lt;post 2 msg&gt;&#39;
-            },
+              {&#39;user&#39;: &#39;&lt;post 2 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 2 time&gt;&#39;, 
+               &#39;msg&#39;: &#39;&lt;post 2 msg&gt;&#39;
+              },
           ...,
           &lt;id n&gt;: 
-            {&#39;user&#39;: &#39;&lt;post n user&gt;&#39;, &#39;time&#39;: &#39;&lt;post n time&gt;&#39;, 
-             &#39;msg&#39;: &#39;&lt;post n msg&gt;&#39;
-            },,
+              {&#39;user&#39;: &#39;&lt;post n user&gt;&#39;, &#39;time&#39;: &#39;&lt;post n time&gt;&#39;, 
+               &#39;msg&#39;: &#39;&lt;post n msg&gt;&#39;
+              }
         }
     },
   ...
@@ -510,7 +513,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: UTF-8 -*-</span>
-
+<span class="c1"># application.py</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">urllib.parse</span>
@@ -539,25 +542,27 @@
 </div>
 <p>最后在<strong>main</strong>里加一点代码，配置日志输出。运行<code>python application.py</code>时，会自动运行这部分。如果继续用<code>flask run</code>，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。</p>
 
-<div class="admonition tip"><p class="admonition-title">tip</p>
+<div class="admonition tip"><p class="admonition-title">注意</p>
   
 部署到生产环境时，要记得把`app.debug`设为False。
 
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&#34;flask.log&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="p">)</span>
     <span class="n">handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
@@ -663,9 +668,18 @@
 </span><span class="lnt">72
 </span><span class="lnt">73
 </span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/channels.html --&gt;</span>
+{% extends &#34;_base.html&#34; %}
 
 {% block title %}
 Channels
@@ -697,11 +711,18 @@ Channels
         <span class="c">&lt;!-- Modal content--&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-content&#34;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;login&#39;) }}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-header&#34;</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span><span class="p">&gt;</span>Your display name<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-body&#34;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control validate&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;Your display name&#34;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-header&#34;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span><span class="p">&gt;</span>Your display name<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
                 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-footer&#34;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary&#34;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-body&#34;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;displayName&#34;</span>
+                     <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control validate&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;Your display name&#34;</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;modal-footer&#34;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary&#34;</span><span class="p">&gt;</span>
+                    Submit
+                  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -764,9 +785,11 @@ Channels
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;GET&#34;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">get_channels</span><span class="p">()</span>
@@ -786,32 +809,35 @@ Channels
 
 <p>而POST方法下（也就是提交了inputName表单后），判断一下displayName里填的名字是否已经在全局对象users里，没有的话就创建一个。完事后重定向到get_channels绑定的路由，也就是频道列表。</p>
 
-<h3 id="注销">注销</h3>
+<!-- {% raw %} -->
 
-<p>有登录就有注销。_base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。这里的注销也很简单，登出后清空<code>session</code>中的<code>act_user</code>对象，转跳回登录页。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/logout&#34;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-    <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-        <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
-</span><span class="s2">        You have logged out.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;index&#34;</span><span class="p">))</span></code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="频道列表">频道列表</h3>
+<div class="admonition note"><p class="admonition-title">flash()函数</p>
+  
+上面的Python代码用到了`flash(<text>, <type>)` 函数，它会发送一个`flash`请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的"danger", "warning", "success", "info"这类。
 
-<p>完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。</p>
+为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把`<i class="xxx">` flash到前端，无法解析出图标，需要包一个`Markup()`，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。
+
+</div>
+<!-- {% endraw %} -->
+
+### 注销
+
+有登录就有注销。_base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。这里的注销也很简单，登出后清空`session`中的`act_user`对象，转跳回登录页。
+
+```python
+# application.py
+@app.route("/logout")
+def logout():
+    session.pop('act_user', None)
+    flash(Markup(
+        """<i class='fa fa-2x fa-check-square-o'></i>
+        You have logged out."""), 'success')
+    return redirect(url_for("index"))
+```
+
+### 频道列表
+
+完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png"/> <figcaption>
@@ -819,80 +845,47 @@ Channels
         </figcaption>
 </figure>
 
-<p>看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数<code>get_channels()</code>和<code>set_channels()</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">get_channels</span><span class="p">():</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">channels</span><span class="p">))</span>
-    <span class="n">last_visit</span><span class="o">=</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">last_visit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">last_visit</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
-        <span class="s2">&#34;channels.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">),</span> 
-        <span class="n">channels</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">:</span><span class="n">channels</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]}</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">],</span> 
-        <span class="n">last_visit</span><span class="o">=</span><span class="n">last_visit</span><span class="p">)</span>
+
+看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数`get_channels()`和`set_channels()`。
+
+```python
+# application.py
+@app.route("/channels", methods=['GET'])
+def get_channels():
+    app.logger.info(str(channels))
+    last_visit=users.get(session.get("act_user"))
+    if last_visit not in channels.keys():
+        last_visit = None
+    return render_template(
+        "channels.html", act_user=session.get("act_user"), 
+        channels=[{'name':k, 'created':channels[k]['created']} for k in channels], 
+        last_visit=last_visit)
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">set_channels</span><span class="p">():</span>
-    <span class="n">new_channel</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;new_channel&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">new_channel</span> <span class="o">!=</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">new_channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-                <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-warning&#39;&gt;&lt;/i&gt;
-</span><span class="s2">                Channel </span><span class="si">%s</span><span class="s2"> already exists.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">new_channel</span><span class="p">)),</span> 
-                <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-                <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
-</span><span class="s2">                The new channel </span><span class="si">%s</span><span class="s2"> has been created.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">new_channel</span><span class="p">)),</span>
-                <span class="s1">&#39;success&#39;</span><span class="p">)</span>
-            <span class="n">channels</span><span class="p">[</span><span class="n">new_channel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;created&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> 
-                <span class="s2">&#34;max_id&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;chats&#34;</span><span class="p">:{}}</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-            <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-warning&#39;&gt;&lt;/i&gt;
-</span><span class="s2">            Channel name cannot be empty.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;get_channels&#34;</span><span class="p">))</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>GET方法下，从全局对象<code>users</code>里取到上次访问的频道名，存入last_visit。假如last_visit不在<code>channels</code>里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给<a href="#channels_html">channels.html模板</a>解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。</p>
+@app.route("/channels", methods=['POST'])
+def set_channels():
+    new_channel = request.form.get("new_channel").strip()
+    if new_channel != "":
+        if new_channel in channels.keys():
+            flash(Markup(
+                """<i class='fa fa-2x fa-warning'></i>
+                Channel %s already exists.""" % (new_channel)), 
+                'warning')
+        else:
+            flash(Markup(
+                """<i class='fa fa-2x fa-check-square-o'></i>
+                The new channel %s has been created.""" % (new_channel)),
+                'success')
+            channels[new_channel] = {"created": datetime.datetime.now(), 
+                "max_id": 0, "chats":{}}
+    else:
+        flash(Markup(
+            """<i class='fa fa-2x fa-warning'></i>
+            Channel name cannot be empty."""), 'warning')
+    return redirect(url_for("get_channels"))
+```
+
+GET方法下，从全局对象`users`里取到上次访问的频道名，存入last_visit。假如last_visit不在`channels`里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给[channels.html模板](#channels_html)解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/last_visit.png"/> <figcaption>
@@ -900,7 +893,8 @@ Channels
         </figcaption>
 </figure>
 
-<p>POST方法下，服务器从表单里提取&rdquo;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created&rsquo;、&rsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
+
+POST方法下，服务器从表单里提取"new_channel"。假如new_channel在全局对象channels里已经存在，就`flash`甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含'created'、'max_id'和'msg'字典)，新频道就生成了。最后转跳回channels.html，实现刷新。
 
 <figure>
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/new_channel.png"/> <figcaption>
@@ -908,222 +902,144 @@ Channels
         </figcaption>
 </figure>
 
-<h3 id="频道明细">频道明细</h3>
 
-<figure>
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png"/> <figcaption>
-            <h4>图 | 在频道里聊天</h4>
-        </figcaption>
-</figure>
+### 频道明细
 
-<p>点击频道名，就进到频道明细。其实就是聊天室应用。和常规网络应用相比，它要解决两个特殊问题：</p>
 
-<ol>
-<li>提交的信息要实时广播给其他所有用户，否则就不能算聊天室。</li>
-<li>不能每次提交信息都刷新一次页面，否则用户就会崩溃，服务器负担也重。</li>
-</ol>
+点击频道名，就进到频道明细。其实就是聊天室应用。和常规网络应用相比，它要解决两个特殊问题：
 
-<p>这就需要使用socket和ajax。socket实现进程间通信，不再需要整包整包地收发HttpResponse，并刷新页面来响应。而ajax实现异步数据交换，基于socket交换数据后直接用Javascript在客户端更新网页中的特定内容。速度快，服务器负荷小。</p>
+1. 提交的信息要实时广播给其他所有用户，否则就不能算聊天室。
+1. 不能每次提交信息都刷新一次页面，否则用户就会崩溃，服务器负担也重。
 
-<p><a name="channel_html"></a>channel.html模板：</p>
+这就需要使用socket和ajax。socket实现进程间通信，不再需要整包整包地收发HttpResponse，并刷新页面来响应。而ajax实现异步数据交换，基于socket交换数据后直接用Javascript在客户端更新网页中的特定内容。速度快，服务器负荷小。
+
+<a name="channel_html"></a>channel.html模板：
 
 <!-- {% raw %} -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
+```html
+<!-- templates/channel.html -->
+{% extends "_base.html" %}
 
 {% block title %}
 Channel {{ channel }}
 {% endblock %}
 
 {% block script %}
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
-<span class="c">&lt;!-- handlebars template --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;chatPost&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/x-handlebars-template&#34;</span><span class="p">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
-        <span class="p">{</span><span class="o">%</span> <span class="nx">raw</span> <span class="o">-%</span><span class="p">}</span>
-        <span class="o">&lt;</span><span class="nx">td</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&#34;10%&#34;</span><span class="o">&gt;</span>
-            <span class="p">{{</span><span class="err">#</span><span class="k">if</span> <span class="nx">same_user</span> <span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_user&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:dodgerblue&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_user</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-            <span class="p">{{</span> <span class="k">else</span> <span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_user&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:lightsalmon&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_user</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-            <span class="p">{{</span><span class="err">/if}}</span>
-        <span class="o">&lt;</span><span class="err">/td&gt;</span>
-        <span class="o">&lt;</span><span class="nx">td</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&#34;20%&#34;</span><span class="o">&gt;</span>
-            <span class="p">{{</span><span class="err">#</span><span class="k">if</span> <span class="nx">same_user</span> <span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_time&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:dodgerblue&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_time</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-            <span class="p">{{</span> <span class="k">else</span><span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_time&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:lightsalmon&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_time</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-            <span class="p">{{</span><span class="err">/if}}</span>
-        <span class="o">&lt;</span><span class="err">/td&gt;</span>
-        <span class="o">&lt;</span><span class="nx">td</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="o">&gt;</span>
-            <span class="p">{{</span><span class="err">#</span><span class="k">if</span> <span class="nx">same_user</span> <span class="p">}}</span>
-                <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;post_msg&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:dodgerblue&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_msg</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&#34;{{ post_id }}&#34;</span> <span class="nx">data</span><span class="o">-</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;del&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;float:right&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;btn btn-sm btn-danger&#34;&#34;&gt;Delete&lt;/button&gt;
-</span><span class="s2">            {{ else }}
-</span><span class="s2">                &lt;span data-class=&#34;</span><span class="nx">post_msg</span><span class="err">&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;color:lightsalmon&#39;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">post_msg</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
-            <span class="p">{{</span><span class="err">/if}}</span>
-        <span class="o">&lt;</span><span class="err">/td&gt;</span>
-        <span class="p">{</span><span class="o">%-</span> <span class="nx">endraw</span> <span class="o">%</span><span class="p">}</span>
-    <span class="o">&lt;</span><span class="err">/tr&gt;</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<!-- handlebars template -->
+<script id="chatPost" type="text/x-handlebars-template">
+    <tr>
+        {% raw -%}
+        <td width="10%">
+            {{#if same_user }}
+                <span data-class="post_user" style='color:dodgerblue'>
+                  {{ post_user }}
+                </span>
+            {{ else }}
+                <span data-class="post_user" style='color:lightsalmon'>
+                  {{ post_user }}
+                </span>
+            {{/if}}
+        </td>
+        <td width="20%">
+            {{#if same_user }}
+                <span data-class="post_time" style='color:dodgerblue'>
+                  {{ post_time }}
+                </span>
+            {{ else}}
+                <span data-class="post_time" style='color:lightsalmon'>
+                  {{ post_time }}
+                </span>
+            {{/if}}
+        </td>
+        <td width="auto">
+            {{#if same_user }}
+                <span data-class="post_msg" style='color:dodgerblue'>
+                  {{ post_msg }}
+                </span>
+                <button data-id="{{ post_id }}" data-class="del" style="float:right"
+                 class="btn btn-sm btn-danger"">Delete</button>
+            {{ else }}
+                <span data-class="post_msg" style='color:lightsalmon'>
+                  {{ post_msg }}
+                </span>
+            {{/if}}
+        </td>
+        {%- endraw %}
+    </tr>
+</script>
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-    <span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ channel }}&#34;</span><span class="p">);</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;static&#39;, filename=&#39;js/chat.js&#39;) }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<script type="text/javascript">
+    var act_user = decodeURI("{{ act_user }}");
+    var act_channel = decodeURI("{{ channel }}");
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector("#msgTbl").innerHTML = format_chats({{ chats|tojson }}, '{{ act_user }}');
+    });
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/chat.js') }}"></script>
 {% endblock %}
 
 {% block control %}
 {% endblock %}
 
 {% block disp %}
-<span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;tbl_chat&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;table table-striped table-hover table-responsive&#34;</span> 
- <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;80%&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>You are now in channel [{{ channel }}].<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;th-sm&#34;</span><span class="p">&gt;</span>User<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;th-sm&#34;</span><span class="p">&gt;</span>Time<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;th-sm&#34;</span><span class="p">&gt;</span>Message<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tbody</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;msgTbl&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<table id="tbl_chat" class="table table-striped table-hover table-responsive" 
+ cellspacing="0" width="80%">
+    <caption>You are now in channel [{{ channel }}].</caption>
+    <thead>
+        <tr>
+            <th class="th-sm">User</th>
+            <th class="th-sm">Time</th>
+            <th class="th-sm">Message</th>
+        </tr>
+    </thead>
+    <tbody id="msgTbl">
+    </tbody>
+</table>
 {% endblock %}
 
 {% block botm_cont %}
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;inputMsg&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;msg&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sr-only&#34;</span><span class="p">&gt;</span>Input your message<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;msg&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;msg&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;Input your message&#34;</span> <span class="na">rows</span><span class="o">=</span><span class="s">&#34;4&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;75%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;send&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sr-only&#34;</span><span class="p">&gt;</span>Send<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;send&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-md btn-primary&#34;</span><span class="p">&gt;</span>Send (Shift+Enter)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/channels&#34;</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;&amp;gt;&amp;gt;&amp;gt;</span>Go back to channel list.<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+<div class="container">
+    <div class="form-group" id="inputMsg">
+        <label for="msg" class="sr-only">Input your message</label>
+        <textarea id="msg" name="msg" class="form-control" placeholder="Input your message" 
+         rows="4" width="75%"></textarea>
+        <label for="send" class="sr-only">Send</label>
+        <button id="send" type="submit" class="btn btn-md btn-primary">
+          Send (Shift+Enter)
+        </button>
+        <a href="/channels">&nbsp;&nbsp;&gt;&gt;&gt;Go back to channel list.</a>
+    </div>
 </div>
-</div>
+{% endblock %}
+```
 <!-- {% endraw %} -->
 
-<p>在channel.html模板中，script块里引入一大堆JS。比如用来动态生成HTML内容的handlebars.js，和处理socket的socket.io.js。disp块里定义了显示对话的表格&rdquo;tbl_chat&rdquo;，其中tbody留空，赋个id=&ldquo;msgTbl&rdquo;。</p>
+在channel.html模板中，script块里引入一大堆JS。比如用来动态生成HTML内容的handlebars.js，和处理socket的socket.io.js。disp块里定义了显示对话的表格"tbl_chat"，其中tbody留空，赋个id="msgTbl"。
 
 <!-- {% raw %} -->
-
-<p>handlebars模板有一些特殊的语法规范，比如要转义的部分需要加{% raw -%}&hellip;{%- endraw %} 而标签、控制结构用{{#if}}&hellip;{{else}}&hellip;{{/if}}。它能解析变量，动态合成HTML。上面代码里的handlebars模板主要是根据act_user和发帖人是否为同一人，显示为不同的颜色。
-<!-- {% endraw %} --></p>
-
-<p>html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是msgTbl）。注意：chats要加管道函数tojson，把文本转成json。就是这段：</p>
-
-<!-- {% raw %} -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ channel }}&#34;</span><span class="p">);</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+handlebars模板有一些特殊的语法规范，比如要转义的部分需要加{% raw -%}...{%- endraw %} 而标签、控制结构用{{#if}}...{{else}}...{{/if}}。它能解析变量，动态合成HTML。上面代码里的handlebars模板主要是根据act_user和发帖人是否为同一人，显示为不同的颜色。
 <!-- {% endraw %} -->
+
+html模板里直接嵌入一段JS监听代码，当加载页面时，提取chats和act_user，填充到tbody（也就是#msgTbl）。就是这段：
+
+<!-- {% raw %} -->
+```javascript
+var act_user = decodeURI("{{ act_user }}");
+var act_channel = decodeURI("{{ channel }}");
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector("#msgTbl").innerHTML = format_chats({{ chats|tojson }}, '{{ act_user }}');
+});
+```
+<!-- {% endraw %} -->
+
+<div class="admonition tip"><p class="admonition-title">注意</p>
+  
+chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是`对象|方法`，而不是传统的`函数(参数)`形式。
+
+</div>
 
 <p>这里定义了两个变量：act_user和act_channel，把当前线程的用户名和当前频道从html模板传到后面引入的javascript里，也就是<a href="https://github.com/madlogos/edx_cs50/blob/master/project2/static/js/chat.js">chat.js</a>。</p>
 
@@ -1149,9 +1065,11 @@ Channel {{ channel }}
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// template for chatPost
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<span class="c1">// template for chatPost
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#chatPost&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">format_chats</span><span class="p">(</span><span class="nx">json_data</span><span class="p">,</span> <span class="nx">act_user</span><span class="o">=</span><span class="nx">act_user</span><span class="p">){</span>
@@ -1183,6 +1101,52 @@ Channel {{ channel }}
 
 </div>
 
+<p>在格式化日期时，用到了另外两个函数<code>format_date()</code>和<code>lead_zero()</code>。也定义在chat.js里。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<span class="kd">function</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">date</span><span class="p">){</span>
+    <span class="kr">const</span> <span class="nx">yr</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getYear</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1900</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">mo</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">hr</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">mi</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">se</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span> 
+    <span class="kr">const</span> <span class="nx">ms</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">yr</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">mo</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">dt</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span>
+        <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">hr</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">mi</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">se</span><span class="p">)</span> <span class="o">+</span> 
+        <span class="s2">&#34;.&#34;</span> <span class="o">+</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">ms</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">lead_zero</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="nx">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">){</span>
+    <span class="cm">/* put zeros in front the num */</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">Array</span><span class="p">(</span><span class="nx">digits</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nx">num</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="nx">digits</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>不这样处理也可以，Javascript会按默认的格式渲染日期。</p>
+
 <p>回过头再看&rsquo;channel/<channel>&lsquo;路由的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1198,9 +1162,11 @@ Channel {{ channel }}
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channel/&lt;channel&gt;&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channel/&lt;channel&gt;&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_channel</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
@@ -1218,7 +1184,13 @@ Channel {{ channel }}
 
 <h3 id="发消息">发消息</h3>
 
-<p>当点击<kbd>send</kbd>，客户端就发一个&rdquo;send msg&rdquo;请求，把json<code>{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}</code>发射(<code>socket.emit</code>)到服务器，交给flask_socketio处理。</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png"/> <figcaption>
+            <h4>图 | test1和test2在频道里聊天</h4>
+        </figcaption>
+</figure>
+
+<p>当点击<kbd>send</kbd>，客户端就发一个&rdquo;send msg&rdquo;请求，把json<code>{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}</code> &ldquo;发射&rdquo;(<code>socket.emit</code>)到服务器，交给flask_socketio处理。</p>
 
 <p><a name="chatjs"></a></p>
 <div class="highlight"><div class="chroma">
@@ -1251,9 +1223,13 @@ Channel {{ channel }}
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="cm">/* connect to socket */</span>
     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&#34;//&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
 
@@ -1272,8 +1248,10 @@ Channel {{ channel }}
         <span class="k">if</span> <span class="p">(</span><span class="nx">act_channel</span> <span class="o">==</span> <span class="nx">data</span><span class="p">.</span><span class="nx">channel</span><span class="p">){</span>
             <span class="kr">const</span> <span class="nx">posttime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">time</span><span class="p">);</span>
             <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">template</span><span class="p">(</span>
-                <span class="p">{</span><span class="s1">&#39;post_id&#39;</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">),</span> <span class="s1">&#39;post_time&#39;</span><span class="o">:</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">posttime</span><span class="p">),</span> 
-                 <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">),</span> <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span><span class="o">==</span><span class="nx">act_user</span><span class="p">});</span>
+                <span class="p">{</span><span class="s1">&#39;post_id&#39;</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s1">&#39;post_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">),</span> 
+                 <span class="s1">&#39;post_time&#39;</span><span class="o">:</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">posttime</span><span class="p">),</span> 
+                 <span class="s1">&#39;post_msg&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">),</span> 
+                 <span class="s1">&#39;same_user&#39;</span><span class="o">:</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span><span class="o">==</span><span class="nx">act_user</span><span class="p">});</span>
             <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">content</span><span class="p">;</span>
             <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msg&#34;</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
             <span class="cm">/* scroll to the page bottom */</span>
@@ -1304,9 +1282,11 @@ Channel {{ channel }}
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;send msg&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;send msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">emit_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="c1"># if msg is blank, do not emit</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
@@ -1335,21 +1315,29 @@ Channel {{ channel }}
 
 </div>
 
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/dif_channel.png"/> <figcaption>
+            <h4>图 | 不同频道不会&#39;串台&#39;</h4>
+        </figcaption>
+</figure>
+
 <p>为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
     <span class="kr">const</span> <span class="nx">msgArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;msg&#34;</span><span class="p">);</span>
     <span class="nx">msgArea</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">13</span> <span class="o">&amp;&amp;</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
@@ -1365,21 +1353,29 @@ Channel {{ channel }}
 
 <p>由于定义了<code>same_user</code>变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。</p>
 
-<p>删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用remove()方法：</p>
+<figure>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/del_msg.png"/> <figcaption>
+            <h4>图 | 只能删除自己发的消息</h4>
+        </figcaption>
+</figure>
+
+<p>删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用<code>remove()</code>方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&#34;//&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">tgt</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">===</span> <span class="s1">&#39;del&#39;</span><span class="p">){</span>
@@ -1402,9 +1398,11 @@ Channel {{ channel }}
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">del_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">channel</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">])</span>
     <span class="n">chats</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span>
@@ -1427,9 +1425,11 @@ Channel {{ channel }}
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="cm">/* alert-dismissable dismiss automatically in 3s */</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;.alert-dismissable&#34;</span><span class="p">).</span><span class="nx">fadeTo</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nx">slideUp</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>

@@ -1,9 +1,12 @@
 
 ### Admin后台
 
+[接上](https://madlogos.github.io/post/django-website-demo-1/)
+
 模型做好后，可以在[admin.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py)里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。
 
 ```python
+# orders/admin.py
 from django.contrib import admin
 from .models import Category, Product, Topping, Addition, Order, Item
 
@@ -50,16 +53,22 @@ admin.site.register(Order, OrderAdmin)
 
 <!--more-->
 
-比如从admin.ModelAdmin继承一个ProductAdmin类出来，定义好list_display、list_filter和list_editable之类属性，再用`admin.site.register`把Product类注册到ProductAdmin上，admin页面就能管理Product模型了。非常方便。
+比如从admin.ModelAdmin继承一个ProductAdmin类出来，定义好list_display（显示哪些列)、list_filter（哪些列用来筛选）和list_editable（哪些列可以编辑）之类属性，再用`admin.site.register`把Product类注册到ProductAdmin上，admin页面就能管理Product模型了。非常方便。
 
-值得多说一句的是多对多关系。比如OrderItem，需要专门从admin.TabularInline类继承出一个子类OrderItemInline来，绑定OrderItem模型。再在OrderAdmin中加个字段inlines，将OrderItemInline注册上去。这样就构建好了级联表UI视图，能通过Order来管理每个Order下面的Item了。
+{{% admonition note "值得多说一句的是多对多关系" false %}}
+比如OrderItem，需要专门从admin.TabularInline类继承出一个子类OrderItemInline来，绑定OrderItem模型。再在OrderAdmin中加个字段inlines，将OrderItemInline注册上去。这样就构建好了级联表UI视图，能通过Order来管理每个Order下面的Item了。
+{{% /admonition %}}
 
+做好这部分后，可以先把Category和Product项目都维护进系统里。可以写脚本，也可以人肉录入。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_product.png" title="图 | Django Admin管理Product" %}}
 
 ### 控制
 
 接下来在[urls.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/urls.py)里添加路由。
 
 ```python
+# orders/urls.py
 urlpatterns = [
     path("menu", views.index, name="menu"),
     path("pick/<int:id>", views.pick_product, name="pick_product"),
@@ -69,7 +78,7 @@ urlpatterns = [
 ]
 ```
 
-菜单、点菜、购物车、订单列表、订单明细五个路由都被定义好了。
+菜单、点菜、购物车、订单列表、订单明细五个路由都被定义好了。鉴于accounts和orders应用都被映射到主路由，各自定义路由时不能重名。
 
 ### 视图
 
@@ -89,6 +98,7 @@ urlpatterns = [
 菜单页是事实上的首页。后端代码并不复杂，主要用来跳转。
 
 ```python
+# orders/views.py
 @login_required
 def index(request):
     if request.method == "POST":
@@ -98,20 +108,27 @@ def index(request):
         return render(request, "orders/index.html", {"products": products})
 ```
 
+<!-- {% raw %} -->
+
 {{% admonition tip "要点" %}}
-在orders应用里，所有视图函数前都加了修饰器`@login_requied`，这就很便捷地完成了用户校验。
+在orders应用里，所有视图函数前都加了修饰器@login_required，这就很便捷地完成了用户校验。
 {{% /admonition %}}
+
+<!-- {% endraw %} -->
 
 用GET方法时，取出所有Product对象，返回给前端处理。用POST方法时（点了<kbd>Add to cart</kbd>按钮），发一个Http响应。但事实上不起什么作用，这个按钮绑了onclick事件，将触发点单页面。
 
-[orders/index.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/index.html)模板定义了两摊东西：导航菜单和产品列表。这里用到Django的一个模板特性`regroup`，按category分组后再循环输出，就能实现分组显示了。
+[orders/index.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/index.html) 模板定义了两摊东西：导航菜单和产品列表。这里用到Django的一个模板特性`regroup`，按category分组后再循环输出，就能实现分组显示了。
 
 ##### 前端
 
-本质上是想实现一个按pivot_by size的交叉表，完全通过前端模板实现有点别扭。必要的话还是应该在后端加工好再往前端传。
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/menu.png" title="图 | 菜单" %}}
+
+本质上是想实现一个pivot_by(size)的交叉表，完全通过前端模板实现有点别扭。必要的话还是应该在后端加工好再往前端传。
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/orders/index.html -->
 {% extends "_base.html" %}
 {% load static %}
 
@@ -151,7 +168,8 @@ Menu
         {% for item in prod.list %}
         <td width="20%">
         ${{ item.price }}&emsp;
-        <button class="btn btn-sm btn-primary" id="prod_{{ item.id }}" onclick="popupfun('{{ item.id }}')">Add to Cart</button>
+        <button class="btn btn-sm btn-primary" id="prod_{{ item.id }}"
+         onclick="popupfun('{{ item.id }}')">Add to Cart</button>
         </td>
         {% endfor %}
     </tr>
@@ -166,6 +184,7 @@ Menu
 <kbd>Add to cart</kbd>按钮绑定的事件叫`popupfun()`，写在[menu.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/main.js)里：
 
 ```javascript
+/* static/js/main.js */
 function popupfun(prod_id){
     window.open("pick/" + prod_id, "Add to cart", "status=1,height:500,width:300,toolbar=0,resizeable=0");
     return false;
@@ -178,12 +197,15 @@ function popupfun(prod_id){
 
 ##### 前端
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item.png" title="图 | 点单" %}}
+
 点单页面从[pick_product.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/pick_product.html)页面模板讲起。
 
 它继承的是_popup.html模板，根据后端传入的product对象的n_topping数量判断，是否要加载topping和addition列表。一旦加载，就显示这些附加物，和数量录入框。这些表单是动态生成的，所以我没有用forms模板的方法来实现。（不过StackOverflow上查了查，还是有实现方案的。）
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/orders/pick_product.html -->
 {% extends "_popup.html" %}
 {% load static %}
 
@@ -198,20 +220,29 @@ Topping / Additions
 {% block disp %}
 <h2>{{product.category}} - {{ product.name }} ({{ product.size }})</h2>
 
-<form id="prod_form" name="prod_form" action="{% url 'pick_product' id=product.id %}" method="post" onsubmit="return check_toppings()">
+<form id="prod_form" name="prod_form" action="{% url 'pick_product' id=product.id %}"
+ method="post" onsubmit="return check_toppings()">
 {% csrf_token %}
 <label>
-    Unit price: <span style="font-size:x-large">$</span><span name="price" id="price" style="font-size:x-large">{{ product.price }}</span>
+    Unit price: <span style="font-size:x-large">$</span>
+    <span name="price" id="price" style="font-size:x-large">
+        {{ product.price }}
+    </span>
 </label>
 <br />
 <label>Servings:
-    <input name="qty" id="qty" type="number" style="text-align:center;width:50%" min="0" value="1" />
+    <input name="qty" id="qty" type="number" style="text-align:center;width:50%"
+     min="0" value="1" />
 </label>
-<button id="btn_submit" type="submit" class="btn btn-md btn-primary">Confirm</button>
+<button id="btn_submit" type="submit" class="btn btn-md btn-primary">
+    Confirm
+</button>
 <hr>
 {% if product.n_topping > 0 %}
 <table class="table table-striped table-hover table-responsive" cellspacing="0">
-    <caption>You need to choose <span id="n_topping">{{ product.n_topping }}</span> pizza topping(s)</caption>
+    <caption>
+        You need to choose <span id="n_topping">{{ product.n_topping }}</span> pizza topping(s)
+    </caption>
     <thead>
         <th>Topping</th>
         <th>Price</th>
@@ -223,8 +254,10 @@ Topping / Additions
             <td>{{ topping.name }}</td>
             <td id="topping_price_{{ topping.id }}">{{ topping.price }}</td>
             <td>
-                <input name="topping_{{ topping.id }}" type="number" style="text-align:center;width:50%"
-                 data-class="topping" data-item="{{ topping.id }}" min="0" max="{{ product.n_topping }}" />
+                <input name="topping_{{ topping.id }}" type="number"
+                 style="text-align:center;width:50%"
+                 data-class="topping" data-item="{{ topping.id }}" min="0" 
+                 max="{{ product.n_topping }}" />
             </td>
         </tr>
         {% endfor %}
@@ -246,7 +279,8 @@ Topping / Additions
             <td>{{ addition.name }}</td>
             <td id="addition_price_{{ addition.id }}">{{ addition.price }}</td>
             <td>
-                <input name="addition_{{ addition.id }}" type="number" style="text-align:center;width:50%"
+                <input name="addition_{{ addition.id }}" type="number"
+                 style="text-align:center;width:50%"
                  data-class="addition" data-item="{{ addition.id }}" min="0" />
             </td>
         </tr>
@@ -263,6 +297,7 @@ Topping / Additions
 表单绑定了事件`onsubmit()`，所以点击<kbd>Confirm</kbd>按钮提交表单后，[pick_product.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/pick_product.js)里的`check_toppings()`函数会先运行。如果topping数量之和与limit不符，就返回false。
 
 ```javascript
+/* static/js/pick_product.js */
 function check_toppings(limit){
     var qty = 0;
     if (limit == null){
@@ -282,6 +317,7 @@ function check_toppings(limit){
 这里用到了`evt.target.dataset.class`属性。我比较喜欢在前端模板的控件里埋`data-xxxx`属性，比如`data-class`、`data-value`，这样JS只要用`dataset.xxx`就能引用它。也不知道这是不是好的做法。
 
 ```javascript
+/* static/js/pick_product.js */
 document.addEventListener('DOMContentLoaded', () => {
     const submit = document.querySelector('#btn_submit');
     const n_topping = document.getElementById('n_topping');
@@ -297,7 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('change', evt => {
-        if (evt.target.dataset.class == 'topping' || evt.target.dataset.class == 'addition'){
+        if (evt.target.dataset.class == 'topping' || 
+            evt.target.dataset.class == 'addition'){
             update_price();
         };
     });
@@ -307,7 +344,8 @@ function update_price(){
     var price = Number(document.getElementById("price").innerHTML);
     document.querySelectorAll('input').forEach(elem => {
         if (elem.dataset.class == 'topping' || elem.dataset.class == 'addition'){
-            let add_price = document.getElementById(elem.dataset.class + "_price_" + elem.dataset.item).innerHTML;
+            let add_price = document.getElementById(elem.dataset.class + 
+                "_price_" + elem.dataset.item).innerHTML;
             price += Number(elem.value) * Number(add_price);
         };
     });
@@ -315,11 +353,14 @@ function update_price(){
 }; 
 ```
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item_err.png" title="图 | 校验附加品数量" %}}
+
 ##### 后端
 
 通过了JS脚本的校验后，添加物品种和数量提交到后端，python要进一步做一系列处理。
 
 ```python
+# orders/views.py
 @login_required
 def pick_product(request, id):
     if request.method == "POST":
@@ -330,8 +371,10 @@ def pick_product(request, id):
         toppings = clean_form_data(request.POST)
         n_topping = Product.objects.get(id=id).n_topping
         if sum(toppings.values()) != n_topping:
-            return HttpResponse("<script>alert('This product should have " + str(n_topping) + " topping\(s\).')</script>")
-        additions = clean_form_data(request.POST, {'ptn': r'addition_(\d+)$', 'rpl': r'\1'})
+            return HttpResponse("<script>alert('This product should have " +
+                str(n_topping) + " topping\(s\).')</script>")
+        additions = clean_form_data(request.POST, 
+            {'ptn': r'addition_(\d+)$', 'rpl': r'\1'})
 
         # prepare cart
         try:
@@ -344,7 +387,8 @@ def pick_product(request, id):
         
         # judge if duplicated
         itm_dup = False
-        itm_trk = {'product': item.product.id, 'price': item.price, 'topping': dict(), 'addition': dict()}
+        itm_trk = {'product': item.product.id, 'price': item.price, 
+            'topping': dict(), 'addition': dict()}
         if len(toppings) > 0:
             for key in toppings:
                 topping = Topping.objects.get(id=to_num(key))
@@ -371,12 +415,14 @@ def pick_product(request, id):
             if len(toppings) > 0:
                 for key in toppings:
                     topping = Topping.objects.get(id=to_num(key))
-                    ItemTopping.objects.create(item=item, topping=topping, quantity=toppings[key])
+                    ItemTopping.objects.create(item=item, topping=topping,
+                        quantity=toppings[key])
                     item.price += topping.price * toppings[key]
             if len(additions) > 0:
                 for key in additions:
                     addition = Addition.objects.get(id=to_num(key))
-                    ItemAddition.objects.create(item=item, addition=addition, quantity=additions[key])
+                    ItemAddition.objects.create(item=item, addition=addition,
+                        quantity=additions[key])
                     item.price += addition.price * additions[key]
             item.save()
             CartItem.objects.create(cart=cart, item=item, quantity=qty)
@@ -402,12 +448,15 @@ def pick_product(request, id):
 
 ##### 前端
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/jump_cart.png" title="图 | 跳转购物车" %}}
+
 购物车[cart.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/cart.html)模板主要完成三个功能：展示当前购物车、修改项目数量、筛选和下单。
 
 这一部分非常考验对ORM模型的理解。传入的对象是items，循环遍历每一个item，那么找到其下挂的topping，就要用item.item.itemtopping_item.all，其中"itemtopping_item"就是定义模型时起的related_name。
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/orders/cart.html -->
 {% extends "_base.html" %}
 {% load static %}
 
@@ -431,7 +480,11 @@ Cart
 {% if items|length > 0 %}
     <table class="table table-striped table-hover table-responsive" cellspacing="0">
         <thead>
-            <th width="50%" colspan="2"><input type="checkbox" name="check_all" id="check_all"><span>Cart Item</span></input></th>
+            <th width="50%" colspan="2">
+                <input type="checkbox" name="check_all" id="check_all">
+                    <span>Cart Item</span>
+                </input>
+            </th>
             <th width="10%">Servings</th>
             <th width="10%">Unit Price</th>
             <th width="15%">Created</th>
@@ -441,15 +494,22 @@ Cart
             {% for item in items %}
             <tr>
                 <td width="50%" colspan="2">
-                    <input type="checkbox" name="order_product_{{ item.item.id }}" data-class="order" data-item="{{ item.item.id }}" value="{{ item.item.quantity }}">
-                        <span data-toggle="tooltip" title="${{ item.item.product.price }}/serving">
+                    <input type="checkbox" name="order_product_{{ item.item.id }}"
+                     data-class="order" data-item="{{ item.item.id }}" 
+                     value="{{ item.item.quantity }}">
+                        <span data-toggle="tooltip" 
+                         title="${{ item.item.product.price }}/serving">
                             <strong>{{ item.item.product.category }}</strong> - {{ item.item.product.name}} ({{ item.item.product.size }})
                         </span>
                     </input>
                 </td>
-                <td width="10%"><input id="product_{{ item.item.id }}" name="product_{{ item.item.id }}" data-class="qty" data-item="{{ item.item.id }}" 
-                    type="number" min="0" style="width:50%" value="{{ item.quantity }}" /></td>
-                <td width="10%" id="product_price_{{ item.item.id }}" name="product_price_{{ item.item.id }}" data-class="price" data-item="{{ item.item.id }}">
+                <td width="10%"><input id="product_{{ item.item.id }}" 
+                 name="product_{{ item.item.id }}" data-class="qty" 
+                 data-item="{{ item.item.id }}" type="number" min="0" 
+                 style="width:50%" value="{{ item.quantity }}" /></td>
+                <td width="10%" id="product_price_{{ item.item.id }}"
+                 name="product_price_{{ item.item.id }}" data-class="price"
+                 data-item="{{ item.item.id }}">
                     {{ item.item.price }}
                 </td>
                 <td width="15%">{{ item.item.created|date:"Y/m/d H:i:s" }}</td>
@@ -461,7 +521,8 @@ Cart
                 <tr>
                     <td width="10%"></td>
                     <td width="40%">
-                        <span data-toggle="tooltip" title="${{ topping.topping.price }}/serving">
+                        <span data-toggle="tooltip" 
+                         title="${{ topping.topping.price }}/serving">
                             <span style="color:#bbb">+Topping:</span> {{ topping.topping.name }} x {{ topping.quantity }}
                         </span>
                     </td>
@@ -477,7 +538,8 @@ Cart
                 <tr>
                     <td width="10%"></td>
                     <td width="40%">
-                        <span data-toggle="tooltip" title="${{ addition.addition.price }}/serving">
+                        <span data-toggle="tooltip" 
+                         title="${{ addition.addition.price }}/serving">
                             <span style="color:#bbb">+Addition:</span> {{ addition.addition.name }} ({{ addition.addition.size }}) x {{ addition.quantity }}
                         </span>
                     </td>
@@ -504,7 +566,9 @@ Cart
             <h4>Selected: </h4>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-8">
-            <h4 style="text-align:right;font-weight:bold">$<span id="select_price">{{ select_sum }}</span></h4>
+            <h4 style="text-align:right;font-weight:bold">
+                $<span id="select_price">{{ select_sum }}</span>
+            </h4>
         </div>
     </div>
     <div class="row">
@@ -513,20 +577,24 @@ Cart
             <h4>Total: </h4>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-8">
-            <h4 style="text-align:right;font-weight:bold">$<span id="total_price">{{ cart_sum }}</span></h4>
+            <h4 style="text-align:right;font-weight:bold">
+                $<span id="total_price">{{ cart_sum }}</span>
+            </h4>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-8"></div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <button id="btn_save" name="btn_save" type="submit" class="btn btn-secondary btn-block">Save my cart</button>
+            <button id="btn_save" name="btn_save" type="submit" 
+             class="btn btn-secondary btn-block">Save my cart</button>
         </div>
     </div>
     <div class="col-12">&nbsp;</div>
     <div class="row">
         <div class="col-lg-9 col-md-8"></div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <button id="btn_submit" name="btn_submit" type="submit" class="btn btn-primary btn-block">Place an order</button>
+            <button id="btn_submit" name="btn_submit" type="submit" 
+             class="btn btn-primary btn-block">Place an order</button>
         </div>
     </div>
 </div>
@@ -541,6 +609,7 @@ Cart
 页面里写了tooltip value，所以JS中用jQuery定义一下tooltip，鼠标移到上方时显示数值。
 
 ```javascript
+/* static/js/cart.js */
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -549,6 +618,7 @@ $(document).ready(function(){
 对页面进行持续监听，一旦文本输入框或复选框选中状态发生改动，就调用`update_price()`更改小计价格。如果一个都没选中，就`preventDefault()`，不许提交。如果点了"#check_all"复选框，那么就`batch_check()`选中所有项目。
 
 ```javascript
+/* static/js/cart/js */
 document.addEventListener('DOMContentLoaded', () => {
     update_price();
     document.addEventListener('change', evt => {
@@ -575,7 +645,8 @@ function update_price(){
     document.querySelectorAll('input').forEach(elem => {
         if (elem.dataset.class == 'qty' || elem.dataset.class == 'order'){
             let item_id = elem.dataset.item;
-            let unit_price = document.getElementById("product_price_" + item_id).innerHTML;
+            let unit_price = document.getElementById("product_price_" +
+                item_id).innerHTML;
             let qty = document.getElementById('product_' + item_id).value;
             let item_price = Number(qty) * Number(unit_price);
             
@@ -601,16 +672,21 @@ function batch_check(check=true){
 };
 ```
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/choose_order.png" title="图 | 选定下单" %}}
+
 ##### 后端
 
 ```python
+# orders/views.py
 @login_required
 def cart(request):
     if request.method == "POST":
         # save the form
         cart = Cart.objects.get(user=request.user)
-        items = clean_form_data(request.POST, {'ptn': r'product_(\d+)$', 'rpl': r'\1'}, del_val=())
-        orders = clean_form_data(request.POST, {'ptn': r'order_product_(\d+)$', 'rpl': r'\1'})
+        items = clean_form_data(request.POST, {'ptn': r'product_(\d+)$', 
+            'rpl': r'\1'}, del_val=())
+        orders = clean_form_data(request.POST, {'ptn': r'order_product_(\d+)$', 
+            'rpl': r'\1'})
         cart_items = cart.cartitem_set.all()
 
         for key in items:
@@ -628,13 +704,16 @@ def cart(request):
         cart_det = show_cart(request.user)
         if 'btn_save' in request.POST:
             return render(request, "orders/cart.html", 
-                {'items': cart_det['items'], 'message': ['success', 'Cart saved.'], 'cart_sum': cart_det['price']})
+                {'items': cart_det['items'], 
+                 'message': ['success', 'Cart saved.'], 
+                 'cart_sum': cart_det['price']})
         elif 'btn_submit' in request.POST:
             if len(orders) > 0:
                 order = Order.objects.create(user=request.user, price=0)
                 for key in orders:
                     item = cart_items.get(item=Item.objects.get(pk=to_num(key)))
-                    OrderItem.objects.create(order=order, quantity=item.quantity, item=Item.objects.get(pk=to_num(key)))
+                    OrderItem.objects.create(order=order, quantity=item.quantity,
+                        item=Item.objects.get(pk=to_num(key)))
                     order.quantity += item.quantity
                     order.price += item.item.price * item.quantity
                     item.delete()
@@ -659,10 +738,15 @@ def cart(request):
 
 ##### 前端
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_init.png" title="图 | 订单列表" %}}
+
 订单列表[orders.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/orders.html)页面模板如下。跟购物车差不多，也提供了复选框和按钮，用户可以先选中对应的订单批处理操作，或直接点某个订单后的按钮进行单独操作。操作包括支付、取消、删除。利用Django模板的条件渲染能力，根据订单状态的不同，每个按钮的disabled属性各有不同。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_new.png" title="图 | 更新后的订单列表" %}}
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/orders/orders.html -->
 {% extends "_base.html" %}
 {% load static %}
 
@@ -688,16 +772,20 @@ Orders
     <table class="table table-striped table-hover table-responsive" cellspacing="0">
         <thead>
             <tr>
-                <th width="15%"><input type="checkbox" name="check_all" id="check_all">Order ID</input></th>
+                <th width="15%"><input type="checkbox" name="check_all"
+                 id="check_all">Order ID</input></th>
                 <th width="10%">Items</th>
                 <th width="15%">Price</th>
                 <th width="10%">Status</th>
                 <th width="15%">Created</th>
                 <th width="15%">Updated</th>
                 <th width="auto" class="text-right">
-                    <button name="btn_pay" type="submit" id="btn_pay" class="btn btn-primary btn-sm">Pay</button>&nbsp;
-                    <button name="btn_cancel" type="submit" id="btn_cancel" class="btn btn-warning btn-sm">Cancel</button>&nbsp;
-                    <button name="btn_delete" type="submit" id="btn_delete" class="btn btn-danger btn-sm">Delete</button>
+                    <button name="btn_pay" type="submit" id="btn_pay" 
+                     class="btn btn-primary btn-sm">Pay</button>&nbsp;
+                    <button name="btn_cancel" type="submit" id="btn_cancel" 
+                     class="btn btn-warning btn-sm">Cancel</button>&nbsp;
+                    <button name="btn_delete" type="submit" id="btn_delete" 
+                     class="btn btn-danger btn-sm">Delete</button>
                 </th>
             </tr>
         </thead>
@@ -705,12 +793,15 @@ Orders
             {% for order in orders %}
             <tr>
                 <th width="15%">
-                    <input type="checkbox" name="order_{{ order.id }}" data-class="order" data-item="{{ order.id }}" value="{{ order.price }}">
+                    <input type="checkbox" name="order_{{ order.id }}"
+                     data-class="order" data-item="{{ order.id }}" 
+                     value="{{ order.price }}">
                         <a href="{% url 'order' id=order.id %}"># {{ order.id }}</a>
                     </input>
                 </th>
                 <td width="10%" id="qty_{{ order.id }}">{{ order.quantity }}</td>
-                <td width="15%">$<span id="price_{{ order.id }}">{{ order.price }}</span></td>
+                <td width="15%">$<span id="price_{{ order.id }}">
+                    {{ order.price }}</span></td>
                 <td width="10%" id="status_{{ order.id }}">
                     <span class=
                         {% if order.status == 'Paid' %}"text-success"
@@ -728,15 +819,19 @@ Orders
                     {{ order.updated|date:"Y/m/d H:i:s" }}
                 </td>
                 <td width="auto" class="text-right">
-                    <button name="pay" value="{{ order.id }}" class="btn btn-primary btn-sm"
-                     {% if order.status == 'Paid' or order.status == 'Completed' or order.status == 'Cancelled' %}
+                    <button name="pay" value="{{ order.id }}" 
+                     class="btn btn-primary btn-sm"
+                     {% if order.status == 'Paid' or order.status == 'Completed' 
+                      or order.status == 'Cancelled' %}
                       disabled="disabled" 
                      {% endif %}>Pay</button>&nbsp;
-                    <button name="cancel" value="{{ order.id }}" class="btn btn-warning btn-sm"
+                    <button name="cancel" value="{{ order.id }}" 
+                     class="btn btn-warning btn-sm"
                      {% if order.status == 'Paid' or order.status == 'Cancelled' %}
                       disabled="disabled" 
                      {% endif %}>Cancel</button>&nbsp;
-                    <button name="delete" value="{{ order.id }}" class="btn btn-danger btn-sm"
+                    <button name="delete" value="{{ order.id }}" 
+                     class="btn btn-danger btn-sm"
                      {% if order.status == 'Paid' or order.status == 'Completed' %}
                       disabled="disabled" 
                      {% endif %}>Delete</button>
@@ -757,7 +852,9 @@ Orders
             <h4>Selected: </h4>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-8">
-            <h4 style="text-align:right;font-weight:bold">$<span id="select_price">{{ select_sum }}</span></h4>
+            <h4 style="text-align:right;font-weight:bold">
+                $<span id="select_price">{{ select_sum }}</span>
+            </h4>
         </div>
     </div>
     <div class="row">
@@ -766,7 +863,9 @@ Orders
             <h4>Total: </h4>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-8">
-            <h4 style="text-align:right;font-weight:bold">$<span id="total_price">{{ cart_sum }}</span></h4>
+            <h4 style="text-align:right;font-weight:bold">
+                $<span id="total_price">{{ cart_sum }}</span>
+            </h4>
         </div>
     </div>
 </div>
@@ -777,14 +876,18 @@ Orders
 
 前端脚本[orders.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/orders.js)和购物车页面的脚本一样，持续监听，实现批量选中和随时更新小计价格。有所不同的是，还加了一段监听代码，一旦批量选中后点操作按钮，先要`check_clickable()`校验一下这个按钮是否能点，然后调`confirm_submit()`跳出一个弹窗，让用户确认操作。
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_check.png" title="图 | 订单批量操作确认" %}}
+
 ```javascript
+/* static/js/orders.js */
 document.querySelectorAll('button').forEach(elem => {
 	const btn_dict = {'btn_pay': 'pay', 'btn_cancel': 'cancel', 'btn_delete': 'delete'};
 	if (['btn_pay', 'btn_cancel', 'btn_delete'].indexOf(elem.id) >= 0){
 		elem.addEventListener('click', evt => {
 			if (! check_clickable(btn_dict[elem.id])){
 				evt.preventDefault();
-				alert('No order is selected or \r\nnot all the selected orders can ' + btn_dict[elem.id] + '.');
+				alert('No order is selected or \r\n
+				    not all the selected orders can ' + btn_dict[elem.id] + '.');
 			};
 		});
 	}else if (['pay', 'cancel', 'delete'].indexOf(elem.name) >= 0){
@@ -804,7 +907,8 @@ function check_clickable(state){
             if (elem.checked){
                 any_checked = true;
                 let item_id = elem.dataset.item;
-                let item_status = document.getElementById('status_' + item_id).innerHTML;
+                let item_status = document.getElementById('status_' +
+                    item_id).innerHTML;
                 if (! item_status  in dict[state]){
                     o = false;
                     return false;
@@ -829,11 +933,13 @@ function confirm_submit(evt){
 ##### 后端
 
 ```python
+# orders/views/py
 @login_required
 def orders(request):
     if request.method == "POST":
         if any(_ in request.POST for _ in ('btn_pay', 'btn_cancel', 'btn_delete')):
-            orders = clean_form_data(request.POST, {'ptn': r'order_(\d+)$', 'rpl': r'\1'})
+            orders = clean_form_data(request.POST, {'ptn': r'order_(\d+)$', 
+                'rpl': r'\1'})
             if 'btn_pay' in request.POST:
                 raise Http404('Payment function is not available now.')
             else:
@@ -880,21 +986,28 @@ def orders(request):
 
 ##### 前端
 
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order.png" title="图 | 订单明细" %}}
+
 订单明细[order.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/order.html)显示的是订单详情。这个页面上用户依然可以更改各项目的数量。
 
 页面脚本[order.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/order.js)跟订单列表页脚本差不多，监听页面，动态更新小计，点按钮的话确认操作再放行提交。
+
+{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order_check.png" title="图 | 订单操作确认" %}}
 
 ##### 后端
 
 其实可以复用`orders()`的代码。这块没有认真重构。
 
 ```python
+# orders/views.py
 @login_required
 def order(request, id):
     if request.method == "POST":
-        if any(_ in request.POST for _ in ('btn_save', 'btn_pay', 'btn_cancel', 'btn_delete')):
+        if any(_ in request.POST for _ in ('btn_save', 'btn_pay', 'btn_cancel',
+            'btn_delete')):
             order = Order.objects.get(pk=id)
-            items = clean_form_data(request.POST, {'ptn': r'product_(\d+)$', 'rpl': r'\1'}, del_val=('0', ''))
+            items = clean_form_data(request.POST, 
+                {'ptn': r'product_(\d+)$', 'rpl': r'\1'}, del_val=('0', ''))
             order_items = order.orderitem_set.all()
             order.quantity = order.price = 0
             for key in items:
