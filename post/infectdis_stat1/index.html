@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2017-04-07T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4330">
+<meta itemprop="wordCount" content="4414">
 
 
 
@@ -132,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
             </div>
-          <span class="more-meta"> 约 4330 字 </span>
+          <span class="more-meta"> 约 4414 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         
       </div>
@@ -170,7 +170,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png" width="60%"/> <figcaption>
             <h4>图 | 法定传染病统计表</h4>
         </figcaption>
@@ -182,7 +182,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png"/> <figcaption>
             <h4>图 | 卫计委传染病控制动态</h4>
         </figcaption>
@@ -192,7 +192,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png"/> <figcaption>
             <h4>图 | 法定传染病月报</h4>
         </figcaption>
@@ -226,7 +226,7 @@
 
 <h2 id="爬目录">爬目录</h2>
 
-<p>“传染病预防控制”这个分类的URL是很有规律的。第一页是<a href="http://www.nhfpc.gov.cn/jkj/s2907/new_list.shtml，第二页就是http://www.nhfpc.gov.cn/jkj/s2907/new_list_2.shtml。也就是说23个目录页拼一下就出来了：">http://www.nhfpc.gov.cn/jkj/s2907/new_list.shtml，第二页就是http://www.nhfpc.gov.cn/jkj/s2907/new_list_2.shtml。也就是说23个目录页拼一下就出来了：</a></p>
+<p>“传染病预防控制”这个分类的URL是很有规律的。第一页是<a href="http://www.nhfpc.gov.cn/jkj/s2907/new_list.shtml">http://www.nhfpc.gov.cn/jkj/s2907/new_list.shtml</a>，第二页就是<a href="http://www.nhfpc.gov.cn/jkj/s2907/new_list_2.shtml">http://www.nhfpc.gov.cn/jkj/s2907/new_list_2.shtml</a>。也就是说23个目录页拼一下就出来了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
@@ -249,7 +249,7 @@
 <li><code>read_html</code>很好理解，把页面读进来。这个页面会被封装为一个<code>xml_nodes</code>对象。</li>
 <li><code>html_nodes</code>则负责从<code>xml_nodes</code>对象中提取某个节点的内容，封装成<code>xml_nodeset</code>对象。</li>
 <li>进一步，如果要把里面的内容都当做文本提出来，用<code>html_text</code>。</li>
-<li>有表格（<table>&hellip;</table>）的话，用<code>html_table</code>，直接输出梦寐以求的data.frame。</li>
+<li>有表格（&lt;table&gt;&hellip;&lt;/table&gt;）的话，用<code>html_table</code>，直接输出梦寐以求的data.frame。</li>
 </ul>
 
 <p>唯一费解的概念也就是“节点”。但只要对html和xml略有了解，就很容易理解。一个html文件的典型结构是</p>
@@ -279,11 +279,11 @@
 
 <p>怎么看页面节点结构呢？用Chrome访问目录页，F12查看文档结构，或者右键“查看页面源代码”。</p>
 
-<p>每一篇信息动态都在一个列表节点<li>里，最终都被包进一个无序列表父节点<ul>里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：<a>节点内有标题和链接，<span ml>节点内有发布日期。</p>
+<p>每一篇信息动态都在一个列表节点&lt;li&gt;里，最终都被包进一个无序列表父节点&lt;ul&gt;里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：&lt;a&gt;节点内有标题和链接，&lt;span ml&gt;节点内有发布日期。</p>
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/sourcecode_dir.png"/> <figcaption>
             <h4>图 | 网页源码</h4>
         </figcaption>
@@ -353,7 +353,7 @@
 <ul>
 <li>翻了几页，所有月度疫情公报都有“xx月全国法定”或“xx月份全国法定”的字样。</li>
 
-<li><p>所有链接都是相对路径，形如../../xxx，需要替换为完整路径。</p>
+<li><p>所有链接都是相对路径，形如&rdquo;../../xxx&rdquo;，需要替换为完整路径。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
@@ -413,7 +413,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/toc_tbl.png"/> <figcaption>
             <h4>图 | toc表格</h4>
         </figcaption>
@@ -639,7 +639,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_mot_infectdis.png"/> <figcaption>
             <h4>图 | 发病/死亡月度统计</h4>
         </figcaption>
@@ -842,7 +842,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/downfiles.png"/> <figcaption>
             <h4>图 | 附件下载</h4>
         </figcaption>
@@ -880,7 +880,7 @@
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>

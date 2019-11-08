@@ -45,11 +45,11 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 
 建三张表，`mbr`，`book`和`review`。`review`表里`mbr_id`和`book_id`分别外键关联到`mbr`和`book`。
 
-{{% admonition question "为啥不用`user`？" %}}
+{{% admonition question "为啥不用'user'?" %}}
 因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
 {{% /admonition %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png" title="图 | 数据库设计" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png" title="图 | 数据库设计" %}}
 
 
 ```sql
@@ -278,7 +278,7 @@ def remove_session(ex=None):
 
 访问首页，先跳转到登录界面。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png" title="图 | 登录界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png" title="图 | 登录界面" %}}
 
 登录页[login.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html)很简单，首先继承base.html的元素，然后在control块里放一个`form-signin`控件。套了一些bootstrap的元素。action绑定sign_in，也就是`signin()`函数。
 
@@ -381,7 +381,7 @@ def sign_off():
 
 ### 注册
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png" title="图 | 注册页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png" title="图 | 注册页" %}}
 
 注册页[register.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html)和登录页差不多。
 
@@ -459,7 +459,7 @@ def sign_up():
 
 ### 检索书籍
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png" title="图 | 初始载入空列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png" title="图 | 初始载入空列表" %}}
 
 登录进去后，进入真正的[index.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html)页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。
 
@@ -542,7 +542,7 @@ Books
 ```
 <!-- {% endraw %} -->
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png" title="图 | 所有书籍分页显示" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png" title="图 | 所有书籍分页显示" %}}
 
 #### 后端
 
@@ -603,11 +603,11 @@ def index():
 
 书名搜索"china"，返回所有标题内含"china"的书。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}}
 
 ### 书籍明细
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png" title="图 | 书籍明细" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png" title="图 | 书籍明细" %}}
 
 生成的书籍列表，可以点id访问明细。这里包含三部分：
 
@@ -803,9 +803,9 @@ def review(book_id):
 
 这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后Submit按钮失效" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后Submit按钮失效" %}}
 
 ### API
 
@@ -842,9 +842,9 @@ def api():
         return jsonify(rslt)
 ```
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png" title="图 | API请求成功" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png" title="图 | API请求成功" %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png" title="图 | API请求失败" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png" title="图 | API请求失败" %}}
 
 
 ### 响应式布局
@@ -934,5 +934,5 @@ $(document).ready(function(){
 ---
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

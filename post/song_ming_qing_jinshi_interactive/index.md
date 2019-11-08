@@ -64,7 +64,7 @@ saveGIF({
 }, "song.gif")
 ```
 
-![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.gif)
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.gif" title="图 | 北宋进士来源地" %}}
 
 很明显，前期京畿还很有优势，仁宗开始江南大盛，到神宗以后就是闽人大盛。热力分布持续东南移。
 
@@ -79,7 +79,7 @@ saveGIF({
 }, "ming.gif")
 ```
 
-![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.gif)
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.gif" title="图 | 明代进士来源地" %}}
 
 明和北宋热力分布是反向变动的，神宗以后进士来源地更弥散了。赣闽次第没落，而京畿有了起色。
 
@@ -95,7 +95,7 @@ saveGIF({
 ani.options(oopt)
 ```
 
-![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.gif)
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.gif" title="图 | 清代进士来源地" %}}
 
 清和明类似，中前期江南独大，鸦片战争以后分布逐渐弥散。
 
@@ -362,5 +362,5 @@ echartR(js.order.ec, CN, value, t=variable, type="map_china", subtype="average")
 ----
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

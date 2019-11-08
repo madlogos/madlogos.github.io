@@ -25,7 +25,7 @@
 
 &lt;!-- {% raw %} --&gt;
 
-&lt;figure&gt;
+&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/wmap_harvard.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;图 | 哈佛中国地图&lt;/h4&gt;
         &lt;/figcaption&gt;
@@ -39,7 +39,7 @@
 
 &lt;!-- {% raw %} --&gt;
 
-&lt;figure&gt;
+&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/cbdb_data.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;图 | CBDB科举数据集&lt;/h4&gt;
         &lt;/figcaption&gt;
@@ -83,7 +83,11 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病每月发病数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;年月&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_trend.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_trend.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;图 | 法定传染病每月发病数&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -96,7 +100,11 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病每月死亡数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;年月&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_trend.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_trend.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;图 | 法定传染病每月死亡数&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。&lt;/p&gt;
 
@@ -117,7 +125,11 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病平均月发病数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;平均例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xvar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;月份&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_month.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_month.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;图 | 法定传染病月平均发病数&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -134,7 +146,11 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病平均月死亡数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;平均例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xvar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;月份&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_month.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_month.png&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;图 | 法定传染病平均月死亡数&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
     </item>
     
     <item>
@@ -153,7 +169,9 @@
 
 &lt;p&gt;&lt;strong&gt;手工录入。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/no_word_to_say.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/no_word_to_say.jpg&#34; width=&#34;50%&#34;/&gt; 
+&lt;/figure&gt;
 
 &lt;p&gt;这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，&lt;strong&gt;记得要把工程预算乘以3&lt;/strong&gt;。&lt;/p&gt;
 
@@ -184,7 +202,7 @@
 
 &lt;!-- {% raw %} --&gt;
 
-&lt;figure&gt;
+&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_report.png&#34; width=&#34;60%&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病统计表&lt;/h4&gt;
         &lt;/figcaption&gt;
@@ -196,7 +214,7 @@
 
 &lt;!-- {% raw %} --&gt;
 
-&lt;figure&gt;
+&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/nhfpc_infectdis_news.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;图 | 卫计委传染病控制动态&lt;/h4&gt;
         &lt;/figcaption&gt;
@@ -206,7 +224,7 @@
 
 &lt;!-- {% raw %} --&gt;
 
-&lt;figure&gt;
+&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/example_infectdis_reporttxt.png&#34;/&gt; &lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病月报&lt;/h4&gt;
         &lt;/figcaption&gt;
@@ -225,11 +243,15 @@
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://madlogos.github.io/post/political-compass/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/left_right_wing_us.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+      <description>&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/left_right_wing_us.jpg&#34;/&gt; 
+&lt;/figure&gt;
 
 &lt;h2 id=&#34;回味2016&#34;&gt;回味2016&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/2015113154244635.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/2015113154244635.png&#34;/&gt; 
+&lt;/figure&gt;
 
 &lt;p&gt;2017年已经热火朝天地过掉两个月。现在回过头去评价2016年，显得反射弧特别长。但我仍禁不住要多回头看两眼，因为直到现在，我还不能完全理解它。&lt;/p&gt;
 

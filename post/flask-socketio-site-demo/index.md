@@ -215,7 +215,7 @@ def index():
         return get_channels()
 ```
 
-最后在__main__里加一点代码，配置日志输出。运行`python application.py`时，会自动运行这部分。如果继续用`flask run`，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。
+最后在\_\_main\_\_里加一点代码，配置日志输出。运行`python application.py`时，会自动运行这部分。如果继续用`flask run`，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。
 
 {{% admonition tip "注意" %}}
 部署到生产环境时，要记得把`app.debug`设为False。
@@ -236,11 +236,11 @@ if __name__ == '__main__':
 
 ### 登录
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/landing.png" title="图 | 登陆页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/landing.png" title="图 | 登陆页" %}}
 
 一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/display_name.png" title="图 | 创建用户" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/display_name.png" title="图 | 创建用户" %}}
 
 <a name="channels_html"></a>[channels.html](https://github.com/madlogos/edx_cs50/blob/master/project2/templates/channels.html)模板代码：
 
@@ -359,13 +359,16 @@ GET方法下，调用`get_channels()`函数，显示频道列表。如果用户�
 
 而POST方法下（也就是提交了inputName表单后），判断一下displayName里填的名字是否已经在全局对象users里，没有的话就创建一个。完事后重定向到get_channels绑定的路由，也就是频道列表。
 
-<!-- {% raw %} -->
-{{% admonition note "flash()函数" false %}}
-上面的Python代码用到了`flash(<text>, <type>)` 函数，它会发送一个`flash`请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的"danger", "warning", "success", "info"这类。
 
-为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把`<i class="xxx">` flash到前端，无法解析出图标，需要包一个`Markup()`，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。
+{{% admonition note "flash()函数" false %}}
+
+上面的Python代码用到了<code>flash(text, type)</code> 函数，它会发送一个<code>flash</code>请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的"danger", "warning", "success", "info"这类。
+<br/><br/>
+为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把<code>&lt;i class="xxx"&gt;</code> flash到前端，无法解析出图标，需要包一个<code>Markup()</code>，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。
+
 {{% /admonition %}}
-<!-- {% endraw %} -->
+
+
 
 ### 注销
 
@@ -386,7 +389,7 @@ def logout():
 
 完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png" title="图 | 频道列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png" title="图 | 频道列表" %}}
 
 看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数`get_channels()`和`set_channels()`。
 
@@ -429,11 +432,11 @@ def set_channels():
 
 GET方法下，从全局对象`users`里取到上次访问的频道名，存入last_visit。假如last_visit不在`channels`里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给[channels.html模板](#channels_html)解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/last_visit.png" title="图 | 上次访问的频道" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/last_visit.png" title="图 | 上次访问的频道" %}}
 
 POST方法下，服务器从表单里提取"new_channel"。假如new_channel在全局对象channels里已经存在，就`flash`甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含'created'、'max_id'和'msg'字典)，新频道就生成了。最后转跳回channels.html，实现刷新。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/new_channel.png" title="图 | 创建频道" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/new_channel.png" title="图 | 创建频道" %}}
 
 ### 频道明细
 
@@ -654,7 +657,7 @@ def get_channel(channel):
 
 ### 发消息
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png" title="图 | test1和test2在频道里聊天" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png" title="图 | test1和test2在频道里聊天" %}}
 
 当点击<kbd>send</kbd>，客户端就发一个"send msg"请求，把json`{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}` "发射"(`socket.emit`)到服务器，交给flask_socketio处理。
 
@@ -724,7 +727,7 @@ def emit_msg(data):
 这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
 {{% /admonition %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/dif_channel.png" title="图 | 不同频道不会'串台'" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/dif_channel.png" title="图 | 不同频道不会'串台'" %}}
 
 为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。
 
@@ -745,7 +748,7 @@ window.onload = function(){
 
 由于定义了`same_user`变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/del_msg.png" title="图 | 只能删除自己发的消息" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/del_msg.png" title="图 | 只能删除自己发的消息" %}}
 
 删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用`remove()`方法：
 
@@ -802,5 +805,5 @@ $(document).ready(function () {
 ---
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

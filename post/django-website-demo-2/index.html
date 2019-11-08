@@ -291,7 +291,7 @@
 
 <p>做好这部分后，可以先把Category和Product项目都维护进系统里。可以写脚本，也可以人肉录入。</p>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_product.png"/> <figcaption>
             <h4>图 | Django Admin管理Product</h4>
         </figcaption>
@@ -380,7 +380,7 @@
 
 <h5 id="前端">前端</h5>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/menu.png"/> <figcaption>
             <h4>图 | 菜单</h4>
         </figcaption>
@@ -521,7 +521,7 @@ Menu
 
 <h5 id="前端-1">前端</h5>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item.png"/> <figcaption>
             <h4>图 | 点单</h4>
         </figcaption>
@@ -824,7 +824,7 @@ Topping / Additions
 </code></pre></td></tr></table>
 </div>
 </div>
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item_err.png"/> <figcaption>
             <h4>图 | 校验附加品数量</h4>
         </figcaption>
@@ -999,7 +999,7 @@ Topping / Additions
 
 <h5 id="前端-2">前端</h5>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/jump_cart.png"/> <figcaption>
             <h4>图 | 跳转购物车</h4>
         </figcaption>
@@ -1438,7 +1438,7 @@ Cart
 </code></pre></td></tr></table>
 </div>
 </div>
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/choose_order.png"/> <figcaption>
             <h4>图 | 选定下单</h4>
         </figcaption>
@@ -1559,7 +1559,7 @@ Cart
 
 <h5 id="前端-3">前端</h5>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_init.png"/> <figcaption>
             <h4>图 | 订单列表</h4>
         </figcaption>
@@ -1567,7 +1567,7 @@ Cart
 
 <p>订单列表<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/orders.html">orders.html</a>页面模板如下。跟购物车差不多，也提供了复选框和按钮，用户可以先选中对应的订单批处理操作，或直接点某个订单后的按钮进行单独操作。操作包括支付、取消、删除。利用Django模板的条件渲染能力，根据订单状态的不同，每个按钮的disabled属性各有不同。</p>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_new.png"/> <figcaption>
             <h4>图 | 更新后的订单列表</h4>
         </figcaption>
@@ -1834,7 +1834,7 @@ Orders
 
 <p>前端脚本<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/orders.js">orders.js</a>和购物车页面的脚本一样，持续监听，实现批量选中和随时更新小计价格。有所不同的是，还加了一段监听代码，一旦批量选中后点操作按钮，先要<code>check_clickable()</code>校验一下这个按钮是否能点，然后调<code>confirm_submit()</code>跳出一个弹窗，让用户确认操作。</p>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_check.png"/> <figcaption>
             <h4>图 | 订单批量操作确认</h4>
         </figcaption>
@@ -2047,7 +2047,7 @@ Orders
 
 <h5 id="前端-4">前端</h5>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order.png"/> <figcaption>
             <h4>图 | 订单明细</h4>
         </figcaption>
@@ -2057,7 +2057,7 @@ Orders
 
 <p>页面脚本<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/order.js">order.js</a>跟订单列表页脚本差不多，监听页面，动态更新小计，点按钮的话确认操作再放行提交。</p>
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order_check.png"/> <figcaption>
             <h4>图 | 订单操作确认</h4>
         </figcaption>
@@ -2168,7 +2168,7 @@ Orders
 
 <!-- {% raw %} -->
 
-<figure>
+<figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>

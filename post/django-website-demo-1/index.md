@@ -11,7 +11,7 @@
 做一个仿[Pinocchio Pizza](http://www.pinocchiospizza.net/menu.html)的Pizza预订系统。
 
 {{% admonition bug "可以看到" %}}
-……很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。技术还是不如业务重要。
+很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。<b>技术还是不如业务重要。</b>
 {{% /admonition %}}
 
 
@@ -30,9 +30,13 @@
 - 先要有Python（装了Anaconda）
 - 要装`Django`包(`pip`)，这里用的是Django 2.2。
 
+<!-- {% raw %} -->
+
 {{% admonition tip "提醒" %}}
-开发要锁定工具链版本，否则后患无穷。`virtualenv`或者Docker都可以。
+开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。
 {{% /admonition %}}
+
+<!-- {% endraw %} -->
 
 <!--more-->
 
@@ -105,7 +109,7 @@
 Django框架比Flask要复杂得多。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：
 
 - 通过`django-admin startproject pizza`命令，生成一个骨架，包括pizza文件夹及内含的3个 .py文件，以及django命令行工具manage.py。
-- 进入pizza根目录，运行`python manage.py startapp accounts`和`python manage.py startapp orders`，分别生成accounts和orders两个具体应用。两个文件夹都包含__init__.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
+- 进入pizza根目录，运行`python manage.py startapp accounts`和`python manage.py startapp orders`，分别生成accounts和orders两个具体应用。两个文件夹都包含\_\_init\_\_.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
 	- accounts用来管理账户信息、登录和注册等
 	- orders用来管理菜单、订单和购物车等
 
@@ -238,11 +242,11 @@ from django.db import models
 
 控制台运行`python manage.py runserver`，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_entry.png" title="图 | admin登录页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_entry.png" title="图 | admin登录页" %}}
 
 用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_ui.png" title="图 | admin管理界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_ui.png" title="图 | admin管理界面" %}}
 
 当然，我们并不希望通过后台来添加用户，还是由用户自己从前端注册。所以后面会进一步完善前端视图。
 
@@ -407,20 +411,23 @@ Sign In
 <!-- {% endraw %} -->
 
 <!-- {% raw %} -->
+
 {{% admonition tip "要点" %}}
-Django表单内都必须加个`{% csrf_token %}`解决跨域问题。模板内部解析form对象，组装出表单。
+Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内部解析form对象，组装出表单。
 {{% /admonition %}}
+
 <!-- {% endraw %} -->
 
 后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_in.png" title="图 | 用户登录界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_in.png" title="图 | 用户登录界面" %}}
+
 
 #### 注册
 
 ##### 后端
 
-views.py里定义`signup()`函数。
+views.py里定义 `signup()` 函数。
 
 ```python
 # accounts/views.py
@@ -516,6 +523,7 @@ class RegisterForm(forms.Form):
 
 <!-- {% raw %} -->
 ```html
+<!-- templates/accounts/register.html -->
 {% extends "_base.html" %}
 
 {% block title %}
@@ -569,11 +577,11 @@ Sign Up
 
 同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_up.png" title="图 | 用户注册界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_up.png" title="图 | 用户注册界面" %}}
 
 #### 注销
 
-注销操作比Flask更好些，直接用内置的`logout()`方法。
+注销操作比Flask更好些，直接用内置的 `logout()` 方法。
 
 ```python
 # accounts.views.py
@@ -710,7 +718,7 @@ Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，�
 
 各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg" title="图 | orders应用的表结构" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg" title="图 | orders应用的表结构" %}}
 
 {{% admonition note "设计缺陷" false %}}
 这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。
@@ -721,5 +729,5 @@ Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，�
 ---
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

@@ -25,7 +25,7 @@
 
 ## 这就带来了第一个问题
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/yilianmengbi.jpg" title="蛤？这是啥？" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/yilianmengbi.jpg" title="蛤？这是啥？" %}}
 
 <!--more-->
 
@@ -43,9 +43,9 @@
 所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如[河北银行](https://www.hebbank.com/corporbank/otherBankQueryWeb.do)、[浙商银行](https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp)。
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/hebbank.png" title="图 | 河北银行CNAPS查询页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/hebbank.png" title="图 | 河北银行CNAPS查询页" %}}
 
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zsbank.png" title="图 | 浙商银行CNAPS查询页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zsbank.png" title="图 | 浙商银行CNAPS查询页" %}}
 <!-- {% endraw %} -->
 
 随手上去试了两把，还挺好用。于是思路比较清楚了：穷尽所有查询策略，把返回的结果提出来存好。
@@ -57,7 +57,7 @@
 上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家[中原银行](http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html)。
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zybank.png" title="图 | 中原银行CNPAS查询页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zybank.png" title="图 | 中原银行CNPAS查询页" %}}
 <!-- {% endraw %} -->
 
 这就比较好对付一些，而且信息更多，连网点地址也提供。
@@ -81,13 +81,13 @@
 对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros.png" title="图 | iMacros for Chrome界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros.png" title="图 | iMacros for Chrome界面" %}}
 <!-- {% endraw %} -->
 
 如果自己录一段宏，打开后长这样：
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo1.png" title="图 | iMacros脚本代码" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo1.png" title="图 | iMacros脚本代码" %}}
 <!-- {% endraw %} -->
 
 由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。
@@ -95,7 +95,7 @@
 双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo2.gif" title="图 | iMacros demo" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo2.gif" title="图 | iMacros demo" %}}
 <!-- {% endraw %} -->
 
 想象一下你有几千条记录要在网上填入。用imacros，只要在脚本同目录下准备一个csv，整理好数据，然后修改一下上面的代码，读入csv，逐行扫描，按布局顺序提取数据`{{!COL1}}`、`{{!COL2}}`、...，填入对应的控件，提交。接下来边喝茶边看屏幕飞滚，繁复的录入任务就自行完成了。
@@ -138,7 +138,7 @@ for (var i=0; i < 银行数; i++){
 Chrome里<kbd>F12</kbd>，可以看到银行下拉菜单的载入值齐齐整整。
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/banksite.png" title="图 | 银行下拉菜单载入值" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/banksite.png" title="图 | 银行下拉菜单载入值" %}}
 <!-- {% endraw %} -->
 
 选中'banksite'这个节点，右键copy element复制下来。到R里，赋值给banks。
@@ -376,13 +376,13 @@ for (var i=0; i < nBanks; i++){  // 遍历所有银行
 看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas_tbl.png" title="图 | 爬下来的csv文件" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas_tbl.png" title="图 | 爬下来的csv文件" %}}
 <!-- {% endraw %} -->
 
 里面的文件纷纷长这样：
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnaps_raw.png" title="图 | csv的原始面目" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnaps_raw.png" title="图 | csv的原始面目" %}}
 <!-- {% endraw %} -->
 
 ### R合并csv
@@ -440,7 +440,7 @@ message("output cnaps csv is generated.")
 跑完脚本，数据变成了：
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas.png" title="图 | 成品数据效果" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas.png" title="图 | 成品数据效果" %}}
 <!-- {% endraw %} -->
 
 一共40多万条记录。谢天谢地，老泪纵横。
@@ -478,5 +478,5 @@ Save your life. Automate everything.
 ----
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

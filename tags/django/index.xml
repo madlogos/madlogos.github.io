@@ -137,7 +137,7 @@
 
 &lt;div class=&#34;admonition bug&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;可以看到&lt;/p&gt;
   
-……很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。技术还是不如业务重要。
+很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。&lt;b&gt;技术还是不如业务重要。&lt;/b&gt;
 
 &lt;/div&gt;
 
@@ -160,11 +160,15 @@
 &lt;li&gt;要装&lt;code&gt;Django&lt;/code&gt;包(&lt;code&gt;pip&lt;/code&gt;)，这里用的是Django 2.2。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;!-- {% raw %} --&gt;
+
 &lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;提醒&lt;/p&gt;
   
-开发要锁定工具链版本，否则后患无穷。`virtualenv`或者Docker都可以。
+开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。
 
-&lt;/div&gt;</description>
+&lt;/div&gt;
+
+&lt;!-- {% endraw %} --&gt;</description>
     </item>
     
   </channel>

@@ -9,7 +9,7 @@
 
 **手工录入。**
 
-![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/no_word_to_say.jpg)
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/no_word_to_say.jpg" width="50%" %}}
 
 这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，**记得要把工程预算乘以3**。
 
@@ -281,5 +281,5 @@ makeTsPlot <- function(
 ----
 
 <!-- {% raw %} -->
-{{% figure src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->
