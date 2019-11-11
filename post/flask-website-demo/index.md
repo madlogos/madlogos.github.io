@@ -4,6 +4,14 @@
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
+{{% admonition warning 注意 %}}
+请在浏览器地址啦里允许运行不安全的脚本
+{{% /admonition %}}
+
+成品效果视频 @ 优酷：
+
+<iframe height=498 width=800 src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
+
 ## 缘起
 
 出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛**【继续教育学院】**（对，就是范玮琪读的那个哈佛）开的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/)。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。
@@ -110,7 +118,7 @@ conn.close()
 ### 项目结构
 
 {{% admonition "源代码托管于Github" %}}
-[](https://github.com/madlogos/edx_cs50/tree/master/project1)
+[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project1)
 {{% /admonition %}}
 
 ```

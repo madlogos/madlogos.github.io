@@ -42,6 +42,10 @@
 
 ### 项目结构
 
+{{% admonition "源代码托管于Github" %}}
+[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project3)
+{{% /admonition %}}
+
 ```
 |-- application.py
 |-- db.sqlite3

@@ -405,7 +405,7 @@ csv doc gif jpg png xls
 
 真是一叶落而知天下秋。卫生系统的数据化水准，跟金融系统比起来真是天上地下，一个站着，一个躺着。
 
-[待续]
+[待续](https://madlogos.github.io/post/infectdis_stat2/)
 
 ----
 

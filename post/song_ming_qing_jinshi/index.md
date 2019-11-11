@@ -267,9 +267,9 @@ p.song + stat_density_2d(aes(x_coord, y_coord, fill=..level..),
     ggtitle("北宋进士来源地")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi1.png" title="图 | 北宋进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi1.png" title="图 | 北宋进士来源地散点图" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi2.png" title="图 | 北宋进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshi2.png" title="图 | 北宋进士来源地热力图" %}}
 
 北宋的进士来源地呈现江浙、福建双巨头，江西、四川、河南三极的格局。元祐新旧党争，旧党分为朔、洛、蜀，正好对应于河南、四川这两极，而司马光特别瞧不起闽、楚之人，正是进士热图上特别炽热的福建、江西。之所以敌意这么重，就是因为这几个地方科举太厉害了，却聊不到一块儿去。
 
@@ -283,9 +283,9 @@ p.ming + stat_density_2d(aes(x_coord, y_coord, fill=..level..),
     ggtitle("明朝进士来源地")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi1.png" title="图 | 明代进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi1.png" title="图 | 明代进士来源地散点图" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi2.png" title="图 | 明代进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshi2.png" title="图 | 明代进士来源地热力图" %}}
 
 到明代，双巨头格局不复存在，只剩下江浙一极独大，其余几个热点地区分别是北直隶、江西、福建、河南。四川从多极格局中完全消失，可见蒙元入侵影响之深远。天启中，东林党与阉党争权，前者恰好对应于江南单极，于是剩下几极（齐党、楚党、浙党）不得不寄身阉党羽翼下。
 
@@ -299,9 +299,9 @@ p.qing + stat_density_2d(aes(x_coord, y_coord, fill=..level..),
     ggtitle("清朝进士来源地")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi1.png" title="图 | 清代进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi1.png" title="图 | 清代进士来源地散点图" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi2.png" title="图 | 清代进士" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshi2.png" title="图 | 清代进士来源地热力图" %}}
 
 清代继续沿袭江浙单极格局。福建进一步萎缩，而长江中下游的安徽、湖北、湖南、江西都呈现相当的强势，另一个强势的地区则是京畿的直隶、山东。
 
@@ -323,9 +323,9 @@ p.chn + stat_density_2d(aes(x_coord, y_coord, fill=..level..),
     ggtitle("北宋、明、清进士来源地")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi1.png" title="图 | 北宋、明、清进士来源地" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi1.png" title="图 | 北宋、明、清进士来源地散点图" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi2.png" title="图 | 北宋、明、清进士来源地" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/SongMingQingJinshi2.png" title="图 | 北宋、明、清进士来源地热力图" %}}
 
 ## 来源地的时间趋势
 
@@ -404,7 +404,7 @@ ggplot(nsong.stat, aes(Decade, value, fill=variable))+
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp1.png" title="图 | 北宋进士来源地比重变化" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp2.png" title="图 | 北宋进士来源地比重变化" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/NSongJinshiProp2.png" title="图 | 北宋进士来源地变化" %}}
 
 宋初主要仍从后周控制区取士，之后京畿路和河北东路等北方地区比重急剧下跌，而福建路、两浙西、两浙东路等地进士比重不断攀升。这是北宋时地气南倾的明显表现。
 
@@ -430,7 +430,7 @@ ggplot(ming.stat, aes(Decade, value, fill=variable))+
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp1.png" title="图 | 明代进士来源地比重变化" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp2.png" title="图 | 明代进士来源地比重变化" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/MingJinshiProp2.png" title="图 | 明代进士来源地变化" %}}
 
 明代江西进士的比重一直在下降，而浙江、中都留守司（大体包括江苏和安徽）的比重明显升高。来自中都留守司辖区的进士比重在隆庆年间达到高峰，之后逐步下降。神宗后，来自山东、京师等北方地区的进士比重升高了。这也就是后来东林和阉党党争的人事基础。
 
@@ -450,7 +450,7 @@ ggplot(qing.stat, aes(Decade, value, fill=variable))+
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp1.png" title="图 | 清代进士来源地比重变化" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp2.png" title="图 | 清代进士来源地比重变化" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170423/QingJinshiProp2.png" title="图 | 清代进士来源地变化" %}}
 
 清代前期江苏和浙江占了大头，中后期逐渐下降，而一个醒目的变化是湖南、广东比重的上升。这些人构成清后期变法维新的主力。
 

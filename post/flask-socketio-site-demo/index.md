@@ -31,6 +31,10 @@
 
 ### 项目结构
 
+{{% admonition "源代码托管于Github" %}}
+[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project2)
+{{% /admonition %}}
+
 ```
 |-- application.py
 |-- flask.log
@@ -144,7 +148,7 @@
 
 user是个比较扁平的字典，存用户名和最后一次访问的频道:
 
-```
+```json
 {
   '<user 1>': '<last visited channel of user 1>',
   '<user 2>': '<last visited channel of user 2>', 
@@ -155,7 +159,7 @@ user是个比较扁平的字典，存用户名和最后一次访问的频道:
 
 channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含'created'、'max_id'和双层字典'chats'：
 
-```
+```json
 {
   '<channel 1>': 
     {
@@ -218,7 +222,7 @@ def index():
 最后在\_\_main\_\_里加一点代码，配置日志输出。运行`python application.py`时，会自动运行这部分。如果继续用`flask run`，这部分不会自动运行。还会报警告，WebSocket无法启用，用Workzeug跑Flask-SocketIO。这是因为新版的Flask在服务端功能做了简化，不再支持WebSocket。
 
 {{% admonition tip "注意" %}}
-部署到生产环境时，要记得把`app.debug`设为False。
+部署到生产环境时，要记得把<code>app.debug</code>设为False。
 {{% /admonition %}}
 
 ```python
@@ -571,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- {% endraw %} -->
 
 {{% admonition tip "注意" %}}
-chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是`对象|方法`，而不是传统的`函数(参数)`形式。
+chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是<code>对象|方法</code>，而不是传统的<code>函数(参数)</code>形式。
 {{% /admonition %}}
 
 这里定义了两个变量：act_user和act_channel，把当前线程的用户名和当前频道从html模板传到后面引入的javascript里，也就是[chat.js](https://github.com/madlogos/edx_cs50/blob/master/project2/static/js/chat.js)。
@@ -606,7 +610,7 @@ template对象得先用Handlebars编译一下，绑定handlebars模板对象chat
 `format_chats()`负责将json数据套入[channel.html模板](#channel_html) 中的handlebars模板"chatPost"里，解析参数后生成相应的html代码。这个输入参数json结构是固定的，包含post_user、post_time、post_msg，也就是全局对象channels里每个channel中的chats字典。
 
 {{% admonition note "要点" false %}}
-非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
+非常英明地用了<code>decodeURI()</code>和<code>encodeURI()</code>函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 {{% /admonition %}}
 
 在格式化日期时，用到了另外两个函数`format_date()`和`lead_zero()`。也定义在chat.js里。

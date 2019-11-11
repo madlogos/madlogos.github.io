@@ -1,6 +1,8 @@
 
 ## 数据提取
 
+[接上篇](https://madlogos.github.io/post/infectdis_stat1/)
+
 现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。
 
 **要把图片附件识别成文本。**
@@ -276,7 +278,7 @@ makeTsPlot <- function(
 
 利用这个函数，只要来个数据框，就能出图。此外也不失灵活性，部分美学效果可以自定义调整。
 
-[待续]
+[待续](https://madlogos.github.io/post/infectdis_stat3/)
 
 ----
 

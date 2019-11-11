@@ -1,6 +1,8 @@
 
 ## 甲乙丙类每月发病、死亡数
 
+[接上篇](https://madlogos.github.io/post/infectdis_stat2/)
+
 ```r
 library(data.table)
 ```

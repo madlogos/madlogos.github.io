@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7775">
+<meta itemprop="wordCount" content="7832">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7775 字 </span>
+          <span class="more-meta"> 约 7832 字 </span>
           <span class="more-meta"> 预计阅读 16 分钟 </span>
         
       </div>
@@ -199,6 +199,12 @@
 </ul>
 
 <h3 id="项目结构">项目结构</h3>
+
+<div class="admonition 源代码托管于Github">
+  
+[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project2)
+
+</div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -411,26 +417,26 @@
 <p>user是个比较扁平的字典，存用户名和最后一次访问的频道:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">{
-  &#39;&lt;user 1&gt;&#39;: &#39;&lt;last visited channel of user 1&gt;&#39;,
-  &#39;&lt;user 2&gt;&#39;: &#39;&lt;last visited channel of user 2&gt;&#39;, 
-  ...,
-  &#39;&lt;user n&gt;&#39;: &#39;&lt;last visited channel of user n&gt;&#39;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="err">&#39;&lt;user</span> <span class="err">1&gt;&#39;:</span> <span class="err">&#39;&lt;last</span> <span class="err">visited</span> <span class="err">channel</span> <span class="err">of</span> <span class="err">user</span> <span class="err">1&gt;&#39;,</span>
+  <span class="err">&#39;&lt;user</span> <span class="err">2&gt;&#39;:</span> <span class="err">&#39;&lt;last</span> <span class="err">visited</span> <span class="err">channel</span> <span class="err">of</span> <span class="err">user</span> <span class="err">2&gt;&#39;,</span> 
+  <span class="err">...,</span>
+  <span class="err">&#39;&lt;user</span> <span class="err">n&gt;&#39;:</span> <span class="err">&#39;&lt;last</span> <span class="err">visited</span> <span class="err">channel</span> <span class="err">of</span> <span class="err">user</span> <span class="err">n&gt;&#39;</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created&rsquo;、&rsquo;max_id&rsquo;和双层字典&rsquo;chats&rsquo;：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -454,32 +460,32 @@
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">{
-  &#39;&lt;channel 1&gt;&#39;: 
-    {
-      &#39;created&#39;: &#39;&lt;creation time of channel 1&gt;&#39;,
-      &#39;max_id&#39;: &lt;max id of chats&gt;,
-      &#39;chats&#39;: 
-        {
-          &lt;id 1&gt;: 
-              {&#39;user&#39;: &#39;&lt;post 1 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 1 time&gt;&#39;, 
-               &#39;msg&#39;: &#39;&lt;post 1 msg&gt;&#39;
-              },
-          &lt;id 2&gt;: 
-              {&#39;user&#39;: &#39;&lt;post 2 user&gt;&#39;, &#39;time&#39;: &#39;&lt;post 2 time&gt;&#39;, 
-               &#39;msg&#39;: &#39;&lt;post 2 msg&gt;&#39;
-              },
-          ...,
-          &lt;id n&gt;: 
-              {&#39;user&#39;: &#39;&lt;post n user&gt;&#39;, &#39;time&#39;: &#39;&lt;post n time&gt;&#39;, 
-               &#39;msg&#39;: &#39;&lt;post n msg&gt;&#39;
-              }
-        }
-    },
-  ...
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="err">&#39;&lt;channel</span> <span class="err">1&gt;&#39;:</span> 
+    <span class="err">{</span>
+      <span class="err">&#39;created&#39;:</span> <span class="err">&#39;&lt;creation</span> <span class="err">time</span> <span class="err">of</span> <span class="err">channel</span> <span class="err">1&gt;&#39;,</span>
+      <span class="err">&#39;max_id&#39;:</span> <span class="err">&lt;max</span> <span class="err">id</span> <span class="err">of</span> <span class="err">chats&gt;,</span>
+      <span class="err">&#39;chats&#39;:</span> 
+        <span class="err">{</span>
+          <span class="err">&lt;id</span> <span class="err">1&gt;:</span> 
+              <span class="err">{&#39;user&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">1</span> <span class="err">user&gt;&#39;,</span> <span class="err">&#39;time&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">1</span> <span class="err">time&gt;&#39;,</span> 
+               <span class="err">&#39;msg&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">1</span> <span class="err">msg&gt;&#39;</span>
+              <span class="p">}</span><span class="err">,</span>
+          <span class="err">&lt;id</span> <span class="mi">2</span><span class="err">&gt;:</span> 
+              <span class="p">{</span><span class="err">&#39;user&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">2</span> <span class="err">user&gt;&#39;,</span> <span class="err">&#39;time&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">2</span> <span class="err">time&gt;&#39;,</span> 
+               <span class="err">&#39;msg&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">2</span> <span class="err">msg&gt;&#39;</span>
+              <span class="p">}</span><span class="err">,</span>
+          <span class="err">...,</span>
+          <span class="err">&lt;id</span> <span class="err">n&gt;:</span> 
+              <span class="p">{</span><span class="err">&#39;user&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">n</span> <span class="err">user&gt;&#39;,</span> <span class="err">&#39;time&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">n</span> <span class="err">time&gt;&#39;,</span> 
+               <span class="err">&#39;msg&#39;:</span> <span class="err">&#39;&lt;post</span> <span class="err">n</span> <span class="err">msg&gt;&#39;</span>
+              <span class="p">}</span>
+        <span class="err">}</span>
+    <span class="err">},</span>
+  <span class="err">...</span>
+<span class="err">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>chats里包含的就是一条条消息，以id为键，包起&rsquo;user&rsquo;、&rsquo;time&rsquo;和&rsquo;msg&rsquo;。</p>
@@ -547,7 +553,7 @@
 
 <div class="admonition tip"><p class="admonition-title">注意</p>
   
-部署到生产环境时，要记得把`app.debug`设为False。
+部署到生产环境时，要记得把<code>app.debug</code>设为False。
 
 </div>
 <div class="highlight"><div class="chroma">
@@ -1195,7 +1201,7 @@ Channel {{ channel }}
 
 <div class="admonition tip"><p class="admonition-title">注意</p>
   
-chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是`对象|方法`，而不是传统的`函数(参数)`形式。
+chats用tojson函数处理，把序列化的文本转成json。在Flask模板里，调用函数的形式是<code>对象|方法</code>，而不是传统的<code>函数(参数)</code>形式。
 
 </div>
 
@@ -1255,7 +1261,7 @@ chats用tojson函数处理，把序列化的文本转成json。在Flask模板里
 
 <div class="admonition note"><p class="admonition-title">要点</p>
   
-非常英明地用了`decodeURI()`和`encodeURI()`函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
+非常英明地用了<code>decodeURI()</code>和<code>encodeURI()</code>函数，发到服务器的数据都先编码，接到服务器数据都先解码，这样用中文时就不会乱码了。
 
 </div>
 

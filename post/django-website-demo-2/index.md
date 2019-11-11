@@ -1,7 +1,7 @@
 
 ### Admin后台
 
-[接上](https://madlogos.github.io/post/django-website-demo-1/)
+[接上篇](https://madlogos.github.io/post/django-website-demo-1/)
 
 模型做好后，可以在[admin.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py)里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。
 

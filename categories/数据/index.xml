@@ -62,6 +62,8 @@
       
       <guid>https://madlogos.github.io/post/infectdis_stat3/</guid>
       <description>&lt;h2 id=&#34;甲乙丙类每月发病-死亡数&#34;&gt;甲乙丙类每月发病、死亡数&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat2/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -160,6 +162,8 @@
       
       <guid>https://madlogos.github.io/post/infectdis_stat2/</guid>
       <description>&lt;h2 id=&#34;数据提取&#34;&gt;数据提取&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。&lt;/p&gt;
 
