@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7832">
+<meta itemprop="wordCount" content="7894">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7832 字 </span>
+          <span class="more-meta"> 约 7894 字 </span>
           <span class="more-meta"> 预计阅读 16 分钟 </span>
         
       </div>
@@ -170,6 +170,16 @@
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 
 </div>
+
+<div class="admonition warning"><p class="admonition-title">注意</p>
+  
+如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
+
+</div>
+
+<p><a href="https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1">成品效果视频</a> @ 优酷：</p>
+
+<iframe height=498 width=760 src='http://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
 
 <p>这是哈佛<strong>继续教育学院</strong>开的的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a> 第三个作业项目。</p>
 
@@ -1536,6 +1546,7 @@ chats用tojson函数处理，把序列化的文本转成json。在Flask模板里
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
@@ -1545,7 +1556,8 @@ chats用tojson函数处理，把序列化的文本转成json。在Flask模板里
     <span class="k">if</span> <span class="p">(</span><span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="kr">class</span> <span class="o">===</span> <span class="s1">&#39;del&#39;</span><span class="p">){</span>
         <span class="kr">const</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">tgt</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
         <span class="nx">elem</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-        <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nx">act_channel</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span><span class="p">});</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_channel</span><span class="p">),</span> 
+                                <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="nx">tgt</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span><span class="p">});</span>
     <span class="p">};</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>

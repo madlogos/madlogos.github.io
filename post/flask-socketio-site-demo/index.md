@@ -4,6 +4,14 @@
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
+{{% admonition warning 注意 %}}
+如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
+{{% /admonition %}}
+
+[成品效果视频](https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1) @ 优酷：
+
+<iframe height=498 width=760 src='http://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
+
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第三个作业项目。
 
 ## [作业要求](https://docs.cs50.net/web/2019/x/projects/2/project2.html)
@@ -764,7 +772,8 @@ document.addEventListener("click", evt => {
     if (tgt.dataset.class === 'del'){
         const elem = tgt.parentElement.parentElement;
         elem.remove();
-        socket.emit("del msg", {'channel': act_channel, 'id': tgt.dataset.id});
+        socket.emit("del msg", {'channel': encodeURI(act_channel), 
+                                'id': tgt.dataset.id});
     };
 });
 ```

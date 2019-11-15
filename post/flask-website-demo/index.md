@@ -5,12 +5,12 @@
 {{% /admonition %}}
 
 {{% admonition warning 注意 %}}
-请在浏览器地址啦里允许运行不安全的脚本
+如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
 {{% /admonition %}}
 
-成品效果视频 @ 优酷：
+[成品效果视频](https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
 
-<iframe height=498 width=800 src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width=760 src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 缘起
 
