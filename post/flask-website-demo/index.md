@@ -10,7 +10,7 @@
 
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
 
-<iframe height=498 width=760 src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 缘起
 
@@ -117,26 +117,27 @@ conn.close()
 
 ### 项目结构
 
-{{% admonition "源代码托管于Github" %}}
-[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project1)
+{{% admonition info "源代码托管于Github" %}}
+<a href="https://github.com/madlogos/edx_cs50/tree/master/project1">戳这里看源码</a>
 {{% /admonition %}}
 
 ```
+project1
 |-- application.py
-|-- + static
-|   |-- + css
-|   |   |-- style.css
-|   |   \-- star-rating.min.css
-|   \-- + js
-|       |-- main.js
-|       \-- star-rating.min.js
-|-- + templates
-|   |-- base.html
-|   |-- book.html
-|   |-- index.html
-|   |-- login.html
-|   \-- register.html
-\-- db.db
+|--+ static
+|  |--+ css
+|  |  |-- style.css
+|  |  `-- star-rating.min.css
+|  `--+ js
+|     |-- main.js
+|     `-- star-rating.min.js
+|--+ templates
+|  |-- base.html
+|  |-- book.html
+|  |-- index.html
+|  |-- login.html
+|  `-- register.html
+`-- db.db
 ```
 
 这个应用比较简单，所以结构很扁平。

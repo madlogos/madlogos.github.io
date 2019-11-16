@@ -4,6 +4,14 @@
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
+{{% admonition warning 注意 %}}
+如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
+{{% /admonition %}}
+
+[成品效果视频](https://v.youku.com/v_show/id_XNDQzNzY0NTEwNA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
+
+<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
+
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第四个作业项目。
 
 ## [作业要求](https://docs.cs50.net/web/2019/x/projects/3/project3.html)
@@ -42,70 +50,71 @@
 
 ### 项目结构
 
-{{% admonition "源代码托管于Github" %}}
-[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project3)
+{{% admonition info "源代码托管于Github" %}}
+<a href="https://github.com/madlogos/edx_cs50/tree/master/project3">戳这里看源码</a>
 {{% /admonition %}}
 
 ```
+project3
 |-- application.py
 |-- db.sqlite3
 |-- django.log
 |-- manage.py
 |
-|-- + accounts
-|   |-- + migrations
-|   |-- __init__.py
-|   |-- admin.py
-|   |-- apps.py
-|   |-- forms.py
-|   |-- models.py
-|   |-- tests.py
-|   |-- urls.py
-|   \-- views.py
+|--+ accounts
+|  |--+ migrations
+|  |-- __init__.py
+|  |-- admin.py
+|  |-- apps.py
+|  |-- forms.py
+|  |-- models.py
+|  |-- tests.py
+|  |-- urls.py
+|  `-- views.py
 |
-|-- + orders
-|   |-- + migrations
-|   |-- __init__.py
-|   |-- admin.py
-|   |-- apps.py
-|   |-- forms.py
-|   |-- models.py
-|   |-- tests.py
-|   |-- udf.py
-|   |-- urls.py
-|   \-- views.py
+|--+ orders
+|  |--+ migrations
+|  |-- __init__.py
+|  |-- admin.py
+|  |-- apps.py
+|  |-- forms.py
+|  |-- models.py
+|  |-- tests.py
+|  |-- udf.py
+|  |-- urls.py
+|  `-- views.py
 |
-|-- + pizza
-|   |-- __init__.py
-|   |-- settings.py
-|   |-- urls.py
-|   \-- wsgi.py
+|--+ pizza
+|  |-- __init__.py
+|  |-- settings.py
+|  |-- urls.py
+|  `-- wsgi.py
 |
-|-- + static
-|   |-- + css
-|   |   \-- style.css
-|   \-- + js
-|       |-- cart.js
-|       |-- main.js
-|       |-- menu.js
-|       |-- order.js
-|       |-- orders.js
-|       \-- pick_product.js
+|--+ static
+|  |--+ css
+|  |  `-- style.css
+|  `--+ js
+|     |-- cart.js
+|     |-- main.js
+|     |-- menu.js
+|     |-- order.js
+|     |-- orders.js
+|     `-- pick_product.js
 |
-\-- + templates
-	|-- _base.html
-    |-- _popup.html
-	|
-    |-- + accounts
-    |   |-- login.html
-	|   \-- register.html
-	|
-	\-- + orders
-	    |-- cart.html
-	    |-- index.html
-	    |-- order.html
-	    |-- orders.html
-	    \-- pick_product.html
+`--+ templates
+   |-- _base.html
+   |-- _popup.html
+   |
+   |--+ accounts
+   |  |-- login.html
+   |  `-- register.html
+   |
+   `--+ orders
+	  |-- cart.html
+	  |-- index.html
+	  |-- order.html
+	  |-- orders.html
+	  `-- pick_product.html
 ```
 
 <!-- more -->

@@ -10,7 +10,7 @@
 
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1) @ 优酷：
 
-<iframe height=498 width=760 src='http://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
 
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第三个作业项目。
 
@@ -39,23 +39,24 @@
 
 ### 项目结构
 
-{{% admonition "源代码托管于Github" %}}
-[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project2)
+{{% admonition info "源代码托管于Github" %}}
+<a href="https://github.com/madlogos/edx_cs50/tree/master/project2">戳这里看源码</a>
 {{% /admonition %}}
 
 ```
+project2
 |-- application.py
 |-- flask.log
-|-- + static
-|   |-- + css
-|   |   \-- style.css
-|   \-- + js
-|       |-- main.js
-|       \-- chat.js
-\-- + templates
-    |-- _base.html
-    |-- channel.html
-    \-- channels.html
+|--+ static
+|  |--+ css
+|  |  `-- style.css
+|  `--+ js
+|     |-- main.js
+|     `-- chat.js
+`--+ templates
+   |-- _base.html
+   |-- channel.html
+   `-- channels.html
 ```
 
 结构不复杂：

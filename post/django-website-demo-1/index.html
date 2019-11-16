@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6331">
+<meta itemprop="wordCount" content="6334">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6331 字 </span>
+          <span class="more-meta"> 约 6334 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         
       </div>
@@ -203,6 +203,16 @@
 
 </div>
 
+<div class="admonition warning"><p class="admonition-title">注意</p>
+  
+如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
+
+</div>
+
+<p><a href="https://v.youku.com/v_show/id_XNDQzNzY0NTEwNA==.html?spm=a2hzp.8244740.0.0">成品效果视频</a> @ 优酷：</p>
+
+<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
+
 <p>这是哈佛<strong>继续教育学院</strong>开的的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a> 第四个作业项目。</p>
 
 <h2 id="作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></h2>
@@ -246,9 +256,9 @@
 
 <h3 id="项目结构">项目结构</h3>
 
-<div class="admonition 源代码托管于Github">
+<div class="admonition info"><p class="admonition-title">源代码托管于Github</p>
   
-[戳这里看源码](https://github.com/madlogos/edx_cs50/tree/master/project3)
+<a href="https://github.com/madlogos/edx_cs50/tree/master/project3">戳这里看源码</a>
 
 </div>
 <div class="highlight"><div class="chroma">
@@ -312,67 +322,69 @@
 </span><span class="lnt">57
 </span><span class="lnt">58
 </span><span class="lnt">59
+</span><span class="lnt">60
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">|-- application.py
+<pre class="chroma">project3
+|-- application.py
 |-- db.sqlite3
 |-- django.log
 |-- manage.py
 |
-|-- + accounts
-|   |-- + migrations
-|   |-- __init__.py
-|   |-- admin.py
-|   |-- apps.py
-|   |-- forms.py
-|   |-- models.py
-|   |-- tests.py
-|   |-- urls.py
-|   \-- views.py
+|--+ accounts
+|  |--+ migrations
+|  |-- __init__.py
+|  |-- admin.py
+|  |-- apps.py
+|  |-- forms.py
+|  |-- models.py
+|  |-- tests.py
+|  |-- urls.py
+|  `-- views.py
 |
-|-- + orders
-|   |-- + migrations
-|   |-- __init__.py
-|   |-- admin.py
-|   |-- apps.py
-|   |-- forms.py
-|   |-- models.py
-|   |-- tests.py
-|   |-- udf.py
-|   |-- urls.py
-|   \-- views.py
+|--+ orders
+|  |--+ migrations
+|  |-- __init__.py
+|  |-- admin.py
+|  |-- apps.py
+|  |-- forms.py
+|  |-- models.py
+|  |-- tests.py
+|  |-- udf.py
+|  |-- urls.py
+|  `-- views.py
 |
-|-- + pizza
-|   |-- __init__.py
-|   |-- settings.py
-|   |-- urls.py
-|   \-- wsgi.py
+|--+ pizza
+|  |-- __init__.py
+|  |-- settings.py
+|  |-- urls.py
+|  `-- wsgi.py
 |
-|-- + static
-|   |-- + css
-|   |   \-- style.css
-|   \-- + js
-|       |-- cart.js
-|       |-- main.js
-|       |-- menu.js
-|       |-- order.js
-|       |-- orders.js
-|       \-- pick_product.js
+|--+ static
+|  |--+ css
+|  |  `-- style.css
+|  `--+ js
+|     |-- cart.js
+|     |-- main.js
+|     |-- menu.js
+|     |-- order.js
+|     |-- orders.js
+|     `-- pick_product.js
 |
-\-- + templates
-	|-- _base.html
-    |-- _popup.html
-	|
-    |-- + accounts
-    |   |-- login.html
-	|   \-- register.html
-	|
-	\-- + orders
-	    |-- cart.html
-	    |-- index.html
-	    |-- order.html
-	    |-- orders.html
-	    \-- pick_product.html</pre></td></tr></table>
+`--+ templates
+   |-- _base.html
+   |-- _popup.html
+   |
+   |--+ accounts
+   |  |-- login.html
+   |  `-- register.html
+   |
+   `--+ orders
+	  |-- cart.html
+	  |-- index.html
+	  |-- order.html
+	  |-- orders.html
+	  `-- pick_product.html</pre></td></tr></table>
 </div>
 </div>
 <!-- more -->
