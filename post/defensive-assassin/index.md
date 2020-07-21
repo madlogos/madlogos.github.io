@@ -1,5 +1,5 @@
 
-![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170325/yuan_da_gong_mao.jpg)
+![](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0325/yuan_da_gong_mao.jpg)
 
 ## 炸锅
 
@@ -18,10 +18,10 @@
 <!--more-->
 
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170325/weixin_hotword_guanxian.png" width="50%" title="图 | 微信指数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0325/weixin_hotword_guanxian.png" width="50%" title="图 | 微信指数" %}}
 
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170325/weibo_hotword_guanxian.png" title="图 | 微博热词" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0325/weibo_hotword_guanxian.png" title="图 | 微博热词" %}}
 
 
 微信和微博上的热度都在攀高，其中微博热得更快（微信转播链里流动的多是观点而非事实，新闻要素往往被删节，所以“冠县”二字在传播中损耗了）。这个趋势目前显然还没到顶。周末官报不上班，重量级的深入报道和舆论高潮都还没来。

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/django-website-demo-1/" />
@@ -34,8 +34,10 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="edx作业：用Django建一个简易Web订单系统(1)" />
@@ -46,16 +48,13 @@
 <meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
 <meta itemprop="name" content="edx作业：用Django建一个简易Web订单系统(1)">
 <meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统">
-
-
 <meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6334">
+<meta itemprop="wordCount" content="6321">
 
 
 
-<meta itemprop="keywords" content="Python,Django,web," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edx作业：用Django建一个简易Web订单系统(1)"/>
 <meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
 
@@ -131,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6334 字 </span>
+          <span class="more-meta"> 约 6321 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         
       </div>
@@ -141,92 +140,48 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></a></li>
-<li><a href="#准备">准备</a>
-<ul>
-<li><a href="#项目结构">项目结构</a></li>
-<li><a href="#配置">配置</a>
-<ul>
-<li><a href="#全局配置">全局配置</a>
-<ul>
-<li><a href="#settings-py">settings.py</a></li>
-<li><a href="#urls-py">urls.py</a></li>
-</ul></li>
-<li><a href="#分应用配置">分应用配置</a></li>
-</ul></li>
-<li><a href="#基础模板">基础模板</a></li>
-</ul></li>
-<li><a href="#账户管理-accounts-应用">账户管理(accounts)应用</a>
-<ul>
-<li><a href="#模型">模型</a></li>
-<li><a href="#控制">控制</a></li>
-<li><a href="#视图">视图</a>
-<ul>
-<li><a href="#导入一堆包">导入一堆包</a></li>
-<li><a href="#首页">首页</a></li>
-<li><a href="#登录">登录</a>
-<ul>
-<li><a href="#后端">后端</a></li>
-<li><a href="#前端">前端</a></li>
-</ul></li>
-<li><a href="#注册">注册</a>
-<ul>
-<li><a href="#后端-1">后端</a></li>
-<li><a href="#前端-1">前端</a></li>
-</ul></li>
-<li><a href="#注销">注销</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#订单管理-orders">订单管理(orders)</a>
-<ul>
-<li><a href="#模型-1">模型</a>
-<ul>
-<li><a href="#选择项元组">选择项元组</a></li>
-<li><a href="#模型和元参数">模型和元参数</a></li>
-<li><a href="#多对多关系">多对多关系</a></li>
-<li><a href="#migrate">migrate</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#作业要求httpsdocscs50netweb2019xprojects3project3html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></a></li>
+    <li><a href="#准备">准备</a>
+      <ul>
+        <li><a href="#项目结构">项目结构</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#基础模板">基础模板</a></li>
+      </ul>
+    </li>
+    <li><a href="#账户管理accounts应用">账户管理(accounts)应用</a>
+      <ul>
+        <li><a href="#模型">模型</a></li>
+        <li><a href="#控制">控制</a></li>
+        <li><a href="#视图">视图</a></li>
+      </ul>
+    </li>
+    <li><a href="#订单管理orders">订单管理(orders)</a>
+      <ul>
+        <li><a href="#模型-1">模型</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <div class="admonition abstract"><p class="admonition-title">摘要</p>
-  
-还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。<br/>
-【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
-
+<p>还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。<br/>
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。</p>
 </div>
-
 <div class="admonition warning"><p class="admonition-title">注意</p>
-  
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-
+<p>如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。</p>
 </div>
-
 <p><a href="https://v.youku.com/v_show/id_XNDQzNzY0NTEwNA==.html?spm=a2hzp.8244740.0.0">成品效果视频</a> @ 优酷：</p>
-
-<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
-
+<iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
 <p>这是哈佛<strong>继续教育学院</strong>开的的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a> 第四个作业项目。</p>
-
-<h2 id="作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></h2>
-
+<h2 id="作业要求httpsdocscs50netweb2019xprojects3project3html"><a href="https://docs.cs50.net/web/2019/x/projects/3/project3.html">作业要求</a></h2>
 <p>做一个仿<a href="http://www.pinocchiospizza.net/menu.html">Pinocchio Pizza</a>的Pizza预订系统。</p>
-
 <div class="admonition bug"><p class="admonition-title">可以看到</p>
-  
-很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。<b>技术还是不如业务重要。</b>
-
+<p>很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。<b>技术还是不如业务重要。</b></p>
 </div>
-
 <p>要实现以下功能：</p>
-
 <ol>
 <li>分析样品菜单，构建模型</li>
 <li>用Django admin或者写Python命令，添加菜单内容</li>
@@ -236,34 +191,23 @@
 <li>浏览订单和订单明细</li>
 <li>延伸功能：比如系统管理员在后台更新订单状态、用<a href="https://stripe.com/docs">Strip API</a> 完成结算等</li>
 </ol>
-
 <h2 id="准备">准备</h2>
-
 <ul>
 <li>先要有Python（装了Anaconda）</li>
 <li>要装<code>Django</code>包(<code>pip</code>)，这里用的是Django 2.2。</li>
 </ul>
-
 <!-- {% raw %} -->
-
 <div class="admonition tip"><p class="admonition-title">提醒</p>
-  
-开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。
-
+<p>开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。</p>
 </div>
-
 <!-- {% endraw %} -->
-
 <h3 id="项目结构">项目结构</h3>
-
 <div class="admonition info"><p class="admonition-title">源代码托管于Github</p>
-  
-<a href="https://github.com/madlogos/edx_cs50/tree/master/project3">戳这里看源码</a>
-
+<p><a href="https://github.com/madlogos/edx_cs50/tree/master/project3">戳这里看源码</a></p>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -323,9 +267,9 @@
 </span><span class="lnt">58
 </span><span class="lnt">59
 </span><span class="lnt">60
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">project3
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">project3
 |-- application.py
 |-- db.sqlite3
 |-- django.log
@@ -384,47 +328,39 @@
 	  |-- index.html
 	  |-- order.html
 	  |-- orders.html
-	  `-- pick_product.html</pre></td></tr></table>
+	  `-- pick_product.html
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- more -->
-
+</div><!-- more -->
 <p>Django框架比Flask要复杂得多。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：</p>
-
 <ul>
 <li>通过<code>django-admin startproject pizza</code>命令，生成一个骨架，包括pizza文件夹及内含的3个 .py文件，以及django命令行工具manage.py。</li>
 <li>进入pizza根目录，运行<code>python manage.py startapp accounts</code>和<code>python manage.py startapp orders</code>，分别生成accounts和orders两个具体应用。两个文件夹都包含__init__.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
-
 <ul>
 <li>accounts用来管理账户信息、登录和注册等</li>
 <li>orders用来管理菜单、订单和购物车等</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>除了上面这些后台脚本之外，再建两个必要的资源文件夹：</p>
-
 <ul>
 <li>静态文件所在的static，例行包括css和js两个文件夹。</li>
 <li>.html模板文件所在的templates。为了便于管理，框架模板放在根目录，accounts和orders两个应用分别开一个文件夹。</li>
 </ul>
-
 <h3 id="配置">配置</h3>
-
 <h4 id="全局配置">全局配置</h4>
-
 <p>首先，要设置一下超级管理员，控制台运行<code>python manage.py createsuperuser</code>，设置用户名、密码和邮件。这样，后续就可以用这个账户登到Django自带的管理后台，在图形界面上管理数据。</p>
-
-<h5 id="settings-py">settings.py</h5>
-
+<h5 id="settingspy">settings.py</h5>
 <p>pizza/settings.py里已经预置了很多配置项。要做一些调整：</p>
-
 <ul>
-<li>INSTALLED_APPS列表增加两项: &lsquo;accounts.apps.AccountsConfig&rsquo;, &lsquo;orders.apps.OrdersConfig&rsquo;</li>
-
-<li><p>增加LOGGING</p>
+<li>
+<p>INSTALLED_APPS列表增加两项: &lsquo;accounts.apps.AccountsConfig&rsquo;, &lsquo;orders.apps.OrdersConfig&rsquo;</p>
+</li>
+<li>
+<p>增加LOGGING</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -495,23 +431,33 @@
             <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">},</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">   
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai&rsquo;</p></li>
-
-<li><p>STATIC_URL 改为 &lsquo;/static/&rsquo;</p></li>
-
-<li><p>STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, &ldquo;static&rdquo;), &lsquo;/static/&rsquo;]，在这个应用中，生效的是前者</p></li>
+<li>
+<p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai&rsquo;</p>
+</li>
+<li>
+<p>STATIC_URL 改为 &lsquo;/static/&rsquo;</p>
+</li>
+<li>
+<p>STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, &ldquo;static&rdquo;), &lsquo;/static/']，在这个应用中，生效的是前者</p>
+</li>
 </ul>
-
-<h5 id="urls-py">urls.py</h5>
-
+<h5 id="urlspy">urls.py</h5>
 <p>pizza/urls.py要更新一下urlpatterns：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -522,78 +468,84 @@
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;accounts.urls&#34;</span><span class="p">)),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;orders.urls&#34;</span><span class="p">)),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;admin/&#34;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span></code></pre></td></tr></table>
+<span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样，accounts和orders两个子应用中的路由，都被安排到整个应用的根路由上。即：accounts里的&rsquo;/&lsquo;，就等价于整个应用的主页。这当然有隐患，好在应用架构不复杂。推荐的做法是把其中一个子应用映射到主路由，其他应用都丢进下一级。</p>
-
-<p>admin.site.urls要映射进去，这样，后面才能通过&rdquo;<domain name>/admin&rdquo;去访问Django后台。</p>
-
+</div><p>这样，accounts和orders两个子应用中的路由，都被安排到整个应用的根路由上。即：accounts里的&rsquo;/'，就等价于整个应用的主页。这当然有隐患，好在应用架构不复杂。推荐的做法是把其中一个子应用映射到主路由，其他应用都丢进下一级。</p>
+<p>admin.site.urls要映射进去，这样，后面才能通过&quot;<domain name>/admin&quot;去访问Django后台。</p>
 <h4 id="分应用配置">分应用配置</h4>
-
 <ul>
-<li><p>accounts/apps.py定义应用名称</p>
+<li>
+<p>accounts/apps.py定义应用名称</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">AccountsConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span></code></pre></td></tr></table>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+</code></pre></td></tr></table>
 </div>
 </div></li>
-
-<li><p>orders/apps.py定义应用名称</p>
+<li>
+<p>orders/apps.py定义应用名称</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">OrdersConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span></code></pre></td></tr></table>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-
 <p>这样，pizza/settings.py的INSTALLED_APPS才能识别accounts和orders这两个应用。将来，这两个包也可以剥离出去给其他项目复用。</p>
-
 <h3 id="基础模板">基础模板</h3>
-
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_base.html">_base.html</a>和<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/_popup.html">_popup.html</a>是框架模板，后续其他页面模板都会套用它。后者是前者的简化版。</p>
-
 <!-- {% raw %} -->
-
 <ul>
 <li>要记得{% load static %}，载入静态文件。这样定义好之后，Django就知道上哪里动态地找到<code>href=&quot;{% static 'css/style.css' %}&quot;</code>了。</li>
-<li>&ldquo;elem_cont&rdquo;部分添加了通用的message代码。后端传到前端的message对象必须是一个长度为2的列表，其中message.0是&rdquo;info&rdquo;、&rdquo;warning&rdquo;、&rdquo;success&rdquo;、&rdquo;danger&rdquo;这几个Bootstrap认识的类别，message.1则是信息框的具体内容。事实上Django有自己的信息组件，这里没有用到。
-<!-- {% endraw %} --></li>
+<li>&ldquo;elem_cont&quot;部分添加了通用的message代码。后端传到前端的message对象必须是一个长度为2的列表，其中message.0是&quot;info&rdquo;、&ldquo;warning&rdquo;、&ldquo;success&rdquo;、&ldquo;danger&quot;这几个Bootstrap认识的类别，message.1则是信息框的具体内容。事实上Django有自己的信息组件，这里没有用到。</li>
 </ul>
-
-<h2 id="账户管理-accounts-应用">账户管理(accounts)应用</h2>
-
+<!-- {% endraw %} -->
+<h2 id="账户管理accounts应用">账户管理(accounts)应用</h2>
 <p>配置部分结束，开始做功能。</p>
-
 <p>首先进到<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts">accounts</a>目录，构建账户管理模块。</p>
-
 <h3 id="模型">模型</h3>
-
 <p>如果要自己设计一套User体系，可以在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/models.py">models.py</a>里定义。由于这个作业里对用户信息的要求已经被Django自带的User类涵盖，所以直接导进来就可以用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/models.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span></code></pre></td></tr></table>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/admin.py">admin.py</a>里，导入下面几个包：</p>
+</div><p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/admin.py">admin.py</a>里，导入下面几个包：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -602,33 +554,27 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/admin.py</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.admin</span> <span class="kn">import</span> <span class="n">UserAdmin</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span></code></pre></td></tr></table>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>控制台运行<code>python manage.py runserver</code>，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。</p>
-
+</div><p>控制台运行<code>python manage.py runserver</code>，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。</p>
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_entry.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_entry.png"/> <figcaption>
             <h4>图 | admin登录页</h4>
         </figcaption>
 </figure>
-
 <p>用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_ui.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_ui.png"/> <figcaption>
             <h4>图 | admin管理界面</h4>
         </figcaption>
 </figure>
-
 <p>当然，我们并不希望通过后台来添加用户，还是由用户自己从前端注册。所以后面会进一步完善前端视图。</p>
-
 <h3 id="控制">控制</h3>
-
 <p>Django通过urlpatterns来控制路由。在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/urls.py">urls.py</a>中修改：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -647,19 +593,16 @@
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">login_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;login&#34;</span><span class="p">),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;signup&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">signup</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;signup&#34;</span><span class="p">),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;logout&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">logout_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;logout&#34;</span><span class="p">)</span>
-<span class="p">]</span></code></pre></td></tr></table>
+<span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样，就把四个路由绑定到了views.py中对应的函数上，并且都给了别名（可以用<code>reverse()</code>函数快速解析）。</p>
-
+</div><p>这样，就把四个路由绑定到了views.py中对应的函数上，并且都给了别名（可以用<code>reverse()</code>函数快速解析）。</p>
 <h3 id="视图">视图</h3>
-
 <p>有了模型，定义好路由绑定，接下来就在视图<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/views.py">views.py</a>中写具体功能。</p>
-
 <h4 id="导入一堆包">导入一堆包</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -674,15 +617,14 @@
 <span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
 <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
-<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span></code></pre></td></tr></table>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里，直接使用了Django.contrib.auth模块里的authenticate, login, logout功能，导入了User类。此外，专门在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里编了两套表单模板，也一并导入。</p>
-
+</div><p>这里，直接使用了Django.contrib.auth模块里的authenticate, login, logout功能，导入了User类。此外，专门在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里编了两套表单模板，也一并导入。</p>
 <h4 id="首页">首页</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -691,25 +633,19 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span></code></pre></td></tr></table>
+    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果request中的user实例并没有通过认证，就返回<code>login_view()</code>，也就是显示登录页。否则，就跳转去别名为&rdquo;menu&rdquo;的页面，也就是orders模块的的首页。</p>
-
+</div><p>如果request中的user实例并没有通过认证，就返回<code>login_view()</code>，也就是显示登录页。否则，就跳转去别名为&quot;menu&quot;的页面，也就是orders模块的的首页。</p>
 <div class="admonition tip"><p class="admonition-title">要点</p>
-  
-Django的视图函数，必须返回一个Http响应，要么是HttpResponse，要么Http404之类。否则就会报内部错误。
-
+<p>Django的视图函数，必须返回一个Http响应，要么是HttpResponse，要么Http404之类。否则就会报内部错误。</p>
 </div>
-
 <h4 id="登录">登录</h4>
-
 <h5 id="后端">后端</h5>
-
 <p>views.py里定义<code>login_view()</code>函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -768,23 +704,22 @@ Django的视图函数，必须返回一个Http响应，要么是HttpResponse，�
             <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
                 <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>如果user已经认证，就跳去orders首页</li>
 <li>如果没认证，那么
-
 <ul>
 <li>假如是POST方法（提交登录验证表单），就从login_form里提信息出来验证。通过验证就<code>login()</code>，否则跳转回去。</li>
 <li>假如是其他方法，那就渲染登录界面</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里定义了登录表单模板。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -819,19 +754,16 @@ Django的视图函数，必须返回一个Http响应，要么是HttpResponse，�
         <span class="k">if</span> <span class="ow">not</span> <span class="n">filter_result</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
                 <span class="s2">&#34;This username does not exist. Please register first.&#34;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">username</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">username</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个<code>clean_username()</code>方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。</p>
-
+</div><p>LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个<code>clean_username()</code>方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。</p>
 <h5 id="前端">前端</h5>
-
 <p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/login.html">login.html</a>页面模板写成这样：</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -898,37 +830,27 @@ Sign In
         Sign up now!
     <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <!-- {% raw %} -->
-
 <div class="admonition tip"><p class="admonition-title">要点</p>
-  
-Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内部解析form对象，组装出表单。
-
+<p>Django表单内都必须加个&rsquo;{% csrf_token %}&rsquo; 解决跨域问题。模板内部解析form对象，组装出表单。</p>
 </div>
-
 <!-- {% endraw %} -->
-
 <p>后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_in.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_in.png"/> <figcaption>
             <h4>图 | 用户登录界面</h4>
         </figcaption>
 </figure>
-
 <h4 id="注册">注册</h4>
-
 <h5 id="后端-1">后端</h5>
-
 <p>views.py里定义 <code>signup()</code> 函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -997,15 +919,14 @@ Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内�
                 <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
-            <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span></code></pre></td></tr></table>
+            <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>原理跟登陆差不多。主要区别在于出现了ORM操作。当通过校验后，Django就把reg_form表单字段拿过去，创建一个新的User对象。ORM操作语句很直观，<code>&lt;类名&gt;.objects.&lt;操作方法&gt;(&lt;参数列表&gt;)</code>。</p>
-
+</div><p>原理跟登陆差不多。主要区别在于出现了ORM操作。当通过校验后，Django就把reg_form表单字段拿过去，创建一个新的User对象。ORM操作语句很直观，<code>&lt;类名&gt;.objects.&lt;操作方法&gt;(&lt;参数列表&gt;)</code>。</p>
 <p>reg_form表单模板也定义在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1094,17 +1015,15 @@ Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内�
         <span class="n">pwd2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password_cfm&#34;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">pwd1</span> <span class="ow">and</span> <span class="n">pwd2</span> <span class="ow">and</span> <span class="n">pwd1</span> <span class="o">!=</span> <span class="n">pwd2</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Password mismatch. Please enter again.&#34;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">pwd2</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">pwd2</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="前端-1">前端</h5>
-
+</div><h5 id="前端-1">前端</h5>
 <p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/register.html">register.html</a>页面模板写成这样：</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1203,25 +1122,21 @@ Sign Up
 <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <p>同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_up.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_up.png"/> <figcaption>
             <h4>图 | 用户注册界面</h4>
         </figcaption>
 </figure>
-
 <h4 id="注销">注销</h4>
-
 <p>注销操作比Flask更好些，直接用内置的 <code>logout()</code> 方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1232,27 +1147,20 @@ Sign Up
 <span class="k">def</span> <span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> 
-        <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;Logged out.&#34;</span><span class="p">]})</span></code></pre></td></tr></table>
+        <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;Logged out.&#34;</span><span class="p">]})</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>退出后直接转跳登录页，所以也不必费劲专门写网页模板了。这里用了<code>HttpResponseRedirect()</code>而不是<code>redirect()</code>，因为除了转跳以外，还要传一个content回去，用来渲染一个告警。</p>
-
+</div><p>退出后直接转跳登录页，所以也不必费劲专门写网页模板了。这里用了<code>HttpResponseRedirect()</code>而不是<code>redirect()</code>，因为除了转跳以外，还要传一个content回去，用来渲染一个告警。</p>
 <p>到此，整个账号管理的功能就写好了。实际使用，还有必要加功能，比如反机器人、密码找回等。</p>
-
-<h2 id="订单管理-orders">订单管理(orders)</h2>
-
+<h2 id="订单管理orders">订单管理(orders)</h2>
 <p>接下来，进<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders">orders</a>目录，构建购物车和订单管理模块。这块内容比账号管理复杂一些。</p>
-
 <h3 id="模型-1">模型</h3>
-
 <p>从定义ORM模型开始。在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/models.py">models.py</a>：</p>
-
 <h4 id="选择项元组">选择项元组</h4>
-
 <p>先定义选择项，结构是key-value元组。后续控件限定合法值，直接绑上去就行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1287,19 +1195,16 @@ Sign Up
     <span class="p">(</span><span class="s1">&#39;Completed&#39;</span><span class="p">,</span> <span class="s1">&#39;Completed&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Failed&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelled&#39;</span><span class="p">),</span>
-<span class="p">)</span></code></pre></td></tr></table>
+<span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="模型和元参数">模型和元参数</h4>
-
+</div><h4 id="模型和元参数">模型和元参数</h4>
 <p>model的定义跟表单有点像。以品类(Category)和产品(Product)为例，都继承自models.Model类。定义好字段参数后，可以设定元数据class Meta，定义verbose_name之类元参数。对于Product，我希望实现category、name和size三个字段构成一个复合主键，只要定义进unique_together就可以了。</p>
-
 <p>另外，比较推荐单独定义<code>__str__()</code>方法，这样在Django后台管理数据时，屏显记录名更人性化。</p>
-
-<p>Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name=&ldquo;products&rdquo;。这样将来就可以通过Category.objects.filter(products=&ldquo;xxx&rdquo;)来反查xxx产品的类型。</p>
+<p>Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name=&quot;products&rdquo;。这样将来就可以通过Category.objects.filter(products=&quot;xxx&rdquo;)来反查xxx产品的类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1362,15 +1267,14 @@ Sign Up
         <span class="n">unique_together</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">),</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.category} - {self.name} ({self.size})&#34;</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.category} - {self.name} ({self.size})&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="多对多关系">多对多关系</h4>
-
+</div><h4 id="多对多关系">多对多关系</h4>
 <p>要特别提一下的是<code>ManyToManyField</code>，比如作为订单组件的Item，可以绑一个或多个Topping或Addition。传统做法是专门建一张Item_Topping_Mapping表，将ItemTopping的ID关联起来，实现多对多关系。Django的做法是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1427,49 +1331,35 @@ Sign Up
         <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;item_toppings&#34;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.item} - {self.topping} x {self.quantity}&#34;</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&#34;{self.item} - {self.topping} x {self.quantity}&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Item的topping字段是个ManyToManyField，外键连接到Topping，而through参数则指定了多对多映射表&rdquo;ItemTopping&rdquo;。在ItemTopping里，除了item和topping外，又额外扩展了一个字段quantity。如果不需要扩展字段，ItemTopping甚至不用写。Django会自动生成这张表（但名字不一定是这个）。</p>
-
+</div><p>Item的topping字段是个ManyToManyField，外键连接到Topping，而through参数则指定了多对多映射表&quot;ItemTopping&rdquo;。在ItemTopping里，除了item和topping外，又额外扩展了一个字段quantity。如果不需要扩展字段，ItemTopping甚至不用写。Django会自动生成这张表（但名字不一定是这个）。</p>
 <h4 id="migrate">migrate</h4>
-
 <p>写完所有的model后，控制台运行命令：</p>
-
 <ul>
 <li><code>python manage.py makemigrations</code></li>
 <li><code>python manage.py migrate</code></li>
 </ul>
-
 <p>Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，对后台数据库进行创建/删除/修改操作。如果用sqlite连接到后台去看，就会发现里面已经把表都创建好了。修改model后，再次migrate，Django会直接修改表结构来适配，而不用自己手动写ALTER。</p>
-
 <p>各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/db3.svg"/> <figcaption>
             <h4>图 | orders应用的表结构</h4>
         </figcaption>
 </figure>
-
 <div class="admonition note"><p class="admonition-title">设计缺陷</p>
-  
-这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。
-
+<p>这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。</p>
 </div>
-
 <p><a href="https://madlogos.github.io/post/django-website-demo-2/">待续</a></p>
-
-<hr />
-
+<hr>
 <!-- {% raw %} -->
-
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
     </div>
 
@@ -1582,7 +1472,7 @@ Sign Up
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     
     <span class="author">madlogos</span>
   </span>
@@ -1598,7 +1488,10 @@ Sign Up
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1614,6 +1507,7 @@ Sign Up
 
 
 
+<script src="/js/custom.js"></script>
 
 
 </body>

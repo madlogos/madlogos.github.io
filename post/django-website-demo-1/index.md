@@ -10,7 +10,7 @@
 
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzNzY0NTEwNA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
 
-<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzNzY0NTEwNA==' frameborder=0 'allowfullscreen'></iframe>
 
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第四个作业项目。
 
@@ -255,11 +255,11 @@ from django.db import models
 
 控制台运行`python manage.py runserver`，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_entry.png" title="图 | admin登录页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_entry.png" title="图 | admin登录页" %}}
 
 用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_ui.png" title="图 | admin管理界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_ui.png" title="图 | admin管理界面" %}}
 
 当然，我们并不希望通过后台来添加用户，还是由用户自己从前端注册。所以后面会进一步完善前端视图。
 
@@ -433,7 +433,7 @@ Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内�
 
 后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_in.png" title="图 | 用户登录界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_in.png" title="图 | 用户登录界面" %}}
 
 
 #### 注册
@@ -590,7 +590,7 @@ Sign Up
 
 同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/sign_up.png" title="图 | 用户注册界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_up.png" title="图 | 用户注册界面" %}}
 
 #### 注销
 
@@ -731,7 +731,7 @@ Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，�
 
 各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/db3.svg" title="图 | orders应用的表结构" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/db3.svg" title="图 | orders应用的表结构" %}}
 
 {{% admonition note "设计缺陷" false %}}
 这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。

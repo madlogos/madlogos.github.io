@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat3/" />
@@ -34,8 +34,10 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据" />
@@ -47,16 +49,13 @@
 
 <meta itemprop="name" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据">
 <meta itemprop="description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。">
-
-
 <meta itemprop="datePublished" content="2017-04-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-16T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="4517">
 
 
 
-<meta itemprop="keywords" content="传染病,疫情报告,rvest," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="传染病,疫情报告,rvest," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据"/>
 <meta name="twitter:description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。"/>
 
@@ -142,82 +141,78 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#甲乙丙类每月发病-死亡数">甲乙丙类每月发病、死亡数</a></li>
-<li><a href="#乙类">乙类</a>
-<ul>
-<li><a href="#四大类别">四大类别</a></li>
-<li><a href="#详细病种">详细病种</a></li>
-<li><a href="#肝炎">肝炎</a></li>
-</ul></li>
-<li><a href="#丙类">丙类</a>
-<ul>
-<li><a href="#不同病种的时间趋势">不同病种的时间趋势</a></li>
-<li><a href="#各病种的平均月分布">各病种的平均月分布</a></li>
-<li><a href="#流感">流感</a></li>
-</ul></li>
-<li><a href="#结尾">结尾</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#甲乙丙类每月发病死亡数">甲乙丙类每月发病、死亡数</a></li>
+    <li><a href="#乙类">乙类</a>
+      <ul>
+        <li><a href="#四大类别">四大类别</a></li>
+        <li><a href="#详细病种">详细病种</a></li>
+        <li><a href="#肝炎">肝炎</a></li>
+      </ul>
+    </li>
+    <li><a href="#丙类">丙类</a>
+      <ul>
+        <li><a href="#不同病种的时间趋势">不同病种的时间趋势</a></li>
+        <li><a href="#各病种的平均月分布">各病种的平均月分布</a></li>
+        <li><a href="#流感">流感</a></li>
+      </ul>
+    </li>
+    <li><a href="#结尾">结尾</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="甲乙丙类每月发病-死亡数">甲乙丙类每月发病、死亡数</h2>
-
+      <h2 id="甲乙丙类每月发病死亡数">甲乙丙类每月发病、死亡数</h2>
 <p><a href="https://madlogos.github.io/post/infectdis_stat2/">接上篇</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>看一下甲乙丙类每个月的发病和死亡例数。</p>
+</div><p>看一下甲乙丙类每个月的发病和死亡例数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"/> <figcaption>
             <h4>图 | 法定传染病每月发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"/> <figcaption>
             <h4>图 | 法定传染病每月死亡数</h4>
         </figcaption>
 </figure>
-
 <p>甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。</p>
-
 <p>按月算一下均数，看得更清楚。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -228,17 +223,17 @@
 <span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_month.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"/> <figcaption>
             <h4>图 | 法定传染病月平均发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -249,23 +244,20 @@
 <span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_month.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"/> <figcaption>
             <h4>图 | 法定传染病平均月死亡数</h4>
         </figcaption>
 </figure>
-
 <h2 id="乙类">乙类</h2>
-
 <h3 id="四大类别">四大类别</h3>
-
 <p>把乙类归成肠道、呼吸道、血源/性、虫媒/自然疫源地四大类。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -288,51 +280,49 @@
 <span class="n">dat.b</span><span class="o">$</span>类型<span class="nf">[str_detect</span><span class="p">(</span>
     <span class="n">dat.b</span><span class="o">$</span>病名<span class="p">,</span> <span class="s">&#34;布鲁氏|疟疾|出血热|血吸虫|登革|乙型脑炎|狂犬|钩端螺旋体|炭疽&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;虫媒/自然疫源&#34;</span>
 <span class="n">dat.b</span><span class="o">$</span>类型<span class="nf">[str_detect</span><span class="p">(</span>
-    <span class="n">dat.b</span><span class="o">$</span>病名<span class="p">,</span> <span class="s">&#34;[乙丙丁]型肝炎|梅毒|淋病|艾滋病|破伤风|肝炎未分型&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;血源/性传&#34;</span></code></pre></td></tr></table>
+    <span class="n">dat.b</span><span class="o">$</span>病名<span class="p">,</span> <span class="s">&#34;[乙丙丁]型肝炎|梅毒|淋病|艾滋病|破伤风|肝炎未分型&#34;</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;血源/性传&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>一个明显趋势是血源/性传播疾病占比越来越高。这个趋势在2008-2010年左右已经很明显，至今没有减退，从死亡数占比来看，现在更上了一个台阶。几乎要垄断行情了。</p>
+</div><p>一个明显趋势是血源/性传播疾病占比越来越高。这个趋势在2008-2010年左右已经很明显，至今没有减退，从死亡数占比来看，现在更上了一个台阶。几乎要垄断行情了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.b</span><span class="p">,</span> 日期 <span class="o">~</span> 类型<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_b_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_trend.png"/> <figcaption>
             <h4>图 | 乙类传染病每月发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.b</span><span class="p">,</span> 日期 <span class="o">~</span> 类型<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_b_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_trend.png"/> <figcaption>
             <h4>图 | 乙类传染病每月死亡数</h4>
         </figcaption>
 </figure>
-
 <h3 id="详细病种">详细病种</h3>
-
 <p>究竟是哪个具体病种发展更快？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -353,17 +343,17 @@
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> 日期 <span class="o">+</span> 病名<span class="o">~</span><span class="n">.,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;value&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>病名 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">top.b</span><span class="p">,</span> <span class="s">&#34;其它&#34;</span><span class="p">))</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;.&#34;</span><span class="p">,</span>
-           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_b_det_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_det_trend.png"/> <figcaption>
             <h4>图 | 乙类传染病每月发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -384,97 +374,85 @@
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> 日期 <span class="o">+</span> 病名<span class="o">~</span><span class="n">.,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;value&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>病名 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">top.b</span><span class="p">,</span> <span class="s">&#34;其它&#34;</span><span class="p">))</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;.&#34;</span><span class="p">,</span>
-           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_b_det_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_det_trend.png"/> <figcaption>
             <h4>图 | 乙类传染病每月死亡数</h4>
         </figcaption>
 </figure>
-
 <div class="admonition tip"><p class="admonition-title">tip</p>
-  
-乙类死亡数分布中，2009年末-2010年初有个醒目的浅蓝色楔子。那就是著名的甲型H1N1流感流行。
-
+<p>乙类死亡数分布中，2009年末-2010年初有个醒目的浅蓝色楔子。那就是著名的甲型H1N1流感流行。</p>
 </div>
-
 <p>从发病数看，梅毒越来越多了，夏季高发。丙肝也越来越多了，冬春季高发。</p>
-
 <p>从死亡数看，艾滋病单一病种吃掉了越来越大的份额。</p>
-
 <p>说到底，传染病控制的重心基本上不可逆转地会朝这几个方向移动。</p>
-
 <h3 id="肝炎">肝炎</h3>
-
 <p>肝炎是细分报告的。所以也可以下钻看一眼。</p>
-
 <p>先析出一个分型肝炎子集。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat.hep</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">str_detect</span><span class="p">(</span>病名<span class="p">,</span> <span class="s">&#34;^肝炎|[^性]肝炎&#34;</span><span class="p">))</span>
 <span class="n">dat.hep</span><span class="o">$</span>病名 <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">dat.hep</span><span class="o">$</span>病名<span class="p">,</span> <span class="s">&#34;([甲乙丙丁戊])型肝炎|^肝炎(未分)型&#34;</span><span class="p">,</span> <span class="s">&#34;\\1\\2&#34;</span><span class="p">)</span>
-<span class="n">dat.hep</span><span class="o">$</span>病名 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">dat.hep</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;甲&#34;</span><span class="p">,</span> <span class="s">&#34;乙&#34;</span><span class="p">,</span> <span class="s">&#34;丙&#34;</span><span class="p">,</span> <span class="s">&#34;丁&#34;</span><span class="p">,</span> <span class="s">&#34;戊&#34;</span><span class="p">,</span> <span class="s">&#34;未分型&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="n">dat.hep</span><span class="o">$</span>病名 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">dat.hep</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;甲&#34;</span><span class="p">,</span> <span class="s">&#34;乙&#34;</span><span class="p">,</span> <span class="s">&#34;丙&#34;</span><span class="p">,</span> <span class="s">&#34;丁&#34;</span><span class="p">,</span> <span class="s">&#34;戊&#34;</span><span class="p">,</span> <span class="s">&#34;未分型&#34;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后分别看发病和死亡。</p>
+</div><p>然后分别看发病和死亡。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.hep</span><span class="p">,</span> 日期 <span class="o">~</span> 病名<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_hep_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_hep_trend.png"/> <figcaption>
             <h4>图 | 肝炎每月发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.hep</span><span class="p">,</span> 日期 <span class="o">~</span> 病名<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_hep_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_hep_trend.png"/> <figcaption>
             <h4>图 | 肝炎每月死亡数</h4>
         </figcaption>
 </figure>
-
 <p>感觉都在慢慢下降。</p>
-
 <h2 id="丙类">丙类</h2>
-
 <p>析出一个子集。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat.c</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 分类<span class="o">==</span><span class="s">&#34;丙类&#34;</span> <span class="o">&amp;</span> 日期 <span class="o">&gt;=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&#34;2009-1-1&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat.c</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 分类<span class="o">==</span><span class="s">&#34;丙类&#34;</span> <span class="o">&amp;</span> 日期 <span class="o">&gt;=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&#34;2009-1-1&#34;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="不同病种的时间趋势">不同病种的时间趋势</h3>
+</div><h3 id="不同病种的时间趋势">不同病种的时间趋势</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -483,17 +461,17 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.c</span><span class="p">,</span> 日期 <span class="o">~</span> 病名<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">)</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;丙类传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span>
-           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_c_det_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_det_trend.png"/> <figcaption>
             <h4>图 | 丙类传染病每月发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -502,23 +480,20 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat.c</span><span class="p">,</span> 日期 <span class="o">~</span> 病名<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">)</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;丙类传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span>
-           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_c_det_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_det_trend.png"/> <figcaption>
             <h4>图 | 丙类传染病每月死亡数</h4>
         </figcaption>
 </figure>
-
 <p>其实就两样：手足口、感染性腹泻。落到死亡，基本都是手足口。</p>
-
 <p>丙类传染病占据了基层疾控主要的流调精力，但其实能死人的也就是手足口。</p>
-
 <h3 id="各病种的平均月分布">各病种的平均月分布</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -531,17 +506,17 @@
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;丙类传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span>
-           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_c_month.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_month.png"/> <figcaption>
             <h4>图 | 丙类传染病月平均发病数</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -554,59 +529,47 @@
 <span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">)</span>
 <span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;丙类传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span>
-           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_c_month.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_month.png"/> <figcaption>
             <h4>图 | 丙类传染病月平均死亡数</h4>
         </figcaption>
 </figure>
-
 <p>看月份分布，春夏季是大头。</p>
-
 <h3 id="流感">流感</h3>
-
 <p>额外关心了一下流感。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat.flu</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 病名 <span class="o">==</span><span class="s">&#34;流行性感冒&#34;</span> <span class="o">&amp;</span> 日期 <span class="o">&gt;=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&#34;2009-1-1&#34;</span><span class="p">))</span>
 <span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">dat.flu</span><span class="p">,</span> <span class="s">&#34;流感每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span>
-           <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+           <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_flu_trend.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_flu_trend.png"/> <figcaption>
             <h4>图 | 流感每月发病数</h4>
         </figcaption>
 </figure>
-
 <p>2016年初春有一个高峰。今明两年估计不会有那么高了。</p>
-
 <h2 id="结尾">结尾</h2>
-
 <p>上面这些是很粗浅的分析。用shiny结合这些数据做一个仪表盘是再合适不过的了。配点时间序列模型和预测，整个仪表盘就很丰富实用了。可惜印象中并没有这类公共的数据产品出来。可能也有，但多半藏在某些衙门的某些电脑上离线运行着。</p>
-
 <p>离开疾控至今，还没有再关注过传染病的动态。当初上课时，老师还提到“死亡数最多的传染病你们或许猜不到，是狂犬病”。后来变成了结核。如今，已完全是艾滋病的天下了。短短几年，这个静默无闻的领域也发生着剧变。</p>
-
 <p>[完]</p>
-
-<hr />
-
+<hr>
 <!-- {% raw %} -->
-
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
     </div>
 
@@ -719,7 +682,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     
     <span class="author">madlogos</span>
   </span>
@@ -735,7 +698,10 @@
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -751,6 +717,7 @@
 
 
 
+<script src="/js/custom.js"></script>
 
 
 </body>

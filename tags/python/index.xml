@@ -18,13 +18,11 @@
       
       <guid>https://madlogos.github.io/post/django-website-demo-2/</guid>
       <description>&lt;h3 id=&#34;admin后台&#34;&gt;Admin后台&lt;/h3&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/django-website-demo-1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;模型做好后，可以在&lt;a href=&#34;https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py&#34;&gt;admin.py&lt;/a&gt;里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
@@ -111,7 +109,8 @@
     &lt;span class=&#34;n&#34;&gt;readonly_fields&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;quantity&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;price&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;inlines&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OrderItemInline&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 
-&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;site&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;register&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OrderAdmin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;site&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;register&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OrderAdmin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -123,36 +122,21 @@
       
       <guid>https://madlogos.github.io/post/django-website-demo-1/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
-  
-还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。&lt;br/&gt;
-【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
-
+&lt;p&gt;还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。&lt;br/&gt;
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;div class=&#34;admonition warning&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
-  
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-
+&lt;p&gt;如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzNzY0NTEwNA==.html?spm=a2hzp.8244740.0.0&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
-
-&lt;iframe height=498 width=&#39;100%&#39; src=&#39;http://player.youku.com/embed/XNDQzNzY0NTEwNA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
-
+&lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzNzY0NTEwNA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
 &lt;p&gt;这是哈佛&lt;strong&gt;继续教育学院&lt;/strong&gt;开的的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt; 第四个作业项目。&lt;/p&gt;
-
-&lt;h2 id=&#34;作业要求-https-docs-cs50-net-web-2019-x-projects-3-project3-html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/3/project3.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
-
+&lt;h2 id=&#34;作业要求httpsdocscs50netweb2019xprojects3project3html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/3/project3.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;做一个仿&lt;a href=&#34;http://www.pinocchiospizza.net/menu.html&#34;&gt;Pinocchio Pizza&lt;/a&gt;的Pizza预订系统。&lt;/p&gt;
-
 &lt;div class=&#34;admonition bug&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;可以看到&lt;/p&gt;
-  
-很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。&lt;b&gt;技术还是不如业务重要。&lt;/b&gt;
-
+&lt;p&gt;很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。&lt;b&gt;技术还是不如业务重要。&lt;/b&gt;&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;p&gt;要实现以下功能：&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;分析样品菜单，构建模型&lt;/li&gt;
 &lt;li&gt;用Django admin或者写Python命令，添加菜单内容&lt;/li&gt;
@@ -162,22 +146,15 @@
 &lt;li&gt;浏览订单和订单明细&lt;/li&gt;
 &lt;li&gt;延伸功能：比如系统管理员在后台更新订单状态、用&lt;a href=&#34;https://stripe.com/docs&#34;&gt;Strip API&lt;/a&gt; 完成结算等&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;先要有Python（装了Anaconda）&lt;/li&gt;
 &lt;li&gt;要装&lt;code&gt;Django&lt;/code&gt;包(&lt;code&gt;pip&lt;/code&gt;)，这里用的是Django 2.2。&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;!-- {% raw %} --&gt;
-
 &lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;提醒&lt;/p&gt;
-  
-开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。
-
+&lt;p&gt;开发要锁定工具链版本，否则后患无穷。virtualenv或者Docker都可以。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;!-- {% endraw %} --&gt;</description>
     </item>
     
@@ -188,30 +165,18 @@
       
       <guid>https://madlogos.github.io/post/flask-socketio-site-demo/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
-  
-记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。&lt;br/&gt;
-【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
-
+&lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。&lt;br/&gt;
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;div class=&#34;admonition warning&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
-  
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-
+&lt;p&gt;如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
-
-&lt;iframe height=498 width=&#39;100%&#39; src=&#39;http://player.youku.com/embed/XNDQzNzYyNDU4MA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
-
+&lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzNzYyNDU4MA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
 &lt;p&gt;这是哈佛&lt;strong&gt;继续教育学院&lt;/strong&gt;开的的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt; 第三个作业项目。&lt;/p&gt;
-
-&lt;h2 id=&#34;作业要求-https-docs-cs50-net-web-2019-x-projects-2-project2-html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/2/project2.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
-
+&lt;h2 id=&#34;作业要求httpsdocscs50netweb2019xprojects2project2html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/2/project2.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;做一个仿&lt;a href=&#34;www.slack.com&#34;&gt;Slack&lt;/a&gt;概念的聊天应用。这次不需要用数据库了，但得&lt;/p&gt;
-
 &lt;p&gt;要实现以下功能：&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;能自定义用户名（不能和已有的重复）&lt;/li&gt;
 &lt;li&gt;能创建频道&lt;/li&gt;
@@ -230,30 +195,18 @@
       
       <guid>https://madlogos.github.io/post/flask-website-demo/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
-  
-记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。&lt;br/&gt;
-【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
-
+&lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。&lt;br/&gt;
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;div class=&#34;admonition warning&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
-  
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-
+&lt;p&gt;如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
-
-&lt;iframe height=498 width=&#39;100%&#39; src=&#39;http://player.youku.com/embed/XNDQzMzA5MzQ4OA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
-
+&lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzMzA5MzQ4OA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
 &lt;h2 id=&#34;缘起&#34;&gt;缘起&lt;/h2&gt;
-
-&lt;p&gt;出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛&lt;strong&gt;【继续教育学院】&lt;/strong&gt;（对，就是范玮琪读的那个哈佛）开的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt;。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。&lt;/p&gt;
-
+&lt;p&gt;出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛**【继续教育学院】**（对，就是范玮琪读的那个哈佛）开的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt;。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。&lt;/p&gt;
 &lt;p&gt;想想看，上一个号称小快灵的神器还是PHP呢。那都是二十年前的事儿了。&lt;/p&gt;
-
 &lt;p&gt;Flask最好的好处是可以多快好省地做网站，迅速实现一个原型或弄出一个0.1功能版本。若将来再学一点小程序啥的，起码搞起数据科学工程产品来，能派上一丢丢的用场——也算走向「全网没人肯要的中老年」全栈工程师的第一步罢。&lt;/p&gt;
-
 &lt;p&gt;事实很打脸。这个作业只是整个课程的五大作业里的一个，我拿出所有业余时间埋头苦干，做了足足两个礼拜。以这个效率去搬砖，你猜老板会用什么武功揍我？&lt;/p&gt;</description>
     </item>
     

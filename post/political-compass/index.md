@@ -1,9 +1,9 @@
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/left_right_wing_us.jpg" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/left_right_wing_us.jpg" %}}
 
 ## 回味2016
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/2015113154244635.png" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/2015113154244635.png" %}}
 
 2017年已经热火朝天地过掉两个月。现在回过头去评价2016年，显得反射弧特别长。但我仍禁不住要多回头看两眼，因为直到现在，我还不能完全理解它。
 
@@ -180,7 +180,7 @@ ggplot(age.gender, aes(年龄组, 比重, group=性别)) +
     theme_hc() + theme_new() + coord_flip()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot.png" title="图 | 人口金字塔" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot.png" title="图 | 人口金字塔" %}}
 
 
 ```r
@@ -197,7 +197,7 @@ ggplot(educ, aes("", 比重, fill=学历)) +
     theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot01.png" title="图 | 受教育程度分布" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot01.png" title="图 | 受教育程度分布" %}}
 
 
 ```r
@@ -215,7 +215,7 @@ ggplot(incm, aes("", 比重, fill=年收入)) +
     theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot02.png" title="图 | 收入分布" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot02.png" title="图 | 收入分布" %}}
 
 可以猜测，这个群体会比普通中国人文化上更偏右一点，但政治和经济立场却未必。
 
@@ -232,7 +232,7 @@ ggplot() + theme_hc() + ggtitle("政治倾向均分") +
     theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot04.png" title="图 | 政治倾向均分直方图" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot04.png" title="图 | 政治倾向均分直方图" %}}
 
 
 ```r
@@ -243,7 +243,7 @@ ggplot() + theme_hc() + ggtitle("经济倾向均分") +
     theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot05.png" title="图 | 经济倾向均分直方图" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot05.png" title="图 | 经济倾向均分直方图" %}}
 
 
 ```r
@@ -254,7 +254,7 @@ ggplot() + theme_hc() + ggtitle("文化倾向均分") +
     theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot06.png" title="图 | 文化倾向均分直方图" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot06.png" title="图 | 文化倾向均分直方图" %}}
 
 
 分解每个问题，会有更细的发现。
@@ -284,7 +284,7 @@ ggplot() + geom_point(aes(话题, 均值, color = 分类), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot08.png" title="图 | 各问题均分及标准差" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot08.png" title="图 | 各问题均分及标准差" %}}
 
 ### 三个维度的关联？
 
@@ -308,7 +308,7 @@ legend(p3d$xyz.convert(2,0,3), col=c("deepskyblue", "tomato"), pch=19,
        legend = c("M", "F"), border=NULL)
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot03.png" title="图 | 政治、文化、经济关联" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot03.png" title="图 | 政治、文化、经济关联" %}}
 
 对问题得分相关矩阵作层次聚类，大体可以分成四簇。其中，“富人公示财富来源”独立构成一簇。看来大家对此问题的态度比较矛盾。
 
@@ -320,7 +320,7 @@ rownames(cor) = qn
 plot(hclust(dist(cor)), sub="", xlab="", cex=0.6)
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot14.png" title="图 | 立场倾向层次聚类" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot14.png" title="图 | 立场倾向层次聚类" %}}
 
 ### 不同人群的意见
 
@@ -362,7 +362,7 @@ ggplot() + geom_point(aes(标签, 均值, color = 水平), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot07.png" title="图 | 不同人群分类均分比较" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot07.png" title="图 | 不同人群分类均分比较" %}}
 
 细分到具体问题，就更神奇了。
 
@@ -392,7 +392,7 @@ ggplot() + geom_point(aes(话题, 均值, color = 年收入), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot11.png" title="图 | 不同收入组各问题的均分比较" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot11.png" title="图 | 不同收入组各问题的均分比较" %}}
 
 - 学历越高，越认同：“应当控制房价”、“西方对中国有敌意”、“领土完整是社会优先利益”、“武统台湾”、“自主招生好于统招”、“富人应公示财产来源”，越反对“对外援助”、“汉字简化”。
 
@@ -418,7 +418,7 @@ ggplot() + geom_point(aes(话题, 均值, color = 学历), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot12.png" title="图 | 不同学历组各问题均分比较" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot12.png" title="图 | 不同学历组各问题均分比较" %}}
 
 - 年龄越大，越反对：“国企破产不如私有化”、“自然形成的市场垄断”、“尊儒”、“补贴穷人”、“资本有原罪”、“婚外性自由”、“多党制”、“可以丑化领袖”、“用国学启蒙”，越支持：“子女同性恋”。
 
@@ -445,7 +445,7 @@ ggplot() + geom_point(aes(话题, 均值, color = 年龄段), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot10.png" title="图 | 不同年龄组各问题均分比较" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot10.png" title="图 | 不同年龄组各问题均分比较" %}}
 
 - 多数政治问题上，女性更左（更保守）。
 
@@ -471,7 +471,7 @@ ggplot() + geom_point(aes(话题, 均值, color = 性别), data = summ) +
     coord_flip() + theme_hc() + theme_new()
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170305/Rplot09.png" title="图 | 男女各问题均分比较" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot09.png" title="图 | 男女各问题均分比较" %}}
 
 ## ... So?
 

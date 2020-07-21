@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/" />
@@ -34,8 +34,10 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="【动态图版】北宋、明清进士空间可视化分析" />
@@ -47,16 +49,13 @@
 
 <meta itemprop="name" content="【动态图版】北宋、明清进士空间可视化分析">
 <meta itemprop="description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。">
-
-
 <meta itemprop="datePublished" content="2017-04-30T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-30T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="3607">
 
 
 
-<meta itemprop="keywords" content="进士,地理分析,交互图," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="进士,地理分析,交互图," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="【动态图版】北宋、明清进士空间可视化分析"/>
 <meta name="twitter:description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。"/>
 
@@ -142,76 +141,51 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#动态图">动态图</a></li>
-<li><a href="#动画">动画</a></li>
-<li><a href="#交互图">交互图</a>
-<ul>
-<li><a href="#个体散点图">个体散点图</a></li>
-<li><a href="#古今地名一致性">古今地名一致性</a></li>
-<li><a href="#进士数排名">进士数排名</a>
-<ul>
-<li><a href="#先是市级排名">先是市级排名</a></li>
-<li><a href="#然后是省级排名">然后是省级排名</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#动态图">动态图</a></li>
+        <li><a href="#动画">动画</a></li>
+        <li><a href="#交互图">交互图</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <div class="admonition info"><p class="admonition-title">注意</p>
-  
-如果浏览器提示本文加载了不安全的脚本，请点允许。
-
+<p>如果浏览器提示本文加载了不安全的脚本，请点允许。</p>
 </div>
-
 <p>今次主题比较简单。上个话题留了点冷饭，看起来还没馊，咱敲个鸡蛋炒个蛋炒饭。</p>
-
 <p>炒个什么蛋炒饭呢？——动态图(dynamic charts)。这也是应留言要求额外发的番外。基本和分析关系不大，纯粹是可视化范畴。</p>
-
 <h3 id="动态图">动态图</h3>
-
 <p>通常我们看到的都是静态图，最常见的是.jpg、.png这类位图，逼格高一点的会用到.svg矢量图。但它们都是死图，所有图形元素都不会动。某些情况下，我们不仅要把统计结果映射到特定的视觉通道，还希望表现其历时性，或者允许用户自己进行挖掘。这就需要让图形部件动起来。</p>
-
 <ul>
 <li>一种方法是做成动画(animation)。</li>
 </ul>
-
 <p>R有个名包，叫animation，可以用它压制.gif，用在社交媒体效果足够醒目。它的基本思路就是拿出一维来映射时间，基于时间点对数据切片、统计、制图，最后把静态图们合成一个动画。</p>
-
 <ul>
 <li>还有一种方法是交互图(interactive charts)。</li>
 </ul>
-
 <p>把统计数据绑定到JavaScript控件上，定义好交互方法，用户即可在网页上通过控件操作来调整视觉呈现（切片、缩放、改变类型等）。RStudio发过一个工具框架包htmlwidgets，可以很方便地把已有的JavaScript可视化库移植到R。我们今天就要用到其中的两个：ECharts2和leaflet。</p>
-
 <p>如果再进一步，就是数据交互面板了。R有shiny及其系列衍生品，比如flexboard。想象一下作战室交互图仪表盘面板，几行命令就做出来了。简直酷炫。但是这需要部署在shiny服务器上。</p>
-
 <h3 id="动画">动画</h3>
-
 <p>还是用前次的数据集，再画一下各朝的进士地理热图。但这次变个花样，我们先把北宋、明、清都按前、中、后分一下期。</p>
-
 <ul>
 <li>用cut函数把连续变量切分成分段因子；</li>
 <li>用sprintf格式化因子标签，否则会自动套用前开后闭科学计数法区间样式，表示年代比较怪；</li>
-
-<li><p>各朝的分期不见得都对，我就随便分了下：</p>
-
+<li>各朝的分期不见得都对，我就随便分了下：
 <ul>
 <li>北宋(960-1127)：以1021、1085分期，大体对应真宗/仁宗、神宗/哲宗；</li>
 <li>明朝(1668-1644)：以1434、1572分期，大体对应宣宗(宣德)/英宗、穆宗(隆庆)/神宗(万历)；</li>
-
-<li><p>清朝(1644-1911)：以1735、1850分期，大体对应世宗(雍正)/高宗(乾隆)、宣宗(道光)/文宗(咸丰)。</p>
+<li>清朝(1644-1911)：以1735、1850分期，大体对应世宗(雍正)/高宗(乾隆)、宣宗(道光)/文宗(咸丰)。</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -228,26 +202,23 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">animation</span><span class="p">)</span>
 <span class="n">nsong.js</span><span class="o">$</span><span class="n">period</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span>
-<span class="n">nsong.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">960</span><span class="p">,</span> <span class="m">1021</span><span class="p">,</span> <span class="m">1085</span><span class="p">,</span> <span class="m">1127</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
-<span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
-         <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
+    <span class="n">nsong.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">960</span><span class="p">,</span> <span class="m">1021</span><span class="p">,</span> <span class="m">1085</span><span class="p">,</span> <span class="m">1127</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
+                 <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
 <span class="n">ming.js</span><span class="o">$</span><span class="n">period</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span>
-<span class="n">ming.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1368</span><span class="p">,</span> <span class="m">1434</span><span class="p">,</span> <span class="m">1572</span><span class="p">,</span> <span class="m">1644</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
-<span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
-         <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
+    <span class="n">ming.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1368</span><span class="p">,</span> <span class="m">1434</span><span class="p">,</span> <span class="m">1572</span><span class="p">,</span> <span class="m">1644</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
+                 <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
 <span class="n">qing.js</span><span class="o">$</span><span class="n">period</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span>
-<span class="n">qing.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1644</span><span class="p">,</span> <span class="m">1735</span><span class="p">,</span> <span class="m">1850</span><span class="p">,</span> <span class="m">1911</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
-<span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
-         <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span></code></pre></td></tr></table>
+    <span class="n">qing.js</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1644</span><span class="p">,</span> <span class="m">1735</span><span class="p">,</span> <span class="m">1850</span><span class="p">,</span> <span class="m">1911</span><span class="p">),</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
+                 <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ul>
-
-<p>各自切片统计，再做成.gif动画。这里设置动画间隔为2秒，每一帧大小都是640×480像素。</p>
+</div><p>各自切片统计，再做成.gif动画。这里设置动画间隔为2秒，每一帧大小都是640×480像素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -266,19 +237,18 @@
         <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
         <span class="nf">ggtitle</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;北宋进士来源地 (&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#34;)&#34;</span><span class="p">)))</span>
     <span class="p">}</span>
-<span class="p">},</span> <span class="s">&#34;song.gif&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">},</span> <span class="s">&#34;song.gif&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.gif"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.gif"/> <figcaption>
             <h4>图 | 北宋进士来源地</h4>
         </figcaption>
 </figure>
-
 <p>很明显，前期京畿还很有优势，仁宗开始江南大盛，到神宗以后就是闽人大盛。热力分布持续东南移。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -295,19 +265,18 @@
         <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
         <span class="nf">ggtitle</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;明朝进士来源地 (&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#34;)&#34;</span><span class="p">)))</span>
     <span class="p">}</span>
-<span class="p">},</span> <span class="s">&#34;ming.gif&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="p">},</span> <span class="s">&#34;ming.gif&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.gif"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.gif"/> <figcaption>
             <h4>图 | 明代进士来源地</h4>
         </figcaption>
 </figure>
-
 <p>明和北宋热力分布是反向变动的，神宗以后进士来源地更弥散了。赣闽次第没落，而京畿有了起色。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -326,27 +295,22 @@
         <span class="nf">ggtitle</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;清朝进士来源地 (&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#34;)&#34;</span><span class="p">)))</span>
     <span class="p">}</span>
 <span class="p">},</span> <span class="s">&#34;qing.gif&#34;</span><span class="p">)</span>
-<span class="nf">ani.options</span><span class="p">(</span><span class="n">oopt</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">ani.options</span><span class="p">(</span><span class="n">oopt</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.gif"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.gif"/> <figcaption>
             <h4>图 | 清代进士来源地</h4>
         </figcaption>
 </figure>
-
 <p>清和明类似，中前期江南独大，鸦片战争以后分布逐渐弥散。</p>
-
 <p>和静态图相比，引入历时维度后，信息量明显就更大了。</p>
-
 <h3 id="交互图">交互图</h3>
-
 <h4 id="个体散点图">个体散点图</h4>
-
 <p>在哈佛人文地理平台上，进士数据集本身就以散点和热力图形式展示。这有一个问题：同一个来源地的坐标是完全一样的，所以这些个体在空间上都叠在一起，无法区分。在用leaflet再现散点分布之前，我们用随机数把他们打散开。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -359,17 +323,15 @@
 <span class="n">ming.js</span><span class="o">$</span><span class="n">long</span> <span class="o">&lt;-</span> <span class="n">ming.js</span><span class="o">$</span><span class="n">x_coord</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">ming.js</span><span class="p">))</span><span class="o">/</span><span class="m">100</span>
 <span class="n">ming.js</span><span class="o">$</span><span class="n">lat</span> <span class="o">&lt;-</span> <span class="n">ming.js</span><span class="o">$</span><span class="n">y_coord</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">ming.js</span><span class="p">))</span><span class="o">/</span><span class="m">100</span>
 <span class="n">qing.js</span><span class="o">$</span><span class="n">long</span> <span class="o">&lt;-</span> <span class="n">qing.js</span><span class="o">$</span><span class="n">x_coord</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">qing.js</span><span class="p">))</span><span class="o">/</span><span class="m">100</span>
-<span class="n">qing.js</span><span class="o">$</span><span class="n">lat</span> <span class="o">&lt;-</span> <span class="n">qing.js</span><span class="o">$</span><span class="n">y_coord</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">qing.js</span><span class="p">))</span><span class="o">/</span><span class="m">100</span></code></pre></td></tr></table>
+<span class="n">qing.js</span><span class="o">$</span><span class="n">lat</span> <span class="o">&lt;-</span> <span class="n">qing.js</span><span class="o">$</span><span class="n">y_coord</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">qing.js</span><span class="p">))</span><span class="o">/</span><span class="m">100</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样一来，低级缩放时这些点还是叠在一起的，只要持续放大，就能散开。这当然很不精确，但是我感觉能忍。</p>
-
+</div><p>这样一来，低级缩放时这些点还是叠在一起的，只要持续放大，就能散开。这当然很不精确，但是我感觉能忍。</p>
 <p>构造一个工作函数<code>make_leaflet</code>，把参数传进去，就能画个leaflet交互图出来。leaflet的语法很简单，就是个leaflet js库的wrapper(咋翻译？包裹函数？)，参数列表几乎都是从API文档继承来的。基本的使用顺序是初始化-&gt;添加地图图层-&gt;添加主题图层-&gt;添加交互控件。我没多玩花活，加了个label和popup。</p>
-
 <p>leaflet是基于svg矢量图的，源代码里就包含很多矢量代码。加上这里数据点多，文件尺寸就都很大。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -428,62 +390,53 @@
         <span class="n">options</span><span class="o">=</span><span class="nf">layersControlOptions</span><span class="p">(</span>
             <span class="n">collapse</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
         <span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">nsong.bou</span><span class="p">,</span> <span class="s">&#34;北宋&#34;</span><span class="p">,</span> <span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">nsong.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">960</span><span class="p">,</span> <span class="m">1021</span><span class="p">,</span> <span class="m">1085</span><span class="p">,</span> <span class="m">1127</span><span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">nsong.bou</span><span class="p">,</span> <span class="s">&#34;北宋&#34;</span><span class="p">,</span> <span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">nsong.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">960</span><span class="p">,</span> <span class="m">1021</span><span class="p">,</span> <span class="m">1085</span><span class="p">,</span> <span class="m">1127</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.html" width="100%" height="500"></iframe>
-
-<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.html">点开查看源文件</a></p>
+</div><iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html" width="100%" height="500"></iframe>
+<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html">点开查看源文件</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">ming.bou</span><span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1368</span><span class="p">,</span> <span class="m">1434</span><span class="p">,</span> <span class="m">1572</span><span class="p">,</span> <span class="m">1644</span><span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">ming.bou</span><span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1368</span><span class="p">,</span> <span class="m">1434</span><span class="p">,</span> <span class="m">1572</span><span class="p">,</span> <span class="m">1644</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.html" width="100%" height="500"></iframe>
-
-<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.html">点开查看源文件</a></p>
+</div><iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.html" width="100%" height="500"></iframe>
+<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.html">点开查看源文件</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">qing.bou</span><span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1644</span><span class="p">,</span> <span class="m">1735</span><span class="p">,</span> <span class="m">1850</span><span class="p">,</span> <span class="m">1911</span><span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">make_leaflet</span><span class="p">(</span><span class="n">qing.bou</span><span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">1644</span><span class="p">,</span> <span class="m">1735</span><span class="p">,</span> <span class="m">1850</span><span class="p">,</span> <span class="m">1911</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.html" width="100%" height="500"></iframe>
-
-<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.html">点开查看源文件</a></p>
-
+</div><iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.html" width="100%" height="500"></iframe>
+<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.html">点开查看源文件</a></p>
 <h4 id="古今地名一致性">古今地名一致性</h4>
-
 <p>前次分析，直接把所有县级地名拿出来跑频数，第一名是莆田。这当然很不精准——地名一直会变嘛。像南京这种历史上频繁改名的地方，就会吃很大亏。最好统一起来。找地名的历史沿革数据库不是很容易，干脆统一到今名如何？（请都说“好”）</p>
-
 <p>统一到今名有三个好处：</p>
-
 <ol>
 <li>能按照今天的区划统计哪个省市出了更多进士（其实谁稀罕这个）；</li>
 <li>便于我操作（-口_口-：仄寺坠重要的）；</li>
 <li>能引出一个知识点：sp::over()。</li>
 </ol>
-
 <p>既然我们有每个省/市级空间多边形数据，又有每个进士的位置坐标，恰好又都是同一套大地坐标系测量值，历史沿革问题不就转化成了一个纯粹的GIS转换问题吗？只要用算法评价每个点落在哪个多边形内，它自然就属于这个行政区划。</p>
-
 <p>这个算法有现成的，就是sp包的over函数。</p>
-
 <p>构造一个<code>which_polygon</code>函数，把一个点轮流放进大陆和台湾的多边形数据集里，看它到底落在哪个多边形，输出这个多边形的元数据。注意：数据都得是sp包的工作类型，比如SpatialPoints、SpatialPolygons之类。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -506,13 +459,13 @@
             <span class="nf">matrix</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">1</span><span class="p">),</span>
             <span class="n">proj4string</span> <span class="o">=</span> <span class="n">tw.cities</span><span class="o">@</span><span class="n">proj4string</span><span class="p">),</span> <span class="n">tw.cities</span><span class="p">)</span>
     <span class="nf">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>每个进士个体都丢进去算太耗时，我们先统计下频数。</p>
+</div><p>每个进士个体都丢进去算太耗时，我们先统计下频数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -521,13 +474,13 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
 <span class="n">nsong.js.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">nsong.js</span><span class="p">,</span> <span class="n">x_coord</span><span class="o">+</span><span class="n">y_coord</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span>
 <span class="n">ming.js.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">ming.js</span><span class="p">,</span> <span class="n">x_coord</span><span class="o">+</span><span class="n">y_coord</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span>
-<span class="n">qing.js.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">qing.js</span><span class="p">,</span> <span class="n">x_coord</span><span class="o">+</span><span class="n">y_coord</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">qing.js.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">qing.js</span><span class="p">,</span> <span class="n">x_coord</span><span class="o">+</span><span class="n">y_coord</span><span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再次动用并行计算parallel。因为要按行遍历矩阵，所以要用<code>apply</code>的并行版本<code>parApply</code>。获得结果是个list，需要再do.call调用bind_rows，合并成一个数据框。当然还有种办法是直接改写which_polygon，把进士位置整理成SpatialPointsDataFrame，一次性丢进去，效率上可能更高。</p>
+</div><p>再次动用并行计算parallel。因为要按行遍历矩阵，所以要用<code>apply</code>的并行版本<code>parApply</code>。获得结果是个list，需要再do.call调用bind_rows，合并成一个数据框。当然还有种办法是直接改写which_polygon，把进士位置整理成SpatialPointsDataFrame，一次性丢进去，效率上可能更高。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -560,15 +513,14 @@
 <span class="n">qing.js.belong</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#39;bind_rows&#39;</span><span class="p">,</span> <span class="n">qing.js.belong</span><span class="p">)</span>
 <span class="n">nsong.js.belong</span><span class="o">$</span><span class="n">num</span> <span class="o">&lt;-</span> <span class="n">nsong.js.stat</span><span class="o">$</span><span class="n">`.`</span>
 <span class="n">ming.js.belong</span><span class="o">$</span><span class="n">num</span> <span class="o">&lt;-</span> <span class="n">ming.js.stat</span><span class="o">$</span><span class="n">`.`</span>
-<span class="n">qing.js.belong</span><span class="o">$</span><span class="n">num</span> <span class="o">&lt;-</span> <span class="n">qing.js.stat</span><span class="o">$</span><span class="n">`.`</span></code></pre></td></tr></table>
+<span class="n">qing.js.belong</span><span class="o">$</span><span class="n">num</span> <span class="o">&lt;-</span> <span class="n">qing.js.stat</span><span class="o">$</span><span class="n">`.`</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="进士数排名">进士数排名</h4>
-
+</div><h4 id="进士数排名">进士数排名</h4>
 <p>把三个朝代的数据集做一下深加工，合并到一起（DYNASTY列标识朝代属性）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -587,37 +539,35 @@
 <span class="n">qing.js.belong</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">qing.js.belong</span><span class="p">,</span> <span class="n">NAME_1</span><span class="o">+</span><span class="n">NAME_2</span><span class="o">+</span><span class="n">NL_NAME_2</span><span class="o">~</span><span class="n">.,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;num&#34;</span><span class="p">)</span>
 <span class="n">qing.js.belong</span><span class="o">$</span><span class="n">DYNASTY</span> <span class="o">&lt;-</span> <span class="s">&#34;清朝&#34;</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
-<span class="n">js.belong</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">nsong.js.belong</span><span class="p">,</span> <span class="n">ming.js.belong</span><span class="p">,</span> <span class="n">qing.js.belong</span><span class="p">))</span></code></pre></td></tr></table>
+<span class="n">js.belong</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">nsong.js.belong</span><span class="p">,</span> <span class="n">ming.js.belong</span><span class="p">,</span> <span class="n">qing.js.belong</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再清洗一下数据，把英文地名里的无关符号删掉（“内江”出现了两种写法），再把0都转为NA（可视化时不要涂色）。</p>
+</div><p>再清洗一下数据，把英文地名里的无关符号删掉（“内江”出现了两种写法），再把0都转为NA（可视化时不要涂色）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">js.belong</span><span class="o">$</span><span class="n">NAME_2</span> <span class="o">&lt;-</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace</span><span class="p">(</span><span class="n">js.belong</span><span class="o">$</span><span class="n">NAME_2</span><span class="p">,</span> <span class="s">&#34;^([^]]+)\\]+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">)</span>
-<span class="n">js.belong</span><span class="o">$</span><span class="n">.[js.belong</span><span class="o">$</span><span class="n">.=</span><span class="o">=</span><span class="m">0</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span></code></pre></td></tr></table>
+<span class="n">js.belong</span><span class="o">$</span><span class="n">.[js.belong</span><span class="o">$</span><span class="n">.=</span><span class="o">=</span><span class="m">0</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>排名来了。</p>
-
+</div><p>排名来了。</p>
 <h5 id="先是市级排名">先是市级排名</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">js.order</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">js.belong</span><span class="p">,</span> <span class="n">NAME_1</span><span class="o">+</span><span class="n">NAME_2</span><span class="o">+</span><span class="n">NL_NAME_2</span><span class="o">~</span><span class="n">DYNASTY</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span>
                   <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="s">&#34;DYNASTY&#34;</span><span class="p">)</span>
-<span class="n">knitr</span><span class="o">::</span><span class="nf">kable</span><span class="p">(</span><span class="n">js.order</span><span class="nf">[order</span><span class="p">(</span><span class="n">js.order</span><span class="o">$</span><span class="nf">`</span><span class="p">(</span><span class="n">all</span><span class="p">)</span><span class="n">`</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">]</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">knitr</span><span class="o">::</span><span class="nf">kable</span><span class="p">(</span><span class="n">js.order</span><span class="nf">[order</span><span class="p">(</span><span class="n">js.order</span><span class="o">$</span><span class="nf">`</span><span class="p">(</span><span class="n">all</span><span class="p">)</span><span class="n">`</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>地名归集后，第一名是苏州，然后是福州，第三才是莆田，第四是杭州。前四名实际难分伯仲。</p>
-
+</div><p>地名归集后，第一名是苏州，然后是福州，第三才是莆田，第四是杭州。前四名实际难分伯仲。</p>
 <table>
 <thead>
 <tr>
@@ -631,7 +581,6 @@
 <th align="right">(all)</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="right">1</td>
@@ -643,7 +592,6 @@
 <td align="right">179</td>
 <td align="right">396</td>
 </tr>
-
 <tr>
 <td align="right">2</td>
 <td>Fujian</td>
@@ -654,7 +602,6 @@
 <td align="right">83</td>
 <td align="right">392</td>
 </tr>
-
 <tr>
 <td align="right">3</td>
 <td>Fujian</td>
@@ -665,7 +612,6 @@
 <td align="right">8</td>
 <td align="right">381</td>
 </tr>
-
 <tr>
 <td align="right">4</td>
 <td>Zhejiang</td>
@@ -676,7 +622,6 @@
 <td align="right">221</td>
 <td align="right">374</td>
 </tr>
-
 <tr>
 <td align="right">5</td>
 <td>Fujian</td>
@@ -687,7 +632,6 @@
 <td align="right">7</td>
 <td align="right">246</td>
 </tr>
-
 <tr>
 <td align="right">6</td>
 <td>Jiangxi</td>
@@ -698,7 +642,6 @@
 <td align="right">11</td>
 <td align="right">236</td>
 </tr>
-
 <tr>
 <td align="right">7</td>
 <td>Zhejiang</td>
@@ -709,7 +652,6 @@
 <td align="right">39</td>
 <td align="right">230</td>
 </tr>
-
 <tr>
 <td align="right">8</td>
 <td>Jiangsu</td>
@@ -720,7 +662,6 @@
 <td align="right">97</td>
 <td align="right">214</td>
 </tr>
-
 <tr>
 <td align="right">9</td>
 <td>Zhejiang</td>
@@ -731,7 +672,6 @@
 <td align="right">117</td>
 <td align="right">204</td>
 </tr>
-
 <tr>
 <td align="right">10</td>
 <td>Jiangxi</td>
@@ -742,7 +682,6 @@
 <td align="right">52</td>
 <td align="right">199</td>
 </tr>
-
 <tr>
 <td align="right">11</td>
 <td>Zhejiang</td>
@@ -753,7 +692,6 @@
 <td align="right">78</td>
 <td align="right">181</td>
 </tr>
-
 <tr>
 <td align="right">12</td>
 <td>Zhejiang</td>
@@ -764,7 +702,6 @@
 <td align="right">51</td>
 <td align="right">174</td>
 </tr>
-
 <tr>
 <td align="right">13</td>
 <td>Fujian</td>
@@ -775,7 +712,6 @@
 <td align="right">31</td>
 <td align="right">169</td>
 </tr>
-
 <tr>
 <td align="right">14</td>
 <td>Jiangsu</td>
@@ -786,7 +722,6 @@
 <td align="right">55</td>
 <td align="right">162</td>
 </tr>
-
 <tr>
 <td align="right">15</td>
 <td>Jiangxi</td>
@@ -799,25 +734,21 @@
 </tr>
 </tbody>
 </table>
-
 <p>给张图，同样是基于leaflet的。注意：<strong>文件非常很大，极费流量</strong>。</p>
-
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/city.html" width="100%" height="500"></iframe>
-
-<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/city.html">点开查看源文件</a></p>
-
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/city.html" width="100%" height="500"></iframe>
+<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/city.html">点开查看源文件</a></p>
 <h5 id="然后是省级排名">然后是省级排名</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">js.order.prov</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">js.belong</span><span class="p">,</span> <span class="n">NAME_1</span><span class="o">~</span><span class="n">DYNASTY</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="s">&#34;DYNASTY&#34;</span><span class="p">)</span>
-<span class="n">knitr</span><span class="o">::</span><span class="nf">kable</span><span class="p">(</span><span class="n">js.order.prov</span><span class="nf">[order</span><span class="p">(</span><span class="n">js.order.prov</span><span class="o">$</span><span class="nf">`</span><span class="p">(</span><span class="n">all</span><span class="p">)</span><span class="n">`</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">]</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="n">knitr</span><span class="o">::</span><span class="nf">kable</span><span class="p">(</span><span class="n">js.order.prov</span><span class="nf">[order</span><span class="p">(</span><span class="n">js.order.prov</span><span class="o">$</span><span class="nf">`</span><span class="p">(</span><span class="n">all</span><span class="p">)</span><span class="n">`</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<table>
+</div><table>
 <thead>
 <tr>
 <th align="right">序号</th>
@@ -828,7 +759,6 @@
 <th align="right">(all)</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="right">1</td>
@@ -838,7 +768,6 @@
 <td align="right">530</td>
 <td align="right">1503</td>
 </tr>
-
 <tr>
 <td align="right">2</td>
 <td>Fujian</td>
@@ -847,7 +776,6 @@
 <td align="right">147</td>
 <td align="right">1299</td>
 </tr>
-
 <tr>
 <td align="right">3</td>
 <td>Jiangsu</td>
@@ -856,7 +784,6 @@
 <td align="right">536</td>
 <td align="right">1191</td>
 </tr>
-
 <tr>
 <td align="right">4</td>
 <td>Jiangxi</td>
@@ -865,7 +792,6 @@
 <td align="right">232</td>
 <td align="right">1024</td>
 </tr>
-
 <tr>
 <td align="right">5</td>
 <td>Henan</td>
@@ -874,7 +800,6 @@
 <td align="right">185</td>
 <td align="right">558</td>
 </tr>
-
 <tr>
 <td align="right">6</td>
 <td>Shandong</td>
@@ -883,7 +808,6 @@
 <td align="right">311</td>
 <td align="right">498</td>
 </tr>
-
 <tr>
 <td align="right">7</td>
 <td>Anhui</td>
@@ -892,7 +816,6 @@
 <td align="right">197</td>
 <td align="right">407</td>
 </tr>
-
 <tr>
 <td align="right">8</td>
 <td>Sichuan</td>
@@ -901,7 +824,6 @@
 <td align="right">65</td>
 <td align="right">364</td>
 </tr>
-
 <tr>
 <td align="right">9</td>
 <td>Hebei</td>
@@ -910,7 +832,6 @@
 <td align="right">200</td>
 <td align="right">313</td>
 </tr>
-
 <tr>
 <td align="right">10</td>
 <td>Hunan</td>
@@ -919,7 +840,6 @@
 <td align="right">152</td>
 <td align="right">258</td>
 </tr>
-
 <tr>
 <td align="right">11</td>
 <td>Hubei</td>
@@ -928,7 +848,6 @@
 <td align="right">133</td>
 <td align="right">216</td>
 </tr>
-
 <tr>
 <td align="right">12</td>
 <td>Shanxi</td>
@@ -937,7 +856,6 @@
 <td align="right">125</td>
 <td align="right">212</td>
 </tr>
-
 <tr>
 <td align="right">13</td>
 <td>Guangdong</td>
@@ -946,7 +864,6 @@
 <td align="right">105</td>
 <td align="right">199</td>
 </tr>
-
 <tr>
 <td align="right">14</td>
 <td>Shaanxi</td>
@@ -955,7 +872,6 @@
 <td align="right">89</td>
 <td align="right">156</td>
 </tr>
-
 <tr>
 <td align="right">15</td>
 <td>Shanghai</td>
@@ -964,7 +880,6 @@
 <td align="right">68</td>
 <td align="right">141</td>
 </tr>
-
 <tr>
 <td align="right">16</td>
 <td>Beijing</td>
@@ -973,7 +888,6 @@
 <td align="right">115</td>
 <td align="right">129</td>
 </tr>
-
 <tr>
 <td align="right">17</td>
 <td>Yunnan</td>
@@ -982,7 +896,6 @@
 <td align="right">69</td>
 <td align="right">70</td>
 </tr>
-
 <tr>
 <td align="right">18</td>
 <td>Guangxi</td>
@@ -991,7 +904,6 @@
 <td align="right">56</td>
 <td align="right">68</td>
 </tr>
-
 <tr>
 <td align="right">19</td>
 <td>Tianjin</td>
@@ -1000,7 +912,6 @@
 <td align="right">61</td>
 <td align="right">63</td>
 </tr>
-
 <tr>
 <td align="right">20</td>
 <td>Guizhou</td>
@@ -1009,7 +920,6 @@
 <td align="right">51</td>
 <td align="right">55</td>
 </tr>
-
 <tr>
 <td align="right">21</td>
 <td>Chongqing</td>
@@ -1018,7 +928,6 @@
 <td align="right">24</td>
 <td align="right">39</td>
 </tr>
-
 <tr>
 <td align="right">22</td>
 <td>Gansu</td>
@@ -1027,7 +936,6 @@
 <td align="right">19</td>
 <td align="right">31</td>
 </tr>
-
 <tr>
 <td align="right">23</td>
 <td>Hainan</td>
@@ -1036,7 +944,6 @@
 <td align="right">3</td>
 <td align="right">12</td>
 </tr>
-
 <tr>
 <td align="right">24</td>
 <td>Liaoning</td>
@@ -1045,7 +952,6 @@
 <td align="right">12</td>
 <td align="right">12</td>
 </tr>
-
 <tr>
 <td align="right">25</td>
 <td>Jilin</td>
@@ -1054,7 +960,6 @@
 <td align="right">8</td>
 <td align="right">8</td>
 </tr>
-
 <tr>
 <td align="right">26</td>
 <td>Ningxia Hui</td>
@@ -1063,7 +968,6 @@
 <td align="right">7</td>
 <td align="right">7</td>
 </tr>
-
 <tr>
 <td align="right">27</td>
 <td>Taiwan</td>
@@ -1074,11 +978,10 @@
 </tr>
 </tbody>
 </table>
-
 <p>同样给张图。这次是基于ECharts2的。由于这个包是我写的，所以我要额外安利一下<a href="http://madlogos.github.io/recharts">http://madlogos.github.io/recharts</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1097,30 +1000,22 @@
 <span class="nf">echartR</span><span class="p">(</span><span class="n">js.order.ec</span><span class="p">,</span> <span class="n">CN</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;map_china&#34;</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="s">&#34;average&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
     <span class="nf">setDataRange</span><span class="p">(</span><span class="n">splitNumber</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;darkblue&#39;</span><span class="p">,</span><span class="s">&#39;cyan&#39;</span><span class="p">))</span> <span class="o">%&gt;%</span>
     <span class="nf">setTitle</span><span class="p">(</span><span class="s">&#34;各省进士数&#34;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="m">11</span><span class="p">)</span> <span class="o">%&gt;%</span>
-    <span class="nf">setTimeline</span><span class="p">(</span><span class="n">autoPlay</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">setLegend</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="nf">setTimeline</span><span class="p">(</span><span class="n">autoPlay</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">setLegend</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/prov.html" width="640" height="500"></iframe>
-
-<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/prov.html">点开查看源文件</a></p>
-
+</div><iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/prov.html" width="640" height="500"></iframe>
+<p><a href="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/prov.html">点开查看源文件</a></p>
 <p>图动起来了。感觉棒呆。</p>
-
 <p>自己试着去和它们交互吧。</p>
-
 <p>[完]</p>
-
-<hr />
-
+<hr>
 <!-- {% raw %} -->
-
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
     </div>
 
@@ -1233,7 +1128,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     
     <span class="author">madlogos</span>
   </span>
@@ -1249,7 +1144,10 @@
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1265,6 +1163,7 @@
 
 
 
+<script src="/js/custom.js"></script>
 
 
 </body>

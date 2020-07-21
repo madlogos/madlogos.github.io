@@ -11,7 +11,7 @@
 
 **手工录入。**
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/no_word_to_say.jpg" width="50%" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%" %}}
 
 这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，**记得要把工程预算乘以3**。
 
@@ -25,7 +25,7 @@
 
 <!--more-->
 
-> 有读者留言提到，这些数据其实都可以从公共卫生信息网申请到。没错。但是作为数据公开党，我对这种公共数据管制甚至收费牟利的做法非常不屑。这根本不符合如今的时代精神。本文提到的这些结构化数据文档，都已打包存到[七牛云](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/infect_dis_stat.zip)。人人都可以免费用。
+> 有读者留言提到，这些数据其实都可以从公共卫生信息网申请到。没错。但是作为数据公开党，我对这种公共数据管制甚至收费牟利的做法非常不屑。这根本不符合如今的时代精神。本文提到的这些结构化数据文档，都已打包存到[七牛云](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/infect_dis_stat.zip)。人人都可以免费用。
 
 ### `docxtractr`
 

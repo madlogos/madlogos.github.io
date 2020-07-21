@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/flask-website-demo/" />
@@ -34,8 +34,10 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="edx作业：用flask建一个简易图书查询Web应用" />
@@ -46,16 +48,13 @@
 <meta property="article:modified_time" content="2019-11-06T00:00:00+00:00" />
 <meta itemprop="name" content="edx作业：用flask建一个简易图书查询Web应用">
 <meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用">
-
-
 <meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7377">
+<meta itemprop="wordCount" content="7358">
 
 
 
-<meta itemprop="keywords" content="Python,Flask,web," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Python,Flask,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edx作业：用flask建一个简易图书查询Web应用"/>
 <meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"/>
 
@@ -131,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7377 字 </span>
+          <span class="more-meta"> 约 7358 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         
       </div>
@@ -141,120 +140,105 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#缘起">缘起</a></li>
-<li><a href="#作业要求">作业要求</a></li>
-<li><a href="#准备">准备</a>
-<ul>
-<li><a href="#数据库">数据库</a></li>
-<li><a href="#其它">其它</a></li>
-</ul></li>
-<li><a href="#开工">开工</a>
-<ul>
-<li><a href="#项目结构">项目结构</a></li>
-<li><a href="#基础模板">基础模板</a></li>
-<li><a href="#登录">登录</a></li>
-<li><a href="#注销">注销</a></li>
-<li><a href="#注册">注册</a></li>
-<li><a href="#检索书籍">检索书籍</a>
-<ul>
-<li><a href="#安装flask-paginate">安装Flask-Paginate</a></li>
-<li><a href="#模板">模板</a></li>
-<li><a href="#后端">后端</a></li>
-</ul></li>
-<li><a href="#书籍明细">书籍明细</a></li>
-<li><a href="#评分评级">评分评级</a></li>
-<li><a href="#api">API</a></li>
-<li><a href="#响应式布局">响应式布局</a></li>
-<li><a href="#其他">其他</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#缘起">缘起</a></li>
+    <li><a href="#作业要求">作业要求</a></li>
+    <li><a href="#准备">准备</a>
+      <ul>
+        <li><a href="#数据库">数据库</a></li>
+        <li><a href="#其它">其它</a></li>
+      </ul>
+    </li>
+    <li><a href="#开工">开工</a>
+      <ul>
+        <li><a href="#项目结构">项目结构</a></li>
+        <li><a href="#基础模板">基础模板</a></li>
+        <li><a href="#登录">登录</a></li>
+        <li><a href="#注销">注销</a></li>
+        <li><a href="#注册">注册</a></li>
+        <li><a href="#检索书籍">检索书籍</a></li>
+        <li><a href="#书籍明细">书籍明细</a></li>
+        <li><a href="#评分评级">评分评级</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#响应式布局">响应式布局</a></li>
+        <li><a href="#其他">其他</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <div class="admonition abstract"><p class="admonition-title">摘要</p>
-  
-记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。<br/>
-【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
-
+<p>记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。<br/>
+【honor code警告】如果你刚巧也注册了这门课，千万不要抄。</p>
 </div>
-
 <div class="admonition warning"><p class="admonition-title">注意</p>
-  
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-
+<p>如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。</p>
 </div>
-
 <p><a href="https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0">成品效果视频</a> @ 优酷：</p>
-
-<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
-
+<iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
 <h2 id="缘起">缘起</h2>
-
-<p>出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛<strong>【继续教育学院】</strong>（对，就是范玮琪读的那个哈佛）开的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a>。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。</p>
-
+<p>出于不可自拔的技能焦虑，跑到edx上撸起了课——其实论技术课程，Udacity比edx和Coursera要好，但edx也不赖（就是国内访问越来越困难，经常加载不出来）——撸到一门偏前端的纯码农培训课。说出来吓死人，哈佛**【继续教育学院】**（对，就是范玮琪读的那个哈佛）开的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a>。它的主要卖点是教小白怎么用Flask框架搭网站，就是号称一个 .py + 一个 .html就能欢快地跑出 hello world 来的小快灵建站利器。</p>
 <p>想想看，上一个号称小快灵的神器还是PHP呢。那都是二十年前的事儿了。</p>
-
 <p>Flask最好的好处是可以多快好省地做网站，迅速实现一个原型或弄出一个0.1功能版本。若将来再学一点小程序啥的，起码搞起数据科学工程产品来，能派上一丢丢的用场——也算走向「全网没人肯要的中老年」全栈工程师的第一步罢。</p>
-
 <p>事实很打脸。这个作业只是整个课程的五大作业里的一个，我拿出所有业余时间埋头苦干，做了足足两个礼拜。以这个效率去搬砖，你猜老板会用什么武功揍我？</p>
-
 <h2 id="作业要求">作业要求</h2>
-
 <p><a href="https://docs.cs50.net/web/2019/x/projects/1/project1.html">要求原文在此</a>：做个图书+书评查询网络应用。大致要求：</p>
-
 <ol>
-<li><p>首先，自己想辙把压缩包里的<a href="https://cdn.cs50.net/web/2019/x/projects/1/project1.zip">book.csv</a> 5000条图书信息导进数据库里。</p>
-
-<ol>
-<li>到<a href="https://www.heroku.com">heroku</a>上注册创建数据库实例，订阅一个乞丐版就行；</li>
-<li>数据库用PostgreSQL</li>
-</ol></li>
-
-<li><p>然后，该应用要有以下功能</p>
-
-<ol>
-<li>能注册</li>
-<li>能登录</li>
-<li>能注销</li>
-<li>能根据ISBN、书名、作者查询书籍</li>
-<li>能点进具体一本书里
-
+<li>
+<p>首先，自己想辙把压缩包里的<a href="https://cdn.cs50.net/web/2019/x/projects/1/project1.zip">book.csv</a> 5000条图书信息导进数据库里。</p>
+</li>
+<li>
+<p>到<a href="https://www.heroku.com">heroku</a>上注册创建数据库实例，订阅一个乞丐版就行；</p>
+</li>
+<li>
+<p>数据库用PostgreSQL</p>
+</li>
+<li>
+<p>然后，该应用要有以下功能</p>
+</li>
+<li>
+<p>能注册</p>
+</li>
+<li>
+<p>能登录</p>
+</li>
+<li>
+<p>能注销</p>
+</li>
+<li>
+<p>能根据ISBN、书名、作者查询书籍</p>
+</li>
+<li>
+<p>能点进具体一本书里</p>
 <ol>
 <li>除了固有信息，还要利用Goodreads的API获取平均评分</li>
 <li>能看到其他用户发的书评和评级</li>
-</ol></li>
-<li>能发书评和评级，但一个用户只能发一次</li>
-<li>能暴露API给人家用，返回一个JSON串</li>
-</ol></li>
 </ol>
-
+</li>
+<li>
+<p>能发书评和评级，但一个用户只能发一次</p>
+</li>
+<li>
+<p>能暴露API给人家用，返回一个JSON串</p>
+</li>
+</ol>
 <h2 id="准备">准备</h2>
-
 <h3 id="数据库">数据库</h3>
-
 <p><a href="https://www.heroku.com">heroku</a>已经被salesforce.com买了，以傻瓜式建站和贵著称。我也跑上去建了一个实例，但是要翻墙。反正就是个作业，哪家SQL不是SQL？所以我就本地弄了个sqlite数据库<code>db.db</code>。</p>
-
 <p>建三张表，<code>mbr</code>，<code>book</code>和<code>review</code>。<code>review</code>表里<code>mbr_id</code>和<code>book_id</code>分别外键关联到<code>mbr</code>和<code>book</code>。</p>
-
 <div class="admonition question"><p class="admonition-title">为啥不用&#39;user&#39;?</p>
-  
-因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
-
+<p>因为postgresql不同意我用这个表名，所以在sqlite里也这么干。</p>
 </div>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/db.png"/> <figcaption>
             <h4>图 | 数据库设计</h4>
         </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -295,23 +279,18 @@
     <span class="n">book_id</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
     <span class="n">rating</span> <span class="nb">INTEGER</span><span class="p">,</span>
     <span class="n">review</span> <span class="nb">TEXT</span>
-<span class="p">);</span></code></pre></td></tr></table>
+<span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
+</div><div class="admonition info"><p class="admonition-title">备注</p>
+<p>以上是sqlite的建表DDL，如果用PostgreSQL，语句略有不同。</p>
 </div>
-<div class="admonition info"><p class="admonition-title">备注</p>
-  
-以上是sqlite的建表DDL，如果用PostgreSQL，语句略有不同。
-
-</div>
-
 <p>再把<code>books.csv</code>里的数据导进去。</p>
-
 <p>我是坚定的pandas粉，所以直接把csv读进pandas再一口气灌进sqlite里。面对postgresql我也这么干。传统的方法是用csv包一行一行扫描，再写入数据库。我是向量运算的刀山火海里捶打出来的，轻易才不用循环。</p>
-
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/import_local.py">import_local.py</a>部分代码如下。如果用heroku上的PostgreSQL，则用<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/import.py">import.py</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -332,27 +311,20 @@
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;books.csv&#39;</span><span class="p">)</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></td></tr></table>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="其它">其它</h3>
-
+</div><h3 id="其它">其它</h3>
 <p>当然，python那边得把python装好。我就直接用anaconda了。此外，需要把<code>Flask</code>，<code>Flask-Session</code>，<code>psycopg2-binary</code>和<code>SQKAlchemy</code>几个包都装上，<code>conda</code>/<code>pip</code>爱谁谁。</p>
-
 <p><a href="www.goodreads.com">Goodreads</a>是个书评网站（也被墙了-_-||）。需要自己上去注册账号，申请API开发密钥。</p>
-
 <h2 id="开工">开工</h2>
-
 <h3 id="项目结构">项目结构</h3>
-
 <div class="admonition info"><p class="admonition-title">源代码托管于Github</p>
-  
-<a href="https://github.com/madlogos/edx_cs50/tree/master/project1">戳这里看源码</a>
-
+<p><a href="https://github.com/madlogos/edx_cs50/tree/master/project1">戳这里看源码</a></p>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -368,9 +340,9 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">project1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">project1
 |-- application.py
 |--+ static
 |  |--+ css
@@ -385,46 +357,38 @@
 |  |-- index.html
 |  |-- login.html
 |  `-- register.html
-`-- db.db</pre></td></tr></table>
+`-- db.db
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个应用比较简单，所以结构很扁平。</p>
-
+</div><p>这个应用比较简单，所以结构很扁平。</p>
 <ul>
 <li>application.py是后端，所有后台功能代码都写在上面。</li>
 <li>static文件夹放静态文件，css和js这种（叫assets也行）。
-
 <ul>
 <li>js: 放了自定义的main.js，和用于打分评级的star-rating的js</li>
 <li>css: 放了自定义的style.css，和star-rating的css</li>
-</ul></li>
+</ul>
+</li>
 <li>templates文件夹放各类html模板，这些模板都是用html+jinja2语法写的宏。包括基础模板base.html和几个衍生的功能性模板</li>
 </ul>
-
 <h3 id="基础模板">基础模板</h3>
-
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/base.html">base.html</a>是框架模板。简单写一下。</p>
-
 <!-- {% raw %} -->
-
 <ul>
 <li>样式主要靠Bootstrap</li>
 <li>body部分放了几个通用块(block)：head, flash, disp, control, misc。用jinja2结构<code>{% block xxx %}{% endblock %}</code>来占位。
-
 <ul>
 <li>块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。</li>
 <li>flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用<code>flash</code>函数就能实现告警框。</li>
-<li>后续写其他模板时，引用(extend) base.html就行了。
-<br /></li>
-</ul></li>
+<li>后续写其他模板时，引用(extend) base.html就行了。</li>
 </ul>
-
+</li>
+</ul>
 <!-- {% endraw %} -->
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -579,20 +543,18 @@
             <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <p>对应地，在application.py里定义一些基本代码。</p>
-
 <ul>
-<li>&ldquo;db.db&rdquo;被export到环境变量<code>DATABASE_URL</code>，为了避免thread不一致问题，写成&rdquo;sqlite:////absolute/path/to/db?check_same_thread=false&rdquo;。</li>
-
-<li><p>application.py被export到环境变量<code>FLASK_APP</code>，方便后面直接命令行<code>flask run</code>启动应用。</p>
+<li>&ldquo;db.db&quot;被export到环境变量<code>DATABASE_URL</code>，为了避免thread不一致问题，写成&quot;sqlite:////absolute/path/to/db?check_same_thread=false&rdquo;。</li>
+<li>application.py被export到环境变量<code>FLASK_APP</code>，方便后面直接命令行<code>flask run</code>启动应用。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -631,7 +593,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> \
-<span class="n">redirect</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
+    <span class="n">redirect</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Markup</span>
 <span class="kn">from</span> <span class="nn">flask_session</span> <span class="kn">import</span> <span class="n">Session</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
@@ -642,7 +604,7 @@
 
 <span class="c1"># Check for environment variable</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL&#34;</span><span class="p">):</span>
-<span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL is not set&#34;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL is not set&#34;</span><span class="p">)</span>
 
 <span class="c1"># Configure session to use filesystem</span>
 <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;SESSION_PERMANENT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
@@ -657,29 +619,22 @@
 
 <span class="nd">@app.teardown_request</span>
 <span class="k">def</span> <span class="nf">remove_session</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-<span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span></code></pre></td></tr></table>
+    <span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h3 id="登录">登录</h3>
-
+</div><h3 id="登录">登录</h3>
 <p>访问首页，先跳转到登录界面。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/sign-in.png"/> <figcaption>
             <h4>图 | 登录界面</h4>
         </figcaption>
 </figure>
-
 <p>登录页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html">login.html</a>很简单，首先继承base.html的元素，然后在control块里放一个<code>form-signin</code>控件。套了一些bootstrap的元素。action绑定sign_in，也就是<code>signin()</code>函数。</p>
-
 <p>对前端技术不熟，丑得很。</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -722,17 +677,15 @@ Sign In
 <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;sign_up&#39;) }}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign up now!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/application.py">application.py</a>里，后台部分写两个路由函数。</p>
-
 <p>主路由下，如果当前session没有用户登录，就转跳去登录页/login，否则直接进书籍列表页/index。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -751,13 +704,13 @@ Sign In
     <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;sign_in&#34;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&#34;index.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">))</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&#34;index.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果进登录页，那么&rsquo;GET&rsquo;方法下跟主路由差不多逻辑，&rsquo;POST&rsquo;方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就<code>flash</code>一个错误来。利用application.py里定义的<code>sign_in()</code>函数和模板form中的<code>url_for()</code>函数，就把后端功能绑定到前端了。</p>
+</div><p>如果进登录页，那么&rsquo;GET&rsquo;方法下跟主路由差不多逻辑，&lsquo;POST&rsquo;方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就<code>flash</code>一个错误来。利用application.py里定义的<code>sign_in()</code>函数和模板form中的<code>url_for()</code>函数，就把后端功能绑定到前端了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -812,17 +765,15 @@ Sign In
                 <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">session</span><span class="p">[</span><span class="s1">&#39;act_user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">mbrinfo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">mbrinfo</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
-        <span class="k">return</span> <span class="n">home</span><span class="p">()</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">home</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Flask是用SQLAlchemy的。SQLAlchemy是很高效的ORM工具，坊间一直认为它好过Django自带的ORM。不过这门课要求不用ORM，直接硬写SQL。当然，不是直接字符串拼接那么土，还是套了一个模板，变量装在字典里映射过去。这样能避免SQL注入攻击，算基本操作了。</p>
-
+</div><p>Flask是用SQLAlchemy的。SQLAlchemy是很高效的ORM工具，坊间一直认为它好过Django自带的ORM。不过这门课要求不用ORM，直接硬写SQL。当然，不是直接字符串拼接那么土，还是套了一个模板，变量装在字典里映射过去。这样能避免SQL注入攻击，算基本操作了。</p>
 <h3 id="注销">注销</h3>
-
 <p>有登陆就有注销。反正base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。登出后，清空<code>session['act_use']</code>对象，回到登录页。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -839,23 +790,20 @@ Sign In
     <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
         <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
 </span><span class="s2">        You have logged out.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">home</span><span class="p">()</span></code></pre></td></tr></table>
+    <span class="k">return</span> <span class="n">home</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="注册">注册</h3>
-
+</div><h3 id="注册">注册</h3>
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/register.png"/> <figcaption>
             <h4>图 | 注册页</h4>
         </figcaption>
 </figure>
-
 <p>注册页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html">register.html</a>和登录页差不多。</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -900,17 +848,15 @@ Sign Up
 <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{{ url_for(&#39;sign_in&#39;) }}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign In Now<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <p>后端分别对&rsquo;GET&rsquo;和&rsquo;POST&rsquo;两种方法做了定义。GET的话，渲染注册页模板而已。POST的话，就比较pwd和repwd的值是否相同，然而提交执行INSERT操作。继续转眺回登录页。</p>
-
 <p>考究点的话当然还要有反机器人的措施。我是那种考究的人嘛？作业又没这要求，就不贴金了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -983,40 +929,33 @@ Sign Up
                 <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
                     <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-exclamation-circle&#39;&gt;&lt;/i&gt;
 </span><span class="s2">                    You did not input the same password.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;sign_up&#39;</span><span class="p">))</span></code></pre></td></tr></table>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;sign_up&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="检索书籍">检索书籍</h3>
-
+</div><h3 id="检索书籍">检索书籍</h3>
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/books.png"/> <figcaption>
             <h4>图 | 初始载入空列表</h4>
         </figcaption>
 </figure>
-
 <p>登录进去后，进入真正的<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html">index.html</a>页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。</p>
-
 <p>此处应有分页。我用了一个插件Flask-Paginate来实现。</p>
-
 <h4 id="安装flask-paginate">安装Flask-Paginate</h4>
-
 <p>Flask虽然好上手，但什么功能都要自己写，比较上头。好在还是有好心人做了不少插件。比如这款小巧的<a href="https://pythonhosted.org/Flask-paginate/">Flask_Paginate</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pip install flask-paginate</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip install flask-paginate
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="模板">模板</h4>
-
+</div><h4 id="模板">模板</h4>
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/books.html">前端模板</a>主要就是遍历books，把列表对象逐个填进表格td里。</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1137,45 +1076,36 @@ Books
 <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No books found.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 {% endif %}
 
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/pagination.png"/> <figcaption>
             <h4>图 | 所有书籍分页显示</h4>
         </figcaption>
 </figure>
-
 <h4 id="后端">后端</h4>
-
-<p>后端则要做很多事情，要读取控件的值，然后执行查询，把books返回到网页。&rsquo;GET&rsquo;方法返回所有记录，而&rsquo;POST&rsquo;方法就是页面查询，要筛出符合条件的记录并返回。最后都是将结果返回前端渲染。</p>
-
+<p>后端则要做很多事情，要读取控件的值，然后执行查询，把books返回到网页。&lsquo;GET&rsquo;方法返回所有记录，而&rsquo;POST&rsquo;方法就是页面查询，要筛出符合条件的记录并返回。最后都是将结果返回前端渲染。</p>
 <p>我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法。</p>
-
 <!-- {% raw %} -->
-
-<p><div class="admonition example"><p class="admonition-title">举个栗子</p></p>
-
-<p>假如isbn=&lsquo;123&rsquo;，title=&lsquo;war&rsquo;，author=&lsquo;rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表: <br/></p>
+<div class="admonition example"><p class="admonition-title">举个栗子</p>
+<p>假如isbn='123&rsquo;，title='war&rsquo;，author='rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表: <br/></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s2">&#34;isbn LIKE &#39;</span><span class="si">%123%</span><span class="s2">&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;title LIKE &#39;%war%&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;author LIKE &#39;</span><span class="si">%r</span><span class="s2">ider%&#39;&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s2">&#34;isbn LIKE &#39;</span><span class="si">%123%</span><span class="s2">&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;title LIKE &#39;%war%&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;author LIKE &#39;</span><span class="si">%r</span><span class="s2">ider%&#39;&#34;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>一下就把三个查询条件都生成好了。Very pythonic.</p>
 </div>
-<p>一下就把三个查询条件都生成好了。Very pythonic.</p>
-
-<p></div>
-<!-- {% endraw %} --></p>
-
+<!-- {% endraw %} -->
 <p>定义了一个<code>subset_rec()</code>函数，对列表进行切片，用来对查询结果分页。最后几行是人工生成分页对象pagination。最后把pagination和分页筛出的记录返回给前端。随着用户点击翻页，pagination和page_books都会跟着更新。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1242,41 +1172,33 @@ Books
 
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
         <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">),</span> <span class="n">books</span><span class="o">=</span><span class="n">page_books</span><span class="p">,</span>
-        <span class="n">pagination</span><span class="o">=</span><span class="n">pagination</span><span class="p">)</span></code></pre></td></tr></table>
+        <span class="n">pagination</span><span class="o">=</span><span class="n">pagination</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>书名搜索&rdquo;china&rdquo;，返回所有标题内含&rdquo;china&rdquo;的书。</p>
-
+</div><p>书名搜索&quot;china&rdquo;，返回所有标题内含&quot;china&quot;的书。</p>
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/filtered_books.png"/> <figcaption>
             <h4>图 | 搜索标题含china的书籍</h4>
         </figcaption>
 </figure>
-
 <h3 id="书籍明细">书籍明细</h3>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book.png"/> <figcaption>
             <h4>图 | 书籍明细</h4>
         </figcaption>
 </figure>
-
 <p>生成的书籍列表，可以点id访问明细。这里包含三部分：</p>
-
 <ol>
 <li>books.csv自带的信息 (book对象)</li>
 <li>用ISBN到Goodreads上查询到的信息 (gr_data对象)</li>
 <li>用户发布的评级、评论 (review对象)</li>
 </ol>
-
 <p>由于作业要求一个用户只能对一本书作评价，所以还有一个用来判断当前用户对此书评论数量的my_review对象。在前端模板里写一个条件，一旦my_review &gt; 0，就禁用提交按钮。</p>
-
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/book.html">book.html</a>模板：</p>
-
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1429,17 +1351,15 @@ Books
       Submit
     <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}</code></pre></td></tr></table>
+{% endblock %}
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- {% endraw %} -->
-
+</div><!-- {% endraw %} -->
 <p>可以看到，reviews是一个嵌套列表，每个review列表都是长度为5的列表。这个review的结构定义在后端代码里（<code>review_qry</code>)。</p>
-
 <p>后端做了很多工作。首先，定义一个<code>get_gr()</code>函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。key和secret原则上不能写进源代码里，我这里偷懒了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1488,18 +1408,17 @@ Books
     <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">success_code</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="bp">None</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后，把book/<a href="int:book_id">int:book_id</a>路由的处理都写进<code>review()</code>函数里。</p>
-
+</div><p>然后，把book/<a href="int:book_id">int:book_id</a>路由的处理都写进<code>review()</code>函数里。</p>
 <ol>
 <li>路由要写成&rdquo;/book/&lt;int:book_id&gt;&ldquo;这种动态形式，前端收到的book_id对象可以自动匹配过来。</li>
-
-<li><p>分别拿到book，gr_data和review三处数据，丢到<code>index()</code>函数处理。</p>
+<li>分别拿到book，gr_data和review三处数据，丢到<code>index()</code>函数处理。</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1560,89 +1479,80 @@ Books
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
 <span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/book/&lt;int:book_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">review</span><span class="p">(</span><span class="n">book_id</span><span class="p">):</span>
-<span class="s2">&#34;&#34;&#34;Book detail
-</span><span class="s2">&#34;&#34;&#34;</span>
-<span class="n">book</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-    <span class="s2">&#34;&#34;&#34;SELECT id, title, author, isbn, year FROM book WHERE
-</span><span class="s2">    id = :book_id&#34;&#34;&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_id&#34;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-<span class="n">gr_data</span> <span class="o">=</span> <span class="n">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="o">=</span><span class="n">book</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-    <span class="n">gr_data</span> <span class="o">=</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;books&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">gr_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;average_rating&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
-<span class="n">my_reviews</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-    <span class="s2">&#34;&#34;&#34;SELECT count(*) FROM review WHERE mbr_id = :mbr_id
-</span><span class="s2">    and book_id = :book_id;&#34;&#34;&#34;</span><span class="p">,</span>
-    <span class="p">{</span><span class="s1">&#39;mbr_id&#39;</span><span class="p">:</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;book_id&#39;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">if</span> <span class="n">engine</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;sqlite&#39;</span><span class="p">:</span>
-    <span class="n">reviews_qry</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;SELECT review.id, 
-</span><span class="s2">        datetime(review.rev_at, &#39;localtime&#39;),
-</span><span class="s2">        mbr.username, review.rating, review.review FROM
-</span><span class="s2">        review LEFT JOIN mbr ON review.mbr_id = mbr.id
-</span><span class="s2">        WHERE review.book_id = :book_id&#34;&#34;&#34;</span>
-<span class="k">elif</span> <span class="n">engine</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;postgresql&#39;</span><span class="p">:</span>
-    <span class="n">reviews_qry</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;SELECT review.id, 
-</span><span class="s2">        review.rev_at at time zone &#39;utc&#39; at time zone &#39;cst&#39;,
-</span><span class="s2">        mbr.username, review.rating, review.review FROM
-</span><span class="s2">        review LEFT JOIN mbr ON review.mbr_id = mbr.id
-</span><span class="s2">        WHERE review.book_id = :book_id&#34;&#34;&#34;</span>
-<span class="n">reviews</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-    <span class="n">reviews_qry</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_id&#34;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="c1"># methods</span>
-<span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
-        <span class="s1">&#39;book.html&#39;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">),</span> <span class="n">book</span><span class="o">=</span><span class="n">book</span>
-        <span class="p">,</span> <span class="n">reviews</span><span class="o">=</span><span class="n">reviews</span><span class="p">,</span> <span class="n">gr_data</span><span class="o">=</span><span class="n">gr_data</span><span class="p">,</span> <span class="n">my_reviews</span><span class="o">=</span><span class="n">my_reviews</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
-    <span class="n">comment</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;comment&#39;</span><span class="p">)</span>
-    <span class="n">rating</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">comment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">comment</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> \
-        <span class="p">(</span><span class="n">rating</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">rating</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="s2">&#34;&#34;&#34;INSERT INTO review (mbr_id, book_id, rating, review)
-</span><span class="s2">            VALUES (:mbr_id, :book_id, :rating, :review);&#34;&#34;&#34;</span><span class="p">,</span>
-            <span class="p">{</span><span class="s1">&#39;mbr_id&#39;</span><span class="p">:</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;book_id&#39;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">:</span> <span class="n">rating</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">:</span> <span class="n">comment</span><span class="p">})</span>
-        <span class="n">sess</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-            <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
-</span><span class="s2">            You have successfully submitted the comment.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+    <span class="s2">&#34;&#34;&#34;Book detail
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="s2">&#34;&#34;&#34;SELECT id, title, author, isbn, year FROM book WHERE
+</span><span class="s2">        id = :book_id&#34;&#34;&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_id&#34;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="n">gr_data</span> <span class="o">=</span> <span class="n">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="o">=</span><span class="n">book</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">gr_data</span> <span class="o">=</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;books&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
-            <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-warning&#39;&gt;&lt;/i&gt;
-</span><span class="s2">            You cannot submit empty rating and comments.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;review&#34;</span><span class="p">,</span> <span class="n">book_id</span><span class="o">=</span><span class="n">book_id</span><span class="p">))</span></code></pre></td></tr></table>
+        <span class="n">gr_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;average_rating&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+    <span class="n">my_reviews</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="s2">&#34;&#34;&#34;SELECT count(*) FROM review WHERE mbr_id = :mbr_id
+</span><span class="s2">        and book_id = :book_id;&#34;&#34;&#34;</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;mbr_id&#39;</span><span class="p">:</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> 
+         <span class="s1">&#39;book_id&#39;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">engine</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;sqlite&#39;</span><span class="p">:</span>
+        <span class="n">reviews_qry</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;SELECT review.id, 
+</span><span class="s2">            datetime(review.rev_at, &#39;localtime&#39;),
+</span><span class="s2">            mbr.username, review.rating, review.review FROM
+</span><span class="s2">            review LEFT JOIN mbr ON review.mbr_id = mbr.id
+</span><span class="s2">            WHERE review.book_id = :book_id&#34;&#34;&#34;</span>
+    <span class="k">elif</span> <span class="n">engine</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;postgresql&#39;</span><span class="p">:</span>
+        <span class="n">reviews_qry</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;SELECT review.id, 
+</span><span class="s2">            review.rev_at at time zone &#39;utc&#39; at time zone &#39;cst&#39;,
+</span><span class="s2">            mbr.username, review.rating, review.review FROM
+</span><span class="s2">            review LEFT JOIN mbr ON review.mbr_id = mbr.id
+</span><span class="s2">            WHERE review.book_id = :book_id&#34;&#34;&#34;</span>
+    <span class="n">reviews</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="n">reviews_qry</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_id&#34;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="c1"># methods</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+            <span class="s1">&#39;book.html&#39;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">),</span> <span class="n">book</span><span class="o">=</span><span class="n">book</span>
+            <span class="p">,</span> <span class="n">reviews</span><span class="o">=</span><span class="n">reviews</span><span class="p">,</span> <span class="n">gr_data</span><span class="o">=</span><span class="n">gr_data</span><span class="p">,</span> <span class="n">my_reviews</span><span class="o">=</span><span class="n">my_reviews</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">comment</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;comment&#39;</span><span class="p">)</span>
+        <span class="n">rating</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">comment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">comment</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="p">(</span><span class="n">rating</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">rating</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                <span class="s2">&#34;&#34;&#34;INSERT INTO review (mbr_id, book_id, rating, review)
+</span><span class="s2">                VALUES (:mbr_id, :book_id, :rating, :review);&#34;&#34;&#34;</span><span class="p">,</span>
+                <span class="p">{</span><span class="s1">&#39;mbr_id&#39;</span><span class="p">:</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                 <span class="s1">&#39;book_id&#39;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">:</span> <span class="n">rating</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">:</span> <span class="n">comment</span><span class="p">})</span>
+            <span class="n">sess</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
+                <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
+</span><span class="s2">                You have successfully submitted the comment.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
+                <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-warning&#39;&gt;&lt;/i&gt;
+</span><span class="s2">                You cannot submit empty rating and comments.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;review&#34;</span><span class="p">,</span> <span class="n">book_id</span><span class="o">=</span><span class="n">book_id</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<h3 id="评分评级">评分评级</h3>
-
+</div><h3 id="评分评级">评分评级</h3>
 <p>如果是提交评分评级，就调用前述<code>review()</code>函数的&rsquo;POST&rsquo;方法。这里用到了一个Flask评星插件<a href="http://plugins.krajee.com/star-rating">bootstrap-star-rating</a>。我把它的css和js都下载到了static。</p>
-
 <p>这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。</p>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/rate_a_book.png"/> <figcaption>
             <h4>图 | 给图书打分</h4>
         </figcaption>
 </figure>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book_rated.png"/> <figcaption>
             <h4>图 | 打完分后Submit按钮失效</h4>
         </figcaption>
 </figure>
-
 <h3 id="api">API</h3>
-
 <p>自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。</p>
-
 <p>在这里，我用<code>request.args.get()</code>方法取id，调用起来就变成<code>&lt;url_head&gt;/api/book?id=xx</code>的形式，而不再是默认的<code>&lt;url_head&gt;/api/book/xx</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1695,27 +1605,24 @@ Books
             <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
             <span class="p">,</span> <span class="s1">&#39;isbn&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;review_count&#39;</span><span class="p">:</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">]</span>
             <span class="p">,</span> <span class="s1">&#39;average_score&#39;</span><span class="p">:</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;average_rating&#39;</span><span class="p">]}}</span>
-        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">rslt</span><span class="p">)</span></code></pre></td></tr></table>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">rslt</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png"/> <figcaption>
+</div><figure class="center">
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_success.png"/> <figcaption>
             <h4>图 | API请求成功</h4>
         </figcaption>
 </figure>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_fail.png"/> <figcaption>
             <h4>图 | API请求失败</h4>
         </figcaption>
 </figure>
-
 <h3 id="响应式布局">响应式布局</h3>
-
 <p>参考bootstrap案例写了几个可有可无的@media选择器，<strong>概念上</strong>有响应式布局的意思了。效果如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1814,15 +1721,14 @@ Books
         <span class="k">margin</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">auto</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">auto</span><span class="p">;</span>
         <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="其他">其他</h3>
-
+</div><h3 id="其他">其他</h3>
 <p><code>flash</code>自动消失和star-rating需要专门适配一些javascript，在main.js里。主要是一些jQuery。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1854,22 +1760,16 @@ Books
  
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>大致就是这样。</p>
-
+</div><p>大致就是这样。</p>
 <p>[完]</p>
-
-<hr />
-
+<hr>
 <!-- {% raw %} -->
-
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
     </div>
 
@@ -1982,7 +1882,7 @@ Books
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     
     <span class="author">madlogos</span>
   </span>
@@ -1998,7 +1898,10 @@ Books
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -2014,6 +1917,7 @@ Books
 
 
 
+<script src="/js/custom.js"></script>
 
 
 </body>

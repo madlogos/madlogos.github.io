@@ -10,7 +10,7 @@
 
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
 
-<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 缘起
 
@@ -57,7 +57,7 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 因为postgresql不同意我用这个表名，所以在sqlite里也这么干。
 {{% /admonition %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/db.png" title="图 | 数据库设计" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/db.png" title="图 | 数据库设计" %}}
 
 
 ```sql
@@ -155,10 +155,10 @@ project1
 <!-- {% raw %} -->
 - 样式主要靠Bootstrap
 - body部分放了几个通用块(block)：head, flash, disp, control, misc。用jinja2结构`{% block xxx %}{% endblock %}`来占位。
-    - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
-    - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
-    - 后续写其他模板时，引用(extend) base.html就行了。
-    
+  - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
+  - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
+  - 后续写其他模板时，引用(extend) base.html就行了。
+
 <!-- {% endraw %} -->
 
 <!-- {% raw %} -->
@@ -287,7 +287,7 @@ def remove_session(ex=None):
 
 访问首页，先跳转到登录界面。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/sign-in.png" title="图 | 登录界面" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/sign-in.png" title="图 | 登录界面" %}}
 
 登录页[login.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html)很简单，首先继承base.html的元素，然后在control块里放一个`form-signin`控件。套了一些bootstrap的元素。action绑定sign_in，也就是`signin()`函数。
 
@@ -390,7 +390,7 @@ def sign_off():
 
 ### 注册
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/register.png" title="图 | 注册页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/register.png" title="图 | 注册页" %}}
 
 注册页[register.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html)和登录页差不多。
 
@@ -468,7 +468,7 @@ def sign_up():
 
 ### 检索书籍
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/books.png" title="图 | 初始载入空列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/books.png" title="图 | 初始载入空列表" %}}
 
 登录进去后，进入真正的[index.html](https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html)页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。
 
@@ -551,7 +551,7 @@ Books
 ```
 <!-- {% endraw %} -->
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/pagination.png" title="图 | 所有书籍分页显示" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/pagination.png" title="图 | 所有书籍分页显示" %}}
 
 #### 后端
 
@@ -612,11 +612,11 @@ def index():
 
 书名搜索"china"，返回所有标题内含"china"的书。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/filtered_books.png" title="图 | 搜索标题含china的书籍" %}}
 
 ### 书籍明细
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book.png" title="图 | 书籍明细" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book.png" title="图 | 书籍明细" %}}
 
 生成的书籍列表，可以点id访问明细。这里包含三部分：
 
@@ -812,9 +812,9 @@ def review(book_id):
 
 这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/rate_a_book.png" title="图 | 给图书打分" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/rate_a_book.png" title="图 | 给图书打分" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/book_rated.png" title="图 | 打完分后Submit按钮失效" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book_rated.png" title="图 | 打完分后Submit按钮失效" %}}
 
 ### API
 
@@ -851,9 +851,9 @@ def api():
         return jsonify(rslt)
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_success.png" title="图 | API请求成功" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_success.png" title="图 | API请求成功" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/190916/api_fail.png" title="图 | API请求失败" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_fail.png" title="图 | API请求失败" %}}
 
 
 ### 响应式布局

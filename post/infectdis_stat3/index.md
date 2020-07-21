@@ -15,7 +15,7 @@ sta <- melt(sta[,names(sta) != "NA"], id="日期", variable.name="分类")
 makeTsPlot(sta, "法定传染病每月发病数", xlab="年月", ylab="例数")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_trend.png" title="图 | 法定传染病每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png" title="图 | 法定传染病每月发病数" %}}
 
 ```r
 sta <- dcast(dat, 日期 ~ 分类, sum, value.var="死亡数")
@@ -23,7 +23,7 @@ sta <- melt(sta[,names(sta) != "NA"], id="日期", variable.name="分类")
 makeTsPlot(sta, "法定传染病每月死亡数", xlab="年月", ylab="例数")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_trend.png" title="图 | 法定传染病每月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png" title="图 | 法定传染病每月死亡数" %}}
 
 甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。
 
@@ -37,7 +37,7 @@ sta$月份 <- as.integer(sta$月份)
 makeTsPlot(sta, "法定传染病平均月发病数", unit=1, ylab="平均例数", xvar="月份")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_month.png" title="图 | 法定传染病月平均发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png" title="图 | 法定传染病月平均发病数" %}}
 
 ```r
 sta <- dcast(dat, format(日期, "%m") ~ 分类, mean, value.var="死亡数")
@@ -47,7 +47,7 @@ sta$月份 <- as.integer(sta$月份)
 makeTsPlot(sta, "法定传染病平均月死亡数", unit=1, ylab="平均例数", xvar="月份")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_month.png" title="图 | 法定传染病平均月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png" title="图 | 法定传染病平均月死亡数" %}}
 
 <!--more-->
 
@@ -79,7 +79,7 @@ sta <- melt(sta, id="日期", variable.name="类型")
 makeTsPlot(sta, "乙类传染病每月发病数", xlab="年月", ylab="例数", gvar="类型")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_b_trend.png" title="图 | 乙类传染病每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_trend.png" title="图 | 乙类传染病每月发病数" %}}
 
 ```r
 sta <- dcast(dat.b, 日期 ~ 类型, sum, value.var="死亡数")
@@ -87,7 +87,7 @@ sta <- melt(sta, id="日期", variable.name="类型")
 makeTsPlot(sta, "乙类传染病每月死亡数", xlab="年月", ylab="例数", gvar="类型")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_b_trend.png" title="图 | 乙类传染病每月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_trend.png" title="图 | 乙类传染病每月死亡数" %}}
 
 ### 详细病种
 
@@ -106,7 +106,7 @@ makeTsPlot(sta, "乙类传染病每月发病数", xlab="年月", ylab="例数", 
            gvar="病名", legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_b_det_trend.png" title="图 | 乙类传染病每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_det_trend.png" title="图 | 乙类传染病每月发病数" %}}
 
 ```r
 sta <- dcast(dat.b, 病名~., sum, value.var="死亡数")
@@ -121,7 +121,7 @@ makeTsPlot(sta, "乙类传染病每月死亡数", xlab="年月", ylab="例数", 
            gvar="病名", legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_b_det_trend.png" title="图 | 乙类传染病每月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_det_trend.png" title="图 | 乙类传染病每月死亡数" %}}
 
 {{% admonition tip "tip" %}}
 乙类死亡数分布中，2009年末-2010年初有个醒目的浅蓝色楔子。那就是著名的甲型H1N1流感流行。
@@ -155,7 +155,7 @@ sta <- melt(sta, id="日期", variable.name="型别")
 makeTsPlot(sta, "肝炎每月发病数", xlab="年月", ylab="例数", gvar="型别")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_hep_trend.png" title="图 | 肝炎每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_hep_trend.png" title="图 | 肝炎每月发病数" %}}
 
 ```r
 sta <- dcast(dat.hep, 日期 ~ 病名, sum, value.var="死亡数")
@@ -163,7 +163,7 @@ sta <- melt(sta, id="日期", variable.name="型别")
 makeTsPlot(sta, "肝炎每月死亡数", xlab="年月", ylab="例数", gvar="型别")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_hep_trend.png" title="图 | 肝炎每月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_hep_trend.png" title="图 | 肝炎每月死亡数" %}}
 
 感觉都在慢慢下降。
 
@@ -184,7 +184,7 @@ makeTsPlot(sta, "丙类传染病每月发病数", xlab="年月", ylab="例数", 
            legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_c_det_trend.png" title="图 | 丙类传染病每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_det_trend.png" title="图 | 丙类传染病每月发病数" %}}
 
 ```r
 sta <- dcast(dat.c, 日期 ~ 病名, sum, value.var="死亡数")
@@ -193,7 +193,7 @@ makeTsPlot(sta, "丙类传染病每月死亡数", xlab="年月", ylab="例数", 
            legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_c_det_trend.png" title="图 | 丙类传染病每月死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_det_trend.png" title="图 | 丙类传染病每月死亡数" %}}
 
 其实就两样：手足口、感染性腹泻。落到死亡，基本都是手足口。
 
@@ -210,7 +210,7 @@ makeTsPlot(sta, "丙类传染病平均月发病数", unit=1, ylab="平均例数"
            gvar="病名", legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_c_month.png" title="图 | 丙类传染病月平均发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_month.png" title="图 | 丙类传染病月平均发病数" %}}
 
 ```r
 sta <- dcast(dat.c, format(日期, "%m") ~ 病名, mean, value.var="死亡数")
@@ -221,7 +221,7 @@ makeTsPlot(sta, "丙类传染病平均月死亡数", unit=1, ylab="平均例数"
            gvar="病名", legend.position = "bottom")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/mot_c_month.png" title="图 | 丙类传染病月平均死亡数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_month.png" title="图 | 丙类传染病月平均死亡数" %}}
 
 看月份分布，春夏季是大头。
 
@@ -235,7 +235,7 @@ makeTsPlot(dat.flu, "流感每月发病数", xlab="年月", ylab="例数", gvar=
            xvar="日期", yvar="发病数")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170406/inc_flu_trend.png" title="图 | 流感每月发病数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_flu_trend.png" title="图 | 流感每月发病数" %}}
 
 2016年初春有一个高峰。今明两年估计不会有那么高了。
 

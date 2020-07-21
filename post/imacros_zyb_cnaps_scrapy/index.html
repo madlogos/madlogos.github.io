@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" />
@@ -34,8 +34,10 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.ccea7335.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号" />
@@ -47,16 +49,13 @@
 
 <meta itemprop="name" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
 <meta itemprop="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。">
-
-
 <meta itemprop="datePublished" content="2017-11-28T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-12-27T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="6063">
 
 
 
-<meta itemprop="keywords" content="imacros,爬虫,CNAPS,自动化," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="imacros,爬虫,CNAPS,自动化," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号"/>
 <meta name="twitter:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。"/>
 
@@ -142,38 +141,35 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#离题万里的开场">离题万里的开场</a></li>
-<li><a href="#这就带来了第一个问题">这就带来了第一个问题</a></li>
-<li><a href="#怎么爬咧">怎么爬咧？</a>
-<ul>
-<li><a href="#首先-选型要精准">首先，选型要精准</a></li>
-<li><a href="#其次-办法要对路">其次，办法要对路</a></li>
-<li><a href="#曲线救国">曲线救国</a></li>
-</ul></li>
-<li><a href="#节外生枝的javascript">节外生枝的JavaScript</a></li>
-<li><a href="#提取银行和省份-城市的控件值">提取银行和省份+城市的控件值</a></li>
-<li><a href="#构建循环">构建循环</a>
-<ul>
-<li><a href="#获取返回结果的页码">获取返回结果的页码</a></li>
-<li><a href="#获得控件标签键">获得控件标签键</a></li>
-<li><a href="#功能集成">功能集成</a></li>
-<li><a href="#运行">运行</a></li>
-<li><a href="#r合并csv">R合并csv</a></li>
-</ul></li>
-<li><a href="#但是">但是！</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#离题万里的开场">离题万里的开场</a></li>
+    <li><a href="#这就带来了第一个问题">这就带来了第一个问题</a></li>
+    <li><a href="#怎么爬咧">怎么爬咧？</a>
+      <ul>
+        <li><a href="#首先选型要精准">首先，选型要精准</a></li>
+        <li><a href="#其次办法要对路">其次，办法要对路</a></li>
+        <li><a href="#曲线救国">曲线救国</a></li>
+      </ul>
+    </li>
+    <li><a href="#节外生枝的javascript">节外生枝的JavaScript</a></li>
+    <li><a href="#提取银行和省份城市的控件值">提取银行和省份+城市的控件值</a></li>
+    <li><a href="#构建循环">构建循环</a>
+      <ul>
+        <li><a href="#获取返回结果的页码">获取返回结果的页码</a></li>
+        <li><a href="#获得控件标签键">获得控件标签键</a></li>
+        <li><a href="#功能集成">功能集成</a></li>
+        <li><a href="#运行">运行</a></li>
+        <li><a href="#r合并csv">R合并csv</a></li>
+      </ul>
+    </li>
+    <li><a href="#但是">但是！</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <h2 id="离题万里的开场">离题万里的开场</h2>
-
 <p>码农界有个著名的“三次法则 (rule of three)”：<strong>如果一段代码重复出现了三次，就要考虑抽出来写一个子程序，以便复用</strong>。这是条宝贵的法则，可以衍生出更多的强迫症版本，随随便便就能举出很多喜闻乐见的例子，比如：</p>
-
 <blockquote>
 <ul>
 <li>一个词在同一句话里出现三次就不能忍，必须换近义词；</li>
@@ -182,151 +178,106 @@
 <li>同一处空气重复呼吸三口就不能忍，必须装一台呼吸机</li>
 </ul>
 </blockquote>
-
 <p>……</p>
-
 <p>发人深省，对不对？这些正是当今最严肃而真实的信仰，有着最为坚定的践行者。<del>在古代</del>2015年全球最大的雄性交友平台GitHub上出了个网红毛子码农、脚本狂魔<a href="https://github.com/NARKOZ/hacker-scripts">Narkoz</a>，他的人生信条是：<strong>如果一件事要耗费自己90秒以上，那就写个脚本</strong>。这些奇葩的脚本包括：</p>
-
 <ul>
 <li>如加班到21点以后就自动给老婆发马屁短信；</li>
 <li>收到蠢货DBA的任何求助邮件后自动恢复数据库的最近备份</li>
 <li>让咖啡机等待17秒然后煮杯咖啡并等待24秒再灌入杯子（正好是作者起身走到咖啡机前的耗时）</li>
 <li>……</li>
 </ul>
-
 <p>从时间效益的经济学评价来讲，这个准则烂透了。这好比为了节约每天通勤的公交车钱，去买了一辆跑车。但跑车本身还是很拉风的。若能竖立起极客死宅的品牌形象，还是可能会产生某些<strong>潜在的</strong>溢价——比如说，会有更多的人请你修电脑。</p>
-
 <p>判断一个人是否天生适合当码农，很重要的一点就是看他/她有没有这种懒癌强迫症。而这种强迫症的形上学本质是：<strong>对自由王国的无尽向往</strong>。——重复劳动太蠢了，它侮辱人类的尊严，阻碍我们证法悟道，必须消灭。这就是自动化的诞生。</p>
-
 <p>所以——尽管技术上跌跌撞撞，也并不妨碍我隔三差五搞个三脚猫爬虫出来。这回的主题又跳跃了：爬取现代化支付行号。</p>
-
 <h2 id="这就带来了第一个问题">这就带来了第一个问题</h2>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/yilianmengbi.jpg"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/yilianmengbi.jpg"/> <figcaption>
             <h4>蛤？这是啥？</h4>
         </figcaption>
 </figure>
-
 <blockquote>
 <p>所谓现代化支付行号 (CNAPS)</p>
-
 <p>也叫联行号。</p>
 </blockquote>
-
 <p>就是中国人民银行搞的一套12位银行代码，用来做自动清算的。在通过手机银行app转账时，选择收款方账户时，也会看到这个代码。它的结构如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">** *    ****    ****           *
-行别码  地区码  分支机构序号   校验码</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">** *    ****    ****           *
+行别码  地区码  分支机构序号   校验码
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
-
+</div><p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/hebbank.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/hebbank.png"/> <figcaption>
             <h4>图 | 河北银行CNAPS查询页</h4>
         </figcaption>
 </figure>
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zsbank.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zsbank.png"/> <figcaption>
             <h4>图 | 浙商银行CNAPS查询页</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>随手上去试了两把，还挺好用。于是思路比较清楚了：穷尽所有查询策略，把返回的结果提出来存好。</p>
-
 <h2 id="怎么爬咧">怎么爬咧？</h2>
-
-<h3 id="首先-选型要精准">首先，选型要精准</h3>
-
+<h3 id="首先选型要精准">首先，选型要精准</h3>
 <p>上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家<a href="http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html">中原银行</a>。</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/zybank.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zybank.png"/> <figcaption>
             <h4>图 | 中原银行CNPAS查询页</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>这就比较好对付一些，而且信息更多，连网点地址也提供。</p>
-
-<h3 id="其次-办法要对路">其次，办法要对路</h3>
-
-<ul class="task-list">
-<li><label><input type="checkbox" checked disabled class="task-list-item"> 要理智。当然不能手工复制粘贴。平均查一个结果需要点行名、省、市，输验证码、按确认，超过10次交互动作。几千次这么做下来，非死亦残。更不要提错误率了。<kbd>放弃</kbd></label></li>
-<li><label><input type="checkbox" checked disabled class="task-list-item"> 我比较熟悉的<code>rvest</code>这类简单的R爬虫包，只能对付静态网页，无法模拟网页交互行为。<kbd>放弃</kbd></label></li>
-<li><label><input type="checkbox" checked disabled class="task-list-item"> Python的<code>scrapy</code>框架很牛，也能对付验证码、AJAX异步之类问题。次一点，R里面也有<code>Rcurl</code>。但我都不会。<kbd>放弃</kbd></label></li>
-<li><label><input type="checkbox" checked disabled class="task-list-item"> 要模拟用户交互行为最好的办法是<code>Selenium</code>这类框架(代码版按键精灵)，但是当时我还不会。<kbd>放弃</kbd>。</label></li>
-<li><label><input type="checkbox" checked disabled class="task-list-item"> 其他。<kbd>不明</kbd></label></li>
+<h3 id="其次办法要对路">其次，办法要对路</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 要理智。当然不能手工复制粘贴。平均查一个结果需要点行名、省、市，输验证码、按确认，超过10次交互动作。几千次这么做下来，非死亦残。更不要提错误率了。<kbd>放弃</kbd></li>
+<li><input checked="" disabled="" type="checkbox"> 我比较熟悉的<code>rvest</code>这类简单的R爬虫包，只能对付静态网页，无法模拟网页交互行为。<kbd>放弃</kbd></li>
+<li><input checked="" disabled="" type="checkbox"> Python的<code>scrapy</code>框架很牛，也能对付验证码、AJAX异步之类问题。次一点，R里面也有<code>Rcurl</code>。但我都不会。<kbd>放弃</kbd></li>
+<li><input checked="" disabled="" type="checkbox"> 要模拟用户交互行为最好的办法是<code>Selenium</code>这类框架(代码版按键精灵)，但是当时我还不会。<kbd>放弃</kbd>。</li>
+<li><input checked="" disabled="" type="checkbox"> 其他。<kbd>不明</kbd></li>
 </ul>
-
 <p>所谓“夫未战而庙算者，得算多也”。经过一番严谨的分析，我发现：<strong>技术上搞不定</strong>——再次落入了经典的“看得上的买不起，买得起的看不上”窘境。</p>
-
 <h3 id="曲线救国">曲线救国</h3>
-
 <p>办法还是有的，但就是要先停下来，离题万里去讲另一个故事。</p>
-
 <p>在OA领域，我们经常会把一系列小操作对应的系统指令录下来，套个循环再复用，那就是VBA宏语言。所谓宏，实质上就是定义一组模式替换规则，套用到一组命令上进行<strong>批量批处理</strong>。这不就是“录制-修改-复用”自动化党的福音吗？看看我们平时用的最多的宏，通常就是VBA，SPSS，SAS，以及各种各样的游戏作弊器。那就是宏天生的战场。</p>
-
 <p>对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros.png"/> <figcaption>
             <h4>图 | iMacros for Chrome界面</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>如果自己录一段宏，打开后长这样：</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo1.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo1.png"/> <figcaption>
             <h4>图 | iMacros脚本代码</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。</p>
-
 <p>双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/imacros_demo2.gif"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo2.gif"/> <figcaption>
             <h4>图 | iMacros demo</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>想象一下你有几千条记录要在网上填入。用imacros，只要在脚本同目录下准备一个csv，整理好数据，然后修改一下上面的代码，读入csv，逐行扫描，按布局顺序提取数据<code>{{!COL1}}</code>、<code>{{!COL2}}</code>、&hellip;，填入对应的控件，提交。接下来边喝茶边看屏幕飞滚，繁复的录入任务就自行完成了。</p>
-
 <h2 id="节外生枝的javascript">节外生枝的JavaScript</h2>
-
 <p>按说imacros已经给了很完美的循环方案：在iim脚本里给内置变量{{!LOOP}}赋一个初始值，然后在执行面板里设置一个（{{!LOOP}}的）Max值，点<kbd>Play Loop</kbd>即可。但这只能对付单层循环。在中原银行这个案例上，单层循环是不够的。理论上需要三层循环：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -335,9 +286,9 @@
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">for i in 所有银行名:
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for i in 所有银行名:
     for j in 所有省份:
         for k in 所有城市:
             查询
@@ -345,15 +296,14 @@
             存入一个文件
         next k
     next j
-next i</pre></td></tr></table>
+next i
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>大约80个银行类目，34个省份，650个城市，这样完整运行一遍要有17.7万个组合。但实际上34个省份和650个城市不会完整组合，每个省份只可能匹配其属下的那几个城市。省份选择“江苏”后，硬要让脚本到城市下拉框找“杭州”，只能逼它报错。所以省份、城市的两层循环(j, k)实际上应当合并。</p>
-
+</div><p>大约80个银行类目，34个省份，650个城市，这样完整运行一遍要有17.7万个组合。但实际上34个省份和650个城市不会完整组合，每个省份只可能匹配其属下的那几个城市。省份选择“江苏”后，硬要让脚本到城市下拉框找“杭州”，只能逼它报错。所以省份、城市的两层循环(j, k)实际上应当合并。</p>
 <p>饶是如此，仍有两层循环。假如硬是压成单层，就得在csv里把所有组合罗列一遍，imacros表示无力。所幸这个工具还有不错的延展性，可以执行vbs和js脚本。查询、提取、存储之类还是可以用imacros宏来完成，外面搭一个js的循环壳调用<code>iimPlay</code>就行。伪代码看起来大约是这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -373,53 +323,46 @@ next i</pre></td></tr></table>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>心里有底了。开工。</p>
-
-<h2 id="提取银行和省份-城市的控件值">提取银行和省份+城市的控件值</h2>
-
+</div><p>心里有底了。开工。</p>
+<h2 id="提取银行和省份城市的控件值">提取银行和省份+城市的控件值</h2>
 <p>Chrome里<kbd>F12</kbd>，可以看到银行下拉菜单的载入值齐齐整整。</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/banksite.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/banksite.png"/> <figcaption>
             <h4>图 | 银行下拉菜单载入值</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>选中&rsquo;banksite&rsquo;这个节点，右键copy element复制下来。到R里，赋值给banks。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;select&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;select_170&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;banksite&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>==请选择银行==<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;100&#34;</span><span class="p">&gt;</span>中原银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;102&#34;</span><span class="p">&gt;</span>中国工商银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;103&#34;</span><span class="p">&gt;</span>中国农业银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;104&#34;</span><span class="p">&gt;</span>中国银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;105&#34;</span><span class="p">&gt;</span>中国建设银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;201&#34;</span><span class="p">&gt;</span>国家开发银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;202&#34;</span><span class="p">&gt;</span> ....</code></pre></td></tr></table>
+<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;100&#34;</span><span class="p">&gt;</span>中原银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;102&#34;</span><span class="p">&gt;</span>中国工商银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;103&#34;</span><span class="p">&gt;</span>中国农业银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;104&#34;</span><span class="p">&gt;</span>中国银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;105&#34;</span><span class="p">&gt;</span>中国建设银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;201&#34;</span><span class="p">&gt;</span>国家开发银行<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;202&#34;</span><span class="p">&gt;</span> ....
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>用R快速处理一下：</p>
+</div><p>用R快速处理一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">banks</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="s">&#34;&lt;/option&gt;&#34;</span><span class="p">))</span>
 <span class="nf">paste</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span> <span class="n">collapses</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span> <span class="n">collapses</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样直接就提取成了一个文本向量。如果在Windows，可以复制outerHTML，用<code>readClipboard</code>来直接读剪贴板。所以定义一个<code>getCbId</code>函数，直接处理成js列表。</p>
+</div><p>这样直接就提取成了一个文本向量。如果在Windows，可以复制outerHTML，用<code>readClipboard</code>来直接读剪贴板。所以定义一个<code>getCbId</code>函数，直接处理成js列表。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -446,13 +389,13 @@ next i</pre></td></tr></table>
         <span class="n">a</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="nf">rep.int</span><span class="p">(</span><span class="n">grpId</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="n">a</span><span class="p">)),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
         <span class="nf">toJSON</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>所以这个scrapy_cnaps.js的起头部分就变成了：</p>
+</div><p>所以这个scrapy_cnaps.js的起头部分就变成了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -468,11 +411,10 @@ next i</pre></td></tr></table>
 <span class="kd">var</span> <span class="nx">nBanks</span><span class="o">=</span><span class="nx">banks</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>以此类推，把所有省份和城市的组合都找了出来。</p>
+</div><p>以此类推，把所有省份和城市的组合都找了出来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -600,50 +542,42 @@ next i</pre></td></tr></table>
 <span class="kd">var</span> <span class="nx">nCities</span><span class="o">=</span><span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="构建循环">构建循环</h2>
-
+</div><h2 id="构建循环">构建循环</h2>
 <p>由于解析返回结果的页码需要用到正则，里面一大堆转义符，如果通过js来拼接脚本源文本，会让难度雪上加霜。所以我决定把最难的脚本单元提出来，最后拼到主脚本里。</p>
-
 <h3 id="获取返回结果的页码">获取返回结果的页码</h3>
-
 <p>点了查询之后，结果是分页显示的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">首页    上一页  1 2 3 下一页    末页</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">首页    上一页  1 2 3 下一页    末页
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>所以只要探一下下一页和末页的链接有没有绑<code>onclick</code>事件，就知道是不是有效。</p>
-
+</div><p>所以只要探一下下一页和末页的链接有没有绑<code>onclick</code>事件，就知道是不是有效。</p>
 <ul>
 <li>如果搜出结果，“下一页”能点，说明不止一页，那么就可以往下点开页面，直到末页。</li>
 <li>如果点不了，就不用费劲循环了。</li>
 </ul>
-
 <p>于是写了个脚本getNextLastPage.iim，用<code>SEARCH</code>正则表达式的方法从页面源代码里提取js绑定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">VERSION BUILD=844
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">VERSION BUILD=844
 SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPage\\(&#39;(\\d+)&#39;\\)\&#34;[^&gt;]*&gt;下一页&#34; EXTRACT=&#34;$1&#34;
-SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPage\\(&#39;(\\d+)&#39;\\)\&#34;[^&gt;]*&gt;末页&#34; EXTRACT=&#34;$1&#34;</pre></td></tr></table>
+SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPage\\(&#39;(\\d+)&#39;\\)\&#34;[^&gt;]*&gt;末页&#34; EXTRACT=&#34;$1&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>imacros提供了一个<code>iimGetLastExtract</code>的接口，能把iim脚本提取的结果以数组形式拿出来交给javascript或者vbs。</p>
-
+</div><p>imacros提供了一个<code>iimGetLastExtract</code>的接口，能把iim脚本提取的结果以数组形式拿出来交给javascript或者vbs。</p>
 <h3 id="获得控件标签键">获得控件标签键</h3>
-
 <p>脚本交互时用到的是控件值，所以js工作脚本里只提供了100、101这类值列表。但我希望最终下载的csv以“银行_省份_城市_页码”，而不是“银行value_省份value_城市value_页码”的纯编码方式命名，所以得再写个getBankProvCity.iim，从三个下拉框控件属性标签里把“北京”、“天津”这些键取回来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -671,9 +605,9 @@ SEARCH SOURCE=REGEXP:&#34;&lt;a href=\&#34;javascript:;\&#34; onclick=\&#34;goPa
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">VERSION BUILD=844
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">VERSION BUILD=844
 Tab T=1
 
 TAG POS=1 TYPE=SELECT ATTR=ID:banksite EXTRACT=TXT
@@ -700,17 +634,15 @@ TAG POS=1 TYPE=SELECT ATTR=ID:city CONTENT=%{{!VAR1}}
 
 SET !EXTRACT {{!VAR2}}
 ADD !EXTRACT {{!VAR3}}
-ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
+ADD !EXTRACT {{!VAR4}}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>事后想想，直接在预处理时把键和值都解析出来写进js里岂不是最方便。真是智商捉急。</p>
-
+</div><p>事后想想，直接在预处理时把键和值都解析出来写进js里岂不是最方便。真是智商捉急。</p>
 <h3 id="功能集成">功能集成</h3>
-
 <p>写好两个工作脚本，就可以着手搭集成脚本了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -800,43 +732,30 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>说时容易做时难。因为技术三脚猫，调试这些玩意儿花了很多时间。最坑爹的环节就是正则转义。</p>
-
+</div><p>说时容易做时难。因为技术三脚猫，调试这些玩意儿花了很多时间。最坑爹的环节就是正则转义。</p>
 <h3 id="运行">运行</h3>
-
 <p>工程搭好后，把脚本放在虚拟机上跑了三天，幸运的是网站似乎没有反爬虫策略，夜间也不关服务，于是让我顺顺利利地跑完了。</p>
-
 <p>看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas_tbl.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas_tbl.png"/> <figcaption>
             <h4>图 | 爬下来的csv文件</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>里面的文件纷纷长这样：</p>
-
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnaps_raw.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnaps_raw.png"/> <figcaption>
             <h4>图 | csv的原始面目</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <h3 id="r合并csv">R合并csv</h3>
-
 <p>为啥之前费尽周章地格式化命名下载结果呢？因为我需要把文件名里的信息提取出来，合并到数据集里。下面这个R脚本定义了一个<code>parseCsvTbl</code>函数，就负责把csv文件名里的银行、省份、城市解析出来合并到数据集中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -927,39 +846,27 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 <span class="p">}</span>
 <span class="c1">## 合并后的结果输出到一个大csv</span>
 <span class="nf">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;cnaps_&#34;</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span><span class="nf">Sys.time</span><span class="p">(),</span> <span class="s">&#34;%Y%m%d%H%M%S&#34;</span><span class="p">),</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
-<span class="nf">message</span><span class="p">(</span><span class="s">&#34;output cnaps csv is generated.&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="nf">message</span><span class="p">(</span><span class="s">&#34;output cnaps csv is generated.&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>跑完脚本，数据变成了：</p>
-
+</div><p>跑完脚本，数据变成了：</p>
 <!-- {% raw %} -->
-
 <figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/171128/cnpas.png"/> <figcaption>
+    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas.png"/> <figcaption>
             <h4>图 | 成品数据效果</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
-
 <p>一共40多万条记录。谢天谢地，老泪纵横。</p>
-
 <h2 id="但是">但是！</h2>
-
 <p>你以为这是一篇萌蠢拙计、热情洋溢的imacros软文？那你错了。我只是为了说明一件事：</p>
-
 <blockquote>
 <p>为了偷懒，我勤奋到废寝忘食。</p>
 </blockquote>
-
 <p>但至于imacros，我绝不推荐。这是一段技术弯路，所有有志于自动化的，应该直接去学Python和Selenium，不要给无良付费软件一毛线的活路。</p>
-
 <p>首先，今年的11月份，Firefox发布了新版Quantum，运行速度快了很多，但是API全变了。一众网红扩展纷纷蒙圈，统统跑不起来了。其中就包括了imacros。官网很快发了一则通告，大意是“用不了啦，大家赶紧降级Firefox。要不给Mozilla写个万民伞，让他们重新把废掉的那些API弄回来吧。”</p>
-
 <p>开历史倒车还开出情怀来了。</p>
-
 <p>随即，就在前两天，这家“全球最流行的浏览器自动化解决方案”提供者，升级了imacros浏览器插件，样子少许好看了点。然而免费版的功能却从猛犸缩水到野猪。</p>
-
 <ul>
 <li>免费版最多只能录50个动作</li>
 <li>免费版不再能读取本地文件</li>
@@ -967,28 +874,19 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 <li>只有IE版插件能用csv作输入源，不能超过100行、3列
 &hellip;</li>
 </ul>
-
 <p>要达到以往免费版的功能，需要升级到个人版。价钱比企业版可便宜多了，大约只需要……700大洋吧。</p>
-
 <p>瞧这点出息，难怪欧洲软件企业而今越来越排不上号。市占率套现的玩法千千万，它却选择直接杀鸡取卵。这应该是我第一次，也是最后一次吹imacros。写完此文，我就把imacros彻底卸了。</p>
-
 <p>工具没那么重要，重要的是理念。</p>
-
 <p>Save your life. Automate everything.</p>
-
 <p>[完]</p>
-
-<hr />
-
+<hr>
 <!-- {% raw %} -->
-
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
          alt="扫码关注" width="50%"/> <figcaption>
             <h4>扫码关注我的的我的公众号</h4>
         </figcaption>
 </figure>
-
 <!-- {% endraw %} -->
     </div>
 
@@ -1102,7 +1000,7 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2019
+    2020
     
     <span class="author">madlogos</span>
   </span>
@@ -1118,7 +1016,10 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
-<script type="text/javascript" src="/dist/even.f79f403f.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1134,6 +1035,7 @@ ADD !EXTRACT {{!VAR4}}</pre></td></tr></table>
 
 
 
+<script src="/js/custom.js"></script>
 
 
 </body>

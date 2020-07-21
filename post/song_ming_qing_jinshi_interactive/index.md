@@ -64,7 +64,7 @@ saveGIF({
 }, "song.gif")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.gif" title="图 | 北宋进士来源地" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.gif" title="图 | 北宋进士来源地" %}}
 
 很明显，前期京畿还很有优势，仁宗开始江南大盛，到神宗以后就是闽人大盛。热力分布持续东南移。
 
@@ -79,7 +79,7 @@ saveGIF({
 }, "ming.gif")
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.gif" title="图 | 明代进士来源地" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.gif" title="图 | 明代进士来源地" %}}
 
 明和北宋热力分布是反向变动的，神宗以后进士来源地更弥散了。赣闽次第没落，而京畿有了起色。
 
@@ -95,7 +95,7 @@ saveGIF({
 ani.options(oopt)
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.gif" title="图 | 清代进士来源地" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.gif" title="图 | 清代进士来源地" %}}
 
 清和明类似，中前期江南独大，鸦片战争以后分布逐渐弥散。
 
@@ -158,26 +158,26 @@ make_leaflet <- function(refMap, dyn, bgColor="red", dataset, cutyears){
 make_leaflet(nsong.bou, "北宋", "red", nsong.js, c(960, 1021, 1085, 1127))
 ```
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.html" width="100%" height="500"></iframe>
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html" width="100%" height="500"></iframe>
 
-[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/song.html)
+[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html)
 
 
 ```r
 make_leaflet(ming.bou, "明朝", "red", ming.js, c(1368, 1434, 1572, 1644))
 ```
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.html" width="100%" height="500"></iframe>
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.html" width="100%" height="500"></iframe>
 
-[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/ming.html)
+[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.html)
 
 ```r
 make_leaflet(qing.bou, "清朝", "black", qing.js, c(1644, 1735, 1850, 1911))
 ```
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.html" width="100%" height="500"></iframe>
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.html" width="100%" height="500"></iframe>
 
-[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/qing.html)
+[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.html)
 
 #### 古今地名一致性
 
@@ -294,9 +294,9 @@ knitr::kable(js.order[order(js.order$`(all)`, decreasing=TRUE),])
 
 给张图，同样是基于leaflet的。注意：**文件非常很大，极费流量**。
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/city.html" width="100%" height="500"></iframe>
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/city.html" width="100%" height="500"></iframe>
 
-[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/city.html)
+[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/city.html)
 
 ##### 然后是省级排名
 
@@ -349,9 +349,9 @@ echartR(js.order.ec, CN, value, t=variable, type="map_china", subtype="average")
     setTimeline(autoPlay=TRUE) %>% setLegend(FALSE)
 ```
 
-<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/prov.html" width="640" height="500"></iframe>
+<iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/prov.html" width="640" height="500"></iframe>
 
-[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/170430/prov.html)
+[点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/prov.html)
 
 图动起来了。感觉棒呆。
 

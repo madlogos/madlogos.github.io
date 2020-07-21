@@ -61,7 +61,7 @@ admin.site.register(Order, OrderAdmin)
 
 做好这部分后，可以先把Category和Product项目都维护进系统里。可以写脚本，也可以人肉录入。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191106/admin_product.png" title="图 | Django Admin管理Product" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_product.png" title="图 | Django Admin管理Product" %}}
 
 ### 控制
 
@@ -122,7 +122,7 @@ def index(request):
 
 ##### 前端
 
-{{% figure class="center"  src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/menu.png" title="图 | 菜单" %}}
+{{% figure class="center"  src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/menu.png" title="图 | 菜单" %}}
 
 本质上是想实现一个pivot_by(size)的交叉表，完全通过前端模板实现有点别扭。必要的话还是应该在后端加工好再往前端传。
 
@@ -197,7 +197,7 @@ function popupfun(prod_id){
 
 ##### 前端
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item.png" title="图 | 点单" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/item.png" title="图 | 点单" %}}
 
 点单页面从[pick_product.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/pick_product.html)页面模板讲起。
 
@@ -353,7 +353,7 @@ function update_price(){
 }; 
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/item_err.png" title="图 | 校验附加品数量" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/item_err.png" title="图 | 校验附加品数量" %}}
 
 ##### 后端
 
@@ -448,7 +448,7 @@ def pick_product(request, id):
 
 ##### 前端
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/jump_cart.png" title="图 | 跳转购物车" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/jump_cart.png" title="图 | 跳转购物车" %}}
 
 购物车[cart.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/cart.html)模板主要完成三个功能：展示当前购物车、修改项目数量、筛选和下单。
 
@@ -672,7 +672,7 @@ function batch_check(check=true){
 };
 ```
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/choose_order.png" title="图 | 选定下单" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/choose_order.png" title="图 | 选定下单" %}}
 
 ##### 后端
 
@@ -738,11 +738,11 @@ def cart(request):
 
 ##### 前端
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_init.png" title="图 | 订单列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/orders_init.png" title="图 | 订单列表" %}}
 
 订单列表[orders.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/orders.html)页面模板如下。跟购物车差不多，也提供了复选框和按钮，用户可以先选中对应的订单批处理操作，或直接点某个订单后的按钮进行单独操作。操作包括支付、取消、删除。利用Django模板的条件渲染能力，根据订单状态的不同，每个按钮的disabled属性各有不同。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_new.png" title="图 | 更新后的订单列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/orders_new.png" title="图 | 更新后的订单列表" %}}
 
 <!-- {% raw %} -->
 ```html
@@ -876,7 +876,7 @@ Orders
 
 前端脚本[orders.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/orders.js)和购物车页面的脚本一样，持续监听，实现批量选中和随时更新小计价格。有所不同的是，还加了一段监听代码，一旦批量选中后点操作按钮，先要`check_clickable()`校验一下这个按钮是否能点，然后调`confirm_submit()`跳出一个弹窗，让用户确认操作。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/orders_check.png" title="图 | 订单批量操作确认" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/orders_check.png" title="图 | 订单批量操作确认" %}}
 
 ```javascript
 /* static/js/orders.js */
@@ -986,13 +986,13 @@ def orders(request):
 
 ##### 前端
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order.png" title="图 | 订单明细" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/order.png" title="图 | 订单明细" %}}
 
 订单明细[order.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/order.html)显示的是订单详情。这个页面上用户依然可以更改各项目的数量。
 
 页面脚本[order.js](https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/order.js)跟订单列表页脚本差不多，监听页面，动态更新小计，点按钮的话确认操作再放行提交。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191107/order_check.png" title="图 | 订单操作确认" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/order_check.png" title="图 | 订单操作确认" %}}
 
 ##### 后端
 

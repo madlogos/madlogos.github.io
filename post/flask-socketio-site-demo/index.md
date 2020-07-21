@@ -10,7 +10,7 @@
 
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1) @ 优酷：
 
-<iframe height=498 width='100%' src='http://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
+<iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
 
 这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第三个作业项目。
 
@@ -249,11 +249,11 @@ if __name__ == '__main__':
 
 ### 登录
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/landing.png" title="图 | 登陆页" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/landing.png" title="图 | 登陆页" %}}
 
 一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/display_name.png" title="图 | 创建用户" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/display_name.png" title="图 | 创建用户" %}}
 
 <a name="channels_html"></a>[channels.html](https://github.com/madlogos/edx_cs50/blob/master/project2/templates/channels.html)模板代码：
 
@@ -402,7 +402,7 @@ def logout():
 
 完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/channels.png" title="图 | 频道列表" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/channels.png" title="图 | 频道列表" %}}
 
 看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数`get_channels()`和`set_channels()`。
 
@@ -445,11 +445,11 @@ def set_channels():
 
 GET方法下，从全局对象`users`里取到上次访问的频道名，存入last_visit。假如last_visit不在`channels`里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给[channels.html模板](#channels_html)解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/last_visit.png" title="图 | 上次访问的频道" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/last_visit.png" title="图 | 上次访问的频道" %}}
 
 POST方法下，服务器从表单里提取"new_channel"。假如new_channel在全局对象channels里已经存在，就`flash`甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含'created'、'max_id'和'msg'字典)，新频道就生成了。最后转跳回channels.html，实现刷新。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/new_channel.png" title="图 | 创建频道" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png" title="图 | 创建频道" %}}
 
 ### 频道明细
 
@@ -597,7 +597,7 @@ chats用tojson函数处理，把序列化的文本转成json。在Flask模板里
 const template = Handlebars.compile(document.querySelector('#chatPost').innerHTML);
 
 function format_chats(json_data, act_user=act_user){
-    console.log(JSON.stringify(json_data)); 
+    console.log(JSON.stringify(json_data));
     /* json_data is a dict */
     var output = '';
     Object.keys(json_data).forEach(function(key) {
@@ -605,7 +605,7 @@ function format_chats(json_data, act_user=act_user){
         const rslt = template({
             'post_id': key,
             'post_user': decodeURI(json_data[key]['user']),
-            'post_time': format_date(rslt_date), 
+            'post_time': format_date(rslt_date),
             'post_msg': decodeURI(json_data[key]['msg']),
             'same_user': decodeURI(json_data[key]['user']) == act_user});
         output += rslt;
@@ -635,7 +635,7 @@ function format_date(date){
     const se = date.getSeconds(); 
     const ms = date.getMinutes();
     return yr + "-" + lead_zero(mo) + "-" + lead_zero(dt) + " " +
-        lead_zero(hr) + ":" + lead_zero(mi) + ":" + lead_zero(se) + 
+        lead_zero(hr) + ":" + lead_zero(mi) + ":" + lead_zero(se) +
         "." + lead_zero(ms, 3);
 };
 
@@ -658,7 +658,7 @@ def get_channel(channel):
             """<i class='fa fa-2x fa-exclamation-circle'></i>
             You are not logged in."""), 'danger')
         return redirect(url_for("index"))
-    
+
     users[session.get('act_user')] = channel
     return render_template(
         "channel.html", act_user=session.get("act_user"), channel=channel,
@@ -670,7 +670,7 @@ def get_channel(channel):
 
 ### 发消息
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/chatting.png" title="图 | test1和test2在频道里聊天" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/chatting.png" title="图 | test1和test2在频道里聊天" %}}
 
 当点击<kbd>send</kbd>，客户端就发一个"send msg"请求，把json`{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}` "发射"(`socket.emit`)到服务器，交给flask_socketio处理。
 
@@ -740,7 +740,7 @@ def emit_msg(data):
 这里，加了一个判断。只有act_channel和从前端收到的data['channel']相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。
 {{% /admonition %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/dif_channel.png" title="图 | 不同频道不会'串台'" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/dif_channel.png" title="图 | 不同频道不会'串台'" %}}
 
 为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。
 
@@ -761,7 +761,7 @@ window.onload = function(){
 
 由于定义了`same_user`变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/191101/del_msg.png" title="图 | 只能删除自己发的消息" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/del_msg.png" title="图 | 只能删除自己发的消息" %}}
 
 删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用`remove()`方法：
 
