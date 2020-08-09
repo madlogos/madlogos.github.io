@@ -4,10 +4,6 @@
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。
 {{% /admonition %}}
 
-{{% admonition warning 注意 %}}
-如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。
-{{% /admonition %}}
-
 [成品效果视频](https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0) @ 优酷：
 
 <iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzMzA5MzQ4OA==' frameborder=0 'allowfullscreen'></iframe>
@@ -804,8 +800,6 @@ def review(book_id):
         return redirect(url_for("review", book_id=book_id))
 ```
 
-
-
 ### 评分评级
 
 如果是提交评分评级，就调用前述`review()`函数的'POST'方法。这里用到了一个Flask评星插件[bootstrap-star-rating](http://plugins.krajee.com/star-rating)。我把它的css和js都下载到了static。
@@ -854,7 +848,6 @@ def api():
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_success.png" title="图 | API请求成功" %}}
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_fail.png" title="图 | API请求失败" %}}
-
 
 ### 响应式布局
 
@@ -943,5 +936,5 @@ $(document).ready(function(){
 ---
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

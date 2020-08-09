@@ -1,7 +1,7 @@
 
 ## 数据提取
 
-[接上篇](https://madlogos.github.io/post/infectdis_stat1/)
+[接上篇](/post/infectdis_stat1/)
 
 现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。
 
@@ -278,10 +278,10 @@ makeTsPlot <- function(
 
 利用这个函数，只要来个数据框，就能出图。此外也不失灵活性，部分美学效果可以自定义调整。
 
-[待续](https://madlogos.github.io/post/infectdis_stat3/)
+[待续](/post/infectdis_stat3/)
 
 ----
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

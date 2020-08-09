@@ -22,7 +22,6 @@
 很明显，这个网站做得很渣。但是据说在哈佛所在的坎布里奇特别受欢迎，以特色潜艇堡（subs）著称。<b>技术还是不如业务重要。</b>
 {{% /admonition %}}
 
-
 要实现以下功能：
 
 1. 分析样品菜单，构建模型
@@ -32,6 +31,8 @@
 5. 下订单
 6. 浏览订单和订单明细
 7. 延伸功能：比如系统管理员在后台更新订单状态、用[Strip API](https://stripe.com/docs) 完成结算等
+
+<!--more-->
 
 ## 准备
 
@@ -46,15 +47,13 @@
 
 <!-- {% endraw %} -->
 
-<!--more-->
-
 ### 项目结构
 
 {{% admonition info "源代码托管于Github" %}}
 <a href="https://github.com/madlogos/edx_cs50/tree/master/project3">戳这里看源码</a>
 {{% /admonition %}}
 
-```
+```bash
 project3
 |-- application.py
 |-- db.sqlite3
@@ -110,11 +109,11 @@ project3
    |  `-- register.html
    |
    `--+ orders
-	  |-- cart.html
-	  |-- index.html
-	  |-- order.html
-	  |-- orders.html
-	  `-- pick_product.html
+      |-- cart.html
+      |-- index.html
+      |-- order.html
+      |-- orders.html
+      `-- pick_product.html
 ```
 
 <!-- more -->
@@ -144,44 +143,44 @@ pizza/settings.py里已经预置了很多配置项。要做一些调整：
 - INSTALLED_APPS列表增加两项: 'accounts.apps.AccountsConfig', 'orders.apps.OrdersConfig'
 - 增加LOGGING
 
-	```python
-	LOGGING = {
-		'version': 1,
-		'disable_existing_loggers': False,
-		'formatters': {
-			'verbose': {
-				'format': '{asctime} {module}.{funcName} {lineno:3} {levelname:7} => {message}',
-				'style': '{',
-			},
-		},
-		'handlers': {
-			'console': {
-				'class': 'logging.StreamHandler',
-				'formatter': 'verbose',
-			},
-			'file': {
-				'class': 'logging.handlers.RotatingFileHandler',
-				'formatter': 'verbose',
-				'filename': 'django.log',
-				'maxBytes': 4194304,  # 4 MB
-				'backupCount': 10,
-				'level': 'DEBUG',
-			},
-		},
-		'loggers': {
-			'': {
-				'handlers': ['console', 'file'],
-				'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-			},
-			'django': {
-				'handlers': ['console', 'file'],
-				'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-				'propagate': False,
-			},
-		},
-	}
-	```
-	
+    ```python
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'verbose': {
+                'format': '{asctime} {module}.{funcName} {lineno:3} {levelname:7} => {message}',
+                'style': '{',
+            },
+        },
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose',
+            },
+            'file': {
+                'class': 'logging.handlers.RotatingFileHandler',
+                'formatter': 'verbose',
+                'filename': 'django.log',
+                'maxBytes': 4194304,  # 4 MB
+                'backupCount': 10,
+                'level': 'DEBUG',
+            },
+        },
+        'loggers': {
+            '': {
+                'handlers': ['console', 'file'],
+                'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            },
+            'django': {
+                'handlers': ['console', 'file'],
+                'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+                'propagate': False,
+            },
+        },
+    }
+    ```
+
 - TIME_ZONE 改成自己所在的时区，比如'Asia/Shanghai'
 - STATIC_URL 改为 '/static/'
 - STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, "static"), '/static/']，在这个应用中，生效的是前者
@@ -206,17 +205,17 @@ admin.site.urls要映射进去，这样，后面才能通过"<domain name>/admin
 
 - accounts/apps.py定义应用名称
 
-	```python
-	class AccountsConfig(AppConfig):
-		name = 'accounts'
-	```
+    ```python
+    class AccountsConfig(AppConfig):
+        name = 'accounts'
+    ```
 
 - orders/apps.py定义应用名称
 
-	```python
-	class OrdersConfig(AppConfig):
-		name = 'orders'
-	```
+    ```python
+    class OrdersConfig(AppConfig):
+        name = 'orders'
+    ```
 
 这样，pizza/settings.py的INSTALLED_APPS才能识别accounts和orders这两个应用。将来，这两个包也可以剥离出去给其他项目复用。
 
@@ -354,8 +353,8 @@ def login_view(request):
 
 - 如果user已经认证，就跳去orders首页
 - 如果没认证，那么
-	- 假如是POST方法（提交登录验证表单），就从login_form里提信息出来验证。通过验证就`login()`，否则跳转回去。
-	- 假如是其他方法，那就渲染登录界面
+  - 假如是POST方法（提交登录验证表单），就从login_form里提信息出来验证。通过验证就`login()`，否则跳转回去。
+  - 假如是其他方法，那就渲染登录界面
 
 在[forms.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py)里定义了登录表单模板。
 
@@ -368,7 +367,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         label="Password", max_length=256, required=True,
         widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    
+
     def clean_username(self):
         username = self.cleaned_data.get('username')
 
@@ -434,7 +433,6 @@ Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内�
 后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_in.png" title="图 | 用户登录界面" %}}
-
 
 #### 注册
 
@@ -616,7 +614,6 @@ def logout_view(request):
 
 从定义ORM模型开始。在[models.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/models.py)：
 
-
 #### 选择项元组
 
 先定义选择项，结构是key-value元组。后续控件限定合法值，直接绑上去就行。
@@ -653,7 +650,7 @@ Category和Product是通过Category id连接的，所以Product里要设置一�
 # orders/models.py
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
-    
+
     class Meta:
         verbose_name = "category"
         verbose_name_plural = "categories"
@@ -737,10 +734,10 @@ Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，�
 这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。
 {{% /admonition %}}
 
-[待续](https://madlogos.github.io/post/django-website-demo-2/)
+[待续](/post/django-website-demo-2/)
 
 ---
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

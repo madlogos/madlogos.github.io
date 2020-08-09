@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>edx作业：用flask建一个简易Web聊天室</title>
+      <title>edX作业：用Flask建一个简易Web聊天室</title>
       <link>https://madlogos.github.io/post/flask-socketio-site-demo/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -20,9 +20,6 @@
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
 &lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。&lt;br/&gt;
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;admonition warning&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
-&lt;p&gt;如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
 &lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzNzYyNDU4MA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
@@ -42,7 +39,7 @@
     </item>
     
     <item>
-      <title>edx作业：用flask建一个简易图书查询Web应用</title>
+      <title>edX作业：用Flask建一个简易图书查询Web应用</title>
       <link>https://madlogos.github.io/post/flask-website-demo/</link>
       <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -50,9 +47,6 @@
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
 &lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。&lt;br/&gt;
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;admonition warning&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
-&lt;p&gt;如无法显示视频，可能被作为不安全脚本屏蔽。在浏览器地址栏里点击安全提示图标，允许运行不安全的脚本。&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzMzA5MzQ4OA==.html?spm=a2hzp.8244740.0.0&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
 &lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzMzA5MzQ4OA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;

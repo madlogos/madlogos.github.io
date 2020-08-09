@@ -1,7 +1,7 @@
 
 ## 甲乙丙类每月发病、死亡数
 
-[接上篇](https://madlogos.github.io/post/infectdis_stat2/)
+[接上篇](/post/infectdis_stat2/)
 
 ```r
 library(data.table)
@@ -250,5 +250,5 @@ makeTsPlot(dat.flu, "流感每月发病数", xlab="年月", ylab="例数", gvar=
 ----
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

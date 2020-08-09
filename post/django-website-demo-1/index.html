@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>edx作业：用Django建一个简易Web订单系统(1) - Libido Chateau</title>
+  <title>edX作业：用Django建一个简易Web订单系统(1) - Libido Chateau</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/django-website-demo-1/" />
@@ -36,26 +36,27 @@
 
 
 <link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="edx作业：用Django建一个简易Web订单系统(1)" />
+<meta property="og:title" content="edX作业：用Django建一个简易Web订单系统(1)" />
 <meta property="og:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.github.io/post/django-website-demo-1/" />
 <meta property="article:published_time" content="2019-11-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
-<meta itemprop="name" content="edx作业：用Django建一个简易Web订单系统(1)">
+<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" />
+<meta itemprop="name" content="edX作业：用Django建一个简易Web订单系统(1)">
 <meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统">
-<meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6321">
+<meta itemprop="datePublished" content="2019-11-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-09T19:48:36+08:00" />
+<meta itemprop="wordCount" content="6315">
 
 
 
-<meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="edx作业：用Django建一个简易Web订单系统(1)"/>
+<meta itemprop="keywords" content="Python,Django,web," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="edX作业：用Django建一个简易Web订单系统(1)"/>
 <meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
 
 <!--[if lte IE 9]>
@@ -123,14 +124,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">edx作业：用Django建一个简易Web订单系统(1)</h1>
+      <h1 class="post-title">edX作业：用Django建一个简易Web订单系统(1)</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-11-06 </span>
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6321 字 </span>
+          <span class="more-meta"> 约 6315 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         
       </div>
@@ -269,66 +270,66 @@
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">project3
-|-- application.py
-|-- db.sqlite3
-|-- django.log
-|-- manage.py
-|
-|--+ accounts
-|  |--+ migrations
-|  |-- __init__.py
-|  |-- admin.py
-|  |-- apps.py
-|  |-- forms.py
-|  |-- models.py
-|  |-- tests.py
-|  |-- urls.py
-|  `-- views.py
-|
-|--+ orders
-|  |--+ migrations
-|  |-- __init__.py
-|  |-- admin.py
-|  |-- apps.py
-|  |-- forms.py
-|  |-- models.py
-|  |-- tests.py
-|  |-- udf.py
-|  |-- urls.py
-|  `-- views.py
-|
-|--+ pizza
-|  |-- __init__.py
-|  |-- settings.py
-|  |-- urls.py
-|  `-- wsgi.py
-|
-|--+ static
-|  |--+ css
-|  |  `-- style.css
-|  `--+ js
-|     |-- cart.js
-|     |-- main.js
-|     |-- menu.js
-|     |-- order.js
-|     |-- orders.js
-|     `-- pick_product.js
-|
-`--+ templates
-   |-- _base.html
-   |-- _popup.html
-   |
-   |--+ accounts
-   |  |-- login.html
-   |  `-- register.html
-   |
-   `--+ orders
-	  |-- cart.html
-	  |-- index.html
-	  |-- order.html
-	  |-- orders.html
-	  `-- pick_product.html
+<pre class="chroma"><code class="language-bash" data-lang="bash">project3
+<span class="p">|</span>-- application.py
+<span class="p">|</span>-- db.sqlite3
+<span class="p">|</span>-- django.log
+<span class="p">|</span>-- manage.py
+<span class="p">|</span>
+<span class="p">|</span>--+ accounts
+<span class="p">|</span>  <span class="p">|</span>--+ migrations
+<span class="p">|</span>  <span class="p">|</span>-- __init__.py
+<span class="p">|</span>  <span class="p">|</span>-- admin.py
+<span class="p">|</span>  <span class="p">|</span>-- apps.py
+<span class="p">|</span>  <span class="p">|</span>-- forms.py
+<span class="p">|</span>  <span class="p">|</span>-- models.py
+<span class="p">|</span>  <span class="p">|</span>-- tests.py
+<span class="p">|</span>  <span class="p">|</span>-- urls.py
+<span class="p">|</span>  <span class="sb">`</span>-- views.py
+<span class="p">|</span>
+<span class="p">|</span>--+ orders
+<span class="p">|</span>  <span class="p">|</span>--+ migrations
+<span class="p">|</span>  <span class="p">|</span>-- __init__.py
+<span class="p">|</span>  <span class="p">|</span>-- admin.py
+<span class="p">|</span>  <span class="p">|</span>-- apps.py
+<span class="p">|</span>  <span class="p">|</span>-- forms.py
+<span class="p">|</span>  <span class="p">|</span>-- models.py
+<span class="p">|</span>  <span class="p">|</span>-- tests.py
+<span class="p">|</span>  <span class="p">|</span>-- udf.py
+<span class="p">|</span>  <span class="p">|</span>-- urls.py
+<span class="p">|</span>  <span class="sb">`</span>-- views.py
+<span class="p">|</span>
+<span class="p">|</span>--+ pizza
+<span class="p">|</span>  <span class="p">|</span>-- __init__.py
+<span class="p">|</span>  <span class="p">|</span>-- settings.py
+<span class="p">|</span>  <span class="p">|</span>-- urls.py
+<span class="p">|</span>  <span class="sb">`</span>-- wsgi.py
+<span class="p">|</span>
+<span class="p">|</span>--+ static
+<span class="p">|</span>  <span class="p">|</span>--+ css
+<span class="p">|</span>  <span class="p">|</span>  <span class="sb">`</span>-- style.css
+<span class="p">|</span>  <span class="sb">`</span>--+ js
+<span class="p">|</span>     <span class="p">|</span>-- cart.js
+<span class="p">|</span>     <span class="p">|</span>-- main.js
+<span class="p">|</span>     <span class="p">|</span>-- menu.js
+<span class="p">|</span>     <span class="p">|</span>-- order.js
+<span class="p">|</span>     <span class="p">|</span>-- orders.js
+<span class="p">|</span>     <span class="sb">`</span>-- pick_product.js
+<span class="p">|</span>
+<span class="sb">`</span>--+ templates
+   <span class="p">|</span>-- _base.html
+   <span class="p">|</span>-- _popup.html
+   <span class="p">|</span>
+   <span class="p">|</span>--+ accounts
+   <span class="p">|</span>  <span class="p">|</span>-- login.html
+   <span class="p">|</span>  <span class="sb">`</span>-- register.html
+   <span class="p">|</span>
+   <span class="sb">`</span>--+ orders
+      <span class="p">|</span>-- cart.html
+      <span class="p">|</span>-- index.html
+      <span class="p">|</span>-- order.html
+      <span class="p">|</span>-- orders.html
+      <span class="sb">`</span>-- pick_product.html
 </code></pre></td></tr></table>
 </div>
 </div><!-- more -->
@@ -434,14 +435,6 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">   
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai&rsquo;</p>
@@ -487,14 +480,6 @@
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
 </div></li>
 <li>
 <p>orders/apps.py定义应用名称</p>
@@ -506,14 +491,6 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">OrdersConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -746,7 +723,7 @@
     <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
         <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
         <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
-    
+
     <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
 
@@ -1240,7 +1217,7 @@ Sign Up
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/models.py</span>
 <span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    
+
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;category&#34;</span>
         <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;categories&#34;</span>
@@ -1351,13 +1328,13 @@ Sign Up
 <div class="admonition note"><p class="admonition-title">设计缺陷</p>
 <p>这个设计不算完美，Cart也可以用客户端缓存来管理，不需要大费周章地放服务器上。不过存服务器也有跨设备同步的好处。作为天然支持键值对的数据库，Cart表完全也可以写成键值对表，下订单时再解析出来，那么设计上可以简单很多。</p>
 </div>
-<p><a href="https://madlogos.github.io/post/django-website-demo-2/">待续</a></p>
+<p><a href="/post/django-website-demo-2/">待续</a></p>
 <hr>
 <!-- {% raw %} -->
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="50%"/> <figcaption>
-            <h4>扫码关注我的的我的公众号</h4>
+         alt="扫码关注" width="30%"/> <figcaption>
+            <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
@@ -1371,8 +1348,8 @@ Sign Up
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-11-07
-        
+        2020-08-09
+        <a href="https://github.com/madlogos/hugo-blog.git/commit/ecd2944e9b5c83502350c01df5b46791eff3879e" title="changes on">(ecd2944)</a>
     </span>
   </p>
   <p class="copyright-item">
@@ -1404,11 +1381,11 @@ Sign Up
       <nav class="post-nav">
         <a class="prev" href="/post/django-website-demo-2/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">edx作业：用Django建一个简易Web订单系统(2)</span>
+            <span class="prev-text nav-default">edX作业：用Django建一个简易Web订单系统(2)</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/flask-socketio-site-demo/">
-            <span class="next-text nav-default">edx作业：用flask建一个简易Web聊天室</span>
+            <span class="next-text nav-default">edX作业：用Flask建一个简易Web聊天室</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -1484,10 +1461,10 @@ Sign Up
     </div>
   </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js" integrity="sha256-TabprKdeNXbSesCWLMrcbWSDzUhpAdcNPe5Q53rn9Yg=" crossorigin="anonymous"></script>> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.12.1/release/flowchart.min.js" integrity="sha256-ANSuVJkHZftRURALG24omixaZG+Sb51/+JY6EDa7MdE=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.10.2/underscore-min.js" integrity="sha256-av1TvywtZ4ZqyCj/6HdtCHSJdn80HAzTgEBTJt/O8uc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.js" integrity="sha256-eadHf9g1REH9Wvp2FLV/D9vKNvQUFKuVPgWFvmMQxBE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.css" integrity="sha256-On01v36B8LRDuL2tqhqs7Gb3Cm/NIpsLFy4OarOodUA=" crossorigin="anonymous">
 
 
 

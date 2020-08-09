@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.73.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat1/" />
@@ -36,7 +36,7 @@
 
 
 <link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
@@ -45,17 +45,18 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat1/" />
 <meta property="article:published_time" content="2017-04-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-04-07T00:00:00+00:00" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat3/" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat2/" />
+<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat3/" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat2/" />
 
 <meta itemprop="name" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
 <meta itemprop="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。">
-<meta itemprop="datePublished" content="2017-04-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2017-04-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4412">
+<meta itemprop="datePublished" content="2017-04-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-09T19:48:36+08:00" />
+<meta itemprop="wordCount" content="4409">
 
 
 
-<meta itemprop="keywords" content="传染病,疫情报告,rvest," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="传染病,疫情报告,rvest," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据"/>
 <meta name="twitter:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。"/>
 
@@ -131,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
             </div>
-          <span class="more-meta"> 约 4412 字 </span>
+          <span class="more-meta"> 约 4409 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         
       </div>
@@ -811,13 +812,13 @@
 </div>
 </div><p>140多篇动态报道，只有67篇用了网页表格附件，有53篇是MS office文档，还有26篇直接贴图了事。</p>
 <p>真是一叶落而知天下秋。卫生系统的数据化水准，跟金融系统比起来真是天上地下，一个站着，一个躺着。</p>
-<p><a href="https://madlogos.github.io/post/infectdis_stat2/">待续</a></p>
+<p><a href="/post/infectdis_stat2/">待续</a></p>
 <hr>
 <!-- {% raw %} -->
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="50%"/> <figcaption>
-            <h4>扫码关注我的的我的公众号</h4>
+         alt="扫码关注" width="30%"/> <figcaption>
+            <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
@@ -831,8 +832,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2017-04-07
-        
+        2020-08-09
+        <a href="https://github.com/madlogos/hugo-blog.git/commit/ecd2944e9b5c83502350c01df5b46791eff3879e" title="changes on">(ecd2944)</a>
     </span>
   </p>
   <p class="copyright-item">
@@ -944,10 +945,10 @@
     </div>
   </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js" integrity="sha256-TabprKdeNXbSesCWLMrcbWSDzUhpAdcNPe5Q53rn9Yg=" crossorigin="anonymous"></script>> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.12.1/release/flowchart.min.js" integrity="sha256-ANSuVJkHZftRURALG24omixaZG+Sb51/+JY6EDa7MdE=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.10.2/underscore-min.js" integrity="sha256-av1TvywtZ4ZqyCj/6HdtCHSJdn80HAzTgEBTJt/O8uc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.js" integrity="sha256-eadHf9g1REH9Wvp2FLV/D9vKNvQUFKuVPgWFvmMQxBE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.css" integrity="sha256-On01v36B8LRDuL2tqhqs7Gb3Cm/NIpsLFy4OarOodUA=" crossorigin="anonymous">
 
 
 

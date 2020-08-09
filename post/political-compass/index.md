@@ -33,7 +33,6 @@
 
 打开R。先载入程序包和数据。
 
-
 ```r
 sapply(c("RColorBrewer", "readr", "stringr", "data.table", "ggplot2", "ggthemes",
          "scatterplot3d"), require, character.only = TRUE, quietly = TRUE)
@@ -42,7 +41,6 @@ format(object.size(data), units = "Mb")
 ```
 
 data一共171830行、57列（包括50个问题、记录号、人口学信息），占92.2M内存。把它melt成hypercube，会变成一头食内存兽。所以用readr包读入，再转成data.table。
-
 
 ```r
 dt <- melt(data[, -3], id = c("X1","X2", "性别", "出生年份", "年收入", "学历"))
@@ -60,7 +58,6 @@ format(object.size(dt), units = "Mb")
 这套问卷一共50道题，1-20题偏政治，21-40偏经济，41-50偏文化。选项都是“强烈支持”(2)、“支持”(1)、“反对”(-1)、“强烈反对”(-2)，没有中立选项（与Political compass一样）。构建一个meta数据集，论述含义偏向集体主义/威权主义/民族主义记为-1(左)，偏向自由主义/普世主义记为1(右)。两列相乘，-2到2分别对应“左”、“偏左”、“偏右”、“右”。原问题太长，化简成4-5各自的“话题”。
 
 更早的一个版本还有IP地址A、B段，可以用来判断来源地。现存的版本把这个字段去掉了（手动可惜）。
-
 
 ```r
 meta <- data.frame(variable=names(data)[4:53])
@@ -86,7 +83,6 @@ names(qn) <- 1:50
 meta$Qn <- qn
 knitr::kable(meta)
 ```
-
 
 | variable                                                                           | Class | Type | Qn          |
 |:-----------------------------------------------------------------------------------|:------|-----:|:------------|
@@ -143,7 +139,6 @@ knitr::kable(meta)
 | 应当将中国传统文化的经典作品作为儿童基础教育读物。                                 | 文化  |  -1 | 国学启蒙     |
 | 如果是出于自愿，我会认可我的孩子和同性结成伴侣关系。                               | 文化  |   1 | 同性恋       |
 
-
 ### 人口学代表性？
 
 讲真，不怎么样。大多数都是30岁以下的小年轻，大学生和研究生比例特别高，低收入比例近一半。这只能说明一点：参与的主力军是在校大学生。而这个群体只占中国居民的10%都不到。
@@ -157,7 +152,6 @@ calc$`经济` <- rowMeans(calc[, 22:41])
 calc$`政治` <- rowMeans(calc[, 2:21])
 data <- merge(data.table(data), data.table(calc[, c(1, 52:54)]), by = "X1")
 ```
-
 
 ```r
 data$年龄 <- 2014 - data$出生年份
@@ -182,7 +176,6 @@ ggplot(age.gender, aes(年龄组, 比重, group=性别)) +
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot.png" title="图 | 人口金字塔" %}}
 
-
 ```r
 educ <- dcast(data, 学历  ~., length, value.var = "X1")
 educ <- educ[complete.cases(educ),]
@@ -198,7 +191,6 @@ ggplot(educ, aes("", 比重, fill=学历)) +
 ```
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot01.png" title="图 | 受教育程度分布" %}}
-
 
 ```r
 incm <- dcast(data, 年收入 ~., length, value.var = "X1")
@@ -223,7 +215,6 @@ ggplot(incm, aes("", 比重, fill=年收入)) +
 
 还是比较正态的。政治几乎不偏不倚，经济和文化都轻微偏左。网上其他一些对此数据集的分析认为结果偏左，实际不然。
 
-
 ```r
 ggplot() + theme_hc() + ggtitle("政治倾向均分") +
     geom_histogram(aes(政治), data = data, bins = 19, fill = hc_pal()(5)[1],
@@ -233,7 +224,6 @@ ggplot() + theme_hc() + ggtitle("政治倾向均分") +
 ```
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot04.png" title="图 | 政治倾向均分直方图" %}}
-
 
 ```r
 ggplot() + theme_hc() + ggtitle("经济倾向均分") +
@@ -245,7 +235,6 @@ ggplot() + theme_hc() + ggtitle("经济倾向均分") +
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot05.png" title="图 | 经济倾向均分直方图" %}}
 
-
 ```r
 ggplot() + theme_hc() + ggtitle("文化倾向均分") +
     geom_histogram(aes(文化), data = data, bins = 19, fill = hc_pal()(5)[4],
@@ -256,7 +245,6 @@ ggplot() + theme_hc() + ggtitle("文化倾向均分") +
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/Rplot06.png" title="图 | 文化倾向均分直方图" %}}
 
-
 分解每个问题，会有更细的发现。
 
 - 在经济控制i问题上，平均偏左，在市场问题上，平均偏右。
@@ -266,7 +254,6 @@ ggplot() + theme_hc() + ggtitle("文化倾向均分") +
 - 在政务治理问题上，普遍左倾；在个人权利问题上，普遍右倾。唯一较偏右的，是针对“运动举国体制”的态度。
 
 但同样是国企话题，很多人反对国企私有化，但同时又赞成国企垄断国计民生命脉产业。这种矛盾很有意思。一些口号化的问题，容易激起下意识的回答。毕业后经历逐渐丰富，很多原本遥远的问题变得与切身利益攸关，感受更为真切，往往立场就会转变。
-
 
 ```r
 summ <- merge(dcast(dt, as.numeric(variable) + Qn ~ ., c(mean, sd),
@@ -290,7 +277,6 @@ ggplot() + geom_point(aes(话题, 均值, color = 分类), data = summ) +
 
 关联很紧密，政治、文化、经济是正相关的。从下面这个图可以发现，男性的倾向性打分平均而言比女性更极端（偏离零点）。这17万个散点在三维空间里形成一个完美正态的橄榄球。
 
-
 ```r
 p3d.lm <- with(data, lm(政治 ~ 文化 + 经济))
 p3d <- with(data, scatterplot3d(
@@ -312,7 +298,6 @@ legend(p3d$xyz.convert(2,0,3), col=c("deepskyblue", "tomato"), pch=19,
 
 对问题得分相关矩阵作层次聚类，大体可以分成四簇。其中，“富人公示财富来源”独立构成一簇。看来大家对此问题的态度比较矛盾。
 
-
 ```r
 cor = (cor(calc[,2:51]))
 colnames(cor) = qn
@@ -331,7 +316,6 @@ plot(hclust(dist(cor)), sub="", xlab="", cex=0.6)
 - 经济上，不同人群都偏左。收入越高的，越左倾（神奇）。年龄越大的越左（45岁以上的相反）。学历越低的越左（研究生以上相反）。
 
 - 文化上整体仍偏左。学历越高越右，年收入越高越左（神奇），年龄越大越右（神奇，看来选择偏倚不小）。女性明显更左（偏集体/威权/平等）。
-
 
 ```r
 summ <- lapply(c("性别", "年龄段", "年收入", "学历"), function(var){
@@ -370,7 +354,6 @@ ggplot() + geom_point(aes(标签, 均值, color = 水平), data = summ) +
 
 - 收入越低，越反对“农业补贴”、“国家制定最低工资”、“国企应掌握命脉”、“可以丑化领袖”。
 
-
 ```r
 summ <- merge(dcast(dt, as.numeric(variable) + Qn + 年收入 ~ ., c(mean, sd),
                     value.var = "Value", na.rm=TRUE),
@@ -398,7 +381,6 @@ ggplot() + geom_point(aes(话题, 均值, color = 年收入), data = summ) +
 
 - 学历越低，越反对：“农业补贴”、“劳动比资本高贵”、“丑化领袖”、“允许双重国籍”、“地权人民所有”。
 
-
 ```r
 summ <- merge(dcast(dt, as.numeric(variable) + Qn + 学历 ~ ., c(mean, sd),
                     value.var = "Value", na.rm=TRUE),
@@ -423,7 +405,6 @@ ggplot() + geom_point(aes(话题, 均值, color = 学历), data = summ) +
 - 年龄越大，越反对：“国企破产不如私有化”、“自然形成的市场垄断”、“尊儒”、“补贴穷人”、“资本有原罪”、“婚外性自由”、“多党制”、“可以丑化领袖”、“用国学启蒙”，越支持：“子女同性恋”。
 
 - 年龄越小，越反对：“国企应控制经济命脉”、“双重国籍”、“浪费粮食也是个人自由”，越支持：“补贴穷人”、“尊儒”、“为尊者讳”、“用国学启蒙”。
-
 
 ```r
 summ <- merge(dcast(dt, as.numeric(variable) + Qn + 年龄段 ~ ., c(mean, sd),
@@ -452,7 +433,6 @@ ggplot() + geom_point(aes(话题, 均值, color = 年龄段), data = summ) +
 - 多数文化问题上，男性更右（自由主义）。
 
 - 多数经济问题上，女性偏左。在补贴穷人问题上，男性明显偏右。
-
 
 ```r
 summ <- merge(dcast(dt, as.numeric(variable) + Qn + 性别 ~ ., c(mean, sd),
@@ -508,5 +488,5 @@ ggplot() + geom_point(aes(话题, 均值, color = 性别), data = summ) +
 ---
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->

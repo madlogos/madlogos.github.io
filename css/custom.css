@@ -1,23 +1,32 @@
 h1 {
-    font-size: 36px;
+    font-size: 1.8em;
     font-weight: lighter;
+}
+.post .post-header .post-title {
+    font-size: 1.8em;
+    font-weight: lighter;
+    font-family: "Helvetica Neue Light", "Arial Light", "STHeiTi Light", "Microsoft YaHei Light", "Source Han Sans Light";
+}
+.post .post-content h2, .post .post-content h3 {
+    font-family: "Helvetica Neue Light", "Arial Light", "STHeiTi Light", "Microsoft YaHei Light", "Source Han Sans Light";
 }
 h2 {
-    font-size: 30px;
-    font-weight: lighter;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #eaeaea;
+    font-size: 1.6em;
+    border-left: 6px solid #16982b;
+    margin-left: -16px;
+    padding-left: 10px;
 }
 h3 {
-    font-size: 30px;
-    font-weight: lighter;
+    font-size: 1.6em;
+    padding-bottom: 0.1em;
+    border-bottom: 0.1px solid #eaeff5;
 }
 h4 {
-    font-size: 24px;
+    font-size: 1.4em;
 }
 h5 {
-    font-size: 18px;
+    font-size: 1.2em;
 }
 h6 {
-    font-size: 16px;
+    font-size: 1.1em;
 }

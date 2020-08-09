@@ -1,7 +1,7 @@
 
 ### Admin后台
 
-[接上篇](https://madlogos.github.io/post/django-website-demo-1/)
+[接上篇](/post/django-website-demo-1/)
 
 模型做好后，可以在[admin.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py)里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。
 
@@ -408,7 +408,7 @@ def pick_product(request, id):
                 itm.quantity += qty
                 itm.save()
                 break
-        
+
         ## if not duplicate, insert record
         if not itm_dup:
             item.save()
@@ -515,7 +515,7 @@ Cart
                 <td width="15%">{{ item.item.created|date:"Y/m/d H:i:s" }}</td>
                 <td width="15%">{{ item.item.updated|date:"Y/m/d H:i:s" }}</td>
             </tr>
-            
+
             {% if item.item.topping.all|length > 0 %}
                 {% for topping in item.item.itemtopping_item.all %}
                 <tr>
@@ -649,7 +649,7 @@ function update_price(){
                 item_id).innerHTML;
             let qty = document.getElementById('product_' + item_id).value;
             let item_price = Number(qty) * Number(unit_price);
-            
+
             if (elem.dataset.class == 'order'){
                 if (elem.checked){
                     selected += item_price;
@@ -881,18 +881,18 @@ Orders
 ```javascript
 /* static/js/orders.js */
 document.querySelectorAll('button').forEach(elem => {
-	const btn_dict = {'btn_pay': 'pay', 'btn_cancel': 'cancel', 'btn_delete': 'delete'};
-	if (['btn_pay', 'btn_cancel', 'btn_delete'].indexOf(elem.id) >= 0){
-		elem.addEventListener('click', evt => {
-			if (! check_clickable(btn_dict[elem.id])){
-				evt.preventDefault();
-				alert('No order is selected or \r\n
-				    not all the selected orders can ' + btn_dict[elem.id] + '.');
-			};
-		});
-	}else if (['pay', 'cancel', 'delete'].indexOf(elem.name) >= 0){
-		elem.addEventListener('click', confirm_submit);
-	};
+    const btn_dict = {'btn_pay': 'pay', 'btn_cancel': 'cancel', 'btn_delete': 'delete'};
+    if (['btn_pay', 'btn_cancel', 'btn_delete'].indexOf(elem.id) >= 0){
+        elem.addEventListener('click', evt => {
+            if (! check_clickable(btn_dict[elem.id])){
+                evt.preventDefault();
+                alert('No order is selected or \r\n
+                    not all the selected orders can ' + btn_dict[elem.id] + '.');
+            };
+        });
+    }else if (['pay', 'cancel', 'delete'].indexOf(elem.name) >= 0){
+        elem.addEventListener('click', confirm_submit);
+    };
 });
 
 function check_clickable(state){
@@ -1054,5 +1054,5 @@ def order(request, id):
 ---
 
 <!-- {% raw %} -->
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="50%" title="扫码关注我的的我的公众号" alt="扫码关注" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
 <!-- {% endraw %} -->
