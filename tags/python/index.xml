@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Libido Chateau</title>
-    <link>https://madlogos.github.io/tags/python/</link>
+    <link>https://madlogos.gitee.io/tags/python/</link>
     <description>Recent content in Python on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
     <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://madlogos.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madlogos.gitee.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>edX作业：用Django建一个简易Web订单系统(2)</title>
-      <link>https://madlogos.github.io/post/django-website-demo-2/</link>
+      <link>https://madlogos.gitee.io/post/django-website-demo-2/</link>
       <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/django-website-demo-2/</guid>
+      <guid>https://madlogos.gitee.io/post/django-website-demo-2/</guid>
       <description>&lt;h3 id=&#34;admin后台&#34;&gt;Admin后台&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/django-website-demo-1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://madlogos.gitee.io/post/django-website-demo-1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;模型做好后，可以在&lt;a href=&#34;https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py&#34;&gt;admin.py&lt;/a&gt;里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -117,10 +117,10 @@
     
     <item>
       <title>edX作业：用Django建一个简易Web订单系统(1)</title>
-      <link>https://madlogos.github.io/post/django-website-demo-1/</link>
+      <link>https://madlogos.gitee.io/post/django-website-demo-1/</link>
       <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/django-website-demo-1/</guid>
+      <guid>https://madlogos.gitee.io/post/django-website-demo-1/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
 &lt;p&gt;还是edx的作业。今次要换用Django框架实现一个Pizza点单系统。&lt;br/&gt;
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
@@ -150,10 +150,10 @@
     
     <item>
       <title>edX作业：用Flask建一个简易Web聊天室</title>
-      <link>https://madlogos.github.io/post/flask-socketio-site-demo/</link>
+      <link>https://madlogos.gitee.io/post/flask-socketio-site-demo/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/flask-socketio-site-demo/</guid>
+      <guid>https://madlogos.gitee.io/post/flask-socketio-site-demo/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
 &lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用flask_socketio实现一个粗糙的聊天室。&lt;br/&gt;
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;
@@ -177,10 +177,10 @@
     
     <item>
       <title>edX作业：用Flask建一个简易图书查询Web应用</title>
-      <link>https://madlogos.github.io/post/flask-website-demo/</link>
+      <link>https://madlogos.gitee.io/post/flask-website-demo/</link>
       <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/flask-website-demo/</guid>
+      <guid>https://madlogos.gitee.io/post/flask-website-demo/</guid>
       <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;摘要&lt;/p&gt;
 &lt;p&gt;记载了「通往全栈之路上」的一则edx慕课作业：用Flask框架写一个图书查询的web应用。&lt;br/&gt;
 【honor code警告】如果你刚巧也注册了这门课，千万不要抄。&lt;/p&gt;

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://madlogos.github.io/sitemap.xml
+Sitemap: https://madlogos.gitee.io/sitemap.xml

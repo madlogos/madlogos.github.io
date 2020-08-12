@@ -19,21 +19,21 @@
 <meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
 
 
-
+<meta name="baidu-site-verification" content="f221e23428218df65adeefe00f85e7ed" />
 
 
 
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat1/" />
+<link rel="canonical" href="https://madlogos.gitee.io/post/infectdis_stat1/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
@@ -43,9 +43,9 @@
 <meta property="og:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据" />
 <meta property="og:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat1/" />
+<meta property="og:url" content="https://madlogos.gitee.io/post/infectdis_stat1/" />
 <meta property="article:published_time" content="2017-04-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat3/" /><meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat2/" />
+<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" /><meta property="og:see_also" content="https://madlogos.gitee.io/post/infectdis_stat3/" /><meta property="og:see_also" content="https://madlogos.gitee.io/post/infectdis_stat2/" />
 
 <meta itemprop="name" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
 <meta itemprop="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。">
@@ -134,7 +134,7 @@
             </div>
           <span class="more-meta"> 约 4409 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
-        
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
 
@@ -838,7 +838,7 @@
   </p>
   <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.github.io/post/infectdis_stat1/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://madlogos.gitee.io/post/infectdis_stat1/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
   
 </div>
@@ -915,7 +915,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://madlogos.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -928,7 +928,11 @@
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
-  
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
 
   <span class="copyright-year">
     &copy; 
@@ -964,8 +968,42 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-68964085-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?madlogos";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
-
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 
 
 <script src="/js/custom.js"></script>

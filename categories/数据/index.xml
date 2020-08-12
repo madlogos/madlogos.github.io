@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据 on Libido Chateau</title>
-    <link>https://madlogos.github.io/categories/%E6%95%B0%E6%8D%AE/</link>
+    <link>https://madlogos.gitee.io/categories/%E6%95%B0%E6%8D%AE/</link>
     <description>Recent content in 数据 on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
     <lastBuildDate>Sun, 23 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://madlogos.github.io/categories/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madlogos.gitee.io/categories/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>北宋、明清进士空间分析</title>
-      <link>https://madlogos.github.io/post/song_ming_qing_jinshi/</link>
+      <link>https://madlogos.gitee.io/post/song_ming_qing_jinshi/</link>
       <pubDate>Sun, 23 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/song_ming_qing_jinshi/</guid>
+      <guid>https://madlogos.gitee.io/post/song_ming_qing_jinshi/</guid>
       <description>&lt;h2 id=&#34;哈佛人文地理可视化平台&#34;&gt;哈佛人文地理可视化平台&lt;/h2&gt;
 &lt;p&gt;周末找在线GIS素材，误打误撞进到了worldmap.harvard.edu——一座名副其实的学术宝库。它是哈佛大学搞的一个&lt;strong&gt;开源&lt;/strong&gt;地理可视化平台，社会、经济、历史学科的学者可以自己创建、上传数据集，方便地做多图层地理可视化。这个设计充满学术理想，也为有志于成为世界一流名校的大学树立了一座看得见摸得着的价值标杆：&lt;strong&gt;卓越、开放、自治、共享&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;中国地图 &amp;lt;worldmap.harvard.edu/chinamap&amp;gt; 是其中一个子站，已经上线多个数据层，包括社会/人口、经济、交通、能源、环境/气候、公共卫生，甚至历史地图。比如下面的视图，就是细化到县级的人口密度热力图，默认叠加在OpenStreetMap底图上，效果非常棒。&lt;/p&gt;
@@ -45,12 +45,12 @@
     
     <item>
       <title>一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat3/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat3/</link>
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat3/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat3/</guid>
       <description>&lt;h2 id=&#34;甲乙丙类每月发病死亡数&#34;&gt;甲乙丙类每月发病、死亡数&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat2/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://madlogos.gitee.io/post/infectdis_stat2/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -142,12 +142,12 @@
     
     <item>
       <title>一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat2/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat2/</link>
       <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat2/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat2/</guid>
       <description>&lt;h2 id=&#34;数据提取&#34;&gt;数据提取&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://madlogos.gitee.io/post/infectdis_stat1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;要把图片附件识别成文本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：&lt;/p&gt;
@@ -167,10 +167,10 @@
     
     <item>
       <title>一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat1/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat1/</link>
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat1/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat1/</guid>
       <description>&lt;h2 id=&#34;带怀旧色彩的源起&#34;&gt;带怀旧色彩的源起&lt;/h2&gt;
 &lt;p&gt;清明节跑去一个休闲浴场&lt;del&gt;鬼混&lt;/del&gt;，在电影厅懒散地看掉了《生化危机6》。场地很豪华（但我就是不透露门牌地址），然而剧情不怎么样——女主光环实在太亮了。倒是病毒-丧尸-疫苗的急性传染病建模设定引起了我的一些职业回忆。&lt;/p&gt;
 &lt;p&gt;毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。&lt;/p&gt;
@@ -203,10 +203,10 @@
     
     <item>
       <title>朝左还是朝右？来看一份17万行的小样本数据</title>
-      <link>https://madlogos.github.io/post/political-compass/</link>
+      <link>https://madlogos.gitee.io/post/political-compass/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/political-compass/</guid>
+      <guid>https://madlogos.gitee.io/post/political-compass/</guid>
       <description>&lt;figure class=&#34;center&#34;&gt;
     &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/left_right_wing_us.jpg&#34;/&gt; 
 &lt;/figure&gt;

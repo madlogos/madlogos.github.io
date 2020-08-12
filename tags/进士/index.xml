@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>进士 on Libido Chateau</title>
-    <link>https://madlogos.github.io/tags/%E8%BF%9B%E5%A3%AB/</link>
+    <link>https://madlogos.gitee.io/tags/%E8%BF%9B%E5%A3%AB/</link>
     <description>Recent content in 进士 on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
     <lastBuildDate>Sun, 30 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://madlogos.github.io/tags/%E8%BF%9B%E5%A3%AB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madlogos.gitee.io/tags/%E8%BF%9B%E5%A3%AB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>【动态图版】北宋、明清进士空间可视化分析</title>
-      <link>https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/</link>
+      <link>https://madlogos.gitee.io/post/song_ming_qing_jinshi_interactive/</link>
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/</guid>
+      <guid>https://madlogos.gitee.io/post/song_ming_qing_jinshi_interactive/</guid>
       <description>&lt;div class=&#34;admonition info&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;注意&lt;/p&gt;
 &lt;p&gt;如果浏览器提示本文加载了不安全的脚本，请点允许。&lt;/p&gt;
 &lt;/div&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>北宋、明清进士空间分析</title>
-      <link>https://madlogos.github.io/post/song_ming_qing_jinshi/</link>
+      <link>https://madlogos.gitee.io/post/song_ming_qing_jinshi/</link>
       <pubDate>Sun, 23 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/song_ming_qing_jinshi/</guid>
+      <guid>https://madlogos.gitee.io/post/song_ming_qing_jinshi/</guid>
       <description>&lt;h2 id=&#34;哈佛人文地理可视化平台&#34;&gt;哈佛人文地理可视化平台&lt;/h2&gt;
 &lt;p&gt;周末找在线GIS素材，误打误撞进到了worldmap.harvard.edu——一座名副其实的学术宝库。它是哈佛大学搞的一个&lt;strong&gt;开源&lt;/strong&gt;地理可视化平台，社会、经济、历史学科的学者可以自己创建、上传数据集，方便地做多图层地理可视化。这个设计充满学术理想，也为有志于成为世界一流名校的大学树立了一座看得见摸得着的价值标杆：&lt;strong&gt;卓越、开放、自治、共享&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;中国地图 &amp;lt;worldmap.harvard.edu/chinamap&amp;gt; 是其中一个子站，已经上线多个数据层，包括社会/人口、经济、交通、能源、环境/气候、公共卫生，甚至历史地图。比如下面的视图，就是细化到县级的人口密度热力图，默认叠加在OpenStreetMap底图上，效果非常棒。&lt;/p&gt;

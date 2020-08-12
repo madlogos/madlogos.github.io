@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>imacros on Libido Chateau</title>
-    <link>https://madlogos.github.io/tags/imacros/</link>
+    <link>https://madlogos.gitee.io/tags/imacros/</link>
     <description>Recent content in imacros on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
     <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://madlogos.github.io/tags/imacros/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madlogos.gitee.io/tags/imacros/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iMacros脚本运行三天，爬取了40万行现代化支付行号</title>
-      <link>https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/</link>
+      <link>https://madlogos.gitee.io/post/imacros_zyb_cnaps_scrapy/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/</guid>
+      <guid>https://madlogos.gitee.io/post/imacros_zyb_cnaps_scrapy/</guid>
       <description>&lt;h2 id=&#34;离题万里的开场&#34;&gt;离题万里的开场&lt;/h2&gt;
 &lt;p&gt;码农界有个著名的“三次法则 (rule of three)”：&lt;strong&gt;如果一段代码重复出现了三次，就要考虑抽出来写一个子程序，以便复用&lt;/strong&gt;。这是条宝贵的法则，可以衍生出更多的强迫症版本，随随便便就能举出很多喜闻乐见的例子，比如：&lt;/p&gt;
 &lt;blockquote&gt;

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rvest on Libido Chateau</title>
-    <link>https://madlogos.github.io/tags/rvest/</link>
+    <link>https://madlogos.gitee.io/tags/rvest/</link>
     <description>Recent content in rvest on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
     <lastBuildDate>Sun, 16 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://madlogos.github.io/tags/rvest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://madlogos.gitee.io/tags/rvest/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat3/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat3/</link>
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat3/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat3/</guid>
       <description>&lt;h2 id=&#34;甲乙丙类每月发病死亡数&#34;&gt;甲乙丙类每月发病、死亡数&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat2/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://madlogos.gitee.io/post/infectdis_stat2/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -110,12 +110,12 @@
     
     <item>
       <title>一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat2/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat2/</link>
       <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat2/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat2/</guid>
       <description>&lt;h2 id=&#34;数据提取&#34;&gt;数据提取&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://madlogos.github.io/post/infectdis_stat1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://madlogos.gitee.io/post/infectdis_stat1/&#34;&gt;接上篇&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;要把图片附件识别成文本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：&lt;/p&gt;
@@ -135,10 +135,10 @@
     
     <item>
       <title>一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据</title>
-      <link>https://madlogos.github.io/post/infectdis_stat1/</link>
+      <link>https://madlogos.gitee.io/post/infectdis_stat1/</link>
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://madlogos.github.io/post/infectdis_stat1/</guid>
+      <guid>https://madlogos.gitee.io/post/infectdis_stat1/</guid>
       <description>&lt;h2 id=&#34;带怀旧色彩的源起&#34;&gt;带怀旧色彩的源起&lt;/h2&gt;
 &lt;p&gt;清明节跑去一个休闲浴场&lt;del&gt;鬼混&lt;/del&gt;，在电影厅懒散地看掉了《生化危机6》。场地很豪华（但我就是不透露门牌地址），然而剧情不怎么样——女主光环实在太亮了。倒是病毒-丧尸-疫苗的急性传染病建模设定引起了我的一些职业回忆。&lt;/p&gt;
 &lt;p&gt;毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。&lt;/p&gt;
