@@ -6,11 +6,7 @@
     <description>Recent content in AJAX on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
-    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://madlogos.gitee.io/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://madlogos.gitee.io/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>edX作业：用Flask建一个简易Web聊天室</title>
       <link>https://madlogos.gitee.io/post/flask-socketio-site-demo/</link>

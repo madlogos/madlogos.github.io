@@ -6,11 +6,7 @@
     <description>Recent content in 技术 on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
-    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://madlogos.gitee.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://madlogos.gitee.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>edX作业：用Django建一个简易Web订单系统(2)</title>
       <link>https://madlogos.gitee.io/post/django-website-demo-2/</link>

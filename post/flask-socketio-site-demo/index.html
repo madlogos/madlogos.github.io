@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/flask-socketio-site-demo/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
+<link href="/sass/main.min.7ab7605477799d84a03801c0a421d837bb65168971ecc0cda67bd19c1ae84b3b.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -43,19 +43,15 @@
 <meta property="og:title" content="edX作业：用Flask建一个简易Web聊天室" />
 <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.gitee.io/post/flask-socketio-site-demo/" />
-<meta property="article:published_time" content="2019-11-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" />
+<meta property="og:url" content="https://madlogos.gitee.io/post/flask-socketio-site-demo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-08-09T19:48:36&#43;08:00" />
+
 <meta itemprop="name" content="edX作业：用Flask建一个简易Web聊天室">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用">
-<meta itemprop="datePublished" content="2019-11-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-08-09T19:48:36+08:00" />
-<meta itemprop="wordCount" content="7798">
-
-
-
-<meta itemprop="keywords" content="Python,Flask,SocketIO,AJAX,web," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"><meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-09T19:48:36&#43;08:00" />
+<meta itemprop="wordCount" content="7777">
+<meta itemprop="keywords" content="Python,Flask,SocketIO,AJAX,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Flask建一个简易Web聊天室"/>
 <meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"/>
 
@@ -131,7 +127,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7798 字 </span>
+          <span class="more-meta"> 约 7777 字 </span>
           <span class="more-meta"> 预计阅读 16 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -185,7 +181,7 @@
 <h3 id="准备">准备</h3>
 <ul>
 <li>先要有Python（装了Anaconda），然后要装<code>Flask</code>、<code>Flask-Socketio</code>包(<code>pip</code>)。</li>
-<li>在环境变量里定义一个&quot;SECRET_KEY&rdquo;，否则flask_socketio会出错。</li>
+<li>在环境变量里定义一个&quot;SECRET_KEY&quot;，否则flask_socketio会出错。</li>
 </ul>
 <h3 id="项目结构">项目结构</h3>
 <div class="admonition info"><p class="admonition-title">源代码托管于Github</p>
@@ -414,7 +410,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created&rsquo;、&lsquo;max_id&rsquo;和双层字典&rsquo;chats&rsquo;：</p>
+</div><p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created'、&lsquo;max_id&rsquo;和双层字典&rsquo;chats&rsquo;：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -469,8 +465,8 @@
 <span class="err">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>chats里包含的就是一条条消息，以id为键，包起&rsquo;user&rsquo;、&lsquo;time&rsquo;和&rsquo;msg&rsquo;。</p>
-<p>主路由&rdquo;/&ldquo;绑定函数<code>index</code>。假如当前<code>session</code>里有&rsquo;act_user&rsquo;，那么调用<code>get_channels()</code>函数（也就是跑去频道列表），否则跳转去login页。</p>
+</div><p>chats里包含的就是一条条消息，以id为键，包起&rsquo;user'、&lsquo;time&rsquo;和&rsquo;msg&rsquo;。</p>
+<p>主路由&quot;/&ldquo;绑定函数<code>index</code>。假如当前<code>session</code>里有&rsquo;act_user'，那么调用<code>get_channels()</code>函数（也就是跑去频道列表），否则跳转去login页。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -786,9 +782,9 @@ Channels
 </div><p>GET方法下，调用<code>get_channels()</code>函数，显示频道列表。如果用户没登陆，直接GET login呢？不要紧，这种情况下<a href="#channels_html">channels.html</a>只会展示<kbd>addName</kbd>按钮和inputName表单。</p>
 <p>而POST方法下（也就是提交了inputName表单后），判断一下displayName里填的名字是否已经在全局对象users里，没有的话就创建一个。完事后重定向到get_channels绑定的路由，也就是频道列表。</p>
 <div class="admonition note"><p class="admonition-title">flash()函数</p>
-<p>上面的Python代码用到了<code>flash(text, type)</code> 函数，它会发送一个<code>flash</code>请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的&quot;danger&rdquo;, &ldquo;warning&rdquo;, &ldquo;success&rdquo;, &ldquo;info&quot;这类。
+<p>上面的Python代码用到了<code>flash(text, type)</code> 函数，它会发送一个<code>flash</code>请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的&quot;danger&quot;, &ldquo;warning&rdquo;, &ldquo;success&rdquo;, &ldquo;info&quot;这类。
 <br/><br/>
-为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把<code>&lt;i class=&quot;xxx&rdquo;&gt;</code> flash到前端，无法解析出图标，需要包一个<code>Markup()</code>，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。</p>
+为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把<code>&lt;i class=&ldquo;xxx&rdquo;&gt;</code> flash到前端，无法解析出图标，需要包一个<code>Markup()</code>，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。</p>
 </div>
 <h3 id="注销">注销</h3>
 <p>有登录就有注销。_base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。这里的注销也很简单，登出后清空<code>session</code>中的<code>act_user</code>对象，转跳回登录页。</p>
@@ -902,7 +898,7 @@ Channels
             <h4>图 | 上次访问的频道</h4>
         </figcaption>
 </figure>
-<p>POST方法下，服务器从表单里提取&quot;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created&rsquo;、&lsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
+<p>POST方法下，服务器从表单里提取&quot;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created'、&lsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png"/> <figcaption>
             <h4>图 | 创建频道</h4>
@@ -1118,7 +1114,7 @@ Channel {{ channel }}
 </code></pre></td></tr></table>
 </div>
 </div><!-- {% endraw %} -->
-<p>在channel.html模板中，script块里引入一大堆JS。比如用来动态生成HTML内容的handlebars.js，和处理socket的socket.io.js。disp块里定义了显示对话的表格&quot;tbl_chat&rdquo;，其中tbody留空，赋个id=&quot;msgTbl&rdquo;。</p>
+<p>在channel.html模板中，script块里引入一大堆JS。比如用来动态生成HTML内容的handlebars.js，和处理socket的socket.io.js。disp块里定义了显示对话的表格&quot;tbl_chat&quot;，其中tbody留空，赋个id=&ldquo;msgTbl&rdquo;。</p>
 <!-- {% raw %} -->
 <p>handlebars模板有一些特殊的语法规范，比如要转义的部分需要加{% raw -%}&hellip;{%- endraw %} 而标签、控制结构用{{#if}}&hellip;{{else}}&hellip;{{/if}}。它能解析变量，动态合成HTML。上面代码里的handlebars模板主要是根据act_user和发帖人是否为同一人，显示为不同的颜色。</p>
 <!-- {% endraw %} -->
@@ -1241,7 +1237,7 @@ Channel {{ channel }}
 </code></pre></td></tr></table>
 </div>
 </div><p>不这样处理也可以，Javascript会按默认的格式渲染日期。</p>
-<p>回过头再看&rsquo;channel/<channel>'路由的代码：</p>
+<p>回过头再看&rsquo;channel/<channel>&lsquo;路由的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1647,7 +1643,7 @@ Channel {{ channel }}
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     
     <span class="author">madlogos</span>
   </span>
@@ -1666,7 +1662,7 @@ Channel {{ channel }}
 
 
 
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1688,7 +1684,16 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?f221e23428218df65adeefe00f85e7ed";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
 <script id="baidu_push">
   (function(){

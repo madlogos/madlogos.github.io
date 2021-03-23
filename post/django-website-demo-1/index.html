@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/django-website-demo-1/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
+<link href="/sass/main.min.7ab7605477799d84a03801c0a421d837bb65168971ecc0cda67bd19c1ae84b3b.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -43,19 +43,15 @@
 <meta property="og:title" content="edX作业：用Django建一个简易Web订单系统(1)" />
 <meta property="og:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.gitee.io/post/django-website-demo-1/" />
-<meta property="article:published_time" content="2019-11-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" />
+<meta property="og:url" content="https://madlogos.gitee.io/post/django-website-demo-1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-08-09T19:48:36&#43;08:00" />
+
 <meta itemprop="name" content="edX作业：用Django建一个简易Web订单系统(1)">
-<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统">
-<meta itemprop="datePublished" content="2019-11-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-08-09T19:48:36+08:00" />
-<meta itemprop="wordCount" content="6315">
-
-
-
-<meta itemprop="keywords" content="Python,Django,web," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"><meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-09T19:48:36&#43;08:00" />
+<meta itemprop="wordCount" content="6305">
+<meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Django建一个简易Web订单系统(1)"/>
 <meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
 
@@ -131,7 +127,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6315 字 </span>
+          <span class="more-meta"> 约 6305 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -437,7 +433,7 @@
 </div>
 </div></li>
 <li>
-<p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai&rsquo;</p>
+<p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai'</p>
 </li>
 <li>
 <p>STATIC_URL 改为 &lsquo;/static/&rsquo;</p>
@@ -813,7 +809,7 @@ Sign In
 </div><!-- {% endraw %} -->
 <!-- {% raw %} -->
 <div class="admonition tip"><p class="admonition-title">要点</p>
-<p>Django表单内都必须加个&rsquo;{% csrf_token %}&rsquo; 解决跨域问题。模板内部解析form对象，组装出表单。</p>
+<p>Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内部解析form对象，组装出表单。</p>
 </div>
 <!-- {% endraw %} -->
 <p>后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。</p>
@@ -1178,7 +1174,7 @@ Sign Up
 </div><h4 id="模型和元参数">模型和元参数</h4>
 <p>model的定义跟表单有点像。以品类(Category)和产品(Product)为例，都继承自models.Model类。定义好字段参数后，可以设定元数据class Meta，定义verbose_name之类元参数。对于Product，我希望实现category、name和size三个字段构成一个复合主键，只要定义进unique_together就可以了。</p>
 <p>另外，比较推荐单独定义<code>__str__()</code>方法，这样在Django后台管理数据时，屏显记录名更人性化。</p>
-<p>Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name=&quot;products&rdquo;。这样将来就可以通过Category.objects.filter(products=&quot;xxx&rdquo;)来反查xxx产品的类型。</p>
+<p>Category和Product是通过Category id连接的，所以Product里要设置一个外键字段category，设置related_name=&ldquo;products&rdquo;。这样将来就可以通过Category.objects.filter(products=&ldquo;xxx&rdquo;)来反查xxx产品的类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1456,7 +1452,7 @@ Sign Up
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     
     <span class="author">madlogos</span>
   </span>
@@ -1475,7 +1471,7 @@ Sign Up
 
 
 
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1497,7 +1493,16 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?f221e23428218df65adeefe00f85e7ed";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
 <script id="baidu_push">
   (function(){

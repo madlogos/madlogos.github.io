@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/flask-website-demo/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.58df979e9b6a55044415885e71ecbfa526dedcd25d9ec71a7bd6a6ed1772355d.css" rel="stylesheet">
+<link href="/sass/main.min.7ab7605477799d84a03801c0a421d837bb65168971ecc0cda67bd19c1ae84b3b.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -43,19 +43,15 @@
 <meta property="og:title" content="edX作业：用Flask建一个简易图书查询Web应用" />
 <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.gitee.io/post/flask-website-demo/" />
-<meta property="article:published_time" content="2019-09-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36+08:00" />
+<meta property="og:url" content="https://madlogos.gitee.io/post/flask-website-demo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-09-16T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-08-09T19:48:36&#43;08:00" />
+
 <meta itemprop="name" content="edX作业：用Flask建一个简易图书查询Web应用">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用">
-<meta itemprop="datePublished" content="2019-09-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-08-09T19:48:36+08:00" />
-<meta itemprop="wordCount" content="7304">
-
-
-
-<meta itemprop="keywords" content="Python,Flask,web," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"><meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-09T19:48:36&#43;08:00" />
+<meta itemprop="wordCount" content="7320">
+<meta itemprop="keywords" content="Python,Flask,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Flask建一个简易图书查询Web应用"/>
 <meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"/>
 
@@ -131,7 +127,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 7304 字 </span>
+          <span class="more-meta"> 约 7320 字 </span>
           <span class="more-meta"> 预计阅读 15 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -1088,7 +1084,7 @@ Books
 <p>我不太会写查询条件的复合拼接，用了列表解析式(list comprehension)。这是python里我最喜欢的语法。</p>
 <!-- {% raw %} -->
 <div class="admonition example"><p class="admonition-title">举个栗子</p>
-<p>假如isbn='123&rsquo;，title='war&rsquo;，author='rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表: <br/></p>
+<p>假如isbn=&lsquo;123&rsquo;，title=&lsquo;war&rsquo;，author=&lsquo;rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表: <br/></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1173,7 +1169,7 @@ Books
         <span class="n">pagination</span><span class="o">=</span><span class="n">pagination</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>书名搜索&quot;china&rdquo;，返回所有标题内含&quot;china&quot;的书。</p>
+</div><p>书名搜索&quot;china&quot;，返回所有标题内含&quot;china&quot;的书。</p>
 <figure class="center">
     <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/filtered_books.png"/> <figcaption>
             <h4>图 | 搜索标题含china的书籍</h4>
@@ -1411,7 +1407,7 @@ Books
 </div>
 </div><p>然后，把book/<a href="int:book_id">int:book_id</a>路由的处理都写进<code>review()</code>函数里。</p>
 <ol>
-<li>路由要写成&rdquo;/book/&lt;int:book_id&gt;&ldquo;这种动态形式，前端收到的book_id对象可以自动匹配过来。</li>
+<li>路由要写成&quot;/book/&lt;int:book_id&gt;&ldquo;这种动态形式，前端收到的book_id对象可以自动匹配过来。</li>
 <li>分别拿到book，gr_data和review三处数据，丢到<code>index()</code>函数处理。</li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -1887,7 +1883,7 @@ Books
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
+    2021
     
     <span class="author">madlogos</span>
   </span>
@@ -1906,7 +1902,7 @@ Books
 
 
 
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -1928,7 +1924,16 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?f221e23428218df65adeefe00f85e7ed";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
 <script id="baidu_push">
   (function(){

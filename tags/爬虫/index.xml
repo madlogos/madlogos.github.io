@@ -6,11 +6,7 @@
     <description>Recent content in 爬虫 on Libido Chateau</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>madlogos</copyright>
-    <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://madlogos.gitee.io/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://madlogos.gitee.io/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iMacros脚本运行三天，爬取了40万行现代化支付行号</title>
       <link>https://madlogos.gitee.io/post/imacros_zyb_cnaps_scrapy/</link>

@@ -110,7 +110,7 @@
   - Docker搭环境，狂练Postgres, Hive, Spark, `pandas`
 - 1个月：自学深度学习
   - 上网课，了解CNN, Transformer, BERT
-- 1个月：学前端框架，手撸了一个在线简历
+- 1个月：学前端框架，手撸了一个[在线简历](https://madlogos.gitee.io/vueresume)
   - 死磕Flask, Django, DjangoRestFramework
   - 自学Vue和ElementUI，搭简历应用
 
