@@ -34,13 +34,13 @@
 
 <!--more-->
 
+## 镇江
+
 抛开交通不谈，镇江是五一的冷门。扬州连全季都要1800一晚，大连甚至连维也纳都要2000多，镇江紧挨西津渡和金山寺的中高端酒店，却连700都不到。整体性价比颇高。
 
 订了个雅阁(Argyle)酒店（一个澳大利亚的连锁品牌），2018年刚开业。服务很好，有不少为住客考虑的细节，相比同等价位的桔子之类，有自己的特色。大堂里有台一体咖啡机，用哥伦比亚豆，醇香回甘。
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/10.jpg" width="100%" title="图 | 镇江西津渡雅阁酒店" alt="镇江西津渡雅阁酒店" %}}
-
-## 镇江
 
 ### 西津渡
 
@@ -130,7 +130,7 @@
 
 吃完早茶，把车停到平山堂停车场，从瘦西湖北门入园。这个停车场正对观音山，迎面是唐城博物馆，往西是观音堂，更左则是大明寺。观音山一带正是隋唐扬州城的子城西南，隋江都宫即在观音山上。隋炀帝最后很可能就被缢杀在观音堂一带，陈尸成象殿，草葬流珠堂下。殿址就在唐城博物馆内。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/yz.png" width="100%" title="图 | 扬州历代城郭" alt="扬州历代城郭" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/yz.png" width="100%" title="图 | 扬州历代城郭，费了不少功夫，放大看有更多细节" alt="扬州历代城郭" %}}
 
 {{% admonition note "离题延伸" %}}
 
@@ -144,7 +144,7 @@
 
 瘦西湖的景区比过去扩大了很多，原先的核心景区是二十四桥-五亭桥-白塔-钓鱼台一线，如今把唐罗城西门遗址也包了进去，围绕水面修建了很多馆榭台廊，早春花红柳绿时，肯定相当优美。还复原了锦泉花屿、石壁流淙这些旧时景点。景致依然和二十年前一样好，但是人实在太多。坐船吧，短短一条水路分成十几站，一站25块，也太贵了点。不值这个价。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/13.jpg" width="100%" title="图 | 唐罗城西门遗址" alt="唐罗城西门遗址" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/13.jpg" width="100%" title="图 | 唐罗城西门遗址，玻璃盖上满是水汽" alt="唐罗城西门遗址" %}}
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/18.jpg" width="100%" title="图 | 唐扬州城池图" alt="唐扬州城池图" %}}
 
@@ -168,13 +168,13 @@
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/25.jpg" width="100%" title="图 | 栖灵塔" alt="栖灵塔" %}}
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/19.jpg" width="100%" title="图 | 栖灵塔下望" alt="栖灵塔下望" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/19.jpg" width="100%" title="图 | 栖灵塔下望瘦西湖" alt="栖灵塔下望瘦西湖" %}}
 
 ### 个园
 
 本想趁热打铁把个园和古运河一起游览掉，但个园人山人海，假山都封了。个园除了看竹子，就是爬假山上楼，不然有啥趣味。越走越累，意趣寡然。最后也放弃了坐船游古运河。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/21.jpg" width="100%" title="图 | 个园迎宾道" alt="个园迎宾道" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2021/0505/21.jpg" width="100%" title="图 | 个园迎宾桂道" alt="个园迎宾桂道" %}}
 
 晚饭不想再吃传统淮扬菜，也不想去东关街挨坑，便去了丰乐上街吃一家融合菜。菜色不错，等得太久。
 
@@ -191,3 +191,9 @@
 我败了。照这择时水平，要是当交易员的话，10个巴菲特都得破产了。
 
 [完]
+
+---
+
+<!-- {% raw %} -->
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg" width="30%" title="扫码关注我的公众号" alt="扫码关注" %}}
+<!-- {% endraw %} -->
