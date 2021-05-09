@@ -26,20 +26,20 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 
 1. 首先，自己想辙把压缩包里的[book.csv](https://cdn.cs50.net/web/2019/x/projects/1/project1.zip) 5000条图书信息导进数据库里。
 
-  1. 到[heroku](https://www.heroku.com)上注册创建数据库实例，订阅一个乞丐版就行；
-  2. 数据库用PostgreSQL
+    1. 到[heroku](https://www.heroku.com)上注册创建数据库实例，订阅一个乞丐版就行；
+    2. 数据库用PostgreSQL
 
 2. 然后，该应用要有以下功能
 
-  1. 能注册
-  2. 能登录
-  3. 能注销
-  4. 能根据ISBN、书名、作者查询书籍
-  5. 能点进具体一本书里
-      1. 除了固有信息，还要利用Goodreads的API获取平均评分
-      2. 能看到其他用户发的书评和评级
-  6. 能发书评和评级，但一个用户只能发一次
-  7. 能暴露API给人家用，返回一个JSON串
+    1. 能注册
+    2. 能登录
+    3. 能注销
+    4. 能根据ISBN、书名、作者查询书籍
+    5. 能点进具体一本书里
+        1. 除了固有信息，还要利用Goodreads的API获取平均评分
+        2. 能看到其他用户发的书评和评级
+    6. 能发书评和评级，但一个用户只能发一次
+    7. 能暴露API给人家用，返回一个JSON串
 
 ## 准备
 
@@ -54,7 +54,6 @@ Flask最好的好处是可以多快好省地做网站，迅速实现一个原型
 {{% /admonition %}}
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/db.png" title="图 | 数据库设计" %}}
-
 
 ```sql
 CREATE TABLE IF NOT EXISTS book (
@@ -108,7 +107,6 @@ conn.close()
 
 [Goodreads](www.goodreads.com)是个书评网站（也被墙了-_-||）。需要自己上去注册账号，申请API开发密钥。
 
-
 ## 开工
 
 ### 项目结构
@@ -117,7 +115,7 @@ conn.close()
 <a href="https://github.com/madlogos/edx_cs50/tree/master/project1">戳这里看源码</a>
 {{% /admonition %}}
 
-```
+```text
 project1
 |-- application.py
 |--+ static
@@ -154,7 +152,6 @@ project1
   - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
   - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台.py里套用`flash`函数就能实现告警框。
   - 后续写其他模板时，引用(extend) base.html就行了。
-
 <!-- {% endraw %} -->
 
 <!-- {% raw %} -->
@@ -315,8 +312,6 @@ Sign In
 ```
 <!-- {% endraw %} -->
 
-
-
 [application.py](https://github.com/madlogos/edx_cs50/blob/master/project1/application.py)里，后台部分写两个路由函数。
 
 主路由下，如果当前session没有用户登录，就转跳去登录页/login，否则直接进书籍列表页/index。
@@ -334,7 +329,6 @@ def home():
 ```
 
 如果进登录页，那么'GET'方法下跟主路由差不多逻辑，'POST'方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就`flash`一个错误来。利用application.py里定义的`sign_in()`函数和模板form中的`url_for()`函数，就把后端功能绑定到前端了。
-
 
 ```python
 # application.py
@@ -382,7 +376,6 @@ def sign_off():
         You have logged out."""), 'success')
     return home()
 ```
-
 
 ### 注册
 
@@ -459,8 +452,6 @@ def sign_up():
                     You did not input the same password."""), 'danger')
                 return redirect(url_for('sign_up'))
 ```
-
-
 
 ### 检索书籍
 
@@ -904,9 +895,6 @@ main {
     }
 }
 ```
-
-
-
 
 ### 其他
 

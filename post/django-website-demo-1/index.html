@@ -45,12 +45,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/django-website-demo-1/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-11-06T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
 
 <meta itemprop="name" content="edX作业：用Django建一个简易Web订单系统(1)">
 <meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"><meta itemprop="datePublished" content="2019-11-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-09T19:48:36&#43;08:00" />
-<meta itemprop="wordCount" content="6305">
+<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="wordCount" content="6327">
 <meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Django建一个简易Web订单系统(1)"/>
 <meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6305 字 </span>
+          <span class="more-meta"> 约 6327 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -158,14 +158,14 @@
     </li>
     <li><a href="#账户管理accounts应用">账户管理(accounts)应用</a>
       <ul>
-        <li><a href="#模型">模型</a></li>
+        <li><a href="#accounts模型">accounts模型</a></li>
         <li><a href="#控制">控制</a></li>
         <li><a href="#视图">视图</a></li>
       </ul>
     </li>
     <li><a href="#订单管理orders">订单管理(orders)</a>
       <ul>
-        <li><a href="#模型-1">模型</a></li>
+        <li><a href="#orders模型">orders模型</a></li>
       </ul>
     </li>
   </ul>
@@ -513,7 +513,7 @@
 <h2 id="账户管理accounts应用">账户管理(accounts)应用</h2>
 <p>配置部分结束，开始做功能。</p>
 <p>首先进到<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts">accounts</a>目录，构建账户管理模块。</p>
-<h3 id="模型">模型</h3>
+<h3 id="accounts模型">accounts模型</h3>
 <p>如果要自己设计一套User体系，可以在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/models.py">models.py</a>里定义。由于这个作业里对用户信息的要求已经被Django自带的User类涵盖，所以直接导进来就可以用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -624,7 +624,7 @@
 <p>Django的视图函数，必须返回一个Http响应，要么是HttpResponse，要么Http404之类。否则就会报内部错误。</p>
 </div>
 <h4 id="登录">登录</h4>
-<h5 id="后端">后端</h5>
+<h5 id="登录后端">登录后端</h5>
 <p>views.py里定义<code>login_view()</code>函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -741,7 +741,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个<code>clean_username()</code>方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。</p>
-<h5 id="前端">前端</h5>
+<h5 id="登录前端">登录前端</h5>
 <p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/login.html">login.html</a>页面模板写成这样：</p>
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
@@ -829,7 +829,7 @@ Sign In
         </figcaption>
 </figure>
 <h4 id="注册">注册</h4>
-<h5 id="后端-1">后端</h5>
+<h5 id="注册后端">注册后端</h5>
 <p>views.py里定义 <code>signup()</code> 函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1001,7 +1001,7 @@ Sign In
         <span class="k">return</span> <span class="n">pwd2</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="前端-1">前端</h5>
+</div><h5 id="注册前端">注册前端</h5>
 <p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/register.html">register.html</a>页面模板写成这样：</p>
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
@@ -1137,7 +1137,7 @@ Sign Up
 <p>到此，整个账号管理的功能就写好了。实际使用，还有必要加功能，比如反机器人、密码找回等。</p>
 <h2 id="订单管理orders">订单管理(orders)</h2>
 <p>接下来，进<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders">orders</a>目录，构建购物车和订单管理模块。这块内容比账号管理复杂一些。</p>
-<h3 id="模型-1">模型</h3>
+<h3 id="orders模型">orders模型</h3>
 <p>从定义ORM模型开始。在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/models.py">models.py</a>：</p>
 <h4 id="选择项元组">选择项元组</h4>
 <p>先定义选择项，结构是key-value元组。后续控件限定合法值，直接绑上去就行。</p>
@@ -1354,8 +1354,8 @@ Sign Up
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-08-09
-        <a href="https://github.com/madlogos/hugo-blog.git/commit/ecd2944e9b5c83502350c01df5b46791eff3879e" title="changes on">(ecd2944)</a>
+        2021-05-09
+        <a href="https://github.com/madlogos/hugo-blog.git/commit/f3e8c5ae54f54c3eea5e759b3bce5a3facc97c88" title="changes on 2021年 5月 9日 星期日 21时28分26秒 CST">(f3e8c5a)</a>
     </span>
   </p>
   <p class="copyright-item">

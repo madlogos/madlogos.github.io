@@ -9,6 +9,8 @@
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2020/0213/001ZzLsRzy7AMToNw5Bf3.jpeg" width="100%" title="图 | 伦敦·自然史博物馆" alt="" %}}
 
+<!--more-->
+
 原先大厅里展示的是巨大的恐龙骨架化石，现在成了蓝鲸骨骼标本。
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2020/0213/001ZzLsRzy7AMTlYy5M7e.jpeg" width="100%" title="图 | 伦敦·自然史博物馆大厅" alt="" %}}
@@ -16,8 +18,6 @@
 内堂气度轩昂，风格典雅。
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2020/0213/001ZzLsRzy7AMT6JAu2ee.jpeg" width="100%" title="图 | 伦敦·自然史博物馆大厅" alt="" %}}
-
-<!--more-->
 
 博物馆有很多区，其中有个人类展厅，非常直接、高度交互地展示人体结构和功能。下面是其中比较有冲击力的一张。
 

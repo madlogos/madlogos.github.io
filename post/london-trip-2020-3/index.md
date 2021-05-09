@@ -9,11 +9,11 @@
 
 London Pass包含Big Bus和Original Tour两家公司的观光巴士。我们打算到绿园（Green Park）坐Big Bus的红线（经典线路），大致以Green Park为中心，把泰晤士河两岸的伦敦塔桥、议会大厦、圣保罗座堂、西敏寺等都兜一遍，行经路线主要是伦敦金融城的核心地段。
 
+<!--more-->
+
 ​靛线坐到Green Park，斜穿出去就是白金汉宫(Buckingham Palace)。绿园是旧伦敦城西贵族聚居地，旁边有数栋器宇轩昂的豪宅，像Spencer House（Spencer伯爵家族老宅，就是所谓「平民」王妃戴安娜出身的那个家族，后来卖给了罗斯柴尔德）、Lancaster House（也是王室资产）之类。白金汉宫位于三个公园交界处：Green Park在北，St. James Park在东，王宫自带花园在南。王宫升旗，就意味着女王正住在里面。一般认为圣詹姆斯宫才是正宫，但王室核心并不住那儿；温莎堡是离宫，用来度假；白金汉宫是寝宫。跑去打了个卡。懒得等熊皮帽哨兵换岗，便走了。
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2020/0211/001ZzLsRzy7AMQnj8r608.jpeg" width="100%" title="图 | 白金汉宫·女王在家" alt="" %}}
-
-<!--more-->
 
 白金汉宫门前是个广场，立着一根圆柱，纪念维多利亚女王。正是从维多利亚开始，白金汉宫才正式成为英王室的寝宫。
 

@@ -164,16 +164,16 @@ toc$date <- as.Date(toc$date)
 ```r
 # 构造一个读取网页代码的函数
 getWebPage <- function(url){
-	## Arg
-	##    url: 网页网址
-	html <- read_lines(url)
-	return(paste(html, collapse="\n"))
+    ## Arg
+    ##    url: 网页网址
+    html <- read_lines(url)
+    return(paste(html, collapse="\n"))
 }
 # 并行计算
 library(doParallel)
 registerDoParallel(cores=parallel::detectCores())
 pages <- foreach(i=seq_along(toc$href), .combine=c) %dopar%
-	invisible(getWebPage(toc$href[i]))
+    invisible(getWebPage(toc$href[i]))
 names(pages) <- as.character(toc$date)
 ```
 
@@ -308,7 +308,7 @@ getWebTbl <- function(url, tbl.name){
                c("xls", "csv", "doc", "gif", "jpg", "png"))))){
         return(invisible())
     }
-	# 否则就把页面源码读下来
+    # 否则就把页面源码读下来
     html <- read_html(url)
     # 尝试抽取网页表格
     cast <- html_nodes(html, "table")

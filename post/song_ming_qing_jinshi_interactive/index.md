@@ -1,5 +1,5 @@
 
-{{% admonition info 注意 %}}
+{{% admonition warning 注意 %}}
 如果浏览器提示本文加载了不安全的脚本，请点允许。
 {{% /admonition %}}
 
@@ -30,9 +30,9 @@ R有个名包，叫animation，可以用它压制.gif，用在社交媒体效果
 - 用cut函数把连续变量切分成分段因子；
 - 用sprintf格式化因子标签，否则会自动套用前开后闭科学计数法区间样式，表示年代比较怪；
 - 各朝的分期不见得都对，我就随便分了下：
-	- 北宋(960-1127)：以1021、1085分期，大体对应真宗/仁宗、神宗/哲宗；
-	- 明朝(1668-1644)：以1434、1572分期，大体对应宣宗(宣德)/英宗、穆宗(隆庆)/神宗(万历)；
-	- 清朝(1644-1911)：以1735、1850分期，大体对应世宗(雍正)/高宗(乾隆)、宣宗(道光)/文宗(咸丰)。
+  - 北宋(960-1127)：以1021、1085分期，大体对应真宗/仁宗、神宗/哲宗；
+  - 明朝(1668-1644)：以1434、1572分期，大体对应宣宗(宣德)/英宗、穆宗(隆庆)/神宗(万历)；
+  - 清朝(1644-1911)：以1735、1850分期，大体对应世宗(雍正)/高宗(乾隆)、宣宗(道光)/文宗(咸丰)。
 
 ```r
 library(animation)
@@ -134,8 +134,8 @@ make_leaflet <- function(refMap, dyn, bgColor="red", dataset, cutyears){
     for (i in unique(refMap$id)){
         g <- g %>%
             addPolygons(~long, ~lat, data=refMap[refMap$id==i,],
-		        label=dyn, labelOptions=labelOptions(textsize="20px"),
-		        weight=1, fillColor=bgColor, color=bgColor)
+                label=dyn, labelOptions=labelOptions(textsize="20px"),
+                weight=1, fillColor=bgColor, color=bgColor)
     }
     pal <- colorFactor(
         viridis::plasma(2*nlevels(dataset$period)),
@@ -143,9 +143,9 @@ make_leaflet <- function(refMap, dyn, bgColor="red", dataset, cutyears){
     g <- g %>% addCircleMarkers(
         ~long, ~lat, data=dataset, radius=2,
         label=paste(dataset$NameChn, dataset$Name),
-		popup=paste(dataset$EntryYear, "<br>", dataset$Prov,
-		            dataset$AddrChn, dataset$AddrName, sep=" "),
-		color=~pal(period), group=~period)
+        popup=paste(dataset$EntryYear, "<br>", dataset$Prov,
+                    dataset$AddrChn, dataset$AddrName, sep=" "),
+        color=~pal(period), group=~period)
     g %>% addLayersControl(
         overlayGroups=rev(levels(dataset$period)),
         options=layersControlOptions(
@@ -161,7 +161,6 @@ make_leaflet(nsong.bou, "北宋", "red", nsong.js, c(960, 1021, 1085, 1127))
 <iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html" width="100%" height="500"></iframe>
 
 [点开查看源文件](https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.html)
-
 
 ```r
 make_leaflet(ming.bou, "明朝", "red", ming.js, c(1368, 1434, 1572, 1644))

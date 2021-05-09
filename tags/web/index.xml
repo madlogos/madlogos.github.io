@@ -156,7 +156,7 @@
 &lt;/div&gt;
 &lt;p&gt;&lt;a href=&#34;https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1&#34;&gt;成品效果视频&lt;/a&gt; @ 优酷：&lt;/p&gt;
 &lt;iframe height=498 width=&#39;100%&#39; src=&#39;https://player.youku.com/embed/XNDQzNzYyNDU4MA==&#39; frameborder=0 &#39;allowfullscreen&#39;&gt;&lt;/iframe&gt;
-&lt;p&gt;这是哈佛&lt;strong&gt;继续教育学院&lt;/strong&gt;开的的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt; 第三个作业项目。&lt;/p&gt;
+&lt;p&gt;这是哈佛 &lt;strong&gt;继续教育学院&lt;/strong&gt; 开的的&lt;a href=&#34;https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/&#34;&gt;用Python和Javascript撸网络编程&lt;/a&gt; 第三个作业项目。&lt;/p&gt;
 &lt;h2 id=&#34;作业要求httpsdocscs50netweb2019xprojects2project2html&#34;&gt;&lt;a href=&#34;https://docs.cs50.net/web/2019/x/projects/2/project2.html&#34;&gt;作业要求&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;做一个仿&lt;a href=&#34;www.slack.com&#34;&gt;Slack&lt;/a&gt;概念的聊天应用。这次不需要用数据库了，但得&lt;/p&gt;
 &lt;p&gt;要实现以下功能：&lt;/p&gt;

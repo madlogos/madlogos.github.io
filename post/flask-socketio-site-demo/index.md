@@ -8,7 +8,7 @@
 
 <iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
 
-这是哈佛**继续教育学院**开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第三个作业项目。
+这是哈佛 **继续教育学院** 开的的[用Python和Javascript撸网络编程](https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/) 第三个作业项目。
 
 ## [作业要求](https://docs.cs50.net/web/2019/x/projects/2/project2.html)
 
@@ -39,7 +39,7 @@
 <a href="https://github.com/madlogos/edx_cs50/tree/master/project2">戳这里看源码</a>
 {{% /admonition %}}
 
-```
+```text
 project2
 |-- application.py
 |-- flask.log
@@ -58,20 +58,18 @@ project2
 结构不复杂：
 
 - application.py是后端，所有后台功能代码都写在上面。也可以把自定义函数另外写在一个 .py里，import进来。
-	- 记得export "application.py" 到环境变量`FLASK_APP`，便于后面直接运行`flask run`。在Windows cmd里，用`set`，PowerShell里用`$Env:FLASK_APP=...`。
+  - 记得export "application.py" 到环境变量`FLASK_APP`，便于后面直接运行`flask run`。在Windows cmd里，用`set`，PowerShell里用`$Env:FLASK_APP=...`。
 - static文件夹放静态文件，css和js。
 - templates文件夹放各类html模板（html+jinja2语法写的宏）。
-
 
 ### 基础模板
 
 [_base.html](https://github.com/madlogos/edx_cs50/blob/master/project2/templates/_base.html)是框架模板，后续其他页面模板都会套用(extend)它。
 
-
 - 样式主要靠bootstrap
 - body部分放了几个通用块(block)，head, flash, disp, control, misc。用jinja2结构<!-- {% raw %} -->`{% block xxx %}{% endblock %}`<!-- {% endraw %} -->来占位。
-    - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
-    - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台的 .py文件里套用`flash`函数就能实现告警框。
+  - 块里面基本都没有进一步定义。只是给导航条加了点功能，如果当前线程有用户登着，就显示个注销按钮，否则就没有。
+  - flash块比较特别，定义了一个比较通用的flash渲染宏，到时候只需要在后台的 .py文件里套用`flash`函数就能实现告警框。
 
 <!-- {% raw %} -->
 ```html
@@ -368,7 +366,6 @@ GET方法下，调用`get_channels()`函数，显示频道列表。如果用户�
 
 而POST方法下（也就是提交了inputName表单后），判断一下displayName里填的名字是否已经在全局对象users里，没有的话就创建一个。完事后重定向到get_channels绑定的路由，也就是频道列表。
 
-
 {{% admonition note "flash()函数" false %}}
 
 上面的Python代码用到了<code>flash(text, type)</code> 函数，它会发送一个<code>flash</code>请求到Flask前端，产生一个Bootstrap风格的告警。type只能是Bootstrap认识的"danger", "warning", "success", "info"这类。
@@ -376,8 +373,6 @@ GET方法下，调用`get_channels()`函数，显示频道列表。如果用户�
 为了让告警显示图标，用到了FontAwesome（_base.html模板里已经引入）。直接把<code>&lt;i class="xxx"&gt;</code> flash到前端，无法解析出图标，需要包一个<code>Markup()</code>，以markup对象的形式传递，前端解析后自动交给fontawesome.js处理。
 
 {{% /admonition %}}
-
-
 
 ### 注销
 
@@ -789,7 +784,6 @@ def del_msg(data):
 ```
 
 先解码channel（因为发过来前先进行了`encodeURI`），直接从channels对象的当前频道字典里，把键等于data['id']的字典整个pop掉。
-
 
 ### 其他
 

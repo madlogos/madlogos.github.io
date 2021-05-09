@@ -93,7 +93,7 @@ urlpatterns = [
 
 #### 菜单
 
-##### 后端
+##### 菜单后端
 
 菜单页是事实上的首页。后端代码并不复杂，主要用来跳转。
 
@@ -120,7 +120,7 @@ def index(request):
 
 [orders/index.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/orders/index.html) 模板定义了两摊东西：导航菜单和产品列表。这里用到Django的一个模板特性`regroup`，按category分组后再循环输出，就能实现分组显示了。
 
-##### 前端
+##### 菜单前端
 
 {{% figure class="center"  src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/menu.png" title="图 | 菜单" %}}
 
@@ -195,7 +195,7 @@ function popupfun(prod_id){
 
 #### 点单
 
-##### 前端
+##### 点单前端
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/item.png" title="图 | 点单" %}}
 
@@ -355,7 +355,7 @@ function update_price(){
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/item_err.png" title="图 | 校验附加品数量" %}}
 
-##### 后端
+##### 点单后端
 
 通过了JS脚本的校验后，添加物品种和数量提交到后端，python要进一步做一系列处理。
 
@@ -446,7 +446,7 @@ def pick_product(request, id):
 
 #### 购物车
 
-##### 前端
+##### 购物车前端
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/jump_cart.png" title="图 | 跳转购物车" %}}
 
@@ -674,7 +674,7 @@ function batch_check(check=true){
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/choose_order.png" title="图 | 选定下单" %}}
 
-##### 后端
+##### 购物车后端
 
 ```python
 # orders/views.py
@@ -736,7 +736,7 @@ def cart(request):
 
 #### 订单列表
 
-##### 前端
+##### 列表前端
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/orders_init.png" title="图 | 订单列表" %}}
 
@@ -930,7 +930,7 @@ function confirm_submit(evt){
 };
 ```
 
-##### 后端
+##### 列表后端
 
 ```python
 # orders/views/py
@@ -984,7 +984,7 @@ def orders(request):
 
 #### 订单明细
 
-##### 前端
+##### 明细前端
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/order.png" title="图 | 订单明细" %}}
 
@@ -994,7 +994,7 @@ def orders(request):
 
 {{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1107/order_check.png" title="图 | 订单操作确认" %}}
 
-##### 后端
+##### 明细后端
 
 其实可以复用`orders()`的代码。这块没有认真重构。
 

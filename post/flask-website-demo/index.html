@@ -45,11 +45,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/flask-website-demo/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-09-16T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-08-09T19:48:36&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
 
 <meta itemprop="name" content="edX作业：用Flask建一个简易图书查询Web应用">
 <meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"><meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-09T19:48:36&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
 <meta itemprop="wordCount" content="7320">
 <meta itemprop="keywords" content="Python,Flask,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Flask建一个简易图书查询Web应用"/>
@@ -192,40 +192,27 @@
 <ol>
 <li>
 <p>首先，自己想辙把压缩包里的<a href="https://cdn.cs50.net/web/2019/x/projects/1/project1.zip">book.csv</a> 5000条图书信息导进数据库里。</p>
-</li>
-<li>
-<p>到<a href="https://www.heroku.com">heroku</a>上注册创建数据库实例，订阅一个乞丐版就行；</p>
-</li>
-<li>
-<p>数据库用PostgreSQL</p>
+<ol>
+<li>到<a href="https://www.heroku.com">heroku</a>上注册创建数据库实例，订阅一个乞丐版就行；</li>
+<li>数据库用PostgreSQL</li>
+</ol>
 </li>
 <li>
 <p>然后，该应用要有以下功能</p>
-</li>
-<li>
-<p>能注册</p>
-</li>
-<li>
-<p>能登录</p>
-</li>
-<li>
-<p>能注销</p>
-</li>
-<li>
-<p>能根据ISBN、书名、作者查询书籍</p>
-</li>
-<li>
-<p>能点进具体一本书里</p>
+<ol>
+<li>能注册</li>
+<li>能登录</li>
+<li>能注销</li>
+<li>能根据ISBN、书名、作者查询书籍</li>
+<li>能点进具体一本书里
 <ol>
 <li>除了固有信息，还要利用Goodreads的API获取平均评分</li>
 <li>能看到其他用户发的书评和评级</li>
 </ol>
 </li>
-<li>
-<p>能发书评和评级，但一个用户只能发一次</p>
-</li>
-<li>
-<p>能暴露API给人家用，返回一个JSON串</p>
+<li>能发书评和评级，但一个用户只能发一次</li>
+<li>能暴露API给人家用，返回一个JSON串</li>
+</ol>
 </li>
 </ol>
 <h2 id="准备">准备</h2>
@@ -346,7 +333,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">project1
+<pre class="chroma"><code class="language-text" data-lang="text">project1
 |-- application.py
 |--+ static
 |  |--+ css
@@ -1785,8 +1772,8 @@ Books
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-08-09
-        <a href="https://github.com/madlogos/hugo-blog.git/commit/ecd2944e9b5c83502350c01df5b46791eff3879e" title="changes on">(ecd2944)</a>
+        2021-05-09
+        <a href="https://github.com/madlogos/hugo-blog.git/commit/f3e8c5ae54f54c3eea5e759b3bce5a3facc97c88" title="changes on 2021年 5月 9日 星期日 21时28分26秒 CST">(f3e8c5a)</a>
     </span>
   </p>
   <p class="copyright-item">
@@ -1819,13 +1806,13 @@ Books
           <a href="/tags/web/">web</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/flask-socketio-site-demo/">
+        <a class="prev" href="/post/hulunber-trip-2019-4/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">edX作业：用Flask建一个简易Web聊天室</span>
+            <span class="prev-text nav-default">2019夏末呼伦贝尔行(4)：呼伦湖、满洲里</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/imacros_zyb_cnaps_scrapy/">
-            <span class="next-text nav-default">iMacros脚本运行三天，爬取了40万行现代化支付行号</span>
+        <a class="next" href="/post/tectonics-is-more-evil/">
+            <span class="next-text nav-default">侵私构陷才是更大的恶</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

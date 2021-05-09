@@ -122,8 +122,8 @@ Django框架比Flask要复杂得多。整个应用就是一个工程(project)，
 
 - 通过`django-admin startproject pizza`命令，生成一个骨架，包括pizza文件夹及内含的3个 .py文件，以及django命令行工具manage.py。
 - 进入pizza根目录，运行`python manage.py startapp accounts`和`python manage.py startapp orders`，分别生成accounts和orders两个具体应用。两个文件夹都包含\_\_init\_\_.py，这就标志着它们是包。此外，都包括admin.py（Django管理后台配置）、apps.py（应用打包设置）两个设置脚本，以及实现MVC设计的models.py（模型）、views.py（视图）和urls.py（控制）。
-	- accounts用来管理账户信息、登录和注册等
-	- orders用来管理菜单、订单和购物车等
+  - accounts用来管理账户信息、登录和注册等
+  - orders用来管理菜单、订单和购物车等
 
 除了上面这些后台脚本之外，再建两个必要的资源文件夹：
 
@@ -234,7 +234,7 @@ admin.site.urls要映射进去，这样，后面才能通过"<domain name>/admin
 
 首先进到[accounts](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts)目录，构建账户管理模块。
 
-### 模型
+### accounts模型
 
 如果要自己设计一套User体系，可以在[models.py](https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/models.py)里定义。由于这个作业里对用户信息的要求已经被Django自带的User类涵盖，所以直接导进来就可以用。
 
@@ -315,7 +315,7 @@ Django的视图函数，必须返回一个Http响应，要么是HttpResponse，�
 
 #### 登录
 
-##### 后端
+##### 登录后端
 
 views.py里定义`login_view()`函数。
 
@@ -380,7 +380,7 @@ class LoginForm(forms.Form):
 
 LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个`clean_username()`方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。
 
-##### 前端
+##### 登录前端
 
 对应的[login.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/login.html)页面模板写成这样：
 
@@ -436,7 +436,7 @@ Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内�
 
 #### 注册
 
-##### 后端
+##### 注册后端
 
 views.py里定义 `signup()` 函数。
 
@@ -528,7 +528,7 @@ class RegisterForm(forms.Form):
         return pwd2
 ```
 
-##### 前端
+##### 注册前端
 
 对应的[register.html](https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/register.html)页面模板写成这样：
 
@@ -610,7 +610,7 @@ def logout_view(request):
 
 接下来，进[orders](https://github.com/madlogos/edx_cs50/blob/master/project3/orders)目录，构建购物车和订单管理模块。这块内容比账号管理复杂一些。
 
-### 模型
+### orders模型
 
 从定义ORM模型开始。在[models.py](https://github.com/madlogos/edx_cs50/blob/master/project3/orders/models.py)：
 
