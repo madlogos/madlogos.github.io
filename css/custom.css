@@ -30,3 +30,6 @@ h5 {
 h6 {
     font-size: 1.1em;
 }
+figure {
+    margin: 1em 10px;
+}
