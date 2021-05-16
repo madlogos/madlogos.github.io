@@ -36,8 +36,7 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病每月发病数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;年月&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png&#34;/&gt; &lt;figcaption&gt;
+&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病每月发病数&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -53,8 +52,7 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病每月死亡数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;年月&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png&#34;/&gt; &lt;figcaption&gt;
+&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病每月死亡数&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -76,8 +74,7 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病平均月发病数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;平均例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xvar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;月份&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png&#34;/&gt; &lt;figcaption&gt;
+&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病月平均发病数&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -97,8 +94,7 @@
 &lt;span class=&#34;nf&#34;&gt;makeTsPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sta&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;法定传染病平均月死亡数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylab&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;平均例数&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xvar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;月份&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png&#34;/&gt; &lt;figcaption&gt;
+&lt;/div&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病平均月死亡数&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;</description>
@@ -116,8 +112,7 @@
 &lt;p&gt;&lt;strong&gt;要把图片附件识别成文本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;手工录入。&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg&#34; width=&#34;50%&#34;/&gt; 
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg&#34; width=&#34;50%&#34;/&gt;
 &lt;/figure&gt;
 &lt;p&gt;这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，&lt;strong&gt;记得要把工程预算乘以3&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;图片方面的坑包括：&lt;/p&gt;
@@ -140,23 +135,20 @@
 &lt;p&gt;毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。&lt;/p&gt;
 &lt;p&gt;说是大海，视觉上其实就是类似这样的一张表格：&lt;/p&gt;
 &lt;!-- {% raw %} --&gt;
-&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png&#34; width=&#34;60%&#34;/&gt; &lt;figcaption&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png&#34; width=&#34;60%&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病统计表&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;!-- {% endraw %} --&gt;
 &lt;p&gt;一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。&lt;/p&gt;
 &lt;!-- {% raw %} --&gt;
-&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png&#34;/&gt; &lt;figcaption&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 卫计委传染病控制动态&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;!-- {% endraw %} --&gt;
 &lt;!-- {% raw %} --&gt;
-&lt;figure class=&#34;center&#34;&gt;
-    &lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png&#34;/&gt; &lt;figcaption&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png&#34;/&gt;&lt;figcaption&gt;
             &lt;h4&gt;图 | 法定传染病月报&lt;/h4&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;

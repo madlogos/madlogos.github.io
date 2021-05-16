@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/imacros_zyb_cnaps_scrapy/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.3cd7142e2c2f472d7291a1f1b06187f966217009ac4cc038a6085b0b9b574984.css" rel="stylesheet">
+<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -199,8 +199,7 @@
 <p>判断一个人是否天生适合当码农，很重要的一点就是看他/她有没有这种懒癌强迫症。而这种强迫症的形上学本质是：<strong>对自由王国的无尽向往</strong>。——重复劳动太蠢了，它侮辱人类的尊严，阻碍我们证法悟道，必须消灭。这就是自动化的诞生。</p>
 <p>所以——尽管技术上跌跌撞撞，也并不妨碍我隔三差五搞个三脚猫爬虫出来。这回的主题又跳跃了：爬取现代化支付行号。</p>
 <h2 id="这就带来了第一个问题">这就带来了第一个问题</h2>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/yilianmengbi.jpg"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/yilianmengbi.jpg"/><figcaption>
             <h4>蛤？这是啥？</h4>
         </figcaption>
 </figure>
@@ -221,15 +220,13 @@
 </div>
 </div><p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/hebbank.png"
-         alt="河北银行"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/hebbank.png"
+         alt="河北银行"/><figcaption>
             <h4>图 | 河北银行CNAPS查询页</h4>
         </figcaption>
 </figure>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zsbank.png"
-         alt="浙商银行"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zsbank.png"
+         alt="浙商银行"/><figcaption>
             <h4>图 | 浙商银行CNAPS查询页</h4>
         </figcaption>
 </figure>
@@ -239,9 +236,8 @@
 <h3 id="首先选型要精准">首先，选型要精准</h3>
 <p>上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家<a href="http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html">中原银行</a>。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zybank.png"
-         alt="中原银行"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zybank.png"
+         alt="中原银行"/><figcaption>
             <h4>图 | 中原银行CNPAS查询页</h4>
         </figcaption>
 </figure>
@@ -261,18 +257,16 @@
 <p>在OA领域，我们经常会把一系列小操作对应的系统指令录下来，套个循环再复用，那就是VBA宏语言。所谓宏，实质上就是定义一组模式替换规则，套用到一组命令上进行<strong>批量批处理</strong>。这不就是“录制-修改-复用”自动化党的福音吗？看看我们平时用的最多的宏，通常就是VBA，SPSS，SAS，以及各种各样的游戏作弊器。那就是宏天生的战场。</p>
 <p>对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros.png"
-         alt="iMacros"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros.png"
+         alt="iMacros"/><figcaption>
             <h4>图 | iMacros for Chrome界面</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>如果自己录一段宏，打开后长这样：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo1.png"
-         alt="iMacros脚本"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo1.png"
+         alt="iMacros脚本"/><figcaption>
             <h4>图 | iMacros脚本代码</h4>
         </figcaption>
 </figure>
@@ -280,9 +274,8 @@
 <p>由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。</p>
 <p>双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo2.gif"
-         alt="demo"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo2.gif"
+         alt="demo"/><figcaption>
             <h4>图 | iMacros demo</h4>
         </figcaption>
 </figure>
@@ -342,8 +335,7 @@
 <h2 id="提取银行和省份城市的控件值">提取银行和省份+城市的控件值</h2>
 <p>Chrome里<kbd>F12</kbd>，可以看到银行下拉菜单的载入值齐齐整整。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/banksite.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/banksite.png"/><figcaption>
             <h4>图 | 银行下拉菜单载入值</h4>
         </figcaption>
 </figure>
@@ -752,16 +744,14 @@ ADD !EXTRACT {{!VAR4}}
 <p>工程搭好后，把脚本放在虚拟机上跑了三天，幸运的是网站似乎没有反爬虫策略，夜间也不关服务，于是让我顺顺利利地跑完了。</p>
 <p>看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas_tbl.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas_tbl.png"/><figcaption>
             <h4>图 | 爬下来的csv文件</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>里面的文件纷纷长这样：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnaps_raw.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnaps_raw.png"/><figcaption>
             <h4>图 | csv的原始面目</h4>
         </figcaption>
 </figure>
@@ -866,8 +856,7 @@ ADD !EXTRACT {{!VAR4}}
 </div>
 </div><p>跑完脚本，数据变成了：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas.png"/><figcaption>
             <h4>图 | 成品数据效果</h4>
         </figcaption>
 </figure>
@@ -896,9 +885,8 @@ ADD !EXTRACT {{!VAR4}}
 <p>[完]</p>
 <hr>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="30%"/><figcaption>
             <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>

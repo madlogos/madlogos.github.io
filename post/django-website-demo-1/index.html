@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/django-website-demo-1/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.3cd7142e2c2f472d7291a1f1b06187f966217009ac4cc038a6085b0b9b574984.css" rel="stylesheet">
+<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -541,14 +541,12 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>控制台运行<code>python manage.py runserver</code>，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_entry.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_entry.png"/><figcaption>
             <h4>图 | admin登录页</h4>
         </figcaption>
 </figure>
 <p>用前面创建的超级管理员账号登录，即可看到Site administration界面，Groups和Users表已经可以直接访问、维护了。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_ui.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_ui.png"/><figcaption>
             <h4>图 | admin管理界面</h4>
         </figcaption>
 </figure>
@@ -823,8 +821,7 @@ Sign In
 </div>
 <!-- {% endraw %} -->
 <p>后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_in.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_in.png"/><figcaption>
             <h4>图 | 用户登录界面</h4>
         </figcaption>
 </figure>
@@ -1110,8 +1107,7 @@ Sign Up
 </div>
 </div><!-- {% endraw %} -->
 <p>同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_up.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/sign_up.png"/><figcaption>
             <h4>图 | 用户注册界面</h4>
         </figcaption>
 </figure>
@@ -1326,8 +1322,7 @@ Sign Up
 </ul>
 <p>Django会自动产生migrate脚本，将这些ORM模型翻译成对应的DDL，对后台数据库进行创建/删除/修改操作。如果用sqlite连接到后台去看，就会发现里面已经把表都创建好了。修改model后，再次migrate，Django会直接修改表结构来适配，而不用自己手动写ALTER。</p>
 <p>各表的关系实际上如下图。Item成为各表关联的中枢，因为一个典型的item包含了product和附加品，如topping和addition。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/db3.svg"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/db3.svg"/><figcaption>
             <h4>图 | orders应用的表结构</h4>
         </figcaption>
 </figure>
@@ -1337,9 +1332,8 @@ Sign Up
 <p><a href="/post/django-website-demo-2/">待续</a></p>
 <hr>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="30%"/><figcaption>
             <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>

@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/infectdis_stat1/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.3cd7142e2c2f472d7291a1f1b06187f966217009ac4cc038a6085b0b9b574984.css" rel="stylesheet">
+<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -169,23 +169,20 @@
 <p>毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。</p>
 <p>说是大海，视觉上其实就是类似这样的一张表格：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png" width="60%"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png" width="60%"/><figcaption>
             <h4>图 | 法定传染病统计表</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png"/><figcaption>
             <h4>图 | 卫计委传染病控制动态</h4>
         </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png"/><figcaption>
             <h4>图 | 法定传染病月报</h4>
         </figcaption>
 </figure>
@@ -255,8 +252,7 @@
 <p>怎么看页面节点结构呢？用Chrome访问目录页，F12查看文档结构，或者右键“查看页面源代码”。</p>
 <p>每一篇信息动态都在一个列表节点&lt;li&gt;里，最终都被包进一个无序列表父节点&lt;ul&gt;里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：&lt;a&gt;节点内有标题和链接，&lt;span ml&gt;节点内有发布日期。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/sourcecode_dir.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/sourcecode_dir.png"/><figcaption>
             <h4>图 | 网页源码</h4>
         </figcaption>
 </figure>
@@ -379,8 +375,7 @@
 </div>
 </div><p><code>toc</code>数据集长这样：</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/toc_tbl.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/toc_tbl.png"/><figcaption>
             <h4>图 | toc表格</h4>
         </figcaption>
 </figure>
@@ -595,8 +590,7 @@
 </div>
 </div><p>年周期性还是很显著的。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_mot_infectdis.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_mot_infectdis.png"/><figcaption>
             <h4>图 | 发病/死亡月度统计</h4>
         </figcaption>
 </figure>
@@ -789,8 +783,7 @@
 </div>
 </div><p>看到这些文件齐齐整整码在硬盘里，心下暂时宽慰了一点。</p>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/downfiles.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/downfiles.png"/><figcaption>
             <h4>图 | 附件下载</h4>
         </figcaption>
 </figure>
@@ -821,9 +814,8 @@
 <p><a href="/post/infectdis_stat2/">待续</a></p>
 <hr>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="30%"/><figcaption>
             <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>

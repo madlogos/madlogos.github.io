@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/flask-socketio-site-demo/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.3cd7142e2c2f472d7291a1f1b06187f966217009ac4cc038a6085b0b9b574984.css" rel="stylesheet">
+<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -566,14 +566,12 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="登录">登录</h3>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/landing.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/landing.png"/><figcaption>
             <h4>图 | 登陆页</h4>
         </figcaption>
 </figure>
 <p>一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/display_name.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/display_name.png"/><figcaption>
             <h4>图 | 创建用户</h4>
         </figcaption>
 </figure>
@@ -822,8 +820,7 @@ Channels
 </div>
 </div><h3 id="频道列表">频道列表</h3>
 <p>完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/channels.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/channels.png"/><figcaption>
             <h4>图 | 频道列表</h4>
         </figcaption>
 </figure>
@@ -903,14 +900,12 @@ Channels
 </code></pre></td></tr></table>
 </div>
 </div><p>GET方法下，从全局对象<code>users</code>里取到上次访问的频道名，存入last_visit。假如last_visit不在<code>channels</code>里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给<a href="#channels_html">channels.html模板</a>解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/last_visit.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/last_visit.png"/><figcaption>
             <h4>图 | 上次访问的频道</h4>
         </figcaption>
 </figure>
 <p>POST方法下，服务器从表单里提取&quot;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created'、&lsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png"/><figcaption>
             <h4>图 | 创建频道</h4>
         </figcaption>
 </figure>
@@ -1282,8 +1277,7 @@ Channel {{ channel }}
 </div>
 </div><p>先校验当前用户是否登录。没问题的话就渲染channel.html模板了。服务器从全局对象channels里提取该频道的对话消息chats发给客户端。客户端用<code>format_chats()</code>把chats解析后，套进handlebars模板，再呈现到表格里。</p>
 <h3 id="发消息">发消息</h3>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/chatting.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/chatting.png"/><figcaption>
             <h4>图 | test1和test2在频道里聊天</h4>
         </figcaption>
 </figure>
@@ -1405,8 +1399,7 @@ Channel {{ channel }}
 <div class="admonition note"><p class="admonition-title">要点</p>
 <p>这里，加了一个判断。只有act_channel和从前端收到的data[&lsquo;channel&rsquo;]相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。</p>
 </div>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/dif_channel.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/dif_channel.png"/><figcaption>
             <h4>图 | 不同频道不会&#39;串台&#39;</h4>
         </figcaption>
 </figure>
@@ -1439,8 +1432,7 @@ Channel {{ channel }}
 </div>
 </div><h3 id="删除消息">删除消息</h3>
 <p>由于定义了<code>same_user</code>变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。</p>
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/del_msg.png"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/del_msg.png"/><figcaption>
             <h4>图 | 只能删除自己发的消息</h4>
         </figcaption>
 </figure>
@@ -1526,9 +1518,8 @@ Channel {{ channel }}
 <p>[完]</p>
 <hr>
 <!-- {% raw %} -->
-<figure class="center">
-    <img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/> <figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
+         alt="扫码关注" width="30%"/><figcaption>
             <h4>扫码关注我的公众号</h4>
         </figcaption>
 </figure>
