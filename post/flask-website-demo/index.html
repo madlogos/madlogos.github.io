@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/flask-website-demo/" />
@@ -44,12 +44,12 @@
 <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/flask-website-demo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-09-16T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
+<meta property="article:published_time" content="2019-09-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
 
 <meta itemprop="name" content="edX作业：用Flask建一个简易图书查询Web应用">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"><meta itemprop="datePublished" content="2019-09-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"><meta itemprop="datePublished" content="2019-09-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
 <meta itemprop="wordCount" content="7242">
 <meta itemprop="keywords" content="Python,Flask,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Flask建一个简易图书查询Web应用"/>
@@ -228,7 +228,7 @@
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,7 +250,7 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">book</span><span class="w"> </span><span class="p">(</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">book</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
 </span><span class="w">    </span><span class="n">isbn</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
 </span><span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
@@ -280,7 +280,7 @@
 <p><a href="https://github.com/madlogos/edx_cs50/blob/master/project1/import_local.py">import_local.py</a>部分代码如下。如果用heroku上的PostgreSQL，则用<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/import.py">import.py</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -292,14 +292,14 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import_local.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import_local.py</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;db.db&#39;</span><span class="p">)</span>
 <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select count(*) from book;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;books.csv&#39;</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></td></tr></table>
@@ -314,7 +314,7 @@
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -332,7 +332,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">project1
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">project1
 |-- application.py
 |--+ static
 |  |--+ css
@@ -378,7 +378,7 @@
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -457,7 +457,7 @@
 </span><span class="lnt">77
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/base.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/base.html --&gt;</span>
 <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -544,7 +544,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -578,7 +578,7 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: UTF-8 -*-</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: UTF-8 -*-</span>
 <span class="c1"># application.py</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -597,7 +597,7 @@
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&#34;DATABASE_URL is not set&#34;</span><span class="p">)</span>
 
 <span class="c1"># Configure session to use filesystem</span>
-<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;SESSION_PERMANENT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;SESSION_PERMANENT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;SESSION_TYPE&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;filesystem&#34;</span>
 <span class="n">Session</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
@@ -607,8 +607,8 @@
 <span class="n">sess</span> <span class="o">=</span> <span class="n">db</span><span class="p">()</span>
 
 
-<span class="nd">@app.teardown_request</span>
-<span class="k">def</span> <span class="nf">remove_session</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">teardown_request</span>
+<span class="k">def</span> <span class="nf">remove_session</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">db</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
@@ -623,7 +623,7 @@
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -646,7 +646,7 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/login.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/login.html --&gt;</span>
 {% extends &#34;base.html&#34; %}
 
 {% block title %}
@@ -674,7 +674,7 @@ Sign In
 <p>主路由下，如果当前session没有用户登录，就转跳去登录页/login，否则直接进书籍列表页/index。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -685,12 +685,12 @@ Sign In
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;Home page
 </span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;sign_in&#34;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&#34;index.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">))</span>
@@ -699,7 +699,7 @@ Sign In
 </div><p>如果进登录页，那么&rsquo;GET&rsquo;方法下跟主路由差不多逻辑，&lsquo;POST&rsquo;方法下（点按钮触发POST），就要校验用户名密码了。成功就进书籍列表，假如不对，就<code>flash</code>一个错误来。利用application.py里定义的<code>sign_in()</code>函数和模板form中的<code>url_for()</code>函数，就把后端功能绑定到前端了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -728,13 +728,13 @@ Sign In
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">sign_in</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;Sign in
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
                 <span class="s2">&#34;login.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
@@ -747,7 +747,7 @@ Sign In
             <span class="s2">&#34;&#34;&#34;SELECT id, username FROM mbr WHERE username = :username
 </span><span class="s2">            AND pwd = :pwd;&#34;&#34;&#34;</span><span class="p">,</span>
             <span class="p">{</span><span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&#34;pwd&#34;</span><span class="p">:</span> <span class="n">pwd</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">mbrinfo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mbrinfo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
                 <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-exclamation-circle&#39;&gt;&lt;/i&gt;
 </span><span class="s2">                User not exist or wrong password.&#34;&#34;&#34;</span><span class="p">),</span> 
@@ -762,7 +762,7 @@ Sign In
 <p>有登陆就有注销。反正base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。登出后，清空<code>session['act_use']</code>对象，回到登录页。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -772,10 +772,10 @@ Sign In
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">sign_off</span><span class="p">():</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
         <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
 </span><span class="s2">        You have logged out.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
@@ -791,7 +791,7 @@ Sign In
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -815,7 +815,7 @@ Sign In
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/register.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/register.html --&gt;</span>
 {% extends &#34;base.html&#34; %}
 
 {% block title %}
@@ -844,7 +844,7 @@ Sign Up
 <p>考究点的话当然还要有反机器人的措施。我是那种考究的人嘛？作业又没这要求，就不贴金了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -882,13 +882,13 @@ Sign Up
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/signup&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/signup&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">sign_up</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;Sign up
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&#34;register.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&#34;register.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
         <span class="n">pwd</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
@@ -896,7 +896,7 @@ Sign Up
         <span class="n">mbrinfo</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
             <span class="s2">&#34;&#34;&#34;SELECT id, username FROM mbr WHERE username = :username;&#34;&#34;&#34;</span><span class="p">,</span> 
             <span class="p">{</span><span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">mbrinfo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mbrinfo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
                 <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
 </span><span class="s2">                The username has been registered. Please change one.&#34;&#34;&#34;</span><span class="p">),</span> 
@@ -931,10 +931,10 @@ Sign Up
 <p>Flask虽然好上手，但什么功能都要自己写，比较上头。好在还是有好心人做了不少插件。比如这款小巧的<a href="https://pythonhosted.org/Flask-paginate/">Flask_Paginate</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pip install flask-paginate
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pip install flask-paginate
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="模板">模板</h4>
@@ -942,7 +942,7 @@ Sign Up
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1004,7 +1004,7 @@ Sign Up
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/books.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/books.html --&gt;</span>
 {% extends &#34;base.html&#34; %}
 
 {% block title %}
@@ -1079,10 +1079,10 @@ Books
 <p>假如isbn=&lsquo;123&rsquo;，title=&lsquo;war&rsquo;，author=&lsquo;rider&rsquo;，那么<code>[&quot;%s LIKE '%%%s%%'&quot; % (x, y) for x, y in (('isbn', isbn), ('title', title), ('author', author)) if y is not None and y != '']</code>的结果就是这么一个列表: <br/></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s2">&#34;isbn LIKE &#39;</span><span class="si">%123%</span><span class="s2">&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;title LIKE &#39;%war%&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;author LIKE &#39;</span><span class="si">%r</span><span class="s2">ider%&#39;&#34;</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s2">&#34;isbn LIKE &#39;</span><span class="si">%123%</span><span class="s2">&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;title LIKE &#39;%war%&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;author LIKE &#39;</span><span class="si">%r</span><span class="s2">ider%&#39;&#34;</span><span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>一下就把三个查询条件都生成好了。Very pythonic.</p>
@@ -1091,7 +1091,7 @@ Books
 <p>定义了一个<code>subset_rec()</code>函数，对列表进行切片，用来对查询结果分页。最后几行是人工生成分页对象pagination。最后把pagination和分页筛出的记录返回给前端。随着用户点击翻页，pagination和page_books都会跟着更新。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1126,11 +1126,11 @@ Books
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
 <span class="k">def</span> <span class="nf">subset_rec</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">per_page</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">rec</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">per_page</span><span class="p">]</span>
     
-<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
         <span class="n">books</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
@@ -1142,7 +1142,7 @@ Books
         <span class="n">author</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">)</span>
         <span class="n">qry</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2"> LIKE &#39;</span><span class="si">%%%s%%</span><span class="s2">&#39;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span>
             <span class="p">((</span><span class="s1">&#39;isbn&#39;</span><span class="p">,</span> <span class="n">isbn</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">title</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="n">author</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qry</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">books</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
                 <span class="s1">&#39;SELECT id, isbn, title, author, year FROM book;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
@@ -1182,7 +1182,7 @@ Books
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1260,7 +1260,7 @@ Books
 </span><span class="lnt">76
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/book.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/book.html --&gt;</span>
 {% extends &#34;base.html&#34; %}
 
 {% block title %}
@@ -1343,7 +1343,7 @@ Books
 <p>后端做了很多工作。首先，定义一个<code>get_gr()</code>函数，用来读取Goodreads API。我用了Lantern，所以调用了Lantern的SOCKS代理翻墙访问。它能返回json串或者None。HTTP_PROXY和HTTPS_PROXY都要事先注册进PATH。key和secret原则上不能写进源代码里，我这里偷懒了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1369,7 +1369,7 @@ Books
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
 <span class="k">def</span> <span class="nf">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="p">,</span> <span class="n">api</span><span class="o">=</span><span class="s1">&#39;review_counts&#39;</span><span class="p">,</span> <span class="n">success_code</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="s2">&#34;&#34;&#34;Goodreads API data
 </span><span class="s2">    return json or None
@@ -1392,7 +1392,7 @@ Books
     <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">success_code</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然后，把book/<a href="int:book_id">int:book_id</a>路由的处理都写进<code>review()</code>函数里。</p>
@@ -1402,7 +1402,7 @@ Books
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1460,8 +1460,8 @@ Books
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/book/&lt;int:book_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/book/&lt;int:book_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">review</span><span class="p">(</span><span class="n">book_id</span><span class="p">):</span>
     <span class="s2">&#34;&#34;&#34;Book detail
 </span><span class="s2">    &#34;&#34;&#34;</span>
@@ -1469,7 +1469,7 @@ Books
         <span class="s2">&#34;&#34;&#34;SELECT id, title, author, isbn, year FROM book WHERE
 </span><span class="s2">        id = :book_id&#34;&#34;&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_id&#34;</span><span class="p">:</span> <span class="n">book_id</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
     <span class="n">gr_data</span> <span class="o">=</span> <span class="n">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="o">=</span><span class="n">book</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">gr_data</span> <span class="o">=</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;books&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">gr_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;average_rating&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
@@ -1500,8 +1500,8 @@ Books
     <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">comment</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;comment&#39;</span><span class="p">)</span>
         <span class="n">rating</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">comment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">comment</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> \
-            <span class="p">(</span><span class="n">rating</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">rating</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">comment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">comment</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="p">(</span><span class="n">rating</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rating</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
             <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
                 <span class="s2">&#34;&#34;&#34;INSERT INTO review (mbr_id, book_id, rating, review)
 </span><span class="s2">                VALUES (:mbr_id, :book_id, :rating, :review);&#34;&#34;&#34;</span><span class="p">,</span>
@@ -1534,7 +1534,7 @@ Books
 <p>在这里，我用<code>request.args.get()</code>方法取id，调用起来就变成<code>&lt;url_head&gt;/api/book?id=xx</code>的形式，而不再是默认的<code>&lt;url_head&gt;/api/book/xx</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1562,28 +1562,28 @@ Books
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/book&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/book&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">api</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
-            <span class="s2">&#34;error.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="s2">&#34;404 Error&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;error.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="s2">&#34;404 Error&#34;</span><span class="p">,</span>
             <span class="n">err_info</span><span class="o">=</span><span class="s2">&#34;You have not logged in!&#34;</span><span class="p">)</span>
     <span class="n">book_isbn</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;isbn&#39;</span><span class="p">)</span>
     <span class="n">book</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
         <span class="s2">&#34;&#34;&#34;SELECT id, title, author, isbn, year FROM book WHERE
 </span><span class="s2">        isbn = :book_isbn&#34;&#34;&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;book_isbn&#34;</span><span class="p">:</span> <span class="n">book_isbn</span><span class="p">})</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">book</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">book</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">book</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">book</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
             <span class="s2">&#34;error.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">),</span>
             <span class="n">err</span><span class="o">=</span><span class="s2">&#34;404 Error&#34;</span><span class="p">,</span> <span class="n">err_info</span><span class="o">=</span><span class="s2">&#34;Book with ISBN = </span><span class="si">%s</span><span class="s2"> not found!&#34;</span> <span class="o">%</span> <span class="n">book_isbn</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">gr_data</span> <span class="o">=</span> <span class="n">get_gr</span><span class="p">(</span><span class="n">isbn</span><span class="o">=</span><span class="n">book_isbn</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">gr_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">gr_data</span> <span class="o">=</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;books&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">gr_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;average_rating&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
-        <span class="n">rslt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s1">&#39;book&#39;</span><span class="p">:</span> 
+        <span class="n">rslt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;book&#39;</span><span class="p">:</span> 
             <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
             <span class="p">,</span> <span class="s1">&#39;isbn&#39;</span><span class="p">:</span> <span class="n">book</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;review_count&#39;</span><span class="p">:</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;work_ratings_count&#39;</span><span class="p">]</span>
             <span class="p">,</span> <span class="s1">&#39;average_score&#39;</span><span class="p">:</span> <span class="n">gr_data</span><span class="p">[</span><span class="s1">&#39;average_rating&#39;</span><span class="p">]}}</span>
@@ -1602,7 +1602,7 @@ Books
 <p>参考bootstrap案例写了几个可有可无的@media选择器，<strong>概念上</strong>有响应式布局的意思了。效果如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1653,7 +1653,7 @@ Books
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* static/css/style.css */</span>
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="c">/* static/css/style.css */</span>
 <span class="p">.</span><span class="nc">form-signin</span> <span class="p">.</span><span class="nc">form-control</span> <span class="p">{</span>
     <span class="k">margin</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">auto</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">auto</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1708,7 +1708,7 @@ Books
 <p><code>flash</code>自动消失和star-rating需要专门适配一些javascript，在main.js里。主要是一些jQuery。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1724,7 +1724,7 @@ Books
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="cm">/* alert-dismissable dismiss automatically in 4s */</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>

@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/song_ming_qing_jinshi/" />
@@ -44,13 +44,13 @@
 <meta property="og:description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/song_ming_qing_jinshi/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-04-23T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
+<meta property="article:published_time" content="2017-04-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
 
 
 <meta itemprop="name" content="北宋、明清进士空间分析">
-<meta itemprop="description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。"><meta itemprop="datePublished" content="2017-04-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="description" content="利用哈佛地理可视化平台、中国历代人物传记数据库的标记数据集，以及“发现中国”导出的地理数据，绘制北宋、明、清的进士来源地，以及它们比重的历时变迁。莆田是进士第一来源地，但至清时，福建、江西的比重已经不高。"><meta itemprop="datePublished" content="2017-04-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
 <meta itemprop="wordCount" content="5962">
 <meta itemprop="keywords" content="进士,地理分析," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="北宋、明清进士空间分析"/>
@@ -204,13 +204,13 @@
 <p>先把北宋、明、清三个进士数据集都载入R。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
 <span class="n">nsong.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_NSong_WGS84_kto.csv&#34;</span><span class="p">)</span>
 <span class="n">ming.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Ming_WGS84_MbJ.csv&#34;</span><span class="p">)</span>
 <span class="n">qing.js</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;下载/CBDB_exams_Qing_WGS84_GWU.csv&#34;</span><span class="p">)</span>
@@ -220,10 +220,10 @@
 <h3 id="北宋">北宋</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><table>
@@ -291,10 +291,10 @@
 <h3 id="明朝">明朝</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">ming.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">ming.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><table>
@@ -362,10 +362,10 @@
 <h3 id="清朝">清朝</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">qing.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">qing.js</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><table>
@@ -433,7 +433,7 @@
 事实上，莆田在科举史上的衰落是非常惊人的。我们可以把图画出来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -444,7 +444,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
 <span class="n">jinshi</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">nsong.js</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">))</span>
@@ -465,10 +465,10 @@
 <p>即使在500年前就已弃赛，把北宋、明、清三代的进士数合起来统计，莆田还是遥遥领先。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">jinshi</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">jinshi</span><span class="o">$</span><span class="n">AddrChn</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><table>
@@ -546,7 +546,7 @@
 <p>需要分别下载CHN和TWN的地图数据（香港HKG和澳门MAC就不去下载了，反正都很小，不影响主要效果）。把CHN的Level1和TWN的Level0数据拼合起来，就大致妥了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -557,7 +557,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cn.mapdata</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&#34;下载/Regime_Bou/CHN_adm1.shp&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">cn.mapdata</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&#34;下载/Regime_Bou/CHN_adm1.shp&#34;</span><span class="p">)</span>
 <span class="n">tw.mapdata</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&#34;下载/Regime_Bou/TWN_adm0.shp&#34;</span><span class="p">)</span>
 <span class="n">p.chn</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span>
     <span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">cn.mapdata</span><span class="p">,</span>
@@ -587,7 +587,7 @@
 <p>创建两个工作函数，把KML转化为list，然后从list中提取出坐标数据，并清理转化为数据框。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -601,7 +601,7 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">get_xml_list</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">xml</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">get_xml_list</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">xml</span><span class="p">){</span>
     <span class="nf">library</span><span class="p">(</span><span class="n">XML</span><span class="p">)</span>
     <span class="nf">xmlToList</span><span class="p">(</span><span class="nf">xmlParse</span><span class="p">(</span><span class="n">xml</span><span class="p">))</span>
 <span class="p">}</span>
@@ -618,7 +618,7 @@
 </div><p>由于每张地图都有多个边界节点（大陆、海南、台湾），所以要串成list提出来。这就需要利用mapply了：提取、命名map_id、合并数据框，一气呵成。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -647,7 +647,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 北宋</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 北宋</span>
 <span class="n">nsong.xml</span> <span class="o">&lt;-</span> <span class="nf">get_xml_list</span><span class="p">(</span><span class="s">&#34;~/下载/northSong.kml&#34;</span><span class="p">)</span>
 <span class="n">nsong.bou</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
     <span class="n">nsong.xml[[1]][[3]][[3]]</span><span class="o">$</span><span class="n">Polygon</span><span class="o">$</span><span class="n">outerBoundaryIs</span><span class="o">$</span><span class="n">LinearRing</span><span class="o">$</span><span class="n">coordinates</span><span class="p">,</span>
@@ -679,7 +679,7 @@
 </div><p>宋、明火德，咱涂个红色。清没有官宣自己什么德，但坊间一般认为丫是水德，咱给涂个黑色。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -690,7 +690,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
 	<span class="n">data</span><span class="o">=</span><span class="n">nsong.bou</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.1</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋疆域&#34;</span><span class="p">)</span>
 <span class="n">p.ming</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_polygon</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">id</span><span class="p">),</span>
@@ -719,7 +719,7 @@
 <h3 id="进士来源地">进士来源地</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -728,7 +728,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">nsong.js</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p.song</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">nsong.js</span><span class="p">,</span>
 	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋进士来源地&#34;</span><span class="p">)</span>
 <span class="n">p.song</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
@@ -748,7 +748,7 @@
 <p>北宋的进士来源地呈现江浙、福建双巨头，江西、四川、河南三极的格局。元祐新旧党争，旧党分为朔、洛、蜀，正好对应于河南、四川这两极，而司马光特别瞧不起闽、楚之人，正是进士热图上特别炽热的福建、江西。之所以敌意这么重，就是因为这几个地方科举太厉害了，却聊不到一块儿去。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -757,7 +757,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.ming</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">ming.js</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p.ming</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">ming.js</span><span class="p">,</span>
 	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
     <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;明朝进士来源地&#34;</span><span class="p">)</span>
 <span class="n">p.ming</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
@@ -777,7 +777,7 @@
 <p>到明代，双巨头格局不复存在，只剩下江浙一极独大，其余几个热点地区分别是北直隶、江西、福建、河南。四川从多极格局中完全消失，可见蒙元入侵影响之深远。天启中，东林党与阉党争权，前者恰好对应于江南单极，于是剩下几极（齐党、楚党、浙党）不得不寄身阉党羽翼下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -786,7 +786,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.qing</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">qing.js</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p.qing</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">qing.js</span><span class="p">,</span>
 	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
     <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;清朝进士来源地&#34;</span><span class="p">)</span>
 <span class="n">p.qing</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
@@ -813,7 +813,7 @@
 <p>把历代数据叠起来看，更加清晰。江浙赣闽文脉相连，而另一个特别明显的现象是淮河流域有一整片真空——这里不怎么出进士，相应地比较适合出皇帝和武将。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -822,7 +822,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">jinshi</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">jinshi</span><span class="p">,</span>
 	<span class="n">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span><span class="o">+</span>
     <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;北宋、明、清进士来源地&#34;</span><span class="p">)</span>
 <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
@@ -853,13 +853,13 @@
 <p>下下来之后，用RSQLite来抽数据。我的用法不复杂，只要取出Addresses表就行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
 <span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="s">&#34;下载/cbdb_sqlite.db&#34;</span><span class="p">)</span>
 <span class="n">addr</span> <span class="o">&lt;-</span> <span class="nf">dbReadTable</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#34;ADDRESSES&#34;</span><span class="p">)</span>
 <span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
@@ -869,7 +869,7 @@
 <p>构造一个函数<code>get_stat</code>，来构成某朝代的政区字典，merge进进士数据集，并统计出时间分布。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -898,7 +898,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">get_stat</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">jsdt</span><span class="p">,</span> <span class="n">dyn.name</span><span class="p">,</span> <span class="n">yr.begin</span><span class="p">,</span> <span class="n">yr.end</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">get_stat</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">jsdt</span><span class="p">,</span> <span class="n">dyn.name</span><span class="p">,</span> <span class="n">yr.begin</span><span class="p">,</span> <span class="n">yr.end</span><span class="p">){</span>
 	<span class="n">addr.dyn</span> <span class="o">&lt;-</span> <span class="n">addr[addr</span><span class="o">$</span><span class="n">belongs3_Name</span> <span class="o">==</span> <span class="n">dyn.name</span> <span class="o">|</span>
 					  <span class="n">addr</span><span class="o">$</span><span class="n">belongs4_Name</span> <span class="o">==</span> <span class="n">dyn.name</span> <span class="o">|</span>
                       <span class="n">addr</span><span class="o">$</span><span class="n">belongs5_Name</span> <span class="o">==</span> <span class="n">dyn.name</span><span class="p">,</span><span class="n">]</span>
@@ -931,7 +931,7 @@
 <h3 id="北宋-1">北宋</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -944,7 +944,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">palcols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">hc_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">tableau_color_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">wsj_pal</span><span class="p">()(</span><span class="m">6</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">palcols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">hc_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">tableau_color_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">),</span> <span class="nf">wsj_pal</span><span class="p">()(</span><span class="m">6</span><span class="p">),</span>
 		  <span class="nf">canva_pal</span><span class="p">()(</span><span class="m">4</span><span class="p">),</span> <span class="nf">economist_pal</span><span class="p">()(</span><span class="m">10</span><span class="p">))</span>
 <span class="n">nsong.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">nsong.js</span><span class="p">,</span> <span class="s">&#34;宋朝&#34;</span><span class="p">,</span> <span class="m">960</span><span class="p">,</span> <span class="m">1130</span><span class="p">)</span>
 <span class="n">cols</span> <span class="o">&lt;-</span> <span class="n">palcols</span><span class="nf">[</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">nsong.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="n">]</span>
@@ -970,7 +970,7 @@
 <p>明朝的情况比较特别，一级行政区会同时出现布政司、巡抚等并列。需要额外归并一下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -985,7 +985,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">ming.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="m">1360</span><span class="p">,</span> <span class="m">1650</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">ming.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">ming.js</span><span class="p">,</span> <span class="s">&#34;明朝&#34;</span><span class="p">,</span> <span class="m">1360</span><span class="p">,</span> <span class="m">1650</span><span class="p">)</span>
 <span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;(^.+)(布政司|巡撫|總督|留守司)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span>
 							<span class="n">ming.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
 <span class="n">ming.stat</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">ming.stat</span><span class="p">,</span> <span class="n">Decade</span> <span class="o">~</span> <span class="n">variable</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
@@ -1012,7 +1012,7 @@
 <h3 id="清朝-1">清朝</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1023,7 +1023,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">qing.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="m">1640</span><span class="p">,</span> <span class="m">1910</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">qing.stat</span> <span class="o">&lt;-</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">qing.js</span><span class="p">,</span> <span class="s">&#34;清朝&#34;</span><span class="p">,</span> <span class="m">1640</span><span class="p">,</span> <span class="m">1910</span><span class="p">)</span>
 <span class="n">cols</span> <span class="o">&lt;-</span> <span class="n">palcols</span><span class="nf">[</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nlevels</span><span class="p">(</span><span class="n">qing.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="n">]</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">levels</span><span class="p">(</span><span class="n">qing.stat</span><span class="o">$</span><span class="n">variable</span><span class="p">)</span>
 <span class="nf">ggplot</span><span class="p">(</span><span class="n">qing.stat</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">Decade</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span><span class="o">+</span>
@@ -1048,12 +1048,12 @@
 <p>进士数据集有进士姓名。我们把这些姓名的首字提出来看一看（复姓就不管了。除非以后找一个语料库来细化）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
 <span class="n">fam.name</span> <span class="o">&lt;-</span> <span class="nf">str_sub</span><span class="p">(</span><span class="n">jinshi</span><span class="o">$</span><span class="n">NameChn</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 <span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">fam.name</span><span class="p">),</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -1391,7 +1391,7 @@
 <p>把前十名拿出来，做个地理分布可视化。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1406,7 +1406,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jinshi</span><span class="o">$</span><span class="n">FamilyName</span> <span class="o">&lt;-</span> <span class="n">fam.name</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">jinshi</span><span class="o">$</span><span class="n">FamilyName</span> <span class="o">&lt;-</span> <span class="n">fam.name</span>
 <span class="nf">for </span><span class="p">(</span><span class="n">famName</span> <span class="n">in</span> <span class="nf">c</span><span class="p">(</span>
     <span class="s">&#34;王&#34;</span><span class="p">,</span> <span class="s">&#34;李&#34;</span><span class="p">,</span> <span class="s">&#34;瀳&#34;</span><span class="p">,</span> <span class="s">&#34;隇&#34;</span><span class="p">,</span> <span class="s">&#34;劉&#34;</span><span class="p">,</span> <span class="s">&#34;吳&#34;</span><span class="p">,</span> <span class="s">&#34;楊&#34;</span><span class="p">,</span> <span class="s">&#34;黃&#34;</span><span class="p">,</span> <span class="s">&#34;林&#34;</span><span class="p">,</span> <span class="s">&#34;周&#34;</span><span class="p">)){</span>
     <span class="n">pp</span> <span class="o">&lt;-</span> <span class="n">p.chn</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">),</span>

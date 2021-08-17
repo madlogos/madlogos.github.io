@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/django-website-demo-2/" />
@@ -44,12 +44,12 @@
 <meta property="og:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/django-website-demo-2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-11-07T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
+<meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
 
 <meta itemprop="name" content="edX作业：用Django建一个简易Web订单系统(2)">
-<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"><meta itemprop="datePublished" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"><meta itemprop="datePublished" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
 <meta itemprop="wordCount" content="6710">
 <meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Django建一个简易Web订单系统(2)"/>
@@ -165,7 +165,7 @@
 <p>模型做好后，可以在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/admin.py">admin.py</a>里注册一下。这样就能像User类一样，在Django后台管理界面维护这些数据。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -210,7 +210,7 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/admin.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/admin.py</span>
 <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Topping</span><span class="p">,</span> <span class="n">Addition</span><span class="p">,</span> <span class="n">Order</span><span class="p">,</span> <span class="n">Item</span>
 
@@ -268,7 +268,7 @@
 <p>接下来在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/orders/urls.py">urls.py</a>里添加路由。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -278,7 +278,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/urls.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/urls.py</span>
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&#34;pick/&lt;int:id&gt;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">pick_product</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;pick_product&#34;</span><span class="p">),</span>
@@ -303,7 +303,7 @@
 <p>菜单页是事实上的首页。后端代码并不复杂，主要用来跳转。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -313,7 +313,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
@@ -339,7 +339,7 @@
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -391,7 +391,7 @@
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/index.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/index.html --&gt;</span>
 {% extends &#34;_base.html&#34; %}
 {% load static %}
 
@@ -447,14 +447,14 @@ Menu
 <p><kbd>Add to cart</kbd>按钮绑定的事件叫<code>popupfun()</code>，写在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/main.js">menu.js</a>里：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
 <span class="kd">function</span> <span class="nx">popupfun</span><span class="p">(</span><span class="nx">prod_id</span><span class="p">){</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;pick/&#34;</span> <span class="o">+</span> <span class="nx">prod_id</span><span class="p">,</span> <span class="s2">&#34;Add to cart&#34;</span><span class="p">,</span> <span class="s2">&#34;status=1,height:500,width:300,toolbar=0,resizeable=0&#34;</span><span class="p">);</span>
     <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
@@ -473,7 +473,7 @@ Menu
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -561,7 +561,7 @@ Menu
 </span><span class="lnt">86
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/pick_product.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/pick_product.html --&gt;</span>
 {% extends &#34;_popup.html&#34; %}
 {% load static %}
 
@@ -653,7 +653,7 @@ Topping / Additions
 <p>表单绑定了事件<code>onsubmit()</code>，所以点击<kbd>Confirm</kbd>按钮提交表单后，<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/static/js/pick_product.js">pick_product.js</a>里的<code>check_toppings()</code>函数会先运行。如果topping数量之和与limit不符，就返回false。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -668,7 +668,7 @@ Topping / Additions
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/pick_product.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/pick_product.js */</span>
 <span class="kd">function</span> <span class="nx">check_toppings</span><span class="p">(</span><span class="nx">limit</span><span class="p">){</span>
     <span class="kd">var</span> <span class="nx">qty</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">limit</span> <span class="o">==</span> <span class="kc">null</span><span class="p">){</span>
@@ -687,7 +687,7 @@ Topping / Additions
 <p>这里用到了<code>evt.target.dataset.class</code>属性。我比较喜欢在前端模板的控件里埋<code>data-xxxx</code>属性，比如<code>data-class</code>、<code>data-value</code>，这样JS只要用<code>dataset.xxx</code>就能引用它。也不知道这是不是好的做法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -723,7 +723,7 @@ Topping / Additions
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/pick_product.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/pick_product.js */</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">submit</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#btn_submit&#39;</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">n_topping</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;n_topping&#39;</span><span class="p">);</span>
@@ -767,7 +767,7 @@ Topping / Additions
 <p>通过了JS脚本的校验后，添加物品种和数量提交到后端，python要进一步做一系列处理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -843,12 +843,12 @@ Topping / Additions
 </span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">pick_product</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
         <span class="n">qty</span> <span class="o">=</span> <span class="n">to_num</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;qty&#39;</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">qty</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">qty</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">qty</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">qty</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&#34;&lt;script&gt;window.close();&lt;/script&gt;&#34;</span><span class="p">)</span>
 
         <span class="n">toppings</span> <span class="o">=</span> <span class="n">clean_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
@@ -869,7 +869,7 @@ Topping / Additions
         <span class="n">item</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="n">product</span><span class="o">=</span><span class="n">product</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="n">qty</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">product</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
         
         <span class="c1"># judge if duplicated</span>
-        <span class="n">itm_dup</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">itm_dup</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">itm_trk</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> 
             <span class="s1">&#39;topping&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span> <span class="s1">&#39;addition&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()}</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">toppings</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -887,7 +887,7 @@ Topping / Additions
         <span class="k">for</span> <span class="n">itm</span> <span class="ow">in</span> <span class="n">cart</span><span class="o">.</span><span class="n">cartitem_set</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
             <span class="n">itm_str</span> <span class="o">=</span> <span class="n">show_item</span><span class="p">(</span><span class="n">itm</span><span class="o">.</span><span class="n">item</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">itm_trk</span> <span class="o">==</span> <span class="n">itm_str</span><span class="p">:</span>
-                <span class="n">itm_dup</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">itm_dup</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="n">itm</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="n">qty</span>
                 <span class="n">itm</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
                 <span class="k">break</span>
@@ -934,7 +934,7 @@ Topping / Additions
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1081,7 +1081,7 @@ Topping / Additions
 </span><span class="lnt">145
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/cart.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/cart.html --&gt;</span>
 {% extends &#34;_base.html&#34; %}
 {% load static %}
 
@@ -1233,13 +1233,13 @@ Cart
 <p>页面里写了tooltip value，所以JS中用jQuery定义一下tooltip，鼠标移到上方时显示数值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/cart.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/cart.js */</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[data-toggle=&#34;tooltip&#34;]&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
 <span class="p">});</span>
@@ -1248,7 +1248,7 @@ Cart
 </div><p>对页面进行持续监听，一旦文本输入框或复选框选中状态发生改动，就调用<code>update_price()</code>更改小计价格。如果一个都没选中，就<code>preventDefault()</code>，不许提交。如果点了&quot;#check_all&quot;复选框，那么就<code>batch_check()</code>选中所有项目。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1302,7 +1302,7 @@ Cart
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/cart/js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/cart/js */</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">update_price</span><span class="p">();</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1363,7 +1363,7 @@ Cart
 <h5 id="购物车后端">购物车后端</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1414,7 +1414,7 @@ Cart
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">cart</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
@@ -1457,12 +1457,12 @@ Cart
                 <span class="n">order</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
             <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;orders/orders.html&#39;</span><span class="p">,</span> 
-                <span class="p">{</span><span class="s1">&#39;orders&#39;</span><span class="p">:</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">),</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+                <span class="p">{</span><span class="s1">&#39;orders&#39;</span><span class="p">:</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">),</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="n">cart_det</span> <span class="o">=</span> <span class="n">show_cart</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;orders/cart.html&#34;</span><span class="p">,</span> 
-            <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">],</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;cart_sum&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]})</span>
+            <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">],</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;cart_sum&#39;</span><span class="p">:</span> <span class="n">cart_det</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]})</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如为POST方法（提交表单），首先保存当前购物车。这就涉及item、itemtopping、itemaddition三张表的改动。如果数量减到0，就直接删除。</p>
@@ -1482,7 +1482,7 @@ Cart
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1609,7 +1609,7 @@ Cart
 </span><span class="lnt">125
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/orders.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/orders/orders.html --&gt;</span>
 {% extends &#34;_base.html&#34; %}
 {% load static %}
 
@@ -1744,7 +1744,7 @@ Orders
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1795,7 +1795,7 @@ Orders
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/orders.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/orders.js */</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">elem</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">btn_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;btn_pay&#39;</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="o">:</span> <span class="s1">&#39;delete&#39;</span><span class="p">};</span>
     <span class="k">if</span> <span class="p">([</span><span class="s1">&#39;btn_pay&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_cancel&#39;</span><span class="p">,</span> <span class="s1">&#39;btn_delete&#39;</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">elem</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span>
@@ -1849,7 +1849,7 @@ Orders
 </div><h5 id="列表后端">列表后端</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1896,7 +1896,7 @@ Orders
 </span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views/py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views/py</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">orders</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
@@ -1960,7 +1960,7 @@ Orders
 <p>其实可以复用<code>orders()</code>的代码。这块没有认真重构。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2004,7 +2004,7 @@ Orders
 </span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/views.py</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>

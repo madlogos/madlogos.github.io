@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/political-compass/" />
@@ -44,13 +44,13 @@
 <meta property="og:description" content="来自zuobiao.me 2014年的17万条政治倾向调查数据，给我们提供了一个21世纪初叶中国网民意识形态的切片样本。可惜的是，这个样本不能继续随访下去了。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/political-compass/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-03-05T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
+<meta property="article:published_time" content="2017-03-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
 
 
 <meta itemprop="name" content="朝左还是朝右？来看一份17万行的小样本数据">
-<meta itemprop="description" content="来自zuobiao.me 2014年的17万条政治倾向调查数据，给我们提供了一个21世纪初叶中国网民意识形态的切片样本。可惜的是，这个样本不能继续随访下去了。"><meta itemprop="datePublished" content="2017-03-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="description" content="来自zuobiao.me 2014年的17万条政治倾向调查数据，给我们提供了一个21世纪初叶中国网民意识形态的切片样本。可惜的是，这个样本不能继续随访下去了。"><meta itemprop="datePublished" content="2017-03-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
 <meta itemprop="wordCount" content="9832">
 <meta itemprop="keywords" content="政治坐标,坐标网," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="朝左还是朝右？来看一份17万行的小样本数据"/>
@@ -186,13 +186,13 @@
 <p>打开R。先载入程序包和数据。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">sapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;RColorBrewer&#34;</span><span class="p">,</span> <span class="s">&#34;readr&#34;</span><span class="p">,</span> <span class="s">&#34;stringr&#34;</span><span class="p">,</span> <span class="s">&#34;data.table&#34;</span><span class="p">,</span> <span class="s">&#34;ggplot2&#34;</span><span class="p">,</span> <span class="s">&#34;ggthemes&#34;</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">sapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;RColorBrewer&#34;</span><span class="p">,</span> <span class="s">&#34;readr&#34;</span><span class="p">,</span> <span class="s">&#34;stringr&#34;</span><span class="p">,</span> <span class="s">&#34;data.table&#34;</span><span class="p">,</span> <span class="s">&#34;ggplot2&#34;</span><span class="p">,</span> <span class="s">&#34;ggthemes&#34;</span><span class="p">,</span>
          <span class="s">&#34;scatterplot3d&#34;</span><span class="p">),</span> <span class="n">require</span><span class="p">,</span> <span class="n">character.only</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;http://zuobiao.me/resources/2014data.csv&#34;</span><span class="p">)</span>
 <span class="nf">format</span><span class="p">(</span><span class="nf">object.size</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">units</span> <span class="o">=</span> <span class="s">&#34;Mb&#34;</span><span class="p">)</span>
@@ -201,7 +201,7 @@
 </div><p>data一共171830行、57列（包括50个问题、记录号、人口学信息），占92.2M内存。把它melt成hypercube，会变成一头食内存兽。所以用readr包读入，再转成data.table。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -211,7 +211,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dt</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">data[</span><span class="p">,</span> <span class="m">-3</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;X1&#34;</span><span class="p">,</span><span class="s">&#34;X2&#34;</span><span class="p">,</span> <span class="s">&#34;性别&#34;</span><span class="p">,</span> <span class="s">&#34;出生年份&#34;</span><span class="p">,</span> <span class="s">&#34;年收入&#34;</span><span class="p">,</span> <span class="s">&#34;学历&#34;</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">dt</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">data[</span><span class="p">,</span> <span class="m">-3</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;X1&#34;</span><span class="p">,</span><span class="s">&#34;X2&#34;</span><span class="p">,</span> <span class="s">&#34;性别&#34;</span><span class="p">,</span> <span class="s">&#34;出生年份&#34;</span><span class="p">,</span> <span class="s">&#34;年收入&#34;</span><span class="p">,</span> <span class="s">&#34;学历&#34;</span><span class="p">))</span>
 <span class="n">dt</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">data.table</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="nf">data.table</span><span class="p">(</span><span class="n">meta</span><span class="p">),</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;variable&#34;</span><span class="p">,</span> <span class="n">all.x</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">dt</span><span class="o">$</span><span class="n">Value</span> <span class="o">&lt;-</span> <span class="nf">str_length</span><span class="p">(</span><span class="n">dt</span><span class="o">$</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="m">2</span>
 <span class="n">dt</span><span class="o">$</span><span class="n">Agree</span> <span class="o">&lt;-</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">dt</span><span class="o">$</span><span class="n">value</span><span class="p">,</span> <span class="s">&#34;反对&#34;</span><span class="p">)</span>
@@ -226,7 +226,7 @@
 <p>更早的一个版本还有IP地址A、B段，可以用来判断来源地。现存的版本把这个字段去掉了（手动可惜）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,7 +250,7 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">meta</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="nf">names</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="n">[4</span><span class="o">:</span><span class="m">53</span><span class="n">]</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">meta</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="nf">names</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="n">[4</span><span class="o">:</span><span class="m">53</span><span class="n">]</span><span class="p">)</span>
 <span class="n">meta</span><span class="o">$</span><span class="n">Class</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#34;政治&#34;</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;经济&#34;</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&#34;文化&#34;</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span>
 <span class="n">meta</span><span class="o">$</span><span class="n">Type</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
     <span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span>  <span class="c1"># 4 - 13</span>
@@ -602,7 +602,7 @@
 <p>讲真，不怎么样。大多数都是30岁以下的小年轻，大学生和研究生比例特别高，低收入比例近一半。这只能说明一点：参与的主力军是在校大学生。而这个群体只占中国居民的10%都不到。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -610,7 +610,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">calc</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="nf">data.table</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">X1</span> <span class="o">~</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">),</span> <span class="n">mean</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">calc</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="nf">data.table</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">X1</span> <span class="o">~</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">),</span> <span class="n">mean</span><span class="p">,</span>
               <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">calc</span><span class="o">$</span><span class="n">`文化`</span> <span class="o">&lt;-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">calc[</span><span class="p">,</span> <span class="m">42</span><span class="o">:</span><span class="m">51</span><span class="n">]</span><span class="p">)</span>
 <span class="n">calc</span><span class="o">$</span><span class="n">`经济`</span> <span class="o">&lt;-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">calc[</span><span class="p">,</span> <span class="m">22</span><span class="o">:</span><span class="m">41</span><span class="n">]</span><span class="p">)</span>
@@ -620,7 +620,7 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -640,7 +640,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">data</span><span class="o">$</span>年龄 <span class="o">&lt;-</span> <span class="m">2014</span> <span class="o">-</span> <span class="n">data</span><span class="o">$</span>出生年份
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">data</span><span class="o">$</span>年龄 <span class="o">&lt;-</span> <span class="m">2014</span> <span class="o">-</span> <span class="n">data</span><span class="o">$</span>出生年份
 <span class="n">data</span><span class="o">$</span>年龄组 <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span><span class="n">data</span><span class="o">$</span>年龄<span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">19.99</span><span class="p">,</span> <span class="m">24.99</span><span class="p">,</span> <span class="m">29.99</span><span class="p">,</span> <span class="m">34.99</span><span class="p">,</span> <span class="m">39.99</span><span class="p">,</span> <span class="m">44.99</span><span class="p">,</span> <span class="m">99</span><span class="p">))</span>
 <span class="n">age.gender</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> 性别 <span class="o">+</span> 年龄组 <span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;X1&#34;</span><span class="p">)</span>
 <span class="n">age.gender</span> <span class="o">&lt;-</span> <span class="n">age.gender</span><span class="nf">[complete.cases</span><span class="p">(</span><span class="n">age.gender</span><span class="p">),</span><span class="n">]</span>
@@ -666,7 +666,7 @@
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -679,7 +679,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">educ</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> 学历  <span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;X1&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">educ</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> 学历  <span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;X1&#34;</span><span class="p">)</span>
 <span class="n">educ</span> <span class="o">&lt;-</span> <span class="n">educ</span><span class="nf">[complete.cases</span><span class="p">(</span><span class="n">educ</span><span class="p">),</span><span class="n">]</span>
 <span class="n">educ</span><span class="o">$</span>比重 <span class="o">&lt;-</span> <span class="n">educ</span><span class="o">$</span><span class="n">. </span><span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">educ</span><span class="o">$</span><span class="n">.)</span>
 <span class="n">educ</span><span class="o">$</span>学历 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">educ</span><span class="o">$</span>学历<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span>
@@ -698,7 +698,7 @@
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -712,7 +712,7 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">incm</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> 年收入 <span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;X1&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">incm</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> 年收入 <span class="o">~</span><span class="n">.,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;X1&#34;</span><span class="p">)</span>
 <span class="n">incm</span> <span class="o">&lt;-</span> <span class="n">incm</span><span class="nf">[complete.cases</span><span class="p">(</span><span class="n">incm</span><span class="p">),</span><span class="n">]</span>
 <span class="n">incm</span><span class="o">$</span>年收入 <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">incm</span><span class="o">$</span>年收入<span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span>
     <span class="s">&#34;0-25k&#34;</span><span class="p">,</span> <span class="s">&#34;25k-50k&#34;</span><span class="p">,</span> <span class="s">&#34;50k-75k&#34;</span><span class="p">,</span> <span class="s">&#34;75k-100k&#34;</span><span class="p">,</span> <span class="s">&#34;100k-150k&#34;</span><span class="p">,</span> <span class="s">&#34;150k-300k&#34;</span><span class="p">,</span>
@@ -735,14 +735,14 @@
 <p>还是比较正态的。政治几乎不偏不倚，经济和文化都轻微偏左。网上其他一些对此数据集的分析认为结果偏左，实际不然。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;政治倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;政治倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>政治<span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">hc_pal</span><span class="p">()(</span><span class="m">5</span><span class="p">)</span><span class="n">[1]</span><span class="p">,</span>
                    <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;white&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">`政治`</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">+</span>
@@ -755,14 +755,14 @@
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;经济倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;经济倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>经济<span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">hc_pal</span><span class="p">()(</span><span class="m">5</span><span class="p">)</span><span class="n">[3]</span><span class="p">,</span>
                    <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;white&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">`经济`</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">+</span>
@@ -775,14 +775,14 @@
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;文化倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&#34;文化倾向均分&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>文化<span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">hc_pal</span><span class="p">()(</span><span class="m">5</span><span class="p">)</span><span class="n">[4]</span><span class="p">,</span>
                    <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;white&#34;</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">`文化`</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">+</span>
@@ -808,7 +808,7 @@
 <p>但同样是国企话题，很多人反对国企私有化，但同时又赞成国企垄断国计民生命脉产业。这种矛盾很有意思。一些口号化的问题，容易激起下意识的回答。毕业后经历逐渐丰富，很多原本遥远的问题变得与切身利益攸关，感受更为真切，往往立场就会转变。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -823,7 +823,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
                     <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
               <span class="n">meta</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Qn&#34;</span><span class="p">)</span>
 <span class="nf">setorder</span><span class="p">(</span><span class="n">summ</span><span class="p">,</span> <span class="n">variable.x</span><span class="p">)</span>
@@ -846,7 +846,7 @@
 <p>关联很紧密，政治、文化、经济是正相关的。从下面这个图可以发现，男性的倾向性打分平均而言比女性更极端（偏离零点）。这17万个散点在三维空间里形成一个完美正态的橄榄球。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -862,7 +862,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">p3d.lm</span> <span class="o">&lt;-</span> <span class="nf">with</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nf">lm</span><span class="p">(</span>政治 <span class="o">~</span> 文化 <span class="o">+</span> 经济<span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">p3d.lm</span> <span class="o">&lt;-</span> <span class="nf">with</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nf">lm</span><span class="p">(</span>政治 <span class="o">~</span> 文化 <span class="o">+</span> 经济<span class="p">))</span>
 <span class="n">p3d</span> <span class="o">&lt;-</span> <span class="nf">with</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nf">scatterplot3d</span><span class="p">(</span>
     文化<span class="p">,</span> 经济<span class="p">,</span> 政治<span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">highlight.3d</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="m">120</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;h&#39;</span><span class="p">,</span>
     <span class="n">main</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&#34;政治 =&#34;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">p3d.lm</span><span class="o">$</span><span class="n">coefficients[2]</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="s">&#34;* 文化 +&#34;</span><span class="p">,</span>
@@ -885,13 +885,13 @@
 <p>对问题得分相关矩阵作层次聚类，大体可以分成四簇。其中，“富人公示财富来源”独立构成一簇。看来大家对此问题的态度比较矛盾。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cor</span> <span class="o">=</span> <span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">calc[</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">51</span><span class="n">]</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">cor</span> <span class="o">=</span> <span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">calc[</span><span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">51</span><span class="n">]</span><span class="p">))</span>
 <span class="nf">colnames</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span> <span class="o">=</span> <span class="n">qn</span>
 <span class="nf">rownames</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span> <span class="o">=</span> <span class="n">qn</span>
 <span class="nf">plot</span><span class="p">(</span><span class="nf">hclust</span><span class="p">(</span><span class="nf">dist</span><span class="p">(</span><span class="n">cor</span><span class="p">)),</span> <span class="n">sub</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.6</span><span class="p">)</span>
@@ -916,7 +916,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -944,7 +944,7 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;性别&#34;</span><span class="p">,</span> <span class="s">&#34;年龄段&#34;</span><span class="p">,</span> <span class="s">&#34;年收入&#34;</span><span class="p">,</span> <span class="s">&#34;学历&#34;</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">var</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;性别&#34;</span><span class="p">,</span> <span class="s">&#34;年龄段&#34;</span><span class="p">,</span> <span class="s">&#34;年收入&#34;</span><span class="p">,</span> <span class="s">&#34;学历&#34;</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">var</span><span class="p">){</span>
     <span class="n">d</span> <span class="o">=</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.formula</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Class +&#34;</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="s">&#34;~.&#34;</span><span class="p">)),</span>
                              <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#39;Value&#39;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
     <span class="n">d</span><span class="o">$</span><span class="n">Attr</span> <span class="o">=</span> <span class="n">var</span>
@@ -987,7 +987,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1007,7 +1007,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 年收入 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 年收入 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
                     <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
               <span class="n">meta</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Qn&#34;</span><span class="p">)</span>
 <span class="nf">setorder</span><span class="p">(</span><span class="n">summ</span><span class="p">,</span> <span class="n">variable.x</span><span class="p">)</span>
@@ -1041,7 +1041,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1059,7 +1059,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 学历 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 学历 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
                     <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
               <span class="n">meta</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Qn&#34;</span><span class="p">)</span>
 <span class="nf">setorder</span><span class="p">(</span><span class="n">summ</span><span class="p">,</span> <span class="n">variable.x</span><span class="p">)</span>
@@ -1091,7 +1091,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1110,7 +1110,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 年龄段 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 年龄段 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
                     <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
               <span class="n">meta</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Qn&#34;</span><span class="p">)</span>
 <span class="nf">setorder</span><span class="p">(</span><span class="n">summ</span><span class="p">,</span> <span class="n">variable.x</span><span class="p">)</span>
@@ -1146,7 +1146,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1162,7 +1162,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 性别 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">summ</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">+</span> <span class="n">Qn</span> <span class="o">+</span> 性别 <span class="o">~</span> <span class="n">.,</span> <span class="nf">c</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">),</span>
                     <span class="n">value.var</span> <span class="o">=</span> <span class="s">&#34;Value&#34;</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
               <span class="n">meta</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#34;Qn&#34;</span><span class="p">)</span>
 <span class="nf">setorder</span><span class="p">(</span><span class="n">summ</span><span class="p">,</span> <span class="n">variable.x</span><span class="p">)</span>

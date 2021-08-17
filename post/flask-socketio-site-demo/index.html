@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.gitee.io/post/flask-socketio-site-demo/" />
@@ -44,12 +44,12 @@
 <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://madlogos.gitee.io/post/flask-socketio-site-demo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-11-01T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26&#43;08:00" />
+<meta property="article:published_time" content="2019-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
 
 <meta itemprop="name" content="edX作业：用Flask建一个简易Web聊天室">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"><meta itemprop="datePublished" content="2019-11-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26&#43;08:00" />
+<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"><meta itemprop="datePublished" content="2019-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
 <meta itemprop="wordCount" content="7777">
 <meta itemprop="keywords" content="Python,Flask,SocketIO,AJAX,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Flask建一个简易Web聊天室"/>
@@ -199,7 +199,7 @@
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -214,7 +214,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">project2
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">project2
 |-- application.py
 |-- flask.log
 |--+ static
@@ -253,7 +253,7 @@
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -326,7 +326,7 @@
 </span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/_base.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/_base.html --&gt;</span>
 <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -404,7 +404,7 @@
 <p>user是个比较扁平的字典，存用户名和最后一次访问的频道:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -412,7 +412,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="err">&#39;&lt;user</span> <span class="err">1&gt;&#39;:</span> <span class="err">&#39;&lt;last</span> <span class="err">visited</span> <span class="err">channel</span> <span class="err">of</span> <span class="err">user</span> <span class="err">1&gt;&#39;,</span>
   <span class="err">&#39;&lt;user</span> <span class="err">2&gt;&#39;:</span> <span class="err">&#39;&lt;last</span> <span class="err">visited</span> <span class="err">channel</span> <span class="err">of</span> <span class="err">user</span> <span class="err">2&gt;&#39;,</span> 
   <span class="err">...,</span>
@@ -423,7 +423,7 @@
 </div><p>channels是比较复杂的嵌套字典，每个频道都绑一个字典，包含&rsquo;created'、&lsquo;max_id&rsquo;和双层字典&rsquo;chats&rsquo;：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -449,7 +449,7 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="err">&#39;&lt;channel</span> <span class="err">1&gt;&#39;:</span> 
     <span class="err">{</span>
       <span class="err">&#39;created&#39;:</span> <span class="err">&#39;&lt;creation</span> <span class="err">time</span> <span class="err">of</span> <span class="err">channel</span> <span class="err">1&gt;&#39;,</span>
@@ -479,7 +479,7 @@
 <p>主路由&quot;/&ldquo;绑定函数<code>index</code>。假如当前<code>session</code>里有&rsquo;act_user'，那么调用<code>get_channels()</code>函数（也就是跑去频道列表），否则跳转去login页。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -507,7 +507,7 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: UTF-8 -*-</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: UTF-8 -*-</span>
 <span class="c1"># application.py</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -527,9 +527,9 @@
 <span class="n">users</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="n">channels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">get_channels</span><span class="p">()</span>
@@ -541,7 +541,7 @@
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -553,9 +553,9 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&#34;flask.log&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="p">)</span>
     <span class="n">handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
     <span class="n">logging_format</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
@@ -579,7 +579,7 @@
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -663,7 +663,7 @@
 </span><span class="lnt">82
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/channels.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/channels.html --&gt;</span>
 {% extends &#34;_base.html&#34; %}
 
 {% block title %}
@@ -753,7 +753,7 @@ Channels
 <p>现在到application.py看看login路由定义了些什么。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -770,8 +770,8 @@ Channels
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/login&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;GET&#34;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">get_channels</span><span class="p">()</span>
@@ -781,7 +781,7 @@ Channels
             <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
                 <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-info-circle&#39;&gt;&lt;/i&gt;
 </span><span class="s2">                New username </span><span class="si">%s</span><span class="s2"> created.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">usernm</span><span class="p">)),</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
-            <span class="n">users</span><span class="p">[</span><span class="n">usernm</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">users</span><span class="p">[</span><span class="n">usernm</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">session</span><span class="p">[</span><span class="s1">&#39;act_user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usernm</span>
         <span class="k">return</span><span class="p">(</span><span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&#34;get_channels&#34;</span><span class="p">)))</span>
@@ -798,7 +798,7 @@ Channels
 <p>有登录就有注销。_base.html里注销按钮已经绑定了logout路由，所以只要定义logout路由的后台绑定函数就行了。这里的注销也很简单，登出后清空<code>session</code>中的<code>act_user</code>对象，转跳回登录页。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -808,10 +808,10 @@ Channels
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/logout&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/logout&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
         <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-check-square-o&#39;&gt;&lt;/i&gt;
 </span><span class="s2">        You have logged out.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
@@ -827,7 +827,7 @@ Channels
 <p>看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数<code>get_channels()</code>和<code>set_channels()</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -863,20 +863,20 @@ Channels
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_channels</span><span class="p">():</span>
     <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">channels</span><span class="p">))</span>
     <span class="n">last_visit</span><span class="o">=</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">last_visit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">last_visit</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">last_visit</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
         <span class="s2">&#34;channels.html&#34;</span><span class="p">,</span> <span class="n">act_user</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;act_user&#34;</span><span class="p">),</span> 
         <span class="n">channels</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">:</span><span class="n">channels</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]}</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">],</span> 
         <span class="n">last_visit</span><span class="o">=</span><span class="n">last_visit</span><span class="p">)</span>
 
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/channels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">set_channels</span><span class="p">():</span>
     <span class="n">new_channel</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;new_channel&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">new_channel</span> <span class="o">!=</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
@@ -920,7 +920,7 @@ Channels
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1019,7 +1019,7 @@ Channels
 </span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/channel.html --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/channel.html --&gt;</span>
 {% extends &#34;_base.html&#34; %}
 
 {% block title %}
@@ -1127,14 +1127,14 @@ Channel {{ channel }}
 <!-- {% raw %} -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">act_user</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ act_user }}&#34;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">act_channel</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="s2">&#34;{{ channel }}&#34;</span><span class="p">);</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#msgTbl&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">format_chats</span><span class="p">({{</span> <span class="nx">chats</span><span class="o">|</span><span class="nx">tojson</span> <span class="p">}},</span> <span class="s1">&#39;{{ act_user }}&#39;</span><span class="p">);</span>
@@ -1149,7 +1149,7 @@ Channel {{ channel }}
 <p>这段JS代码用到了<code>format_chats()</code>函数。这是个自定义函数，从chat.js里加载：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1171,7 +1171,7 @@ Channel {{ channel }}
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
 <span class="c1">// template for chatPost
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#chatPost&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
 
@@ -1201,7 +1201,7 @@ Channel {{ channel }}
 <p>在格式化日期时，用到了另外两个函数<code>format_date()</code>和<code>lead_zero()</code>。也定义在chat.js里。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1221,7 +1221,7 @@ Channel {{ channel }}
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
 <span class="kd">function</span> <span class="nx">format_date</span><span class="p">(</span><span class="nx">date</span><span class="p">){</span>
     <span class="kr">const</span> <span class="nx">yr</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getYear</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1900</span><span class="p">;</span>
     <span class="kr">const</span> <span class="nx">mo</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
@@ -1245,7 +1245,7 @@ Channel {{ channel }}
 <p>回过头再看&rsquo;channel/<channel>&lsquo;路由的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1260,10 +1260,10 @@ Channel {{ channel }}
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/channel/&lt;channel&gt;&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/channel/&lt;channel&gt;&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_channel</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_user&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">flash</span><span class="p">(</span><span class="n">Markup</span><span class="p">(</span>
             <span class="s2">&#34;&#34;&#34;&lt;i class=&#39;fa fa-2x fa-exclamation-circle&#39;&gt;&lt;/i&gt;
 </span><span class="s2">            You are not logged in.&#34;&#34;&#34;</span><span class="p">),</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
@@ -1285,7 +1285,7 @@ Channel {{ channel }}
 <p><a name="chatjs"></a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1318,7 +1318,7 @@ Channel {{ channel }}
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="cm">/* connect to socket */</span>
     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&#34;//&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
@@ -1354,7 +1354,7 @@ Channel {{ channel }}
 </div><p>服务器接到这个&quot;send msg&quot;请求后，怎么处理呢？看application.py：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1374,8 +1374,8 @@ Channel {{ channel }}
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;send msg&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@socketio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&#34;send msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">emit_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="c1"># if msg is blank, do not emit</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
@@ -1391,7 +1391,7 @@ Channel {{ channel }}
 
         <span class="n">emit</span><span class="p">(</span><span class="s1">&#39;emit msg&#39;</span><span class="p">,</span> 
              <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> 
-              <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">],</span> <span class="s1">&#39;channel&#39;</span><span class="p">:</span> <span class="n">channel</span><span class="p">},</span> <span class="n">broadcast</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+              <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">],</span> <span class="s1">&#39;channel&#39;</span><span class="p">:</span> <span class="n">channel</span><span class="p">},</span> <span class="n">broadcast</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>假如&quot;send msg&quot;请求数据不为空，那就各种解析：解析出channel、chats（只保留最后100条），打包成<code>{'id': id, 'user': data['user'], 'time': data['time'], 'msg': data['msg'], 'channel': channel}</code>这样格式的json，发射(emit)回客户端。这里设<code>broadcast=True</code>，其他聊天室的客户端也都会通过广播机制接到这些数据，并通过JS实现页面内更新。</p>
@@ -1406,7 +1406,7 @@ Channel {{ channel }}
 <p>为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1418,7 +1418,7 @@ Channel {{ channel }}
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
     <span class="kr">const</span> <span class="nx">msgArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;msg&#34;</span><span class="p">);</span>
     <span class="nx">msgArea</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1439,7 +1439,7 @@ Channel {{ channel }}
 <p>删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用<code>remove()</code>方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1452,7 +1452,7 @@ Channel {{ channel }}
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/chat.js */</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="nx">evt</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">+</span> <span class="s2">&#34;//&#34;</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">location</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">tgt</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
@@ -1469,7 +1469,7 @@ Channel {{ channel }}
 <p>服务器端收到&quot;del msg&quot;请求后，收到的data就是个长度为2的字典。这样处理：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1478,8 +1478,8 @@ Channel {{ channel }}
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
-<span class="nd">@socketio.on</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># application.py</span>
+<span class="nd">@socketio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&#34;del msg&#34;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">del_msg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">channel</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">])</span>
     <span class="n">chats</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">][</span><span class="s1">&#39;chats&#39;</span><span class="p">]</span>
@@ -1492,7 +1492,7 @@ Channel {{ channel }}
 <p><code>flash</code>自动消失需要专门适配一些javascript。在main.js里，用jQuery实现。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1503,7 +1503,7 @@ Channel {{ channel }}
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* static/js/main.js */</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="cm">/* alert-dismissable dismiss automatically in 3s */</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
