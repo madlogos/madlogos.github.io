@@ -2,36 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://madlogos.gitee.io/post/may-1-zhenjiang-yangzhou-drive/</loc>
-    <lastmod>2021-05-09T17:06:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.gitee.io/categories/</loc>
-    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.gitee.io/</loc>
-    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.gitee.io/post/</loc>
-    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.gitee.io/tags/</loc>
-    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.gitee.io/post/non-standard-medical-insurance-dilemma/</loc>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.gitee.io/tags/%E4%BF%9D%E9%99%A9/</loc>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.gitee.io/tags/%E5%B8%A6%E7%97%85%E4%BD%93/</loc>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.gitee.io/categories/%E6%97%A0%E9%A2%98/</loc>
+    <lastmod>2022-02-20T23:20:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.gitee.io/post/may-1-zhenjiang-yangzhou-drive/</loc>
+    <lastmod>2021-05-09T17:06:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -60,13 +88,6 @@
   <url>
     <loc>https://madlogos.gitee.io/tags/%E9%95%87%E6%B1%9F/</loc>
     <lastmod>2021-05-09T17:06:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.gitee.io/categories/%E6%97%A0%E9%A2%98/</loc>
-    <lastmod>2021-03-23T23:42:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
