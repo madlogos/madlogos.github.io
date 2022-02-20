@@ -80,7 +80,7 @@
 
 实验发现，人们是如此地厌恶损失，以至于同等损失带来的负效用，是同等收益带来的正效用的**2.5倍**。
 
-{{% figure class="center" src="http://gh-1251443721.cos.ap-chengdu.myqcloud.com/2022/0218/loss_aversion.png" width="60%" title="图 | 损失规避" alt="损失规避" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2022/0218/loss_aversion.png" width="60%" title="图 | 损失规避" alt="损失规避" %}}
 
 ### (4) 迷恋小概率事件
 
@@ -114,7 +114,7 @@
 
 ---
 
-{{% figure class="center" src="http://gh-1251443721.cos.ap-chengdu.myqcloud.com/2022/0218/decision_weight.jpg" width="60%" title="图 | 决策权重函数" alt="决策权重函数" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2022/0218/decision_weight.jpg" width="60%" title="图 | 决策权重函数" alt="决策权重函数" %}}
 
 前景理论诞生了很多年，早已不是前沿理论，但依然有很强的的解释力。人类实质上是很不善于理解数量关系的，也很不擅长处理绝对标尺，在处理极大数和极小数时，感知和真相间会发生很大偏差。上图是Kahneman & Tversky做的加权函数曲线，它显示出人类往往低估大概率，而高估小概率，因此做出背离理性的风险决策。
 
