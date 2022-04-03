@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat1/" />
@@ -211,10 +211,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">urls</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
-    <span class="s">&#34;http://www.nhfpc.gov.cn/jkj/s2907/new_list&#34;</span><span class="p">,</span>
-    <span class="nf">c</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;_&#34;</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span><span class="m">23</span><span class="p">)),</span> <span class="s">&#34;.shtml&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">urls</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;http://www.nhfpc.gov.cn/jkj/s2907/new_list&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">c</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;_&#34;</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span><span class="m">23</span><span class="p">)),</span> <span class="s">&#34;.shtml&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="rvest"><code>rvest</code></h3>
 <p>有了URL，就可以爬源码了。当然可以把网页当文本，直接<code>readLines</code>，然后拿<code>XML</code>包写解析规则。但我们学R图什么？还不就是<strong>免费+有很多包方便偷懒</strong>？对于静态网页，当然毫不犹豫<code>rvest</code>。</p>
@@ -238,15 +238,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从缩进结构可以看出，<code>html</code>是根节点，下一级是两个元素子节点<code>head</code>和<code>body</code>，<code>head</code>的子节点是<code>title</code>，<code>body</code>的子节点是<code>h1</code>，它们还可以有文本、属性或注释子节点。以此类推。</p>
 <p>怎么看页面节点结构呢？用Chrome访问目录页，F12查看文档结构，或者右键“查看页面源代码”。</p>
@@ -287,33 +287,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span>
-<span class="c1"># 构造一个提取单个目录页信息的函数</span>
-<span class="n">getTOC</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
-  <span class="c1">## Args</span>
-  <span class="c1">##   url: 单个网页/网址</span>
-
-    <span class="c1"># 读取网页，构成xml_nodes</span>
-    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="c1"># 从html对象提取ul.zxxx_list节点，只要第一个元素</span>
-    <span class="n">cast</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;ul.zxxx_list&#34;</span><span class="p">)</span><span class="n">[[1]]</span>
-    <span class="c1"># 从cast中提取所有&lt;a&gt;节点信息</span>
-    <span class="n">lists</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
-    <span class="c1"># 从cast中提取所有&lt;ml&gt;节点信息</span>
-    <span class="n">dop</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="s">&#34;span.ml&#34;</span><span class="p">)</span>
-    <span class="c1"># 最后得到一个3列数据框，包括链接、标题和发布日期</span>
-    <span class="nf">return</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span>
-        <span class="n">href</span><span class="o">=</span><span class="nf">html_attr</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="s">&#34;href&#34;</span><span class="p">),</span>
-        <span class="n">title</span><span class="o">=</span><span class="nf">str_trim</span><span class="p">(</span><span class="nf">html_text</span><span class="p">(</span><span class="n">lists</span><span class="p">)),</span>
-        <span class="n">dop</span><span class="o">=</span><span class="nf">html_text</span><span class="p">(</span><span class="n">dop</span><span class="p">),</span>
-        <span class="n">stringsAsFactors</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
-<span class="p">}</span>
-<span class="c1"># 遍历urls，循环运行getTOC</span>
-<span class="n">toc</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">getTOC</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
-<span class="c1"># 将23个数据框列表合并起来</span>
-<span class="n">toc</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="n">toc</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 构造一个提取单个目录页信息的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">getTOC</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">## Args</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">##   url: 单个网页/网址</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 读取网页，构成xml_nodes</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从html对象提取ul.zxxx_list节点，只要第一个元素</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cast</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;ul.zxxx_list&#34;</span><span class="p">)</span><span class="n">[[1]]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从cast中提取所有&lt;a&gt;节点信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lists</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="s">&#34;a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从cast中提取所有&lt;ml&gt;节点信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dop</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="s">&#34;span.ml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 最后得到一个3列数据框，包括链接、标题和发布日期</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">href</span><span class="o">=</span><span class="nf">html_attr</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="s">&#34;href&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span><span class="o">=</span><span class="nf">str_trim</span><span class="p">(</span><span class="nf">html_text</span><span class="p">(</span><span class="n">lists</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dop</span><span class="o">=</span><span class="nf">html_text</span><span class="p">(</span><span class="n">dop</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stringsAsFactors</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 遍历urls，循环运行getTOC</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">getTOC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将23个数据框列表合并起来</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;bind_rows&#34;</span><span class="p">,</span> <span class="n">toc</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然，这些动态不都是疫情报告。所以还要利用正则表达式过滤一下，并把链接格式补完。</p>
 <ul>
@@ -330,13 +330,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
-<span class="c1"># 过滤出月报标题</span>
-<span class="n">toc</span> <span class="o">&lt;-</span> <span class="n">toc</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;月[份]*全国法定&#34;</span><span class="p">),</span><span class="n">]</span>
-<span class="c1"># 补完链接路径</span>
-<span class="n">toc</span><span class="o">$</span><span class="n">href</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
-    <span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">,</span> <span class="s">&#34;^.+/jkj(.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;http://www.nhfpc.gov.cn/jkj\\1&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 过滤出月报标题</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span> <span class="o">&lt;-</span> <span class="n">toc</span><span class="nf">[str_detect</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;月[份]*全国法定&#34;</span><span class="p">),</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 补完链接路径</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="o">$</span><span class="n">href</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">,</span> <span class="s">&#34;^.+/jkj(.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;http://www.nhfpc.gov.cn/jkj\\1&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>除了链接，我还想知道每份月报讲的是何年何月，将来解析了数据，直接可以对上日期。这时候标题就派上用场了，因为里面直接包含有年月信息。但这里就有一个坑：不是所有标题都完整。最早的一些月报是不含年份的，得结合发布日期来补全。</p>
 <div class="highlight"><div class="chroma">
@@ -357,21 +357,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 哪些月报标题里没有“年”字？</span>
-<span class="n">idx.noyr</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="o">!</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;\\d+年&#34;</span><span class="p">))</span>
-<span class="c1"># 生成date列，初始均为NA</span>
-<span class="n">toc</span><span class="o">$</span><span class="n">date</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
-<span class="c1"># 没有“年”字的月报，就用发布日期的年份来替代</span>
-<span class="n">toc</span><span class="o">$</span><span class="n">date[idx.noyr]</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span>
-    <span class="nf">str_replace</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">dop[idx.noyr]</span><span class="p">,</span> <span class="s">&#34;(^\\d+).+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
-    <span class="nf">str_replace</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title[idx.noyr]</span><span class="p">,</span> <span class="s">&#34;.+(\\d+)月.+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span> <span class="s">&#34;1&#34;</span><span class="p">,</span>
-    <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">)</span>
-<span class="c1"># 其他月报，就直接提取标题里的年月信息</span>
-<span class="n">toc</span><span class="o">$</span><span class="n">date[</span><span class="o">-</span><span class="n">idx.noyr]</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
-    <span class="n">toc</span><span class="o">$</span><span class="n">title[</span><span class="o">-</span><span class="n">idx.noyr]</span><span class="p">,</span> <span class="s">&#34;\\D*(\\d+)年(\\d+)月.+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1-\\2-1&#34;</span><span class="p">)</span>
-<span class="c1"># 默认都是当月1日。date列转为日期型</span>
-<span class="n">toc</span><span class="o">$</span><span class="n">date</span> <span class="o">&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 哪些月报标题里没有“年”字？</span>
+</span></span><span class="line"><span class="cl"><span class="n">idx.noyr</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="o">!</span> <span class="nf">str_detect</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title</span><span class="p">,</span> <span class="s">&#34;\\d+年&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成date列，初始均为NA</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="o">$</span><span class="n">date</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 没有“年”字的月报，就用发布日期的年份来替代</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="o">$</span><span class="n">date[idx.noyr]</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">str_replace</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">dop[idx.noyr]</span><span class="p">,</span> <span class="s">&#34;(^\\d+).+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">str_replace</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">title[idx.noyr]</span><span class="p">,</span> <span class="s">&#34;.+(\\d+)月.+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span> <span class="s">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他月报，就直接提取标题里的年月信息</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="o">$</span><span class="n">date[</span><span class="o">-</span><span class="n">idx.noyr]</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">toc</span><span class="o">$</span><span class="n">title[</span><span class="o">-</span><span class="n">idx.noyr]</span><span class="p">,</span> <span class="s">&#34;\\D*(\\d+)年(\\d+)月.+&#34;</span><span class="p">,</span> <span class="s">&#34;\\1-\\2-1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认都是当月1日。date列转为日期型</span>
+</span></span><span class="line"><span class="cl"><span class="n">toc</span><span class="o">$</span><span class="n">date</span> <span class="o">&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>toc</code>数据集长这样：</p>
 <!-- {% raw %} -->
@@ -400,20 +400,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 构造一个读取网页代码的函数</span>
-<span class="n">getWebPage</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
-    <span class="c1">## Arg</span>
-    <span class="c1">##    url: 网页网址</span>
-    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_lines</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="nf">return</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s">&#34;\n&#34;</span><span class="p">))</span>
-<span class="p">}</span>
-<span class="c1"># 并行计算</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
-<span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="n">parallel</span><span class="o">::</span><span class="nf">detectCores</span><span class="p">())</span>
-<span class="n">pages</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">),</span> <span class="n">.combine</span><span class="o">=</span><span class="n">c</span><span class="p">)</span> <span class="o">%dopar%</span>
-    <span class="nf">invisible</span><span class="p">(</span><span class="nf">getWebPage</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href[i]</span><span class="p">))</span>
-<span class="nf">names</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造一个读取网页代码的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">getWebPage</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">##    url: 网页网址</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_lines</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 并行计算</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="n">parallel</span><span class="o">::</span><span class="nf">detectCores</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">pages</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">),</span> <span class="n">.combine</span><span class="o">=</span><span class="n">c</span><span class="p">)</span> <span class="o">%dopar%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">invisible</span><span class="p">(</span><span class="nf">getWebPage</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href[i]</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>pages是一个149个文本元素构成的大向量，用日期作为向量命名。</p>
 <div class="highlight"><div class="chroma">
@@ -421,8 +421,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">str</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -430,9 +430,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"> <span class="n">Named</span> <span class="n">chr</span> <span class="n">[1</span><span class="o">:</span><span class="m">149</span><span class="n">]</span> <span class="s">&#34;  &lt;!DOCTYPE html PUBLIC \&#34;-//W3C//DTD XHTML 1.0 Transitional//EN\&#34; \&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\&#34;&gt;&#34;</span><span class="o">|</span> <span class="n">__truncated__</span> <span class="kc">...</span>
- <span class="o">-</span> <span class="nf">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&#34;names&#34;</span><span class="p">)</span><span class="o">=</span> <span class="n">chr</span> <span class="n">[1</span><span class="o">:</span><span class="m">149</span><span class="n">]</span> <span class="s">&#34;2017-02-01&#34;</span> <span class="s">&#34;2017-01-01&#34;</span> <span class="s">&#34;2016-12-01&#34;</span> <span class="s">&#34;2016-11-01&#34;</span> <span class="kc">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"> <span class="n">Named</span> <span class="n">chr</span> <span class="n">[1</span><span class="o">:</span><span class="m">149</span><span class="n">]</span> <span class="s">&#34;  &lt;!DOCTYPE html PUBLIC \&#34;-//W3C//DTD XHTML 1.0 Transitional//EN\&#34; \&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\&#34;&gt;&#34;</span><span class="o">|</span> <span class="n">__truncated__</span> <span class="kc">...</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span> <span class="nf">attr</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s">&#34;names&#34;</span><span class="p">)</span><span class="o">=</span> <span class="n">chr</span> <span class="n">[1</span><span class="o">:</span><span class="m">149</span><span class="n">]</span> <span class="s">&#34;2017-02-01&#34;</span> <span class="s">&#34;2017-01-01&#34;</span> <span class="s">&#34;2016-12-01&#34;</span> <span class="s">&#34;2016-11-01&#34;</span> <span class="kc">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="解析发病和死亡总数">解析发病和死亡总数</h2>
 <p>第二个大坑正在缓缓靠近：不是所有月报都有发病和死亡总数。</p>
@@ -506,62 +506,62 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 构造函数，从正文直接提取发病和死亡总数</span>
-<span class="n">getKeyNums</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">page</span><span class="p">){</span>
-    <span class="c1">## Arg</span>
-    <span class="c1">##   page: 单个网页</span>
-
-    <span class="n">page</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-    <span class="n">txt.node</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s">&#34;div.con&#34;</span><span class="p">)</span>
-    <span class="n">txt</span> <span class="o">&lt;-</span> <span class="nf">html_text</span><span class="p">(</span><span class="n">txt.node</span><span class="p">)</span>  <span class="c1"># 获得月报正文</span>
-    <span class="c1">## 发病总数</span>
-    <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?(发病|报告)\\D+(\\d{6,})[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
-            <span class="p">),</span> <span class="s">&#34;\\2&#34;</span><span class="p">))</span>
-    <span class="c1">## 死亡总数</span>
-    <span class="n">mot.tot</span><span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?(发病|报告).+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
-            <span class="p">),</span> <span class="s">&#34;\\2&#34;</span><span class="p">))</span>
-    <span class="c1">## 乙类发病总数</span>
-    <span class="n">inc.b</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?乙类.+?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
-            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-    <span class="c1">## 乙类死亡总数</span>
-    <span class="n">mot.b</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?乙类.+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
-        <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-    <span class="c1">## 丙类发病总数</span>
-    <span class="n">inc.c</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?丙类.+?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
-            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-    <span class="c1">## 丙类死亡总数</span>
-    <span class="n">mot.c</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
-            <span class="s">&#34;.+?丙类.+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
-            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-    <span class="c1">## 如发病总数=乙类发病数，则未提取到，用乙类+丙类替代</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">inc.b</span><span class="p">))</span> <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="n">inc.tot</span> <span class="o">+</span> <span class="n">inc.c</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">mot.tot</span><span class="p">,</span> <span class="n">mot.b</span><span class="p">))</span> <span class="n">mot.tot</span> <span class="o">&lt;-</span> <span class="n">mot.tot</span> <span class="o">+</span> <span class="n">mot.c</span>
-    <span class="c1">## 返回发病总数和死亡总数</span>
-    <span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">mot.tot</span><span class="p">))</span>
-<span class="p">}</span>
-<span class="c1"># 遍历pages运行getKeyNums，转置后转换为2列的数据框</span>
-<span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="n">getKeyNums</span><span class="p">)))</span>
-<span class="nf">names</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Incidence&#34;</span><span class="p">,</span> <span class="s">&#34;Mortality&#34;</span><span class="p">)</span>
-<span class="c1"># 将row.names衍生为新变量Date，转为日期型</span>
-<span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span> <span class="o">&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="nf">row.names</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">))</span>
-<span class="c1"># 有重复月报！去掉重复记录。取2005年以后的月报</span>
-<span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="n">genl.stat[</span>
-     <span class="o">!</span> <span class="nf">duplicated</span><span class="p">(</span><span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="s">&#34;2004-12-01&#34;</span><span class="p">,</span><span class="n">]</span>
-<span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="n">genl.stat</span><span class="nf">[order</span><span class="p">(</span><span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span><span class="p">),</span><span class="n">]</span>  <span class="c1"># 按日期排序</span>
-<span class="c1"># 2009/4的月报无论如何不适配，只能手动改</span>
-<span class="n">genl.stat[</span><span class="s">&#34;2009-04-01&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">338281</span><span class="p">,</span> <span class="m">576</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造函数，从正文直接提取发病和死亡总数</span>
+</span></span><span class="line"><span class="cl"><span class="n">getKeyNums</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">page</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">##   page: 单个网页</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">page</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">txt.node</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s">&#34;div.con&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">txt</span> <span class="o">&lt;-</span> <span class="nf">html_text</span><span class="p">(</span><span class="n">txt.node</span><span class="p">)</span>  <span class="c1"># 获得月报正文</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 发病总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?(发病|报告)\\D+(\\d{6,})[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\2&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 死亡总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mot.tot</span><span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?(发病|报告).+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\2&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 乙类发病总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inc.b</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?乙类.+?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 乙类死亡总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mot.b</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?乙类.+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 丙类发病总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inc.c</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?丙类.+?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 丙类死亡总数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mot.c</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">txt</span><span class="p">,</span> <span class="nf">regex</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?丙类.+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 如发病总数=乙类发病数，则未提取到，用乙类+丙类替代</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">inc.b</span><span class="p">))</span> <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="n">inc.tot</span> <span class="o">+</span> <span class="n">inc.c</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">mot.tot</span><span class="p">,</span> <span class="n">mot.b</span><span class="p">))</span> <span class="n">mot.tot</span> <span class="o">&lt;-</span> <span class="n">mot.tot</span> <span class="o">+</span> <span class="n">mot.c</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## 返回发病总数和死亡总数</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">mot.tot</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 遍历pages运行getKeyNums，转置后转换为2列的数据框</span>
+</span></span><span class="line"><span class="cl"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="n">getKeyNums</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;Incidence&#34;</span><span class="p">,</span> <span class="s">&#34;Mortality&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将row.names衍生为新变量Date，转为日期型</span>
+</span></span><span class="line"><span class="cl"><span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span> <span class="o">&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="nf">row.names</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 有重复月报！去掉重复记录。取2005年以后的月报</span>
+</span></span><span class="line"><span class="cl"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="n">genl.stat[</span>
+</span></span><span class="line"><span class="cl">     <span class="o">!</span> <span class="nf">duplicated</span><span class="p">(</span><span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span> <span class="o">&gt;</span> <span class="s">&#34;2004-12-01&#34;</span><span class="p">,</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="n">genl.stat</span><span class="nf">[order</span><span class="p">(</span><span class="n">genl.stat</span><span class="o">$</span><span class="n">Date</span><span class="p">),</span><span class="n">]</span>  <span class="c1"># 按日期排序</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2009/4的月报无论如何不适配，只能手动改</span>
+</span></span><span class="line"><span class="cl"><span class="n">genl.stat[</span><span class="s">&#34;2009-04-01&#34;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">338281</span><span class="p">,</span> <span class="m">576</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>历尽艰苦，终于得到了这个该死的数据集。把历月发病和死亡数做个时序图。</p>
 <div class="highlight"><div class="chroma">
@@ -577,16 +577,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;Date&#34;</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span>
-    <span class="nf">scale_color_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">scale_x_date</span><span class="p">(</span><span class="n">date_breaks</span><span class="o">=</span><span class="s">&#34;1 year&#34;</span><span class="p">,</span> <span class="n">date_labels</span><span class="o">=</span><span class="s">&#34;%Y&#34;</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">facet_grid</span><span class="p">(</span><span class="n">variable</span><span class="o">~</span><span class="n">.,</span> <span class="n">scales</span><span class="o">=</span><span class="s">&#34;free&#34;</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">theme</span><span class="p">(</span><span class="n">axis.ticks</span><span class="o">=</span><span class="nf">element_line</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#34;Incidence And Mortality of Notifiable Infectious Diseases&#34;</span><span class="p">,</span>
-        <span class="n">subtitle</span><span class="o">=</span><span class="s">&#34;2005/1-2017/2&#34;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s">&#34;source: NHFPC&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;Date&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ggplot</span><span class="p">(</span><span class="n">genl.stat</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">variable</span><span class="p">))</span> <span class="o">+</span> <span class="nf">theme_hc</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scale_color_hc</span><span class="p">()</span> <span class="o">+</span> <span class="nf">scale_x_date</span><span class="p">(</span><span class="n">date_breaks</span><span class="o">=</span><span class="s">&#34;1 year&#34;</span><span class="p">,</span> <span class="n">date_labels</span><span class="o">=</span><span class="s">&#34;%Y&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">facet_grid</span><span class="p">(</span><span class="n">variable</span><span class="o">~</span><span class="n">.,</span> <span class="n">scales</span><span class="o">=</span><span class="s">&#34;free&#34;</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">theme</span><span class="p">(</span><span class="n">axis.ticks</span><span class="o">=</span><span class="nf">element_line</span><span class="p">(</span><span class="n">linetype</span><span class="o">=</span><span class="m">0</span><span class="p">))</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#34;Incidence And Mortality of Notifiable Infectious Diseases&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">subtitle</span><span class="o">=</span><span class="s">&#34;2005/1-2017/2&#34;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s">&#34;source: NHFPC&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>年周期性还是很显著的。</p>
 <!-- {% raw %} -->
@@ -694,92 +694,92 @@
 </span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 构造函数，下载附表</span>
-<span class="n">getWebTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">){</span>
-    <span class="c1">## Arg</span>
-    <span class="c1">##    url: 网页</span>
-    <span class="c1">##    tbl.name: 表格名称，用日期命名</span>
-
-    <span class="c1"># 如附表文件已存在，跳出</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">file.exists</span><span class="p">(</span>
-        <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span>
-               <span class="nf">c</span><span class="p">(</span><span class="s">&#34;xls&#34;</span><span class="p">,</span> <span class="s">&#34;csv&#34;</span><span class="p">,</span> <span class="s">&#34;doc&#34;</span><span class="p">,</span> <span class="s">&#34;gif&#34;</span><span class="p">,</span> <span class="s">&#34;jpg&#34;</span><span class="p">,</span> <span class="s">&#34;png&#34;</span><span class="p">))))){</span>
-        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">())</span>
-    <span class="p">}</span>
-    <span class="c1"># 否则就把页面源码读下来</span>
-    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="c1"># 尝试抽取网页表格</span>
-    <span class="n">cast</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;table&#34;</span><span class="p">)</span>
-    <span class="c1"># 尝试抽取附件表格</span>
-    <span class="n">cast.attach</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;div.con a&#34;</span><span class="p">)</span>
-    <span class="n">regex.attach</span> <span class="o">&lt;-</span> <span class="s">&#34;([Xx][Ll][Ss][Xx]*|[Dd][Oo][Cc][Xx]*)&#34;</span>
-    <span class="c1"># 尝试抽取附件图片</span>
-    <span class="n">cast.img</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;div.con img&#34;</span><span class="p">)</span>
-    <span class="n">regex.img</span> <span class="o">&lt;-</span> <span class="s">&#34;([Gg][Ii][Ff]|[Pp][Nn][Gg]|[Jj][Pp][Gg])&#34;</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cast</span><span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">){</span>  <span class="c1"># 读到网页表格</span>
-        <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">html_table</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="n">[[1]]</span>
-        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))){</span>
-            <span class="nf">write_csv</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
-        <span class="n">cast.attach</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>  
-        <span class="c1"># 读到附件表格</span>
-        <span class="n">idx.attach</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
-            <span class="n">cast.attach</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))</span><span class="n">[1]</span>
-        <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
-            <span class="n">cast.attach[idx.attach]</span><span class="p">,</span>
-            <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+href=\&#34;(.+?\\.)&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;.+&#34;</span><span class="p">),</span> <span class="s">&#34;\\1\\2&#34;</span><span class="p">)</span>
-        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-        <span class="c1"># 附件路径补完</span>
-        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
-            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
-                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
-        <span class="c1"># 另一种类型的相对路径</span>
-        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
-            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
-                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
-                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-        <span class="c1"># 重命名并存储</span>
-        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
-            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
-            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
-                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
-                    <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span>
-        <span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>
-        <span class="c1"># 读到附件图片</span>
-        <span class="n">idx.img</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
-            <span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))</span><span class="n">[1]</span>
-        <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
-            <span class="n">cast.img[idx.img]</span><span class="p">,</span>
-            <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+img.+src=\&#34;(.+?\\.)&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;.+&#34;</span><span class="p">),</span> <span class="s">&#34;\\1\\2&#34;</span><span class="p">)</span>
-        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-        <span class="c1"># 附件路径补完        </span>
-        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
-            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
-                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
-        <span class="c1"># 另一种类型的相对路径</span>
-        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
-            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
-                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
-                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-        <span class="c1"># 重命名并存储</span>
-        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
-            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
-            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
-                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
-                    <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="c1"># 再次动用并行计算</span>
-<span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="n">parallel</span><span class="o">::</span><span class="nf">detectCores</span><span class="p">())</span>
-<span class="nf">foreach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">))</span> <span class="o">%dopar%</span>
-    <span class="nf">invisible</span><span class="p">(</span><span class="nf">getWebTbl</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href[i]</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date[i]</span><span class="p">)))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造函数，下载附表</span>
+</span></span><span class="line"><span class="cl"><span class="n">getWebTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">##    url: 网页</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">##    tbl.name: 表格名称，用日期命名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如附表文件已存在，跳出</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">file.exists</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="nf">c</span><span class="p">(</span><span class="s">&#34;xls&#34;</span><span class="p">,</span> <span class="s">&#34;csv&#34;</span><span class="p">,</span> <span class="s">&#34;doc&#34;</span><span class="p">,</span> <span class="s">&#34;gif&#34;</span><span class="p">,</span> <span class="s">&#34;jpg&#34;</span><span class="p">,</span> <span class="s">&#34;png&#34;</span><span class="p">))))){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 否则就把页面源码读下来</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 尝试抽取网页表格</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cast</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;table&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 尝试抽取附件表格</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cast.attach</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;div.con a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">regex.attach</span> <span class="o">&lt;-</span> <span class="s">&#34;([Xx][Ll][Ss][Xx]*|[Dd][Oo][Cc][Xx]*)&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 尝试抽取附件图片</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cast.img</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;div.con img&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">regex.img</span> <span class="o">&lt;-</span> <span class="s">&#34;([Gg][Ii][Ff]|[Pp][Nn][Gg]|[Jj][Pp][Gg])&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cast</span><span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">){</span>  <span class="c1"># 读到网页表格</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">html_table</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="n">[[1]]</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">write_csv</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cast.attach</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>  
+</span></span><span class="line"><span class="cl">        <span class="c1"># 读到附件表格</span>
+</span></span><span class="line"><span class="cl">        <span class="n">idx.attach</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cast.attach</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))</span><span class="n">[1]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cast.attach[idx.attach]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+href=\&#34;(.+?\\.)&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;.+&#34;</span><span class="p">),</span> <span class="s">&#34;\\1\\2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 附件路径补完</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 另一种类型的相对路径</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 重命名并存储</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 读到附件图片</span>
+</span></span><span class="line"><span class="cl">        <span class="n">idx.img</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))</span><span class="n">[1]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cast.img[idx.img]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+img.+src=\&#34;(.+?\\.)&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;.+&#34;</span><span class="p">),</span> <span class="s">&#34;\\1\\2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 附件路径补完        </span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 另一种类型的相对路径</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 重命名并存储</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 再次动用并行计算</span>
+</span></span><span class="line"><span class="cl"><span class="nf">registerDoParallel</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="n">parallel</span><span class="o">::</span><span class="nf">detectCores</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nf">foreach</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href</span><span class="p">))</span> <span class="o">%dopar%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">invisible</span><span class="p">(</span><span class="nf">getWebTbl</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">href[i]</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">toc</span><span class="o">$</span><span class="n">date[i]</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>看到这些文件齐齐整整码在硬盘里，心下暂时宽慰了一点。</p>
 <!-- {% raw %} -->
@@ -795,9 +795,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">table</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
-    <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">),</span> <span class="s">&#34;.+\\.(.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">table</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">),</span> <span class="s">&#34;.+\\.(.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -805,9 +805,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">csv</span> <span class="n">doc</span> <span class="n">gif</span> <span class="n">jpg</span> <span class="n">png</span> <span class="n">xls</span>
- <span class="m">67</span>  <span class="m">51</span>  <span class="m">21</span>   <span class="m">4</span>   <span class="m">1</span>   <span class="m">2</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">csv</span> <span class="n">doc</span> <span class="n">gif</span> <span class="n">jpg</span> <span class="n">png</span> <span class="n">xls</span>
+</span></span><span class="line"><span class="cl"> <span class="m">67</span>  <span class="m">51</span>  <span class="m">21</span>   <span class="m">4</span>   <span class="m">1</span>   <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>140多篇动态报道，只有67篇用了网页表格附件，有53篇是MS office文档，还有26篇直接贴图了事。</p>
 <p>真是一叶落而知天下秋。卫生系统的数据化水准，跟金融系统比起来真是天上地下，一个站着，一个躺着。</p>
@@ -958,7 +958,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

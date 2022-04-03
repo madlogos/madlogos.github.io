@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/" />
@@ -125,6 +125,31 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/protest-era-back/">无序时代重又降临</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-16 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%97%B6%E8%AF%84/"> 时评 </a>
+          </div>
+        <span class="more-meta"> 约 1509 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <div class="admonition abstract"><p class="admonition-title">引子</p>
+<p>最近不大学好，重新翻起了墙。香港机场黑衣仔殴打内地客与记者的视频，我几乎第一时间就在FB和油管看到了。前期发起者所有贤者化的努力（捡走垃圾、摆回路障之类学生气十足的举动），都被这些拳脚一下一下打没了。事实上当金主加码，参与者装备越来越专业，越来越乞灵于英美，行动边界越来越侵入普通人生活时，整个事态就注定要滑入到暴戾和谎言交织的境地。所有街头政治都是这个结局，最后要么在无序升级中被无情镇压，要么捡起枪来成为严密的武装组织——土共正是后面这条道路的成功典范。收下八达通、蒙上脸才敢行凶的怂货，就别班门弄斧了。</p>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/protest-era-back/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/tectonics-is-more-evil/">侵私构陷才是更大的恶</a></h1>
@@ -409,8 +434,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>看一下甲乙丙类每个月的发病和死亡例数。</p>
 <div class="highlight"><div class="chroma">
@@ -420,10 +445,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
-<span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"/><figcaption>
             <h4>图 | 法定传染病每月发病数</h4>
@@ -436,10 +461,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
-<span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"/><figcaption>
             <h4>图 | 法定传染病每月死亡数</h4>
@@ -456,12 +481,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
-<span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
-<span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"/><figcaption>
             <h4>图 | 法定传染病月平均发病数</h4>
@@ -476,12 +501,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
-<span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
-<span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
-<span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
-<span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"/><figcaption>
             <h4>图 | 法定传染病平均月死亡数</h4>
@@ -490,44 +515,6 @@
     </div>
     <div class="read-more">
       <a href="/post/infectdis_stat3/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat2/">一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-04-15 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
-          </div>
-        <span class="more-meta"> 约 3962 字 </span>
-        <span class="more-meta"> 预计阅读 8 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="数据提取">数据提取</h2>
-<p><a href="/post/infectdis_stat1/">接上篇</a></p>
-<p>现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。</p>
-<p><strong>要把图片附件识别成文本。</strong></p>
-<p>首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：</p>
-<p><strong>手工录入。</strong></p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%"/>
-</figure>
-<p>这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，<strong>记得要把工程预算乘以3</strong>。</p>
-<p>图片方面的坑包括：</p>
-<ol>
-<li>有些图片附件分辨率低到了厚马赛克水准，别说OCR，钛金狗眼也认不出</li>
-<li>有些表格作为OLE对象内嵌到了Word文件里，当我满怀希望点进去才发现，这个内嵌对象竟仍是个图片</li>
-<li>有个别文件特别贴心地把表格割成两张图，插到了正文里</li>
-</ol>
-<p>满脸辛酸地处理完了这些杂碎，把doc和xls存作docx和xlsx，接下来总算能把它们当成正常的xml来处理了。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/infectdis_stat2/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -608,7 +595,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

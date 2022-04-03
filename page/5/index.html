@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/" />
@@ -125,6 +125,44 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat2/">一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-15 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 3962 字 </span>
+        <span class="more-meta"> 预计阅读 8 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="数据提取">数据提取</h2>
+<p><a href="/post/infectdis_stat1/">接上篇</a></p>
+<p>现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。</p>
+<p><strong>要把图片附件识别成文本。</strong></p>
+<p>首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：</p>
+<p><strong>手工录入。</strong></p>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%"/>
+</figure>
+<p>这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，<strong>记得要把工程预算乘以3</strong>。</p>
+<p>图片方面的坑包括：</p>
+<ol>
+<li>有些图片附件分辨率低到了厚马赛克水准，别说OCR，钛金狗眼也认不出</li>
+<li>有些表格作为OLE对象内嵌到了Word文件里，当我满怀希望点进去才发现，这个内嵌对象竟仍是个图片</li>
+<li>有个别文件特别贴心地把表格割成两张图，插到了正文里</li>
+</ol>
+<p>满脸辛酸地处理完了这些杂碎，把doc和xls存作docx和xlsx，接下来总算能把它们当成正常的xml来处理了。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/infectdis_stat2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat1/">一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据</a></h1>
@@ -427,41 +465,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/singapore-trip-2017-2/">2017元旦坡国举家跨年游（下）</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-01-11 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
-          </div>
-        <span class="more-meta"> 约 1919 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="11">1/1</h2>
-<h3 id="上午牛车水">上午：牛车水</h3>
-<p>新年第一天去牛车水。牛车水就是Chinatown，但又不全是。从Chinatown站出来就是Pagoda街，全在卖小商品。路中段是牛车水原貌馆，保留了一些历史旧貌。街上的房子都不是传统闽南或岭南风格​，而是马来风格，百叶窗窄窄的上圆下方，涂刷得五颜六色。街的尽头是个印度教寺庙。新年首日教徒们蜂拥来祈福，鞋子沿着墙根摆了一地。感受一下那种气味。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0111/001ZzLsRzy77Uxqrysv97.jpeg" width="100%"/><figcaption>
-            <h4>图：马里安曼兴都庙</h4>
-        </figcaption>
-</figure>
-<p>​隔壁就是小吃一条街Smith街，但就和城隍庙一样，主要面向外国人，所以比较贵。我们走过一个街区，来到麦士威熟食中心（Maxwell Food Centre）。这是本地人较多光顾的小吃集市，性价比高一些。由于是新年第一天，很多店铺打烊，但有一家依然很火爆，食客大排长龙——听口音很多是大陆和台湾来的——那就是天天海南鸡饭。海南鸡饭可谓坡国国饭，简单的白斩鸡加米饭，不甚稀奇，要做出名堂得有杀招。天天鸡饭的杀招是鸡油酱汁拌饭​。吃起来果然喷香可口，连鸡都可以不要了。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0111/001ZzLsRzy77UxrTayac6.jpeg" width="100%"/><figcaption>
-            <h4>图：天天海南鸡饭</h4>
-        </figcaption>
-</figure>
-<p>平摊下来一个人只要几块钱就能吃得很高兴，的确比较亲民。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/singapore-trip-2017-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -538,7 +541,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

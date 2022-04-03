@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/django-website-demo-1/" />
@@ -50,7 +50,7 @@
 <meta itemprop="name" content="edX作业：用Django建一个简易Web订单系统(1)">
 <meta itemprop="description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"><meta itemprop="datePublished" content="2019-11-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="6318">
+<meta itemprop="wordCount" content="6342">
 <meta itemprop="keywords" content="Python,Django,web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="edX作业：用Django建一个简易Web订单系统(1)"/>
 <meta name="twitter:description" content="edx慕课的作业：用Django框架构建一个简易的Pizza订单系统"/>
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 6318 字 </span>
+          <span class="more-meta"> 约 6342 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -276,67 +276,67 @@
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">project3
-<span class="p">|</span>-- application.py
-<span class="p">|</span>-- db.sqlite3
-<span class="p">|</span>-- django.log
-<span class="p">|</span>-- manage.py
-<span class="p">|</span>
-<span class="p">|</span>--+ accounts
-<span class="p">|</span>  <span class="p">|</span>--+ migrations
-<span class="p">|</span>  <span class="p">|</span>-- __init__.py
-<span class="p">|</span>  <span class="p">|</span>-- admin.py
-<span class="p">|</span>  <span class="p">|</span>-- apps.py
-<span class="p">|</span>  <span class="p">|</span>-- forms.py
-<span class="p">|</span>  <span class="p">|</span>-- models.py
-<span class="p">|</span>  <span class="p">|</span>-- tests.py
-<span class="p">|</span>  <span class="p">|</span>-- urls.py
-<span class="p">|</span>  <span class="sb">`</span>-- views.py
-<span class="p">|</span>
-<span class="p">|</span>--+ orders
-<span class="p">|</span>  <span class="p">|</span>--+ migrations
-<span class="p">|</span>  <span class="p">|</span>-- __init__.py
-<span class="p">|</span>  <span class="p">|</span>-- admin.py
-<span class="p">|</span>  <span class="p">|</span>-- apps.py
-<span class="p">|</span>  <span class="p">|</span>-- forms.py
-<span class="p">|</span>  <span class="p">|</span>-- models.py
-<span class="p">|</span>  <span class="p">|</span>-- tests.py
-<span class="p">|</span>  <span class="p">|</span>-- udf.py
-<span class="p">|</span>  <span class="p">|</span>-- urls.py
-<span class="p">|</span>  <span class="sb">`</span>-- views.py
-<span class="p">|</span>
-<span class="p">|</span>--+ pizza
-<span class="p">|</span>  <span class="p">|</span>-- __init__.py
-<span class="p">|</span>  <span class="p">|</span>-- settings.py
-<span class="p">|</span>  <span class="p">|</span>-- urls.py
-<span class="p">|</span>  <span class="sb">`</span>-- wsgi.py
-<span class="p">|</span>
-<span class="p">|</span>--+ static
-<span class="p">|</span>  <span class="p">|</span>--+ css
-<span class="p">|</span>  <span class="p">|</span>  <span class="sb">`</span>-- style.css
-<span class="p">|</span>  <span class="sb">`</span>--+ js
-<span class="p">|</span>     <span class="p">|</span>-- cart.js
-<span class="p">|</span>     <span class="p">|</span>-- main.js
-<span class="p">|</span>     <span class="p">|</span>-- menu.js
-<span class="p">|</span>     <span class="p">|</span>-- order.js
-<span class="p">|</span>     <span class="p">|</span>-- orders.js
-<span class="p">|</span>     <span class="sb">`</span>-- pick_product.js
-<span class="p">|</span>
-<span class="sb">`</span>--+ templates
-   <span class="p">|</span>-- _base.html
-   <span class="p">|</span>-- _popup.html
-   <span class="p">|</span>
-   <span class="p">|</span>--+ accounts
-   <span class="p">|</span>  <span class="p">|</span>-- login.html
-   <span class="p">|</span>  <span class="sb">`</span>-- register.html
-   <span class="p">|</span>
-   <span class="sb">`</span>--+ orders
-      <span class="p">|</span>-- cart.html
-      <span class="p">|</span>-- index.html
-      <span class="p">|</span>-- order.html
-      <span class="p">|</span>-- orders.html
-      <span class="sb">`</span>-- pick_product.html
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">project3
+</span></span><span class="line"><span class="cl"><span class="p">|</span>-- application.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>-- db.sqlite3
+</span></span><span class="line"><span class="cl"><span class="p">|</span>-- django.log
+</span></span><span class="line"><span class="cl"><span class="p">|</span>-- manage.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>--+ accounts
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>--+ migrations
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- __init__.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- admin.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- apps.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- forms.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- models.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- tests.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- urls.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="sb">`</span>-- views.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>--+ orders
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>--+ migrations
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- __init__.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- admin.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- apps.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- forms.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- models.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- tests.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- udf.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- urls.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="sb">`</span>-- views.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>--+ pizza
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- __init__.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- settings.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>-- urls.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="sb">`</span>-- wsgi.py
+</span></span><span class="line"><span class="cl"><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>--+ static
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>--+ css
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="p">|</span>  <span class="sb">`</span>-- style.css
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="sb">`</span>--+ js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="p">|</span>-- cart.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="p">|</span>-- main.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="p">|</span>-- menu.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="p">|</span>-- order.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="p">|</span>-- orders.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="sb">`</span>-- pick_product.js
+</span></span><span class="line"><span class="cl"><span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="sb">`</span>--+ templates
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>-- _base.html
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>-- _popup.html
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>--+ accounts
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>  <span class="p">|</span>-- login.html
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>  <span class="sb">`</span>-- register.html
+</span></span><span class="line"><span class="cl">   <span class="p">|</span>
+</span></span><span class="line"><span class="cl">   <span class="sb">`</span>--+ orders
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>-- cart.html
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>-- index.html
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>-- order.html
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>-- orders.html
+</span></span><span class="line"><span class="cl">      <span class="sb">`</span>-- pick_product.html
+</span></span></code></pre></td></tr></table>
 </div>
 </div><!-- more -->
 <p>Django框架比Flask要复杂得多。整个应用就是一个工程(project)，而子应用(application)模块则相当于内含的一个个包(package)：</p>
@@ -404,52 +404,52 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{asctime}</span><span class="s1"> </span><span class="si">{module}</span><span class="s1">.</span><span class="si">{funcName}</span><span class="s1"> </span><span class="si">{lineno:3}</span><span class="s1"> </span><span class="si">{levelname:7}</span><span class="s1"> =&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.handlers.RotatingFileHandler&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;django.log&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;maxBytes&#39;</span><span class="p">:</span> <span class="mi">4194304</span><span class="p">,</span>  <span class="c1"># 4 MB</span>
-            <span class="s1">&#39;backupCount&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
-        <span class="p">},</span>
-        <span class="s1">&#39;django&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
-            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{asctime}</span><span class="s1"> </span><span class="si">{module}</span><span class="s1">.</span><span class="si">{funcName}</span><span class="s1"> </span><span class="si">{lineno:3}</span><span class="s1"> </span><span class="si">{levelname:7}</span><span class="s1"> =&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.handlers.RotatingFileHandler&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;django.log&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;maxBytes&#39;</span><span class="p">:</span> <span class="mi">4194304</span><span class="p">,</span>  <span class="c1"># 4 MB</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;backupCount&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;django&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai'</p>
+<p>TIME_ZONE 改成自己所在的时区，比如&rsquo;Asia/Shanghai&rsquo;</p>
 </li>
 <li>
 <p>STATIC_URL 改为 &lsquo;/static/&rsquo;</p>
 </li>
 <li>
-<p>STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, &ldquo;static&rdquo;), &lsquo;/static/']，在这个应用中，生效的是前者</p>
+<p>STATICFILES_DIRS 改为 [os.path.join(BASE_DIR, &ldquo;static&rdquo;), &lsquo;/static/&rsquo;]，在这个应用中，生效的是前者</p>
 </li>
 </ul>
 <h5 id="urlspy">urls.py</h5>
@@ -463,14 +463,14 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;accounts.urls&#34;</span><span class="p">)),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;orders.urls&#34;</span><span class="p">)),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;admin/&#34;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;accounts.urls&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&#34;orders.urls&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;admin/&#34;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div><p>这样，accounts和orders两个子应用中的路由，都被安排到整个应用的根路由上。即：accounts里的&rsquo;/'，就等价于整个应用的主页。这当然有隐患，好在应用架构不复杂。推荐的做法是把其中一个子应用映射到主路由，其他应用都丢进下一级。</p>
+</div><p>这样，accounts和orders两个子应用中的路由，都被安排到整个应用的根路由上。即：accounts里的&rsquo;/&rsquo;，就等价于整个应用的主页。这当然有隐患，好在应用架构不复杂。推荐的做法是把其中一个子应用映射到主路由，其他应用都丢进下一级。</p>
 <p>admin.site.urls要映射进去，这样，后面才能通过&quot;<domain name>/admin&quot;去访问Django后台。</p>
 <h4 id="分应用配置">分应用配置</h4>
 <ul>
@@ -482,9 +482,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">AccountsConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AccountsConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;accounts&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -495,9 +495,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">OrdersConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">OrdersConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;orders&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -521,9 +521,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/models.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/models.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/admin.py">admin.py</a>里，导入下面几个包：</p>
 <div class="highlight"><div class="chroma">
@@ -534,11 +534,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/admin.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.admin</span> <span class="kn">import</span> <span class="n">UserAdmin</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/admin.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.admin</span> <span class="kn">import</span> <span class="n">UserAdmin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>控制台运行<code>python manage.py runserver</code>，启动Django开发服务器，浏览器访问127.0.0.1:8000/admin。</p>
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1106/admin_entry.png"/><figcaption>
@@ -566,16 +566,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/urls.py</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;index&#34;</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">login_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;login&#34;</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;signup&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">signup</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;signup&#34;</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;logout&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">logout_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;logout&#34;</span><span class="p">)</span>
-<span class="p">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/urls.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;index&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">login_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;login&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;signup&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">signup</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;signup&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s2">&#34;logout&#34;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">logout_view</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;logout&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样，就把四个路由绑定到了views.py中对应的函数上，并且都给了别名（可以用<code>reverse()</code>函数快速解析）。</p>
 <h3 id="视图">视图</h3>
@@ -592,14 +592,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/views.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">logout</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
-<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/views.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">logout</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里，直接使用了Django.contrib.auth模块里的authenticate, login, logout功能，导入了User类。此外，专门在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里编了两套表单模板，也一并导入。</p>
 <h4 id="首页">首页</h4>
@@ -611,11 +611,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果request中的user实例并没有通过认证，就返回<code>login_view()</code>，也就是显示登录页。否则，就跳转去别名为&quot;menu&quot;的页面，也就是orders模块的的首页。</p>
 <div class="admonition tip"><p class="admonition-title">要点</p>
@@ -657,36 +657,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/views.py</span>
-<span class="k">def</span> <span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
-            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">login_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-                <span class="n">username</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
-                <span class="n">password</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
-                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">login_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> 
-                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">user</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
-                <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;index&#34;</span><span class="p">),</span> 
-                    <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
-                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="s2">&#34;Invalid credentials.&#34;</span><span class="p">],</span> 
-                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> 
-                <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/views.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">login_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                <span class="n">username</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">password</span> <span class="o">=</span> <span class="n">login_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">login_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> 
+</span></span><span class="line"><span class="cl">                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
+</span></span><span class="line"><span class="cl">            <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">user</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;index&#34;</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">                    <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="s2">&#34;Invalid credentials.&#34;</span><span class="p">],</span> 
+</span></span><span class="line"><span class="cl">                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">login_form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">login_form</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>如果user已经认证，就跳去orders首页</li>
@@ -719,24 +719,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/forms.py</span>
-<span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
-
-    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
-
-        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">filter_result</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
-                <span class="s2">&#34;This username does not exist. Please register first.&#34;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">username</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/forms.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">filter_result</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;This username does not exist. Please register first.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">username</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>LoginForm类只定义了username和password两个文本型字段。Django会自动理解这些参数，渲染出对应的表单字段。在这个类里，还额外写了个<code>clean_username()</code>方法，验证用户名是否存在。这样，就不需要在views.py里单独写校验代码了，直接绑定在表单模板里，更便于维护和复用。很方便。</p>
 <h5 id="登录前端">登录前端</h5>
@@ -779,45 +779,45 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">{% extends &#34;_base.html&#34; %}
-
-{% block title %}
-Sign In
-{% endblock %}
-
-{% block control %}
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
-    {% csrf_token %}
-    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.username.errors }}
-            {{ form.username.label_tag }}
-            {{ form.username }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.password.errors }}
-            {{ form.password.label_tag }}
-            {{ form.password }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sr-only&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span> <span class="p">&gt;</span>
-        Sign In
-    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>        
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>
-        Sign up now!
-    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{% extends &#34;_base.html&#34; %}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{% block title %}
+</span></span><span class="line"><span class="cl">Sign In
+</span></span><span class="line"><span class="cl">{% endblock %}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{% block control %}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {% csrf_token %}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.username.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.username.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.username }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.password.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.password.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.password }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sr-only&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span> <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        Sign In
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>        
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        Sign up now!
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{% endblock %}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><!-- {% endraw %} -->
 <!-- {% raw %} -->
 <div class="admonition tip"><p class="admonition-title">要点</p>
-<p>Django表单内都必须加个'{% csrf_token %}' 解决跨域问题。模板内部解析form对象，组装出表单。</p>
+<p>Django表单内都必须加个&rsquo;{% csrf_token %}&rsquo; 解决跨域问题。模板内部解析form对象，组装出表单。</p>
 </div>
 <!-- {% endraw %} -->
 <p>后端传到前端的form对象，其实就是login_form。通过这套语法，分离了校验逻辑和样式，前端表单写起来更简明。</p>
@@ -866,41 +866,41 @@ Sign In
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/views.py</span>
-<span class="k">def</span> <span class="nf">signup</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
-            <span class="n">reg_form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-                <span class="n">username</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
-                <span class="n">password</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
-                <span class="n">first_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;first_name&#34;</span><span class="p">)</span>
-                <span class="n">last_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;last_name&#34;</span><span class="p">)</span>
-                <span class="n">email</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
-                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">reg_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> 
-                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
-            
-            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
-                <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="n">first_name</span><span class="p">,</span>
-                <span class="n">last_name</span><span class="o">=</span><span class="n">last_name</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
-            <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-            <span class="n">user</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">user</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
-
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
-                <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;&#34;New account </span><span class="si">%s</span><span class="s2"> has been created. 
-</span><span class="s2">                    Log in now.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
-                <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
-            <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/views.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">signup</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;menu&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;user&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&#34;POST&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reg_form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                <span class="n">username</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;username&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">password</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">first_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;first_name&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">last_name</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;last_name&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">email</span> <span class="o">=</span> <span class="n">reg_form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">reg_form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">())],</span> 
+</span></span><span class="line"><span class="cl">                     <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="n">first_name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">last_name</span><span class="o">=</span><span class="n">last_name</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">user</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">            <span class="n">user</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/login.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;&#34;New account </span><span class="si">%s</span><span class="s2"> has been created. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    Log in now.&#34;&#34;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">LoginForm</span><span class="p">()})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&#34;accounts/register.html&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;danger&#34;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)],</span> <span class="s2">&#34;form&#34;</span><span class="p">:</span> <span class="n">RegisterForm</span><span class="p">()})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>原理跟登陆差不多。主要区别在于出现了ORM操作。当通过校验后，Django就把reg_form表单字段拿过去，创建一个新的User对象。ORM操作语句很直观，<code>&lt;类名&gt;.objects.&lt;操作方法&gt;(&lt;参数列表&gt;)</code>。</p>
 <p>reg_form表单模板也定义在<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/accounts/forms.py">forms.py</a>里。</p>
@@ -952,51 +952,51 @@ Sign In
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts/forms.py</span>
-<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-
-<span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-    <span class="n">password_cfm</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Confirm Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-    <span class="n">first_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;First Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-    <span class="n">last_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Last Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> 
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Email Address&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> 
-        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">EmailInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
-    <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
-
-        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filter_result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Your username already exists.&#34;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">username</span>
-
-    <span class="k">def</span> <span class="nf">clean_password_cfm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pwd1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
-        <span class="n">pwd2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password_cfm&#34;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pwd1</span> <span class="ow">and</span> <span class="n">pwd2</span> <span class="ow">and</span> <span class="n">pwd1</span> <span class="o">!=</span> <span class="n">pwd2</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Password mismatch. Please enter again.&#34;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">pwd2</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts/forms.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Username&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">password_cfm</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Confirm Password&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">first_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;First Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">last_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Last Name&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Email Address&#34;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">EmailInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">filter_result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username__exact</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filter_result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Your username already exists.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">username</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">clean_password_cfm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pwd1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pwd2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;password_cfm&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">pwd1</span> <span class="ow">and</span> <span class="n">pwd2</span> <span class="ow">and</span> <span class="n">pwd1</span> <span class="o">!=</span> <span class="n">pwd2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&#34;Password mismatch. Please enter again.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pwd2</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="注册前端">注册前端</h5>
 <p>对应的<a href="https://github.com/madlogos/edx_cs50/blob/master/project3/templates/accounts/register.html">register.html</a>页面模板写成这样：</p>
@@ -1054,56 +1054,56 @@ Sign In
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- templates/accounts/register.html --&gt;</span>
-{% extends &#34;_base.html&#34; %}
-
-{% block title %}
-Sign Up
-{% endblock %}
-
-{% block control %}
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
-    {% csrf_token %}
-    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.username.errors }}
-            {{ form.username.label_tag }}
-            {{ form.username }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.password.errors }}
-            {{ form.password.label_tag }}
-            {{ form.password }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.password_cfm.errors }}
-            {{ form.password_cfm.label_tag }}
-            {{ form.password_cfm }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.first_name.errors }}
-            {{ form.first_name.label_tag }}
-            {{ form.first_name }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.last_name.errors }}
-            {{ form.last_name.label_tag }}
-            {{ form.last_name }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
-            {{ form.email.errors }}
-            {{ form.email.label_tag }}
-            {{ form.email }}
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-{% endblock %}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- templates/accounts/register.html --&gt;</span>
+</span></span><span class="line"><span class="cl">{% extends &#34;_base.html&#34; %}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{% block title %}
+</span></span><span class="line"><span class="cl">Sign Up
+</span></span><span class="line"><span class="cl">{% endblock %}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{% block control %}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;signup&#39; %}&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {% csrf_token %}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin-heading&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.username.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.username.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.username }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.password.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.password.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.password }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.password_cfm.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.password_cfm.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.password_cfm }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.first_name.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.first_name.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.first_name }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.last_name.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.last_name.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.last_name }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fieldWrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            {{ form.email.errors }}
+</span></span><span class="line"><span class="cl">            {{ form.email.label_tag }}
+</span></span><span class="line"><span class="cl">            {{ form.email }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signUp&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-primary btn-block&#34;</span><span class="p">&gt;</span>Sign Up<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-signin&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;{% url &#39;login&#39; %}&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signIn&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-lg btn-default btn-block&#34;</span><span class="p">&gt;</span>Sign In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{% endblock %}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><!-- {% endraw %} -->
 <p>同样，直接把RegisterForm对象传到前端，很容易就能写出数据驱动的页面来。</p>
@@ -1122,12 +1122,12 @@ Sign Up
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># accounts.views.py</span>
-<span class="k">def</span> <span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> 
-        <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;Logged out.&#34;</span><span class="p">]})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># accounts.views.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">),</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;message&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="s2">&#34;Logged out.&#34;</span><span class="p">]})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>退出后直接转跳登录页，所以也不必费劲专门写网页模板了。这里用了<code>HttpResponseRedirect()</code>而不是<code>redirect()</code>，因为除了转跳以外，还要传一个content回去，用来渲染一个告警。</p>
 <p>到此，整个账号管理的功能就写好了。实际使用，还有必要加功能，比如反机器人、密码找回等。</p>
@@ -1158,24 +1158,24 @@ Sign Up
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/models.py</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-
-<span class="c1"># Create your models here.</span>
-<span class="n">SIZE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="p">(</span><span class="s1">&#39;Small&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Regular&#39;</span><span class="p">,</span> <span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">ORDER_STATUS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="p">(</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="s1">&#39;Pending&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Paid&#39;</span><span class="p">,</span> <span class="s1">&#39;Paid&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Completed&#39;</span><span class="p">,</span> <span class="s1">&#39;Completed&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Failed&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelled&#39;</span><span class="p">),</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># orders/models.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create your models here.</span>
+</span></span><span class="line"><span class="cl"><span class="n">SIZE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Small&#39;</span><span class="p">,</span> <span class="s1">&#39;Small&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span> <span class="s1">&#39;Large&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Regular&#39;</span><span class="p">,</span> <span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ORDER_STATUS</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="s1">&#39;Pending&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Paid&#39;</span><span class="p">,</span> <span class="s1">&#39;Paid&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Completed&#39;</span><span class="p">,</span> <span class="s1">&#39;Completed&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Failed&#39;</span><span class="p">,</span> <span class="s1">&#39;Failed&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">,</span> <span class="s1">&#39;Cancelled&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="模型和元参数">模型和元参数</h4>
 <p>model的定义跟表单有点像。以品类(Category)和产品(Product)为例，都继承自models.Model类。定义好字段参数后，可以设定元数据class Meta，定义verbose_name之类元参数。对于Product，我希望实现category、name和size三个字段构成一个复合主键，只要定义进unique_together就可以了。</p>
@@ -1216,38 +1216,38 @@ Sign Up
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/models.py</span>
-<span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;category&#34;</span>
-        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;categories&#34;</span>
-        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_category&#34;</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
-
-
-<span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">SIZE_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
-    <span class="n">n_topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">n_addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;product&#34;</span>
-        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;products&#34;</span>
-        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_product&#34;</span>
-        <span class="n">unique_together</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">),</span> <span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">)&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># orders/models.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;category&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;categories&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_category&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">size</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">SIZE_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Regular&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;product&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;products&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&#34;shop_product&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unique_together</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">),</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="多对多关系">多对多关系</h4>
 <p>要特别提一下的是<code>ManyToManyField</code>，比如作为订单组件的Item，可以绑一个或多个Topping或Addition。传统做法是专门建一张Item_Topping_Mapping表，将ItemTopping的ID关联起来，实现多对多关系。Django的做法是：</p>
@@ -1283,35 +1283,35 @@ Sign Up
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/models.py</span>
-<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">product</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
-    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;toppings&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemTopping&#34;</span><span class="p">)</span>
-    <span class="n">addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;additions&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemAddition&#34;</span><span class="p">)</span>
-    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item&#34;</span>
-        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;items&#34;</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="si">}</span><span class="s2">&#34;</span>
-
-<span class="k">class</span> <span class="nc">ItemTopping</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_item&#34;</span><span class="p">)</span>
-    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_topping&#34;</span><span class="p">)</span>
-    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item_topping&#34;</span>
-        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;item_toppings&#34;</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topping</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="si">}</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># orders/models.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">product</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;products&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;toppings&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemTopping&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">addition</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;additions&#34;</span><span class="p">,</span> <span class="n">through</span><span class="o">=</span><span class="s2">&#34;ItemAddition&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;items&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">product</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ItemTopping</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_item&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">topping</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&#34;itemtopping_topping&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quantity</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&#34;item_topping&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&#34;item_toppings&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topping</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Item的topping字段是个ManyToManyField，外键连接到Topping，而through参数则指定了多对多映射表&quot;ItemTopping&rdquo;。在ItemTopping里，除了item和topping外，又额外扩展了一个字段quantity。如果不需要扩展字段，ItemTopping甚至不用写。Django会自动生成这张表（但名字不一定是这个）。</p>
 <h4 id="migrate">migrate</h4>
@@ -1476,7 +1476,7 @@ Sign Up
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

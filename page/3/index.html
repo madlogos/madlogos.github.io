@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.92.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/" />
@@ -127,6 +127,36 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/london-trip-2020-1/">2020年初伦敦行(1)：西安出发</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-02-09 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
+          </div>
+        <span class="more-meta"> 约 1954 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <div class="admonition abstract"><p class="admonition-title">行前</p>
+<p>Google可视化地图 &raquo;&gt; <a href="http://drive.google.com/open?id=1xvs0tCLbYpKeIhqjAXhwElEN1TewLJd_&amp;usp=sharing">在此（需翻墙访问）</a>。</p>
+</div>
+<h2 id="绪">绪</h2>
+<p>伦敦之行​策划得很仓促。早在十月，规划春节出游计划时，大统领刷手机突然发现春节初期飞英国的机票蛮优惠，于是就下手抢了一对。这便拉开了序幕。</p>
+<div class="admonition tip">
+<p>其实，机票便宜是因为英国正在脱欧，大家都怕那里闹事。一分价钱一分货，老话几时骗过人。</p>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/london-trip-2020-1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/zhen-de-di-yi-xing/">不要妥协，坚持「真」的第一性</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-02-05 </span>
@@ -221,50 +251,50 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># orders/admin.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Topping</span><span class="p">,</span> <span class="n">Addition</span><span class="p">,</span> <span class="n">Order</span><span class="p">,</span> <span class="n">Item</span>
-
-<span class="c1"># Register your models here.</span>
-<span class="k">class</span> <span class="nc">CategoryAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="p">]</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">CategoryAdmin</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">ProductAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> 
-                    <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
-    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
-    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="p">]</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">ProductAdmin</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">ToppingAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
-    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">ToppingAdmin</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">AdditionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
-    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,]</span>
-    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">AdditionAdmin</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">OrderItemInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">through</span>
-    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,]</span>
-    <span class="n">extra</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">class</span> <span class="nc">OrderAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
-    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">]</span>
-    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
-    <span class="n">inlines</span> <span class="o">=</span> <span class="p">(</span><span class="n">OrderItemInline</span><span class="p">,</span> <span class="p">)</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">OrderAdmin</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># orders/admin.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Topping</span><span class="p">,</span> <span class="n">Addition</span><span class="p">,</span> <span class="n">Order</span><span class="p">,</span> <span class="n">Item</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Register your models here.</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CategoryAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">CategoryAdmin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ProductAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;n_topping&#39;</span><span class="p">,</span> <span class="s1">&#39;n_addition&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="n">ProductAdmin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ToppingAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">ToppingAdmin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AdditionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Addition</span><span class="p">,</span> <span class="n">AdditionAdmin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">OrderItemInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">through</span>
+</span></span><span class="line"><span class="cl">    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extra</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">OrderAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inlines</span> <span class="o">=</span> <span class="p">(</span><span class="n">OrderItemInline</span><span class="p">,</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">OrderAdmin</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -282,7 +312,7 @@
       <div class="post-category">
           <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
           </div>
-        <span class="more-meta"> 约 6318 字 </span>
+        <span class="more-meta"> 约 6342 字 </span>
         <span class="more-meta"> 预计阅读 13 分钟 </span>
     </div>
   </header>
@@ -329,7 +359,7 @@
       <div class="post-category">
           <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
           </div>
-        <span class="more-meta"> 约 7777 字 </span>
+        <span class="more-meta"> 约 7801 字 </span>
         <span class="more-meta"> 预计阅读 16 分钟 </span>
     </div>
   </header>
@@ -503,31 +533,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/protest-era-back/">无序时代重又降临</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-16 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%B6%E8%AF%84/"> 时评 </a>
-          </div>
-        <span class="more-meta"> 约 1509 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <div class="admonition abstract"><p class="admonition-title">引子</p>
-<p>最近不大学好，重新翻起了墙。香港机场黑衣仔殴打内地客与记者的视频，我几乎第一时间就在FB和油管看到了。前期发起者所有贤者化的努力（捡走垃圾、摆回路障之类学生气十足的举动），都被这些拳脚一下一下打没了。事实上当金主加码，参与者装备越来越专业，越来越乞灵于英美，行动边界越来越侵入普通人生活时，整个事态就注定要滑入到暴戾和谎言交织的境地。所有街头政治都是这个结局，最后要么在无序升级中被无情镇压，要么捡起枪来成为严密的武装组织——土共正是后面这条道路的成功典范。收下八达通、蒙上脸才敢行凶的怂货，就别班门弄斧了。</p>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/protest-era-back/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -604,7 +609,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {
