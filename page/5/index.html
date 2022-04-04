@@ -127,6 +127,113 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat3/">一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-16 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 4514 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="甲乙丙类每月发病死亡数">甲乙丙类每月发病、死亡数</h2>
+<p><a href="/post/infectdis_stat2/">接上篇</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看一下甲乙丙类每个月的发病和死亡例数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"/><figcaption>
+            <h4>图 | 法定传染病每月发病数</h4>
+        </figcaption>
+</figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"/><figcaption>
+            <h4>图 | 法定传染病每月死亡数</h4>
+        </figcaption>
+</figure>
+<p>甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。</p>
+<p>按月算一下均数，看得更清楚。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"/><figcaption>
+            <h4>图 | 法定传染病月平均发病数</h4>
+        </figcaption>
+</figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"/><figcaption>
+            <h4>图 | 法定传染病平均月死亡数</h4>
+        </figcaption>
+</figure>
+    </div>
+    <div class="read-more">
+      <a href="/post/infectdis_stat3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat2/">一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-04-15 </span>
@@ -429,38 +536,6 @@
     </div>
     <div class="read-more">
       <a href="/post/scandinavia-aurora-trip-2017-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/scandinavia-aurora-trip-2017-1/">瑞典挪威逐光七日记(1)：Stockholm</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-02-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
-          </div>
-        <span class="more-meta"> 约 1498 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <div class="admonition info"><p class="admonition-title">点击</p>
-<p>（先翻墙）查看<a href="https://www.google.com/maps/d/viewer?mid=1VPcRM0UCYSvrJdjV_kFyojtUCuU&amp;ll=64.93481342886963%2C19.221822024999927&amp;z=3">GoogleMaps可视化游记</a></p>
-</div>
-<h2 id="序要快就不要讲逻辑">序：要快，就不要讲逻辑</h2>
-<p>决定要春节出游时，并没有想好去哪儿。吸取了之前过年跑成都的教训，还是到远点的地方吧，不会哪哪儿都放假，人也少些。想了一圈，鬼使神差地，素来最怕冷的某些干部同志，关键时刻意志不坚、立场动摇，竟想到了北欧。</p>
-<p>“咋不干脆上天，去北极呢？”</p>
-<p>“室内肯定有暖气啊。你看东北人进屋都穿短袖。”​</p>
-<p>也是，想到包邮区的冬天那副湿冷刺骨的惨状，一时难以反驳。</p>
-<p>“我们可以去看极光。”</p>
-<p>成。决策过程高效迅捷，惊天地泣鬼神。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/scandinavia-aurora-trip-2017-1/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
