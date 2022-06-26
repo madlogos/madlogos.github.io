@@ -2,35 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://madlogos.github.io/post/huashan-paper-critic/</loc>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://madlogos.github.io/categories/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/post/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%B8%85%E9%9B%B6/</loc>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/%E6%96%B0%E5%86%A0/</loc>
+    <lastmod>2022-06-26T18:19:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E9%98%B2%E6%8E%A7/</loc>
     <lastmod>2022-04-05T10:40:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -38,27 +73,6 @@
   
   <url>
     <loc>https://madlogos.github.io/post/covid19-zero-policy-restructure/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E6%B8%85%E9%9B%B6/</loc>
-    <lastmod>2022-04-05T10:40:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E9%98%B2%E6%8E%A7/</loc>
     <lastmod>2022-04-05T10:40:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -79,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/non-standard-medical-insurance-dilemma/</loc>
-    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E4%BF%9D%E9%99%A9/</loc>
     <lastmod>2022-02-24T09:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,6 +101,13 @@
   
   <url>
     <loc>https://madlogos.github.io/tags/%E5%B8%A6%E7%97%85%E4%BD%93/</loc>
+    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/non-standard-medical-insurance-dilemma/</loc>
     <lastmod>2022-02-24T09:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -121,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%9C%A3%E8%AF%9E/</loc>
-    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E6%B0%91%E4%BF%97/</loc>
     <lastmod>2022-02-24T09:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,14 +142,7 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%85%83%E5%AE%87%E5%AE%99/</loc>
-    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/post/metaverse-is-disaster-term/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%9C%A3%E8%AF%9E/</loc>
     <lastmod>2022-02-24T09:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -157,6 +157,20 @@
   
   <url>
     <loc>https://madlogos.github.io/tags/%E8%90%A5%E9%94%80/</loc>
+    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E5%85%83%E5%AE%87%E5%AE%99/</loc>
+    <lastmod>2022-02-24T09:27:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/metaverse-is-disaster-term/</loc>
     <lastmod>2022-02-24T09:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -184,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%89%AC%E5%B7%9E/</loc>
-    <lastmod>2021-05-09T17:06:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E6%97%85%E6%B8%B8/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -200,6 +207,13 @@
   <url>
     <loc>https://madlogos.github.io/categories/%E6%97%85%E6%B8%B8/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%89%AC%E5%B7%9E/</loc>
+    <lastmod>2021-05-09T17:06:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -233,8 +247,8 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/find-a-job-2020-3/</loc>
-    <lastmod>2020-08-12T13:51:18+08:00</lastmod>
+    <loc>https://madlogos.github.io/tags/%E6%B1%82%E8%81%8C/</loc>
+    <lastmod>2021-03-23T23:42:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -247,8 +261,8 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%B1%82%E8%81%8C/</loc>
-    <lastmod>2021-03-23T23:42:34+08:00</lastmod>
+    <loc>https://madlogos.github.io/post/find-a-job-2020-3/</loc>
+    <lastmod>2020-08-12T13:51:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -331,14 +345,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E4%B8%AD%E6%97%A5%E5%85%B3%E7%B3%BB/</loc>
+    <loc>https://madlogos.github.io/post/sino-japan-plastic-friendship/</loc>
     <lastmod>2020-08-09T19:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/sino-japan-plastic-friendship/</loc>
+    <loc>https://madlogos.github.io/tags/%E4%B8%AD%E6%97%A5%E5%85%B3%E7%B3%BB/</loc>
     <lastmod>2020-08-09T19:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -359,15 +373,15 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%93%88%E7%BD%97%E7%99%BE%E8%B4%A7/</loc>
-    <lastmod>2021-05-09T21:33:02+08:00</lastmod>
+    <loc>https://madlogos.github.io/tags/%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86/</loc>
+    <lastmod>2021-05-09T21:51:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86/</loc>
-    <lastmod>2021-05-09T21:51:19+08:00</lastmod>
+    <loc>https://madlogos.github.io/tags/%E5%93%88%E7%BD%97%E7%99%BE%E8%B4%A7/</loc>
+    <lastmod>2021-05-09T21:33:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -450,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%B8%A9%E8%8E%8E%E5%A0%A1/</loc>
+    <loc>https://madlogos.github.io/tags/%E8%82%AF%E8%BE%9B%E9%A1%BF%E5%AE%AB/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E8%82%AF%E8%BE%9B%E9%A1%BF%E5%AE%AB/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%B8%A9%E8%8E%8E%E5%A0%A1/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -569,14 +583,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%86%85%E8%92%99%E5%8F%A4/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%86%85%E8%92%99%E5%8F%A4/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -618,13 +632,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/tectonics-is-more-evil/</loc>
-    <lastmod>2021-05-16T23:20:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E5%A4%8D%E6%97%A6/</loc>
     <lastmod>2021-05-16T23:20:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -639,7 +646,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/security-check-in-metro-low-efficiency-performance/</loc>
+    <loc>https://madlogos.github.io/post/tectonics-is-more-evil/</loc>
+    <lastmod>2021-05-16T23:20:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E5%AE%89%E6%A3%80/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -653,7 +667,7 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%AE%89%E6%A3%80/</loc>
+    <loc>https://madlogos.github.io/post/security-check-in-metro-low-efficiency-performance/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -681,14 +695,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%AE%89%E5%90%89/</loc>
     <lastmod>2021-05-16T23:20:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%AE%89%E5%90%89/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%8D%83%E5%B2%9B%E6%B9%96/</loc>
     <lastmod>2021-05-16T23:20:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -765,21 +779,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E4%BA%A4%E4%BA%92%E5%9B%BE/</loc>
-    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
-    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E5%9C%B0%E7%90%86%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E4%BA%A4%E4%BA%92%E5%9B%BE/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -794,6 +801,13 @@
   
   <url>
     <loc>https://madlogos.github.io/series/%E8%BF%9B%E5%A3%AB%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -821,13 +835,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/infectdis_stat3/</loc>
-    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E4%BC%A0%E6%9F%93%E7%97%85/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -836,6 +843,13 @@
   
   <url>
     <loc>https://madlogos.github.io/series/%E6%B3%95%E5%AE%9A%E4%BC%A0%E6%9F%93%E7%97%85/</loc>
+    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/infectdis_stat3/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -863,13 +877,6 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%97%B6%E8%AF%84/</loc>
-    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://madlogos.github.io/tags/%E7%A4%BC%E6%B3%95/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -891,7 +898,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E5%9D%90%E6%A0%87%E7%BD%91/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%97%B6%E8%AF%84/</loc>
+    <lastmod>2021-05-09T21:28:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/political-compass/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -912,15 +926,8 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/political-compass/</loc>
+    <loc>https://madlogos.github.io/tags/%E5%9D%90%E6%A0%87%E7%BD%91/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E6%96%AF%E5%BE%B7%E5%93%A5%E5%B0%94%E6%91%A9/</loc>
-    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -947,14 +954,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%8C%AA%E5%A8%81/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%96%AF%E5%BE%B7%E5%93%A5%E5%B0%94%E6%91%A9/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%8C%AA%E5%A8%81/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -968,7 +975,7 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/post/scandinavia-aurora-trip-2017-4/</loc>
+    <loc>https://madlogos.github.io/tags/%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -976,6 +983,13 @@
   
   <url>
     <loc>https://madlogos.github.io/tags/%E7%BA%B3%E5%B0%94%E7%BB%B4%E5%85%8B/</loc>
+    <lastmod>2021-05-17T00:24:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/scandinavia-aurora-trip-2017-4/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1017,14 +1031,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%96%B0%E5%8A%A0%E5%9D%A1/</loc>
+    <loc>https://madlogos.github.io/tags/%E8%B7%A8%E5%B9%B4/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E8%B7%A8%E5%B9%B4/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%96%B0%E5%8A%A0%E5%9D%A1/</loc>
     <lastmod>2021-05-17T00:24:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
