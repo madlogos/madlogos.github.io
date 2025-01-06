@@ -5,7 +5,7 @@
 
 在政治学里，权力(power)是影响力的特殊表现形式，体现的是宰制(domination)关系——按米尔斯的定义，「即使对方反对，依然可以行使自己意志的能力」。所以，否决是权力的根本体现形式——上级可以说不，下级不行；甲方可以说不，乙方不行；五大流氓可以在安理会说不，其他国家不行。即使在正面场景里，权力本质上也是以否定形式起效的：「去做」，实际是「不许不做」的意思。
 
-{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2024/05/power-level.jpg" width="80%" title="图 | 权力层次" %}}
+{{% figure class="center" src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2024/05/power-level.jpg" width="80%" title="图 | 权力的三个层次" %}}
 
 <!--more-->
 
