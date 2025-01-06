@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
+<meta name="author" content="" /><meta name="description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat2/" />
@@ -35,26 +35,35 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据" />
-<meta property="og:description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-04-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat2/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据">
+  <meta property="og:description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-04-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="传染病">
+    <meta property="article:tag" content="疫情报告">
+    <meta property="article:tag" content="Rvest">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat3/">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat1/">
 
-
-<meta itemprop="name" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据">
-<meta itemprop="description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。"><meta itemprop="datePublished" content="2017-04-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="3962">
-<meta itemprop="keywords" content="传染病,疫情报告,rvest," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据"/>
-<meta name="twitter:description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。"/>
+  <meta itemprop="name" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据">
+  <meta itemprop="description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。">
+  <meta itemprop="datePublished" content="2017-04-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="3962">
+  <meta itemprop="keywords" content="法定传染病,疫情报告,爬虫">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据">
+  <meta name="twitter:description" content="用rvest爬取到卫计委法定传染病疫情月报的（坑爹）附件，通过构造工作函数，并行遍历，完成提取-&gt;清理-&gt;合并，获得一个真正可用的数据合集。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -173,7 +182,7 @@
 <p><strong>要把图片附件识别成文本。</strong></p>
 <p>首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：</p>
 <p><strong>手工录入。</strong></p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%"/>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%">
 </figure>
 <p>这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，<strong>记得要把工程预算乘以3</strong>。</p>
 <p>图片方面的坑包括：</p>
@@ -216,17 +225,17 @@
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">docxtractr</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">readMsoTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">readMsoTbl</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">mso.file</span><span class="p">,</span> <span class="s">&#34;.+\\.([^\\.]+)$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;csv&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;csv&#34;</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span><span class="n">header</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;docx&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;docx&#34;</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">docx</span> <span class="o">&lt;-</span> <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_docx</span><span class="p">(</span><span class="n">mso.file</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">docx_extract_tbl</span><span class="p">(</span><span class="n">docx</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;xlsx&#34;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="n">file.type</span> <span class="o">==</span> <span class="s">&#34;xlsx&#34;</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">invisible</span><span class="p">(</span><span class="nf">read_excel</span><span class="p">(</span><span class="n">mso.file</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span><span class="n">header</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kc">NULL</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -302,40 +311,40 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 重定义首行</span>
-</span></span><span class="line"><span class="cl"><span class="n">redefCol</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">redefCol</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##     df: data.frame</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s">&#34;[Xx]\\d&#34;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s">&#34;[Xx]\\d&#34;</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">df[1</span><span class="p">,</span><span class="n">]</span>
 </span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df[2</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="n">]</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">str_replace_all</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s">&#34;\\s|\\*&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 数据整形</span>
-</span></span><span class="line"><span class="cl"><span class="n">cleanTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">cleanTbl</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">df</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Args</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    df: data.frame</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    dop: date of publication</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 去掉空列、空行</span>
-</span></span><span class="line"><span class="cl">    <span class="n">is.colallNA</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">is.colallNA</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">all</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span> <span class="o">|</span> <span class="nf">all</span><span class="p">(</span><span class="nf">nchar</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
-</span></span><span class="line"><span class="cl">    <span class="n">is.rowallNA</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">is.rowallNA</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">all</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span> <span class="o">|</span> <span class="nf">all</span><span class="p">(</span><span class="nf">nchar</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)})</span>
 </span></span><span class="line"><span class="cl">    <span class="n">o</span> <span class="o">&lt;-</span> <span class="n">df[</span><span class="o">!</span><span class="n">is.rowallNA</span><span class="p">,</span> <span class="o">!</span><span class="n">is.colallNA]</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 去掉首列空格，名称规范化</span>
 </span></span><span class="line"><span class="cl">    <span class="n">o[[1]]</span> <span class="o">&lt;-</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace_all</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">o[[1]]</span><span class="p">,</span> <span class="s">&#34;[\\s＊\\*（）]&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 确保发病和死亡都是整数</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">o[[i]]</span> <span class="o">&lt;&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">stringr</span><span class="o">::</span><span class="nf">str_replace</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="n">o[[i]]</span><span class="p">,</span> <span class="s">&#34;\\D&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="n">o[[i]]</span><span class="nf">[is.na</span><span class="p">(</span><span class="n">o[[i]]</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;&lt;-</span> <span class="m">0</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -371,7 +380,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">list.files</span><span class="p">(</span><span class="s">&#34;~/infectdis&#34;</span><span class="p">),</span> <span class="s">&#34;^(.+)\\..+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span> <span class="kr">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dat[[i]]</span><span class="o">$</span><span class="n">DOP</span> <span class="o">&lt;&lt;-</span> <span class="nf">as.Date</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="n">[i]</span><span class="p">)}))</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -422,7 +431,7 @@
 </span></span><span class="line"><span class="cl">        <span class="s">&#34;伤寒和副伤寒&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 按行遍历dict，将dat$病名中符合&#39;pattern&#39;的，替换为&#39;replace&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">invisible</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">dat</span><span class="o">$</span>病名 <span class="o">&lt;&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span>病名<span class="p">,</span> <span class="n">vec[1]</span><span class="p">,</span> <span class="n">vec[2]</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
@@ -539,7 +548,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">makeTsPlot</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="n">makeTsPlot</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#34;4 months&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="n">xvar</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="n">yvar</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;value&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">legend.position</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span> <span class="m">1.05</span><span class="p">)</span>
@@ -552,21 +561,21 @@
 </span></span><span class="line"><span class="cl">    <span class="c1">##    xvar, yvar, gvar: var name of x, y, group</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    legend.position: a value that ggplot2::theme() accepts</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">format</span><span class="p">(</span><span class="n">breaks</span><span class="p">,</span> <span class="s">&#34;%m\n%y&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">min.mon</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">format</span><span class="p">(</span><span class="n">breaks</span><span class="p">,</span><span class="s">&#34;%m&#34;</span><span class="p">))</span><span class="n">[1]</span>
 </span></span><span class="line"><span class="cl">        <span class="n">labels[</span><span class="o">!</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> <span class="n">min.mon</span><span class="p">))</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">format</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="n">breaks[</span><span class="o">!</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;^&#34;</span><span class="p">,</span> <span class="n">min.mon</span><span class="p">))</span><span class="n">]</span><span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">str_replace</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="s">&#34;^0&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="n">labels</span> <span class="o">&lt;-</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">breaks</span> <span class="o">&lt;-</span> <span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pal</span> <span class="o">&lt;-</span> <span class="n">ggthemes_data</span><span class="o">$</span><span class="n">hc</span><span class="o">$</span><span class="n">palettes</span><span class="o">$</span><span class="n">default</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">pal</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">pal</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pal</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">pal</span><span class="p">,</span> <span class="nf">ceiling</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">gvar]</span><span class="p">))</span> <span class="o">/</span> <span class="nf">length</span><span class="p">(</span><span class="n">pal</span><span class="p">)))</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -585,16 +594,16 @@
 </span></span><span class="line"><span class="cl">              <span class="n">legend.position</span><span class="o">=</span><span class="n">legend.position</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">              <span class="n">legend.direction</span><span class="o">=</span><span class="s">&#34;horizontal&#34;</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">xlab</span><span class="p">(</span><span class="n">xlab</span><span class="p">)</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="n">ylab</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">inherits</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;POSIXt&#34;</span><span class="p">,</span> <span class="s">&#34;Date&#34;</span><span class="p">)))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_date</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">format</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">format</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="s">&#34;%Y-%m&#34;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">min</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">df[</span><span class="p">,</span><span class="n">xvar]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;~&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="nf">scale_x_discrete</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -607,9 +616,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -617,7 +626,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -708,7 +717,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -730,9 +739,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -761,17 +768,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

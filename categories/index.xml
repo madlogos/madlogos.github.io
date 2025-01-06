@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Libido Chateau</title>
+    <link>https://madlogos.github.io/categories/</link>
+    <description>Recent content in Categories on Libido Chateau</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <copyright>madlogos</copyright>
+    <lastBuildDate>Mon, 06 Jan 2025 00:48:42 +0800</lastBuildDate>
+    <atom:link href="https://madlogos.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>无题</title>
+      <link>https://madlogos.github.io/categories/%E6%97%A0%E9%A2%98/</link>
+      <pubDate>Fri, 10 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E6%97%A0%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>时评</title>
+      <link>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</link>
+      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>旅游</title>
+      <link>https://madlogos.github.io/categories/%E6%97%85%E6%B8%B8/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E6%97%85%E6%B8%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>技术</title>
+      <link>https://madlogos.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>可视化</title>
+      <link>https://madlogos.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数据</title>
+      <link>https://madlogos.github.io/categories/%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 23 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/categories/%E6%95%B0%E6%8D%AE/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

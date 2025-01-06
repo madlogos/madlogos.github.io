@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
+<meta name="author" content="" /><meta name="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat1/" />
@@ -35,26 +35,35 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据" />
-<meta property="og:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-04-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat1/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
+  <meta property="og:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-04-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="传染病">
+    <meta property="article:tag" content="疫情报告">
+    <meta property="article:tag" content="Rvest">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat3/">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat2/">
 
-
-<meta itemprop="name" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
-<meta itemprop="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。"><meta itemprop="datePublished" content="2017-04-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="4407">
-<meta itemprop="keywords" content="传染病,疫情报告,rvest," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据"/>
-<meta name="twitter:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。"/>
+  <meta itemprop="name" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
+  <meta itemprop="description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。">
+  <meta itemprop="datePublished" content="2017-04-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="4407">
+  <meta itemprop="keywords" content="法定传染病,疫情报告,爬虫">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据">
+  <meta name="twitter:description" content="卫计委每月发布全国法定传染病疫情公告，包含甲乙丙三类传染病的发病和死亡统计。本打算趁清明假期（什么鬼），用rvest包写个简单的脚本，爬下来分析玩。不料遇到许多莫名其妙的坑。最后，好好一个【爬虫工程】变成了【批处理下载】，十分胸闷。拜托卫计委要继续提高自己的姿势水平。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -169,22 +178,22 @@
 <p>毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。</p>
 <p>说是大海，视觉上其实就是类似这样的一张表格：</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png" width="60%"/><figcaption>
-            <h4>图 | 法定传染病统计表</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png" width="60%"><figcaption>
+      <h4>图 | 法定传染病统计表</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png"/><figcaption>
-            <h4>图 | 卫计委传染病控制动态</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png"><figcaption>
+      <h4>图 | 卫计委传染病控制动态</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png"/><figcaption>
-            <h4>图 | 法定传染病月报</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png"><figcaption>
+      <h4>图 | 法定传染病月报</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？</p>
@@ -252,9 +261,9 @@
 <p>怎么看页面节点结构呢？用Chrome访问目录页，F12查看文档结构，或者右键“查看页面源代码”。</p>
 <p>每一篇信息动态都在一个列表节点&lt;li&gt;里，最终都被包进一个无序列表父节点&lt;ul&gt;里。这个无序列表元素的类型是“zxxx_list”（果然还是万能的拼音首字母命名法，“资讯信息”）。所以拿到这个节点后，提取目录信息就很简单了：&lt;a&gt;节点内有标题和链接，&lt;span ml&gt;节点内有发布日期。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/sourcecode_dir.png"/><figcaption>
-            <h4>图 | 网页源码</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/sourcecode_dir.png"><figcaption>
+      <h4>图 | 网页源码</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <div class="highlight"><div class="chroma">
@@ -289,7 +298,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 构造一个提取单个目录页信息的函数</span>
-</span></span><span class="line"><span class="cl"><span class="n">getTOC</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">getTOC</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">## Args</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">##   url: 单个网页/网址</span>
 </span></span><span class="line"><span class="cl">
@@ -302,7 +311,7 @@
 </span></span><span class="line"><span class="cl">    <span class="c1"># 从cast中提取所有&lt;ml&gt;节点信息</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dop</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="s">&#34;span.ml&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 最后得到一个3列数据框，包括链接、标题和发布日期</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">href</span><span class="o">=</span><span class="nf">html_attr</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="s">&#34;href&#34;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">title</span><span class="o">=</span><span class="nf">str_trim</span><span class="p">(</span><span class="nf">html_text</span><span class="p">(</span><span class="n">lists</span><span class="p">)),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">dop</span><span class="o">=</span><span class="nf">html_text</span><span class="p">(</span><span class="n">dop</span><span class="p">),</span>
@@ -375,9 +384,9 @@
 </div>
 </div><p><code>toc</code>数据集长这样：</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/toc_tbl.png"/><figcaption>
-            <h4>图 | toc表格</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/toc_tbl.png"><figcaption>
+      <h4>图 | toc表格</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>万里长征踏出了第一步。</p>
@@ -401,11 +410,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造一个读取网页代码的函数</span>
-</span></span><span class="line"><span class="cl"><span class="n">getWebPage</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">getWebPage</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">url</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    url: 网页网址</span>
 </span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_lines</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s">&#34;\n&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 并行计算</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">doParallel</span><span class="p">)</span>
@@ -507,7 +516,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造函数，从正文直接提取发病和死亡总数</span>
-</span></span><span class="line"><span class="cl"><span class="n">getKeyNums</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">page</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">getKeyNums</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">page</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##   page: 单个网页</span>
 </span></span><span class="line"><span class="cl">
@@ -545,10 +554,10 @@
 </span></span><span class="line"><span class="cl">            <span class="s">&#34;.+?丙类.+?死亡\\D*?(\\d+)[例人].+&#34;</span><span class="p">,</span> <span class="n">dotall</span><span class="o">=</span><span class="kc">TRUE</span>
 </span></span><span class="line"><span class="cl">            <span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## 如发病总数=乙类发病数，则未提取到，用乙类+丙类替代</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">inc.b</span><span class="p">))</span> <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="n">inc.tot</span> <span class="o">+</span> <span class="n">inc.c</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">mot.tot</span><span class="p">,</span> <span class="n">mot.b</span><span class="p">))</span> <span class="n">mot.tot</span> <span class="o">&lt;-</span> <span class="n">mot.tot</span> <span class="o">+</span> <span class="n">mot.c</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">inc.b</span><span class="p">))</span> <span class="n">inc.tot</span> <span class="o">&lt;-</span> <span class="n">inc.tot</span> <span class="o">+</span> <span class="n">inc.c</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="n">mot.tot</span><span class="p">,</span> <span class="n">mot.b</span><span class="p">))</span> <span class="n">mot.tot</span> <span class="o">&lt;-</span> <span class="n">mot.tot</span> <span class="o">+</span> <span class="n">mot.c</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## 返回发病总数和死亡总数</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">mot.tot</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">inc.tot</span><span class="p">,</span> <span class="n">mot.tot</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 遍历pages运行getKeyNums，转置后转换为2列的数据框</span>
 </span></span><span class="line"><span class="cl"><span class="n">genl.stat</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="n">getKeyNums</span><span class="p">)))</span>
@@ -590,9 +599,9 @@
 </div>
 </div><p>年周期性还是很显著的。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_mot_infectdis.png"/><figcaption>
-            <h4>图 | 发病/死亡月度统计</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_mot_infectdis.png"><figcaption>
+      <h4>图 | 发病/死亡月度统计</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <h2 id="抽取各明细病种数据">抽取各明细病种数据</h2>
@@ -695,16 +704,16 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 构造函数，下载附表</span>
-</span></span><span class="line"><span class="cl"><span class="n">getWebTbl</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">getWebTbl</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Arg</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    url: 网页</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">##    tbl.name: 表格名称，用日期命名</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 如附表文件已存在，跳出</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">file.exists</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">file.exists</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">               <span class="nf">c</span><span class="p">(</span><span class="s">&#34;xls&#34;</span><span class="p">,</span> <span class="s">&#34;csv&#34;</span><span class="p">,</span> <span class="s">&#34;doc&#34;</span><span class="p">,</span> <span class="s">&#34;gif&#34;</span><span class="p">,</span> <span class="s">&#34;jpg&#34;</span><span class="p">,</span> <span class="s">&#34;png&#34;</span><span class="p">))))){</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 否则就把页面源码读下来</span>
 </span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">&lt;-</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -716,12 +725,12 @@
 </span></span><span class="line"><span class="cl">    <span class="c1"># 尝试抽取附件图片</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cast.img</span> <span class="o">&lt;-</span> <span class="nf">html_nodes</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&#34;div.con img&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">regex.img</span> <span class="o">&lt;-</span> <span class="s">&#34;([Gg][Ii][Ff]|[Pp][Nn][Gg]|[Jj][Pp][Gg])&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cast</span><span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">){</span>  <span class="c1"># 读到网页表格</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cast</span><span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">){</span>  <span class="c1"># 读到网页表格</span>
 </span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">html_table</span><span class="p">(</span><span class="n">cast</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="n">[[1]]</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">write_csv</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">cast.attach</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>  
 </span></span><span class="line"><span class="cl">        <span class="c1"># 读到附件表格</span>
 </span></span><span class="line"><span class="cl">        <span class="n">idx.attach</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
@@ -732,22 +741,22 @@
 </span></span><span class="line"><span class="cl">        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.attach</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 附件路径补完</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 另一种类型的相对路径</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 重命名并存储</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                    <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">cast.img</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="s">&#34;\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)))){</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 读到附件图片</span>
 </span></span><span class="line"><span class="cl">        <span class="n">idx.img</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span>
@@ -758,16 +767,16 @@
 </span></span><span class="line"><span class="cl">        <span class="n">file.type</span> <span class="o">&lt;-</span> <span class="nf">tolower</span><span class="p">(</span><span class="nf">str_replace</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#34;.+\\.&#34;</span><span class="p">,</span> <span class="n">regex.img</span><span class="p">,</span> <span class="s">&#34;$&#34;</span><span class="p">),</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 附件路径补完        </span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^/&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="s">&#34;http://www.nhfpc.gov.cn&#34;</span><span class="p">,</span> <span class="n">doc.link</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 另一种类型的相对路径</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^h/]&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.link</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s">&#34;^(.+)\\.shtml$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">str_replace</span><span class="p">(</span><span class="n">doc.link</span><span class="p">,</span> <span class="s">&#34;^[^/]+(/.+$)&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 重命名并存储</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span> <span class="p">(</span><span class="o">!</span> <span class="nf">file.exists</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="s">&#34;~/infectdis/&#34;</span><span class="p">,</span> <span class="n">tbl.name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">,</span> <span class="n">file.type</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">doc.file</span> <span class="o">&lt;-</span> <span class="nf">download.file</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">                <span class="n">doc.link</span><span class="p">,</span> <span class="n">destfile</span><span class="o">=</span><span class="nf">paste0</span><span class="p">(</span>
@@ -783,9 +792,9 @@
 </div>
 </div><p>看到这些文件齐齐整整码在硬盘里，心下暂时宽慰了一点。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/downfiles.png"/><figcaption>
-            <h4>图 | 附件下载</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/downfiles.png"><figcaption>
+      <h4>图 | 附件下载</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>然而让我们回头看看疫情月报附表们可恨的多样性吧。</p>
@@ -815,9 +824,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -825,7 +834,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -916,7 +925,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -938,9 +947,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -969,17 +976,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

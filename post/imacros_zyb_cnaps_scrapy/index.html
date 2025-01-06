@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。" /><meta name="keywords" content="数据, 时评, 人文" />
+<meta name="author" content="" /><meta name="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。" /><meta name="keywords" content="数据, 时评, 人文" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" />
@@ -35,26 +35,34 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号" />
-<meta property="og:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-11-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/imacros_zyb_cnaps_scrapy/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
+  <meta property="og:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-11-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="Imacros">
+    <meta property="article:tag" content="爬虫">
+    <meta property="article:tag" content="CNAPS">
+    <meta property="article:tag" content="自动化">
 
-
-<meta itemprop="name" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
-<meta itemprop="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。"><meta itemprop="datePublished" content="2017-11-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="6065">
-<meta itemprop="keywords" content="imacros,爬虫,CNAPS,自动化," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号"/>
-<meta name="twitter:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。"/>
+  <meta itemprop="name" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
+  <meta itemprop="description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。">
+  <meta itemprop="datePublished" content="2017-11-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="6065">
+  <meta itemprop="keywords" content="Imacros,爬虫,CNAPS,自动化">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="iMacros脚本运行三天，爬取了40万行现代化支付行号">
+  <meta name="twitter:description" content="利用iMacros逐页爬取中原银行的CNAPS现代化支付行号信息，再利用R合并成数据库。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -199,9 +207,9 @@
 <p>判断一个人是否天生适合当码农，很重要的一点就是看他/她有没有这种懒癌强迫症。而这种强迫症的形上学本质是：<strong>对自由王国的无尽向往</strong>。——重复劳动太蠢了，它侮辱人类的尊严，阻碍我们证法悟道，必须消灭。这就是自动化的诞生。</p>
 <p>所以——尽管技术上跌跌撞撞，也并不妨碍我隔三差五搞个三脚猫爬虫出来。这回的主题又跳跃了：爬取现代化支付行号。</p>
 <h2 id="这就带来了第一个问题">这就带来了第一个问题</h2>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/yilianmengbi.jpg"/><figcaption>
-            <h4>蛤？这是啥？</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/yilianmengbi.jpg"><figcaption>
+      <h4>蛤？这是啥？</h4>
+    </figcaption>
 </figure>
 <div class="admonition info"><p class="admonition-title">定义</p>
 <p>所谓现代化支付行号 (CNAPS)</p>
@@ -221,14 +229,14 @@
 </div><p>所以如果要搭一个跟支付清算相关的系统，就很有必要把CNAPS作为基建纳入考虑。这套代码并不公开，但是公开渠道仍能从一些银行的官网查到。比如<a href="https://www.hebbank.com/corporbank/otherBankQueryWeb.do">河北银行</a>、<a href="https://corbank.czbank.com/CORPORBANK/query_unionBank_index.jsp">浙商银行</a>。</p>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/hebbank.png"
-         alt="河北银行"/><figcaption>
-            <h4>图 | 河北银行CNAPS查询页</h4>
-        </figcaption>
+    alt="河北银行"><figcaption>
+      <h4>图 | 河北银行CNAPS查询页</h4>
+    </figcaption>
 </figure>
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zsbank.png"
-         alt="浙商银行"/><figcaption>
-            <h4>图 | 浙商银行CNAPS查询页</h4>
-        </figcaption>
+    alt="浙商银行"><figcaption>
+      <h4>图 | 浙商银行CNAPS查询页</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>随手上去试了两把，还挺好用。于是思路比较清楚了：穷尽所有查询策略，把返回的结果提出来存好。</p>
@@ -237,9 +245,9 @@
 <p>上面提到的这两家都要输校验码，攻起来有门槛。所以退而求其次，发现一家<a href="http://www.zybank.com.cn/zyb/zh_CN/jshj/lhhquery.html">中原银行</a>。</p>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/zybank.png"
-         alt="中原银行"/><figcaption>
-            <h4>图 | 中原银行CNPAS查询页</h4>
-        </figcaption>
+    alt="中原银行"><figcaption>
+      <h4>图 | 中原银行CNPAS查询页</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>这就比较好对付一些，而且信息更多，连网点地址也提供。</p>
@@ -258,26 +266,26 @@
 <p>对于本地的任务，其实最合适的工具是Selenium IDE (或Katalon之类替代品)，一样从录制宏开始。但我当时并不会。好在Firefox里有一个历史悠久的代替品：iMacros。看，名字里就有一个“宏”。它也有Chrome和IE的版本，通过浏览器扩展商店装好后，模样长这样：</p>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros.png"
-         alt="iMacros"/><figcaption>
-            <h4>图 | iMacros for Chrome界面</h4>
-        </figcaption>
+    alt="iMacros"><figcaption>
+      <h4>图 | iMacros for Chrome界面</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>如果自己录一段宏，打开后长这样：</p>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo1.png"
-         alt="iMacros脚本"/><figcaption>
-            <h4>图 | iMacros脚本代码</h4>
-        </figcaption>
+    alt="iMacros脚本"><figcaption>
+      <h4>图 | iMacros脚本代码</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>由于完全是一堆动作指令，所以很容易读懂。无非是关闭其他标签页，打开一个网址，依次在几个文本控件里填入内容，最后点按钮提交。</p>
 <p>双击录好的iim脚本运行，就把刚才的录入工作重复执行一遍。就跟自己动手一毛一样。</p>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/imacros_demo2.gif"
-         alt="demo"/><figcaption>
-            <h4>图 | iMacros demo</h4>
-        </figcaption>
+    alt="demo"><figcaption>
+      <h4>图 | iMacros demo</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>想象一下你有几千条记录要在网上填入。用imacros，只要在脚本同目录下准备一个csv，整理好数据，然后修改一下上面的代码，读入csv，逐行扫描，按布局顺序提取数据<code>{{!COL1}}</code>、<code>{{!COL2}}</code>、&hellip;，填入对应的控件，提交。接下来边喝茶边看屏幕飞滚，繁复的录入任务就自行完成了。</p>
@@ -335,9 +343,9 @@
 <h2 id="提取银行和省份城市的控件值">提取银行和省份+城市的控件值</h2>
 <p>Chrome里<kbd>F12</kbd>，可以看到银行下拉菜单的载入值齐齐整整。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/banksite.png"/><figcaption>
-            <h4>图 | 银行下拉菜单载入值</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/banksite.png"><figcaption>
+      <h4>图 | 银行下拉菜单载入值</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>选中&rsquo;banksite&rsquo;这个节点，右键copy element复制下来。到R里，赋值给banks。</p>
@@ -362,7 +370,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">banks</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="s">&#34;&lt;/option&gt;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">paste</span><span class="p">(</span><span class="nf">sapply</span><span class="p">(</span><span class="n">banks</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;^&lt;option value=\&#34;(\\d+)\&#34;&gt;\\D+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span> <span class="n">collapses</span><span class="o">=</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -385,14 +393,14 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">getCbId</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">grpId</span><span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">getCbId</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">grpId</span><span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">  <span class="c1"># Copy XML nodes from ZYB page by F12</span>
 </span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">readClipboard</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="m">13</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="nf">[seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span><span class="n">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">grpId</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">grpId</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">toJSON</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="nf">rep.int</span><span class="p">(</span><span class="n">grpId</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="n">a</span><span class="p">)),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">toJSON</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -744,16 +752,16 @@
 <p>工程搭好后，把脚本放在虚拟机上跑了三天，幸运的是网站似乎没有反爬虫策略，夜间也不关服务，于是让我顺顺利利地跑完了。</p>
 <p>看到上千个文件静静躺在文件夹里，感觉到了巅峰愉悦。</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas_tbl.png"/><figcaption>
-            <h4>图 | 爬下来的csv文件</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas_tbl.png"><figcaption>
+      <h4>图 | 爬下来的csv文件</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>里面的文件纷纷长这样：</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnaps_raw.png"/><figcaption>
-            <h4>图 | csv的原始面目</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnaps_raw.png"><figcaption>
+      <h4>图 | csv的原始面目</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <h3 id="r合并csv">R合并csv</h3>
@@ -818,7 +826,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">## 剔除.zip和.bat</span>
 </span></span><span class="line"><span class="cl"><span class="n">files</span> <span class="o">&lt;-</span> <span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;zip$|bat$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 某些文件莫名奇妙没有拿到后缀名，强制重命名</span>
-</span></span><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">))){</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">file.rename</span><span class="p">(</span><span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">paste0</span><span class="p">(</span><span class="n">files[</span><span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="s">&#34;.csv&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -827,7 +835,7 @@
 </span></span><span class="line"><span class="cl"><span class="nf">stopifnot</span><span class="p">(</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;csv$&#34;</span><span class="p">,</span> <span class="n">files</span><span class="p">)))</span>
 </span></span><span class="line"><span class="cl"><span class="nf">message</span><span class="p">(</span><span class="s">&#34;A total of &#34;</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">files</span><span class="p">),</span> <span class="s">&#34; files read.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># ---------------自定义函数-----------------</span>
-</span></span><span class="line"><span class="cl"><span class="n">parseCsvTbl</span> <span class="o">&lt;-</span> <span class="nf">cmpfun</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="n">parseCsvTbl</span> <span class="o">&lt;-</span> <span class="nf">cmpfun</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="n">csvfile</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;CNAPS&#34;</span><span class="p">,</span> <span class="s">&#34;Bank&#34;</span><span class="p">,</span> <span class="s">&#34;Tel&#34;</span><span class="p">,</span> <span class="s">&#34;Addr&#34;</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># for parallel use, duplicate the global settings</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">Sys.setlocale</span><span class="p">(</span><span class="s">&#34;LC_CTYPE&#34;</span><span class="p">,</span> <span class="s">&#34;Chs&#34;</span><span class="p">)</span>
@@ -838,15 +846,15 @@
 </span></span><span class="line"><span class="cl">    <span class="n">dat</span><span class="o">$</span><span class="n">bank</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\1&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dat</span><span class="o">$</span><span class="n">prov</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\2&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dat</span><span class="o">$</span><span class="n">city</span> <span class="o">&lt;-</span> <span class="nf">sub</span><span class="p">(</span><span class="s">&#34;^([^_]*?)_([^_]*?)_([^_]*?)_.+$&#34;</span><span class="p">,</span> <span class="s">&#34;\\3&#34;</span><span class="p">,</span> <span class="n">csvfile</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># --------------调用解析函数，解析csv并合并---------------------</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 如果文件超过1000个，调用并行计算</span>
-</span></span><span class="line"><span class="cl"><span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cl</span> <span class="o">&lt;-</span> <span class="nf">makeCluster</span><span class="p">(</span><span class="nf">detectCores</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="nf">parLapply</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">parseCsvTbl</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">stopCluster</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">do.call</span><span class="p">(</span><span class="s">&#34;rbind&#34;</span><span class="p">,</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">parseCsvTbl</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 合并后的结果输出到一个大csv</span>
@@ -856,9 +864,9 @@
 </div>
 </div><p>跑完脚本，数据变成了：</p>
 <!-- {% raw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas.png"/><figcaption>
-            <h4>图 | 成品数据效果</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/1128/cnpas.png"><figcaption>
+      <h4>图 | 成品数据效果</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
 <p>一共40多万条记录。谢天谢地，老泪纵横。</p>
@@ -886,9 +894,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -896,7 +904,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -988,7 +996,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -1010,9 +1018,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -1041,17 +1047,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

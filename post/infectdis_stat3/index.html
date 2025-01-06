@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
+<meta name="author" content="" /><meta name="description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。" /><meta name="keywords" content="法定传染病, 疫情报告, 爬虫" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/infectdis_stat3/" />
@@ -35,26 +35,35 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据" />
-<meta property="og:description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat3/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-04-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/infectdis_stat3/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据">
+  <meta property="og:description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-04-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="传染病">
+    <meta property="article:tag" content="疫情报告">
+    <meta property="article:tag" content="Rvest">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat2/">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/infectdis_stat1/">
 
-
-<meta itemprop="name" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据">
-<meta itemprop="description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。"><meta itemprop="datePublished" content="2017-04-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="4514">
-<meta itemprop="keywords" content="传染病,疫情报告,rvest," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据"/>
-<meta name="twitter:description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。"/>
+  <meta itemprop="name" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据">
+  <meta itemprop="description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。">
+  <meta itemprop="datePublished" content="2017-04-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="4514">
+  <meta itemprop="keywords" content="法定传染病,疫情报告,爬虫">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据">
+  <meta name="twitter:description" content="从报病数和死亡数来看，传染病防制的主流已经彻底转向慢性传染病（艾滋病、结核病）和儿童传染病（手足口病）。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -193,9 +202,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"/><figcaption>
-            <h4>图 | 法定传染病每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"><figcaption>
+      <h4>图 | 法定传染病每月发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -209,9 +218,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"/><figcaption>
-            <h4>图 | 法定传染病每月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"><figcaption>
+      <h4>图 | 法定传染病每月死亡数</h4>
+    </figcaption>
 </figure>
 <p>甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。</p>
 <p>按月算一下均数，看得更清楚。</p>
@@ -231,9 +240,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"/><figcaption>
-            <h4>图 | 法定传染病月平均发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"><figcaption>
+      <h4>图 | 法定传染病月平均发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -251,9 +260,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"/><figcaption>
-            <h4>图 | 法定传染病平均月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"><figcaption>
+      <h4>图 | 法定传染病平均月死亡数</h4>
+    </figcaption>
 </figure>
 <h2 id="乙类">乙类</h2>
 <h3 id="四大类别">四大类别</h3>
@@ -299,9 +308,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_trend.png"/><figcaption>
-            <h4>图 | 乙类传染病每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_trend.png"><figcaption>
+      <h4>图 | 乙类传染病每月发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -315,9 +324,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;乙类传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;类型&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_trend.png"/><figcaption>
-            <h4>图 | 乙类传染病每月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_trend.png"><figcaption>
+      <h4>图 | 乙类传染病每月死亡数</h4>
+    </figcaption>
 </figure>
 <h3 id="详细病种">详细病种</h3>
 <p>究竟是哪个具体病种发展更快？</p>
@@ -347,9 +356,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_det_trend.png"/><figcaption>
-            <h4>图 | 乙类传染病每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_b_det_trend.png"><figcaption>
+      <h4>图 | 乙类传染病每月发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -377,9 +386,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_det_trend.png"/><figcaption>
-            <h4>图 | 乙类传染病每月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_b_det_trend.png"><figcaption>
+      <h4>图 | 乙类传染病每月死亡数</h4>
+    </figcaption>
 </figure>
 <div class="admonition tip"><p class="admonition-title">tip</p>
 <p>乙类死亡数分布中，2009年末-2010年初有个醒目的浅蓝色楔子。那就是著名的甲型H1N1流感流行。</p>
@@ -415,9 +424,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_hep_trend.png"/><figcaption>
-            <h4>图 | 肝炎每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_hep_trend.png"><figcaption>
+      <h4>图 | 肝炎每月发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -431,9 +440,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;肝炎每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">,</span> <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;型别&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_hep_trend.png"/><figcaption>
-            <h4>图 | 肝炎每月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_hep_trend.png"><figcaption>
+      <h4>图 | 肝炎每月死亡数</h4>
+    </figcaption>
 </figure>
 <p>感觉都在慢慢下降。</p>
 <h2 id="丙类">丙类</h2>
@@ -461,9 +470,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_det_trend.png"/><figcaption>
-            <h4>图 | 丙类传染病每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_det_trend.png"><figcaption>
+      <h4>图 | 丙类传染病每月发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -479,9 +488,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_det_trend.png"/><figcaption>
-            <h4>图 | 丙类传染病每月死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_det_trend.png"><figcaption>
+      <h4>图 | 丙类传染病每月死亡数</h4>
+    </figcaption>
 </figure>
 <p>其实就两样：手足口、感染性腹泻。落到死亡，基本都是手足口。</p>
 <p>丙类传染病占据了基层疾控主要的流调精力，但其实能死人的也就是手足口。</p>
@@ -504,9 +513,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_month.png"/><figcaption>
-            <h4>图 | 丙类传染病月平均发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_c_month.png"><figcaption>
+      <h4>图 | 丙类传染病月平均发病数</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -526,9 +535,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">gvar</span><span class="o">=</span><span class="s">&#34;病名&#34;</span><span class="p">,</span> <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;bottom&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_month.png"/><figcaption>
-            <h4>图 | 丙类传染病月平均死亡数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_c_month.png"><figcaption>
+      <h4>图 | 丙类传染病月平均死亡数</h4>
+    </figcaption>
 </figure>
 <p>看月份分布，春夏季是大头。</p>
 <h3 id="流感">流感</h3>
@@ -545,9 +554,9 @@
 </span></span><span class="line"><span class="cl">           <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">yvar</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_flu_trend.png"/><figcaption>
-            <h4>图 | 流感每月发病数</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_flu_trend.png"><figcaption>
+      <h4>图 | 流感每月发病数</h4>
+    </figcaption>
 </figure>
 <p>2016年初春有一个高峰。今明两年估计不会有那么高了。</p>
 <h2 id="结尾">结尾</h2>
@@ -557,9 +566,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -567,7 +576,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -658,7 +667,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -680,9 +689,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -711,17 +718,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

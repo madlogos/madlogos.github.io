@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用" /><meta name="keywords" content="数据, 时评, 人文" />
+<meta name="author" content="" /><meta name="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用" /><meta name="keywords" content="数据, 时评, 人文" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/flask-website-demo/" />
@@ -35,25 +35,33 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="edX作业：用Flask建一个简易图书查询Web应用" />
-<meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/flask-website-demo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-09-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/flask-website-demo/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="edX作业：用Flask建一个简易图书查询Web应用">
+  <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-09-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Flask">
+    <meta property="article:tag" content="Web">
 
-<meta itemprop="name" content="edX作业：用Flask建一个简易图书查询Web应用">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"><meta itemprop="datePublished" content="2019-09-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="89">
-<meta itemprop="keywords" content="Python,Flask,web," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="edX作业：用Flask建一个简易图书查询Web应用"/>
-<meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用"/>
+  <meta itemprop="name" content="edX作业：用Flask建一个简易图书查询Web应用">
+  <meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用">
+  <meta itemprop="datePublished" content="2019-09-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="89">
+  <meta itemprop="keywords" content="Python,Flask,Web">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="edX作业：用Flask建一个简易图书查询Web应用">
+  <meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的图书查询web应用">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -222,9 +230,9 @@
 <div class="admonition question"><p class="admonition-title">为啥不用&#39;user&#39;?</p>
 <p>因为postgresql不同意我用这个表名，所以在sqlite里也这么干。</p>
 </div>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/db.png"/><figcaption>
-            <h4>图 | 数据库设计</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/db.png"><figcaption>
+      <h4>图 | 数据库设计</h4>
+    </figcaption>
 </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -614,9 +622,9 @@
 </div>
 </div><h3 id="登录">登录</h3>
 <p>访问首页，先跳转到登录界面。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/sign-in.png"/><figcaption>
-            <h4>图 | 登录界面</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/sign-in.png"><figcaption>
+      <h4>图 | 登录界面</h4>
+    </figcaption>
 </figure>
 <p>登录页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/login.html">login.html</a>很简单，首先继承base.html的元素，然后在control块里放一个<code>form-signin</code>控件。套了一些bootstrap的元素。action绑定sign_in，也就是<code>signin()</code>函数。</p>
 <p>对前端技术不熟，丑得很。</p>
@@ -783,9 +791,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="注册">注册</h3>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/register.png"/><figcaption>
-            <h4>图 | 注册页</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/register.png"><figcaption>
+      <h4>图 | 注册页</h4>
+    </figcaption>
 </figure>
 <p>注册页<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/register.html">register.html</a>和登录页差不多。</p>
 <!-- {% raw %} -->
@@ -921,9 +929,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="检索书籍">检索书籍</h3>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/books.png"/><figcaption>
-            <h4>图 | 初始载入空列表</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/books.png"><figcaption>
+      <h4>图 | 初始载入空列表</h4>
+    </figcaption>
 </figure>
 <p>登录进去后，进入真正的<a href="https://github.com/madlogos/edx_cs50/blob/master/project1/templates/index.html">index.html</a>页。通过三个文本框联合查询。在block disp部分，写一个jinja2宏循环，把books这个对象逐个解析出来填进表格里。如果什么条件都不给，那就会一口气查出5000条来。</p>
 <p>此处应有分页。我用了一个插件Flask-Paginate来实现。</p>
@@ -1067,9 +1075,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><!-- {% endraw %} -->
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/pagination.png"/><figcaption>
-            <h4>图 | 所有书籍分页显示</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/pagination.png"><figcaption>
+      <h4>图 | 所有书籍分页显示</h4>
+    </figcaption>
 </figure>
 <h4 id="后端">后端</h4>
 <p>后端则要做很多事情，要读取控件的值，然后执行查询，把books返回到网页。&lsquo;GET&rsquo;方法返回所有记录，而&rsquo;POST&rsquo;方法就是页面查询，要筛出符合条件的记录并返回。最后都是将结果返回前端渲染。</p>
@@ -1162,14 +1170,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>书名搜索&quot;china&quot;，返回所有标题内含&quot;china&quot;的书。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/filtered_books.png"/><figcaption>
-            <h4>图 | 搜索标题含china的书籍</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/filtered_books.png"><figcaption>
+      <h4>图 | 搜索标题含china的书籍</h4>
+    </figcaption>
 </figure>
 <h3 id="书籍明细">书籍明细</h3>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book.png"/><figcaption>
-            <h4>图 | 书籍明细</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book.png"><figcaption>
+      <h4>图 | 书籍明细</h4>
+    </figcaption>
 </figure>
 <p>生成的书籍列表，可以点id访问明细。这里包含三部分：</p>
 <ol>
@@ -1521,13 +1529,13 @@
 </div><h3 id="评分评级">评分评级</h3>
 <p>如果是提交评分评级，就调用前述<code>review()</code>函数的&rsquo;POST&rsquo;方法。这里用到了一个Flask评星插件<a href="http://plugins.krajee.com/star-rating">bootstrap-star-rating</a>。我把它的css和js都下载到了static。</p>
 <p>这个插件本质上通过交互，获得一个评分数值。提交表单时，这个数值rating也被传到后端。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/rate_a_book.png"/><figcaption>
-            <h4>图 | 给图书打分</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/rate_a_book.png"><figcaption>
+      <h4>图 | 给图书打分</h4>
+    </figcaption>
 </figure>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book_rated.png"/><figcaption>
-            <h4>图 | 打完分后Submit按钮失效</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/book_rated.png"><figcaption>
+      <h4>图 | 打完分后Submit按钮失效</h4>
+    </figcaption>
 </figure>
 <h3 id="api">API</h3>
 <p>自己定义一个API方法。当然，验证key和secret这种专业操作我就不弄了。</p>
@@ -1590,13 +1598,13 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">rslt</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_success.png"/><figcaption>
-            <h4>图 | API请求成功</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_success.png"><figcaption>
+      <h4>图 | API请求成功</h4>
+    </figcaption>
 </figure>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_fail.png"/><figcaption>
-            <h4>图 | API请求失败</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/0916/api_fail.png"><figcaption>
+      <h4>图 | API请求失败</h4>
+    </figcaption>
 </figure>
 <h3 id="响应式布局">响应式布局</h3>
 <p>参考bootstrap案例写了几个可有可无的@media选择器，<strong>概念上</strong>有响应式布局的意思了。效果如下。</p>
@@ -1745,9 +1753,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -1755,7 +1763,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -1846,7 +1854,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -1868,9 +1876,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -1899,17 +1905,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

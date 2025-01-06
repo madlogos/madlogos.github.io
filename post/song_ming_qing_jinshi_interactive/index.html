@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。" /><meta name="keywords" content="进士, 北宋, 明清, 空间, 地理, GIS, CBDB" />
+<meta name="author" content="" /><meta name="description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。" /><meta name="keywords" content="进士, 北宋, 明清, 空间, 地理, GIS, CBDB" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/" />
@@ -35,26 +35,34 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="【动态图版】北宋、明清进士空间可视化分析" />
-<meta property="og:description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-04-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/song_ming_qing_jinshi_interactive/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="【动态图版】北宋、明清进士空间可视化分析">
+  <meta property="og:description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-04-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="进士">
+    <meta property="article:tag" content="地理分析">
+    <meta property="article:tag" content="交互图">
+      <meta property="og:see_also" content="https://madlogos.github.io/post/song_ming_qing_jinshi/">
 
-
-<meta itemprop="name" content="【动态图版】北宋、明清进士空间可视化分析">
-<meta itemprop="description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。"><meta itemprop="datePublished" content="2017-04-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="3604">
-<meta itemprop="keywords" content="进士,地理分析,交互图," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="【动态图版】北宋、明清进士空间可视化分析"/>
-<meta name="twitter:description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。"/>
+  <meta itemprop="name" content="【动态图版】北宋、明清进士空间可视化分析">
+  <meta itemprop="description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。">
+  <meta itemprop="datePublished" content="2017-04-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="3604">
+  <meta itemprop="keywords" content="进士,北宋,明清,空间,地理,GIS,CBDB">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【动态图版】北宋、明清进士空间可视化分析">
+  <meta name="twitter:description" content="利用animiation、ECharts2和leaflet将进士地理信息动态可视化到地图上。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -238,7 +246,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">oopt</span> <span class="o">&lt;-</span> <span class="nf">ani.options</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ani.width</span><span class="o">=</span><span class="m">640</span><span class="p">,</span> <span class="n">ani.height</span><span class="o">=</span><span class="m">480</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">saveGIF</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">nsong.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">print</span><span class="p">(</span><span class="n">p.song</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="n">nsong.js[nsong.js</span><span class="o">$</span><span class="n">period</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
@@ -247,9 +255,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="s">&#34;song.gif&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.gif"/><figcaption>
-            <h4>图 | 北宋进士来源地</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/song.gif"><figcaption>
+      <h4>图 | 北宋进士来源地</h4>
+    </figcaption>
 </figure>
 <p>很明显，前期京畿还很有优势，仁宗开始江南大盛，到神宗以后就是闽人大盛。热力分布持续东南移。</p>
 <div class="highlight"><div class="chroma">
@@ -265,7 +273,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">saveGIF</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">ming.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">ming.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">print</span><span class="p">(</span><span class="n">p.ming</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="n">ming.js[ming.js</span><span class="o">$</span><span class="n">period</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
@@ -274,9 +282,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="s">&#34;ming.gif&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.gif"/><figcaption>
-            <h4>图 | 明代进士来源地</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/ming.gif"><figcaption>
+      <h4>图 | 明代进士来源地</h4>
+    </figcaption>
 </figure>
 <p>明和北宋热力分布是反向变动的，神宗以后进士来源地更弥散了。赣闽次第没落，而京畿有了起色。</p>
 <div class="highlight"><div class="chroma">
@@ -293,7 +301,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">saveGIF</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">qing.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">levels</span><span class="p">(</span><span class="n">qing.js</span><span class="o">$</span><span class="n">period</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">print</span><span class="p">(</span><span class="n">p.qing</span> <span class="o">+</span> <span class="nf">stat_density_2d</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">=</span><span class="n">qing.js[qing.js</span><span class="o">$</span><span class="n">period</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="n">]</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#34;polygon&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">scale_fill_gradient</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="s">&#34;cyan&#34;</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="s">&#34;darkblue&#34;</span><span class="p">)</span><span class="o">+</span>
@@ -303,9 +311,9 @@
 </span></span><span class="line"><span class="cl"><span class="nf">ani.options</span><span class="p">(</span><span class="n">oopt</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.gif"/><figcaption>
-            <h4>图 | 清代进士来源地</h4>
-        </figcaption>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/qing.gif"><figcaption>
+      <h4>图 | 清代进士来源地</h4>
+    </figcaption>
 </figure>
 <p>清和明类似，中前期江南独大，鸦片战争以后分布逐渐弥散。</p>
 <p>和静态图相比，引入历时维度后，信息量明显就更大了。</p>
@@ -367,14 +375,14 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">make_leaflet</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">refMap</span><span class="p">,</span> <span class="n">dyn</span><span class="p">,</span> <span class="n">bgColor</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">cutyears</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"><span class="n">make_leaflet</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">refMap</span><span class="p">,</span> <span class="n">dyn</span><span class="p">,</span> <span class="n">bgColor</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">cutyears</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dataset</span><span class="o">$</span><span class="n">period</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">dataset</span><span class="o">$</span><span class="n">EntryYear</span><span class="p">,</span> <span class="n">cutyears</span><span class="p">,</span> <span class="n">include.lowest</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="n">labels</span><span class="o">=</span><span class="nf">paste</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[1</span><span class="o">:</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="m">-1</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">                     <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">cutyears[2</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">cutyears</span><span class="p">)</span><span class="n">]</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;-&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="n">dataset</span> <span class="o">&lt;-</span> <span class="n">dataset</span><span class="nf">[order</span><span class="p">(</span><span class="n">dataset</span><span class="o">$</span><span class="n">period</span><span class="p">),</span><span class="n">]</span>
 </span></span><span class="line"><span class="cl">    <span class="n">g</span> <span class="o">&lt;-</span> <span class="nf">leaflet</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">addProviderTiles</span><span class="p">(</span><span class="n">providers</span><span class="o">$</span><span class="n">OpenStreetMap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">unique</span><span class="p">(</span><span class="n">refMap</span><span class="o">$</span><span class="n">id</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">unique</span><span class="p">(</span><span class="n">refMap</span><span class="o">$</span><span class="n">id</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">g</span> <span class="o">&lt;-</span> <span class="n">g</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">addPolygons</span><span class="p">(</span><span class="o">~</span><span class="n">long</span><span class="p">,</span> <span class="o">~</span><span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">refMap[refMap</span><span class="o">$</span><span class="n">id</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="n">]</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="n">label</span><span class="o">=</span><span class="n">dyn</span><span class="p">,</span> <span class="n">labelOptions</span><span class="o">=</span><span class="nf">labelOptions</span><span class="p">(</span><span class="n">textsize</span><span class="o">=</span><span class="s">&#34;20px&#34;</span><span class="p">),</span>
@@ -453,16 +461,16 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">which_polygon</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">cn.cities</span><span class="p">,</span> <span class="n">tw.cities</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">which_polygon</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">cn.cities</span><span class="p">,</span> <span class="n">tw.cities</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">over</span><span class="p">(</span><span class="nf">SpatialPoints</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">matrix</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">1</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="n">proj4string</span> <span class="o">=</span> <span class="n">cn.cities</span><span class="o">@</span><span class="n">proj4string</span><span class="p">),</span> <span class="n">cn.cities</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">out</span><span class="o">$</span><span class="n">ID_0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span> <span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">out</span><span class="o">$</span><span class="n">ID_0</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">over</span><span class="p">(</span><span class="nf">SpatialPoints</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">matrix</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">1</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">            <span class="n">proj4string</span> <span class="o">=</span> <span class="n">tw.cities</span><span class="o">@</span><span class="n">proj4string</span><span class="p">),</span> <span class="n">tw.cities</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -573,170 +581,170 @@
 </div>
 </div><p>地名归集后，第一名是苏州，然后是福州，第三才是莆田，第四是杭州。前四名实际难分伯仲。</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:right">序号</th>
-<th>NAME_1</th>
-<th>NAME_2</th>
-<th>NL_NAME_2</th>
-<th style="text-align:right">北宋</th>
-<th style="text-align:right">明朝</th>
-<th style="text-align:right">清朝</th>
-<th style="text-align:right">(all)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">1</td>
-<td>Jiangsu</td>
-<td>Suzhou</td>
-<td>苏州市</td>
-<td style="text-align:right">157</td>
-<td style="text-align:right">60</td>
-<td style="text-align:right">179</td>
-<td style="text-align:right">396</td>
-</tr>
-<tr>
-<td style="text-align:right">2</td>
-<td>Fujian</td>
-<td>Fuzhou</td>
-<td>福州市</td>
-<td style="text-align:right">273</td>
-<td style="text-align:right">36</td>
-<td style="text-align:right">83</td>
-<td style="text-align:right">392</td>
-</tr>
-<tr>
-<td style="text-align:right">3</td>
-<td>Fujian</td>
-<td>Putian</td>
-<td>莆田市</td>
-<td style="text-align:right">264</td>
-<td style="text-align:right">109</td>
-<td style="text-align:right">8</td>
-<td style="text-align:right">381</td>
-</tr>
-<tr>
-<td style="text-align:right">4</td>
-<td>Zhejiang</td>
-<td>Hangzhou</td>
-<td>杭州市</td>
-<td style="text-align:right">115</td>
-<td style="text-align:right">38</td>
-<td style="text-align:right">221</td>
-<td style="text-align:right">374</td>
-</tr>
-<tr>
-<td style="text-align:right">5</td>
-<td>Fujian</td>
-<td>Nanping</td>
-<td>南平市</td>
-<td style="text-align:right">224</td>
-<td style="text-align:right">15</td>
-<td style="text-align:right">7</td>
-<td style="text-align:right">246</td>
-</tr>
-<tr>
-<td style="text-align:right">6</td>
-<td>Jiangxi</td>
-<td>Ji’an</td>
-<td>吉安市</td>
-<td style="text-align:right">128</td>
-<td style="text-align:right">97</td>
-<td style="text-align:right">11</td>
-<td style="text-align:right">236</td>
-</tr>
-<tr>
-<td style="text-align:right">7</td>
-<td>Zhejiang</td>
-<td>Ningbo</td>
-<td>宁波市</td>
-<td style="text-align:right">94</td>
-<td style="text-align:right">97</td>
-<td style="text-align:right">39</td>
-<td style="text-align:right">230</td>
-</tr>
-<tr>
-<td style="text-align:right">8</td>
-<td>Jiangsu</td>
-<td>Changzhou</td>
-<td>常州市</td>
-<td style="text-align:right">97</td>
-<td style="text-align:right">20</td>
-<td style="text-align:right">97</td>
-<td style="text-align:right">214</td>
-</tr>
-<tr>
-<td style="text-align:right">9</td>
-<td>Zhejiang</td>
-<td>Jiaxing</td>
-<td>嘉兴市</td>
-<td style="text-align:right">19</td>
-<td style="text-align:right">68</td>
-<td style="text-align:right">117</td>
-<td style="text-align:right">204</td>
-</tr>
-<tr>
-<td style="text-align:right">10</td>
-<td>Jiangxi</td>
-<td>Fuzhou</td>
-<td>抚州市</td>
-<td style="text-align:right">120</td>
-<td style="text-align:right">27</td>
-<td style="text-align:right">52</td>
-<td style="text-align:right">199</td>
-</tr>
-<tr>
-<td style="text-align:right">11</td>
-<td>Zhejiang</td>
-<td>Huzhou</td>
-<td>湖州市</td>
-<td style="text-align:right">86</td>
-<td style="text-align:right">17</td>
-<td style="text-align:right">78</td>
-<td style="text-align:right">181</td>
-</tr>
-<tr>
-<td style="text-align:right">12</td>
-<td>Zhejiang</td>
-<td>Shaoxing</td>
-<td>绍兴市</td>
-<td style="text-align:right">75</td>
-<td style="text-align:right">48</td>
-<td style="text-align:right">51</td>
-<td style="text-align:right">174</td>
-</tr>
-<tr>
-<td style="text-align:right">13</td>
-<td>Fujian</td>
-<td>Quanzhou</td>
-<td>泉州市</td>
-<td style="text-align:right">110</td>
-<td style="text-align:right">28</td>
-<td style="text-align:right">31</td>
-<td style="text-align:right">169</td>
-</tr>
-<tr>
-<td style="text-align:right">14</td>
-<td>Jiangsu</td>
-<td>Wuxi</td>
-<td>无锡市</td>
-<td style="text-align:right">73</td>
-<td style="text-align:right">34</td>
-<td style="text-align:right">55</td>
-<td style="text-align:right">162</td>
-</tr>
-<tr>
-<td style="text-align:right">15</td>
-<td>Jiangxi</td>
-<td>Shangrao</td>
-<td>上饶市</td>
-<td style="text-align:right">93</td>
-<td style="text-align:right">26</td>
-<td style="text-align:right">28</td>
-<td style="text-align:right">147</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: right">序号</th>
+          <th>NAME_1</th>
+          <th>NAME_2</th>
+          <th>NL_NAME_2</th>
+          <th style="text-align: right">北宋</th>
+          <th style="text-align: right">明朝</th>
+          <th style="text-align: right">清朝</th>
+          <th style="text-align: right">(all)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: right">1</td>
+          <td>Jiangsu</td>
+          <td>Suzhou</td>
+          <td>苏州市</td>
+          <td style="text-align: right">157</td>
+          <td style="text-align: right">60</td>
+          <td style="text-align: right">179</td>
+          <td style="text-align: right">396</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">2</td>
+          <td>Fujian</td>
+          <td>Fuzhou</td>
+          <td>福州市</td>
+          <td style="text-align: right">273</td>
+          <td style="text-align: right">36</td>
+          <td style="text-align: right">83</td>
+          <td style="text-align: right">392</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">3</td>
+          <td>Fujian</td>
+          <td>Putian</td>
+          <td>莆田市</td>
+          <td style="text-align: right">264</td>
+          <td style="text-align: right">109</td>
+          <td style="text-align: right">8</td>
+          <td style="text-align: right">381</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">4</td>
+          <td>Zhejiang</td>
+          <td>Hangzhou</td>
+          <td>杭州市</td>
+          <td style="text-align: right">115</td>
+          <td style="text-align: right">38</td>
+          <td style="text-align: right">221</td>
+          <td style="text-align: right">374</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">5</td>
+          <td>Fujian</td>
+          <td>Nanping</td>
+          <td>南平市</td>
+          <td style="text-align: right">224</td>
+          <td style="text-align: right">15</td>
+          <td style="text-align: right">7</td>
+          <td style="text-align: right">246</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">6</td>
+          <td>Jiangxi</td>
+          <td>Ji’an</td>
+          <td>吉安市</td>
+          <td style="text-align: right">128</td>
+          <td style="text-align: right">97</td>
+          <td style="text-align: right">11</td>
+          <td style="text-align: right">236</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">7</td>
+          <td>Zhejiang</td>
+          <td>Ningbo</td>
+          <td>宁波市</td>
+          <td style="text-align: right">94</td>
+          <td style="text-align: right">97</td>
+          <td style="text-align: right">39</td>
+          <td style="text-align: right">230</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">8</td>
+          <td>Jiangsu</td>
+          <td>Changzhou</td>
+          <td>常州市</td>
+          <td style="text-align: right">97</td>
+          <td style="text-align: right">20</td>
+          <td style="text-align: right">97</td>
+          <td style="text-align: right">214</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">9</td>
+          <td>Zhejiang</td>
+          <td>Jiaxing</td>
+          <td>嘉兴市</td>
+          <td style="text-align: right">19</td>
+          <td style="text-align: right">68</td>
+          <td style="text-align: right">117</td>
+          <td style="text-align: right">204</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">10</td>
+          <td>Jiangxi</td>
+          <td>Fuzhou</td>
+          <td>抚州市</td>
+          <td style="text-align: right">120</td>
+          <td style="text-align: right">27</td>
+          <td style="text-align: right">52</td>
+          <td style="text-align: right">199</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">11</td>
+          <td>Zhejiang</td>
+          <td>Huzhou</td>
+          <td>湖州市</td>
+          <td style="text-align: right">86</td>
+          <td style="text-align: right">17</td>
+          <td style="text-align: right">78</td>
+          <td style="text-align: right">181</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">12</td>
+          <td>Zhejiang</td>
+          <td>Shaoxing</td>
+          <td>绍兴市</td>
+          <td style="text-align: right">75</td>
+          <td style="text-align: right">48</td>
+          <td style="text-align: right">51</td>
+          <td style="text-align: right">174</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">13</td>
+          <td>Fujian</td>
+          <td>Quanzhou</td>
+          <td>泉州市</td>
+          <td style="text-align: right">110</td>
+          <td style="text-align: right">28</td>
+          <td style="text-align: right">31</td>
+          <td style="text-align: right">169</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">14</td>
+          <td>Jiangsu</td>
+          <td>Wuxi</td>
+          <td>无锡市</td>
+          <td style="text-align: right">73</td>
+          <td style="text-align: right">34</td>
+          <td style="text-align: right">55</td>
+          <td style="text-align: right">162</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">15</td>
+          <td>Jiangxi</td>
+          <td>Shangrao</td>
+          <td>上饶市</td>
+          <td style="text-align: right">93</td>
+          <td style="text-align: right">26</td>
+          <td style="text-align: right">28</td>
+          <td style="text-align: right">147</td>
+      </tr>
+  </tbody>
 </table>
 <p>给张图，同样是基于leaflet的。注意：<strong>文件非常很大，极费流量</strong>。</p>
 <iframe src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0430/city.html" width="100%" height="500"></iframe>
@@ -753,234 +761,234 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><table>
-<thead>
-<tr>
-<th style="text-align:right">序号</th>
-<th>NAME_1</th>
-<th style="text-align:right">北宋</th>
-<th style="text-align:right">明朝</th>
-<th style="text-align:right">清朝</th>
-<th style="text-align:right">(all)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">1</td>
-<td>Zhejiang</td>
-<td style="text-align:right">636</td>
-<td style="text-align:right">337</td>
-<td style="text-align:right">530</td>
-<td style="text-align:right">1503</td>
-</tr>
-<tr>
-<td style="text-align:right">2</td>
-<td>Fujian</td>
-<td style="text-align:right">950</td>
-<td style="text-align:right">202</td>
-<td style="text-align:right">147</td>
-<td style="text-align:right">1299</td>
-</tr>
-<tr>
-<td style="text-align:right">3</td>
-<td>Jiangsu</td>
-<td style="text-align:right">476</td>
-<td style="text-align:right">179</td>
-<td style="text-align:right">536</td>
-<td style="text-align:right">1191</td>
-</tr>
-<tr>
-<td style="text-align:right">4</td>
-<td>Jiangxi</td>
-<td style="text-align:right">559</td>
-<td style="text-align:right">233</td>
-<td style="text-align:right">232</td>
-<td style="text-align:right">1024</td>
-</tr>
-<tr>
-<td style="text-align:right">5</td>
-<td>Henan</td>
-<td style="text-align:right">276</td>
-<td style="text-align:right">97</td>
-<td style="text-align:right">185</td>
-<td style="text-align:right">558</td>
-</tr>
-<tr>
-<td style="text-align:right">6</td>
-<td>Shandong</td>
-<td style="text-align:right">99</td>
-<td style="text-align:right">88</td>
-<td style="text-align:right">311</td>
-<td style="text-align:right">498</td>
-</tr>
-<tr>
-<td style="text-align:right">7</td>
-<td>Anhui</td>
-<td style="text-align:right">142</td>
-<td style="text-align:right">68</td>
-<td style="text-align:right">197</td>
-<td style="text-align:right">407</td>
-</tr>
-<tr>
-<td style="text-align:right">8</td>
-<td>Sichuan</td>
-<td style="text-align:right">269</td>
-<td style="text-align:right">30</td>
-<td style="text-align:right">65</td>
-<td style="text-align:right">364</td>
-</tr>
-<tr>
-<td style="text-align:right">9</td>
-<td>Hebei</td>
-<td style="text-align:right">27</td>
-<td style="text-align:right">86</td>
-<td style="text-align:right">200</td>
-<td style="text-align:right">313</td>
-</tr>
-<tr>
-<td style="text-align:right">10</td>
-<td>Hunan</td>
-<td style="text-align:right">79</td>
-<td style="text-align:right">27</td>
-<td style="text-align:right">152</td>
-<td style="text-align:right">258</td>
-</tr>
-<tr>
-<td style="text-align:right">11</td>
-<td>Hubei</td>
-<td style="text-align:right">31</td>
-<td style="text-align:right">52</td>
-<td style="text-align:right">133</td>
-<td style="text-align:right">216</td>
-</tr>
-<tr>
-<td style="text-align:right">12</td>
-<td>Shanxi</td>
-<td style="text-align:right">24</td>
-<td style="text-align:right">63</td>
-<td style="text-align:right">125</td>
-<td style="text-align:right">212</td>
-</tr>
-<tr>
-<td style="text-align:right">13</td>
-<td>Guangdong</td>
-<td style="text-align:right">40</td>
-<td style="text-align:right">54</td>
-<td style="text-align:right">105</td>
-<td style="text-align:right">199</td>
-</tr>
-<tr>
-<td style="text-align:right">14</td>
-<td>Shaanxi</td>
-<td style="text-align:right">18</td>
-<td style="text-align:right">49</td>
-<td style="text-align:right">89</td>
-<td style="text-align:right">156</td>
-</tr>
-<tr>
-<td style="text-align:right">15</td>
-<td>Shanghai</td>
-<td style="text-align:right">26</td>
-<td style="text-align:right">47</td>
-<td style="text-align:right">68</td>
-<td style="text-align:right">141</td>
-</tr>
-<tr>
-<td style="text-align:right">16</td>
-<td>Beijing</td>
-<td style="text-align:right">2</td>
-<td style="text-align:right">12</td>
-<td style="text-align:right">115</td>
-<td style="text-align:right">129</td>
-</tr>
-<tr>
-<td style="text-align:right">17</td>
-<td>Yunnan</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">69</td>
-<td style="text-align:right">70</td>
-</tr>
-<tr>
-<td style="text-align:right">18</td>
-<td>Guangxi</td>
-<td style="text-align:right">2</td>
-<td style="text-align:right">10</td>
-<td style="text-align:right">56</td>
-<td style="text-align:right">68</td>
-</tr>
-<tr>
-<td style="text-align:right">19</td>
-<td>Tianjin</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">2</td>
-<td style="text-align:right">61</td>
-<td style="text-align:right">63</td>
-</tr>
-<tr>
-<td style="text-align:right">20</td>
-<td>Guizhou</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">4</td>
-<td style="text-align:right">51</td>
-<td style="text-align:right">55</td>
-</tr>
-<tr>
-<td style="text-align:right">21</td>
-<td>Chongqing</td>
-<td style="text-align:right">8</td>
-<td style="text-align:right">7</td>
-<td style="text-align:right">24</td>
-<td style="text-align:right">39</td>
-</tr>
-<tr>
-<td style="text-align:right">22</td>
-<td>Gansu</td>
-<td style="text-align:right">6</td>
-<td style="text-align:right">6</td>
-<td style="text-align:right">19</td>
-<td style="text-align:right">31</td>
-</tr>
-<tr>
-<td style="text-align:right">23</td>
-<td>Hainan</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">9</td>
-<td style="text-align:right">3</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td style="text-align:right">24</td>
-<td>Liaoning</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">12</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td style="text-align:right">25</td>
-<td>Jilin</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">8</td>
-<td style="text-align:right">8</td>
-</tr>
-<tr>
-<td style="text-align:right">26</td>
-<td>Ningxia Hui</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">7</td>
-<td style="text-align:right">7</td>
-</tr>
-<tr>
-<td style="text-align:right">27</td>
-<td>Taiwan</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">2</td>
-<td style="text-align:right">2</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: right">序号</th>
+          <th>NAME_1</th>
+          <th style="text-align: right">北宋</th>
+          <th style="text-align: right">明朝</th>
+          <th style="text-align: right">清朝</th>
+          <th style="text-align: right">(all)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: right">1</td>
+          <td>Zhejiang</td>
+          <td style="text-align: right">636</td>
+          <td style="text-align: right">337</td>
+          <td style="text-align: right">530</td>
+          <td style="text-align: right">1503</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">2</td>
+          <td>Fujian</td>
+          <td style="text-align: right">950</td>
+          <td style="text-align: right">202</td>
+          <td style="text-align: right">147</td>
+          <td style="text-align: right">1299</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">3</td>
+          <td>Jiangsu</td>
+          <td style="text-align: right">476</td>
+          <td style="text-align: right">179</td>
+          <td style="text-align: right">536</td>
+          <td style="text-align: right">1191</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">4</td>
+          <td>Jiangxi</td>
+          <td style="text-align: right">559</td>
+          <td style="text-align: right">233</td>
+          <td style="text-align: right">232</td>
+          <td style="text-align: right">1024</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">5</td>
+          <td>Henan</td>
+          <td style="text-align: right">276</td>
+          <td style="text-align: right">97</td>
+          <td style="text-align: right">185</td>
+          <td style="text-align: right">558</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">6</td>
+          <td>Shandong</td>
+          <td style="text-align: right">99</td>
+          <td style="text-align: right">88</td>
+          <td style="text-align: right">311</td>
+          <td style="text-align: right">498</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">7</td>
+          <td>Anhui</td>
+          <td style="text-align: right">142</td>
+          <td style="text-align: right">68</td>
+          <td style="text-align: right">197</td>
+          <td style="text-align: right">407</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">8</td>
+          <td>Sichuan</td>
+          <td style="text-align: right">269</td>
+          <td style="text-align: right">30</td>
+          <td style="text-align: right">65</td>
+          <td style="text-align: right">364</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">9</td>
+          <td>Hebei</td>
+          <td style="text-align: right">27</td>
+          <td style="text-align: right">86</td>
+          <td style="text-align: right">200</td>
+          <td style="text-align: right">313</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">10</td>
+          <td>Hunan</td>
+          <td style="text-align: right">79</td>
+          <td style="text-align: right">27</td>
+          <td style="text-align: right">152</td>
+          <td style="text-align: right">258</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">11</td>
+          <td>Hubei</td>
+          <td style="text-align: right">31</td>
+          <td style="text-align: right">52</td>
+          <td style="text-align: right">133</td>
+          <td style="text-align: right">216</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">12</td>
+          <td>Shanxi</td>
+          <td style="text-align: right">24</td>
+          <td style="text-align: right">63</td>
+          <td style="text-align: right">125</td>
+          <td style="text-align: right">212</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">13</td>
+          <td>Guangdong</td>
+          <td style="text-align: right">40</td>
+          <td style="text-align: right">54</td>
+          <td style="text-align: right">105</td>
+          <td style="text-align: right">199</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">14</td>
+          <td>Shaanxi</td>
+          <td style="text-align: right">18</td>
+          <td style="text-align: right">49</td>
+          <td style="text-align: right">89</td>
+          <td style="text-align: right">156</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">15</td>
+          <td>Shanghai</td>
+          <td style="text-align: right">26</td>
+          <td style="text-align: right">47</td>
+          <td style="text-align: right">68</td>
+          <td style="text-align: right">141</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">16</td>
+          <td>Beijing</td>
+          <td style="text-align: right">2</td>
+          <td style="text-align: right">12</td>
+          <td style="text-align: right">115</td>
+          <td style="text-align: right">129</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">17</td>
+          <td>Yunnan</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">1</td>
+          <td style="text-align: right">69</td>
+          <td style="text-align: right">70</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">18</td>
+          <td>Guangxi</td>
+          <td style="text-align: right">2</td>
+          <td style="text-align: right">10</td>
+          <td style="text-align: right">56</td>
+          <td style="text-align: right">68</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">19</td>
+          <td>Tianjin</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">2</td>
+          <td style="text-align: right">61</td>
+          <td style="text-align: right">63</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">20</td>
+          <td>Guizhou</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">4</td>
+          <td style="text-align: right">51</td>
+          <td style="text-align: right">55</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">21</td>
+          <td>Chongqing</td>
+          <td style="text-align: right">8</td>
+          <td style="text-align: right">7</td>
+          <td style="text-align: right">24</td>
+          <td style="text-align: right">39</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">22</td>
+          <td>Gansu</td>
+          <td style="text-align: right">6</td>
+          <td style="text-align: right">6</td>
+          <td style="text-align: right">19</td>
+          <td style="text-align: right">31</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">23</td>
+          <td>Hainan</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">9</td>
+          <td style="text-align: right">3</td>
+          <td style="text-align: right">12</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">24</td>
+          <td>Liaoning</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">12</td>
+          <td style="text-align: right">12</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">25</td>
+          <td>Jilin</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">8</td>
+          <td style="text-align: right">8</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">26</td>
+          <td>Ningxia Hui</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">7</td>
+          <td style="text-align: right">7</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">27</td>
+          <td>Taiwan</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">0</td>
+          <td style="text-align: right">2</td>
+          <td style="text-align: right">2</td>
+      </tr>
+  </tbody>
 </table>
 <p>同样给张图。这次是基于ECharts2的。由于这个包是我写的，所以我要额外安利一下<a href="http://madlogos.github.io/recharts">http://madlogos.github.io/recharts</a>。</p>
 <div class="highlight"><div class="chroma">
@@ -1015,9 +1023,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -1025,7 +1033,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -1116,7 +1124,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -1138,9 +1146,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -1169,17 +1175,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

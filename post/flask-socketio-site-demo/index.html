@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用" /><meta name="keywords" content="数据, 时评, 人文" />
+<meta name="author" content="" /><meta name="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用" /><meta name="keywords" content="数据, 时评, 人文" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/flask-socketio-site-demo/" />
@@ -35,25 +35,35 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="edX作业：用Flask建一个简易Web聊天室" />
-<meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://madlogos.github.io/post/flask-socketio-site-demo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-11-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-09T21:28:26+08:00" />
+<meta property="og:url" content="https://madlogos.github.io/post/flask-socketio-site-demo/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="edX作业：用Flask建一个简易Web聊天室">
+  <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-11-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-09T21:28:26+08:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Flask">
+    <meta property="article:tag" content="SocketIO">
+    <meta property="article:tag" content="AJAX">
+    <meta property="article:tag" content="Web">
 
-<meta itemprop="name" content="edX作业：用Flask建一个简易Web聊天室">
-<meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"><meta itemprop="datePublished" content="2019-11-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00" />
-<meta itemprop="wordCount" content="93">
-<meta itemprop="keywords" content="Python,Flask,SocketIO,AJAX,web," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="edX作业：用Flask建一个简易Web聊天室"/>
-<meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用"/>
+  <meta itemprop="name" content="edX作业：用Flask建一个简易Web聊天室">
+  <meta itemprop="description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用">
+  <meta itemprop="datePublished" content="2019-11-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-09T21:28:26+08:00">
+  <meta itemprop="wordCount" content="93">
+  <meta itemprop="keywords" content="Python,Flask,SocketIO,AJAX,Web">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="edX作业：用Flask建一个简易Web聊天室">
+  <meta name="twitter:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -566,14 +576,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="登录">登录</h3>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/landing.png"/><figcaption>
-            <h4>图 | 登陆页</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/landing.png"><figcaption>
+      <h4>图 | 登陆页</h4>
+    </figcaption>
 </figure>
 <p>一般，功能由html模板和python函数配合完成。由于这次的登录功能很简单，当前线程给自己随便起个用户名就行，所以把channels.html当成事实上的首页，在上面套个悬浮页来实现登录。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/display_name.png"/><figcaption>
-            <h4>图 | 创建用户</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/display_name.png"><figcaption>
+      <h4>图 | 创建用户</h4>
+    </figcaption>
 </figure>
 <p><a name="channels_html"></a><a href="https://github.com/madlogos/edx_cs50/blob/master/project2/templates/channels.html">channels.html</a>模板代码：</p>
 <!-- {% raw %} -->
@@ -820,9 +830,9 @@
 </div>
 </div><h3 id="频道列表">频道列表</h3>
 <p>完成登录后，就进入频道列表，其实就是channels.html换了套内容呈现，包括前次访问的频道和全部频道列表。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/channels.png"/><figcaption>
-            <h4>图 | 频道列表</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/channels.png"><figcaption>
+      <h4>图 | 频道列表</h4>
+    </figcaption>
 </figure>
 <p>看一下后台python代码。分别对channels路由的GET和POST方法定义了两个函数<code>get_channels()</code>和<code>set_channels()</code>。</p>
 <div class="highlight"><div class="chroma">
@@ -900,14 +910,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>GET方法下，从全局对象<code>users</code>里取到上次访问的频道名，存入last_visit。假如last_visit不在<code>channels</code>里，last_visit覆写为None。把全局channels的键和created值取出来拼成列表channels，再把这个channels连同last_visit都发送给<a href="#channels_html">channels.html模板</a>解析渲染。回顾模板里的代码，如果last_visit或channels为None，对应的表格就只显示表头。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/last_visit.png"/><figcaption>
-            <h4>图 | 上次访问的频道</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/last_visit.png"><figcaption>
+      <h4>图 | 上次访问的频道</h4>
+    </figcaption>
 </figure>
 <p>POST方法下，服务器从表单里提取&quot;new_channel&rdquo;。假如new_channel在全局对象channels里已经存在，就<code>flash</code>甩个错误警报。假如不存在，那就往channels里插入一个新字典（包含&rsquo;created&rsquo;、&lsquo;max_id&rsquo;和&rsquo;msg&rsquo;字典)，新频道就生成了。最后转跳回channels.html，实现刷新。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png"/><figcaption>
-            <h4>图 | 创建频道</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/new_channel.png"><figcaption>
+      <h4>图 | 创建频道</h4>
+    </figcaption>
 </figure>
 <h3 id="频道明细">频道明细</h3>
 <p>点击频道名，就进到频道明细。其实就是聊天室应用。和常规网络应用相比，它要解决两个特殊问题：</p>
@@ -1277,9 +1287,9 @@
 </div>
 </div><p>先校验当前用户是否登录。没问题的话就渲染channel.html模板了。服务器从全局对象channels里提取该频道的对话消息chats发给客户端。客户端用<code>format_chats()</code>把chats解析后，套进handlebars模板，再呈现到表格里。</p>
 <h3 id="发消息">发消息</h3>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/chatting.png"/><figcaption>
-            <h4>图 | test1和test2在频道里聊天</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/chatting.png"><figcaption>
+      <h4>图 | test1和test2在频道里聊天</h4>
+    </figcaption>
 </figure>
 <p>当点击<kbd>send</kbd>，客户端就发一个&quot;send msg&quot;请求，把json<code>{'user': encodeURI(act_user), 'time': post_time, 'msg': encodeURI(msg), 'channel': encodeURI(act_channel)}</code> &ldquo;发射&rdquo;(<code>socket.emit</code>)到服务器，交给flask_socketio处理。</p>
 <p><a name="chatjs"></a></p>
@@ -1399,9 +1409,9 @@
 <div class="admonition note"><p class="admonition-title">要点</p>
 <p>这里，加了一个判断。只有act_channel和从前端收到的data[&lsquo;channel&rsquo;]相同，才渲染handlebars模板，更新页面。不加这条判断的话，就会发生灾难性“串台”现象，任何其他频道的新增消息，都会被广播到其他频道里。</p>
 </div>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/dif_channel.png"/><figcaption>
-            <h4>图 | 不同频道不会&#39;串台&#39;</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/dif_channel.png"><figcaption>
+      <h4>图 | 不同频道不会&#39;串台&#39;</h4>
+    </figcaption>
 </figure>
 <p>为了方便输入，设置为<kbd>Shift+Enter</kbd>发送消息。这需要一段键盘事件监听代码，只要msg文本框里出现shift+enter，就阻断默认动作，触发<kbd>send</kbd>的点击事件。</p>
 <div class="highlight"><div class="chroma">
@@ -1432,9 +1442,9 @@
 </div>
 </div><h3 id="删除消息">删除消息</h3>
 <p>由于定义了<code>same_user</code>变量，因此handlebars在拼装时，会根据消息作者是否与当前用户相同，在对应的消息后加<kbd>删除</kbd>按钮。这就避免了误删。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/del_msg.png"/><figcaption>
-            <h4>图 | 只能删除自己发的消息</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2019/1101/del_msg.png"><figcaption>
+      <h4>图 | 只能删除自己发的消息</h4>
+    </figcaption>
 </figure>
 <p>删除自己的消息是通过另一端监听代码实现的，原理很简单，定位target的父元素，调用<code>remove()</code>方法：</p>
 <div class="highlight"><div class="chroma">
@@ -1519,9 +1529,9 @@
 <hr>
 <!-- {% raw %} -->
 <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/QRcode.jpg"
-         alt="扫码关注" width="30%"/><figcaption>
-            <h4>扫码关注我的公众号</h4>
-        </figcaption>
+    alt="扫码关注" width="30%"><figcaption>
+      <h4>扫码关注我的公众号</h4>
+    </figcaption>
 </figure>
 <!-- {% endraw %} -->
     </div>
@@ -1529,7 +1539,7 @@
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">迷幻主义搬砖号子</span>
+    <span class="item-content"></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -1622,7 +1632,7 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -1644,9 +1654,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -1675,17 +1683,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {

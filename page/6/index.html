@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="迷幻主义搬砖号子" /><meta name="description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。" /><meta name="keywords" content="数据, 时评, 人文" />
+<meta name="author" content="" /><meta name="description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。" /><meta name="keywords" content="数据, 时评, 人文" />
 
 
 <meta name="baidu-site-verification" content="k5CktWnwfR" />
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.140.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/" />
@@ -37,20 +37,25 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.67ad89b7ca43747ca0757fa0c720e4a26dfb092d0c625a7e1f3b937263f7d48d.css" rel="stylesheet">
+<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Libido Chateau" />
-<meta property="og:description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://madlogos.github.io/" />
+<meta property="og:url" content="https://madlogos.github.io/">
+  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:title" content="Libido Chateau">
+  <meta property="og:description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
 
-<meta itemprop="name" content="Libido Chateau">
-<meta itemprop="description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Libido Chateau"/>
-<meta name="twitter:description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。"/>
+  <meta itemprop="name" content="Libido Chateau">
+  <meta itemprop="description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。">
+  <meta itemprop="datePublished" content="2024-05-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-06T00:48:42+08:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Libido Chateau">
+  <meta name="twitter:description" content="搬砖前先定义问题。定义构成问题的每个关键概念，划出问题的边界。这是搬砖一整个肮脏而繁重的愚蠢过程中唯一具备哲学性的光辉阶段。">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -127,6 +132,263 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat3/">一次不太成功的搬砖（下）：rvest爬取法定传染病疫情月报数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-16 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 4514 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="甲乙丙类每月发病死亡数">甲乙丙类每月发病、死亡数</h2>
+<p><a href="/post/infectdis_stat2/">接上篇</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看一下甲乙丙类每个月的发病和死亡例数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月发病数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_trend.png"><figcaption>
+      <h4>图 | 法定传染病每月发病数</h4>
+    </figcaption>
+</figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> 日期 <span class="o">~</span> 分类<span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span> <span class="o">!=</span> <span class="s">&#34;NA&#34;</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;日期&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病每月死亡数&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;年月&#34;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;例数&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_trend.png"><figcaption>
+      <h4>图 | 法定传染病每月死亡数</h4>
+    </figcaption>
+</figure>
+<p>甲类数字很少，看不太出。而不论乙类还是丙类，发病高峰都在春夏季。死亡高峰却在冬季。</p>
+<p>按月算一下均数，看得更清楚。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;发病数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月发病数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/inc_month.png"><figcaption>
+      <h4>图 | 法定传染病月平均发病数</h4>
+    </figcaption>
+</figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">dcast</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="nf">format</span><span class="p">(</span>日期<span class="p">,</span> <span class="s">&#34;%m&#34;</span><span class="p">)</span> <span class="o">~</span> 分类<span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">value.var</span><span class="o">=</span><span class="s">&#34;死亡数&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">sta</span><span class="p">)</span><span class="n">[1]</span> <span class="o">&lt;-</span> <span class="s">&#34;月份&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span> <span class="o">&lt;-</span> <span class="nf">melt</span><span class="p">(</span><span class="n">sta[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="n">]</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">,</span> <span class="n">variable.name</span><span class="o">=</span><span class="s">&#34;分类&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sta</span><span class="o">$</span>月份 <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="n">sta</span><span class="o">$</span>月份<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">makeTsPlot</span><span class="p">(</span><span class="n">sta</span><span class="p">,</span> <span class="s">&#34;法定传染病平均月死亡数&#34;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&#34;平均例数&#34;</span><span class="p">,</span> <span class="n">xvar</span><span class="o">=</span><span class="s">&#34;月份&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/mot_month.png"><figcaption>
+      <h4>图 | 法定传染病平均月死亡数</h4>
+    </figcaption>
+</figure>
+    </div>
+    <div class="read-more">
+      <a href="/post/infectdis_stat3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat2/">一次不太成功的搬砖（中）：rvest爬取法定传染病疫情月报数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-15 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 3962 字 </span>
+        <span class="more-meta"> 预计阅读 8 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="数据提取">数据提取</h2>
+<p><a href="/post/infectdis_stat1/">接上篇</a></p>
+<p>现在，可以着手把存储在附件里的信息结构化提取出来了。但在这之前，还有一个硬骨头要啃。</p>
+<p><strong>要把图片附件识别成文本。</strong></p>
+<p>首先考虑OCR。但是Abbyy Finereader似乎没有Ubuntu版本。其他一些主流工具要钱。网上找到几个免费OCR工具，试用了下，转出来一堆乱码亲妈都唔识得。一怒之下，放了个大招：</p>
+<p><strong>手工录入。</strong></p>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/no_word_to_say.jpg" width="50%">
+</figure>
+<p>这项工作很不好做，让我不禁怀疑起人生。但只有经过这样的磨练，才能对疾控系统的信息化水平有一个实操层面的认识。倘若遇到这方面的项目机会，<strong>记得要把工程预算乘以3</strong>。</p>
+<p>图片方面的坑包括：</p>
+<ol>
+<li>有些图片附件分辨率低到了厚马赛克水准，别说OCR，钛金狗眼也认不出</li>
+<li>有些表格作为OLE对象内嵌到了Word文件里，当我满怀希望点进去才发现，这个内嵌对象竟仍是个图片</li>
+<li>有个别文件特别贴心地把表格割成两张图，插到了正文里</li>
+</ol>
+<p>满脸辛酸地处理完了这些杂碎，把doc和xls存作docx和xlsx，接下来总算能把它们当成正常的xml来处理了。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/infectdis_stat2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/infectdis_stat1/">一次不太成功的搬砖（上）：爬取法定传染病疫情月报数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-07 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 4407 字 </span>
+        <span class="more-meta"> 预计阅读 9 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="带怀旧色彩的源起">带怀旧色彩的源起</h2>
+<p>清明节跑去一个休闲浴场<del>鬼混</del>，在电影厅懒散地看掉了《生化危机6》。场地很豪华（但我就是不透露门牌地址），然而剧情不怎么样——女主光环实在太亮了。倒是病毒-丧尸-疫苗的急性传染病建模设定引起了我的一些职业回忆。</p>
+<p>毕业后，我曾在基层疾控中心干过一年多，主要做疫苗接种规划和传染病控制。除了定期不定期地出外勤下现场，就是统计数字、写报告、汇编材料。这些数字沿着行政金字塔的梯级层层上卷，最终汇入国家卫生部疾控局官方报表的大海中。</p>
+<p>说是大海，视觉上其实就是类似这样的一张表格：</p>
+<!-- {% raw %} -->
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_report.png" width="60%"><figcaption>
+      <h4>图 | 法定传染病统计表</h4>
+    </figcaption>
+</figure>
+<!-- {% endraw %} -->
+<p>一晃很多年过去了。籍着这个由头，我又登上了卫生部（现在叫卫计委了，早晚改回卫生部）的官网，那感觉就像——拜会一个久寓故居，新近敲了墙、刷了房门的老派的朋友。那些月报还原封不动，化石一样静静地躺在信息动态里。</p>
+<!-- {% raw %} -->
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/nhfpc_infectdis_news.png"><figcaption>
+      <h4>图 | 卫计委传染病控制动态</h4>
+    </figcaption>
+</figure>
+<!-- {% endraw %} -->
+<!-- {% raw %} -->
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0406/example_infectdis_reporttxt.png"><figcaption>
+      <h4>图 | 法定传染病月报</h4>
+    </figcaption>
+</figure>
+<!-- {% endraw %} -->
+<p>这种格式报告，行文和结构都很固定，特别适合用机器人来自动生成。比如最新这期，正文就包括了发病、死亡合计总数，以及甲乙丙类各自的发病、死亡数。明细数据放在附表里。掐指一数，从2004年到现在，卫计委也积攒了140多份月报，不少了。何不爬下来看看？</p>
+<p>所以，尽管当时身还在浴场，但心在砖场了，已经！</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/infectdis_stat1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/defensive-assassin/">礼法两难的辱母杀人案</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-25 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%97%B6%E8%AF%84/"> 时评 </a>
+          </div>
+        <span class="more-meta"> 约 4483 字 </span>
+        <span class="more-meta"> 预计阅读 9 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0325/yuan_da_gong_mao.jpg">
+</figure>
+<h2 id="炸锅">炸锅</h2>
+<p>平静无奇的周末，出了一则摇撼人心的<a href="http://www.infzm.com/content/123659">新闻</a>。</p>
+<p>新闻不大。简单说来就一句话：</p>
+<div class="admonition info"><p class="admonition-title">案情</p>
+<p>一对母子被催债黑帮拘禁、侮辱，儿子愤而刀刺讨债者致一死多伤。法院一审判以无期徒刑。</p>
+</div>
+<p>就这？“杀人者死，伤人者刑”的原则，两千年来大家都认。摘要看起来没毛病啊，摇撼啥呢？</p>
+<p>把折叠的关键词徐徐展开，细节立体而狰狞。女企业家向当地某富豪借了135万高利贷，偿还184万现金+70万房产后还是不够（月息10%）。于是债主找了11个黑社会去讨债。怎么讨的呢？先到厂里骚扰，堵门、埋灶，按送葬的标准来闹。次日，黑社会将母子俩拘禁在办公室：辱骂、掌掴、摁马桶、鞋子熏，带头人还当着其中儿子的面<strong>脱下裤子侮辱其母</strong>。施暴不断升级的同时，债务人做了什么？当然是良民的自救SOP：第一日拨打110和市长热线，第二日电话报警。但热线没解决问题，警察只来刷了个脸，告诫黑社会“<strong>要账可以，不许动手打人</strong>”，便启动警车要走（事后称去进一步了解情况）。女企业家的儿子当即失控，拿起水果刀<strong>刺死、刺伤该团伙多人</strong>。</p>
+<p>该事件被冠以“辱母杀人案”，在社交媒体上快速发酵。这个热词目前在百度、微博、微信都还搜不到（或者已经被屏蔽），但以之前并不出名的事发地“冠县”为题搜索，热词趋势如下：</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/defensive-assassin/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/political-compass/">朝左还是朝右？来看一份17万行的小样本数据</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-05 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%95%B0%E6%8D%AE/"> 数据 </a>
+          </div>
+        <span class="more-meta"> 约 9832 字 </span>
+        <span class="more-meta"> 预计阅读 20 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/left_right_wing_us.jpg">
+</figure>
+<h2 id="回味2016">回味2016</h2>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0305/2015113154244635.png">
+</figure>
+<p>2017年已经热火朝天地过掉两个月。现在回过头去评价2016年，显得反射弧特别长。但我仍禁不住要多回头看两眼，因为直到现在，我还不能完全理解它。</p>
+<p>表面看，鹄年一声炮响，送来了英国脱欧和Trump，以及无数脍炙人口的自媒体段子。华尔街全球化秩序的崩裂，给国际政治投下两个巨大的阴影。这源自30年前苏东剧变和中国改开，全球化捡到两个巨大的劳动力要素价值洼地，于是轰鸣运转、财源滚滚。而今红利渐渐吃尽，而劳动生产率其实并没有什么革命性增长，资本回报率一天不如一天，旧模式不免穷途末路。而它带来的副产物（贫富分化、难民危机、恐怖主义、债务危机）却开始反噬全球化主导经济体自身。所以在可以预计的未来，崩裂还将加速，阴影也将进一步扩大。</p>
+<p>但崩裂成什么模样，并不好说。布雷顿森林体系崩裂，其实并没有闹出什么大浪来。但凡尔赛体系的崩裂，就直接导致了第二次世界大战。西晋帝国体系的崩溃，带来了长达五百年的大分裂。如果把回望尺度放大一点，2016年可能只是历史进程的左右摇摆周期中的一小部分。19世纪后期西方自由主义大发展，对内损害了平等，对外制造了殖民，结果殖民地红利吃尽后，在20世纪催生了两次世界大战，以及追求平等的共运和反殖民运动。然而平等主义在吃完战后红利就逐渐陷入了极权和经济乏力，于是新自由主义回潮。这波回潮绵延至今（构成了我们这代人迄今人生经历的主体），如今同样碰到了瓶颈，于是向平等转向的声音又高涨起来。每一次左右摇摆，几乎都伴随着战争、动乱和政经格局的洗牌。</p>
+<p>每一次摇摆，大输家都是那些共识建设较差的社会。如果社会共识不能应付新的形势，或在形势变化面前发生断裂，都会增加内生动乱的风险。而赢家，则是把自身共识引领到世界的那个社会。</p>
+<p>问题来了，</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/political-compass/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/scandinavia-aurora-trip-2017-6/">瑞典挪威逐光七日记(6)：Stockholm</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-02-16 </span>
@@ -181,9 +443,9 @@
 <p>由于没有三脚架，只能用手端着手机延时曝光，画面糊成印象派。​</p>
 <p>​司机很有经验，调好相机参数，先丢一发暗闪光，然后再按快门，就能同时捕捉到极光和人像，明暗对比非常合适。</p>
 <p>​看了半个多小时，再次发车，开过Sandnessund桥，绕到城北Kvaløya岛的一个山坳里。山体挡住了月亮，夜空显得格外黑。在这里，极光分外妖娆。时而横贯夜空，时而星芒绽放，时而交织掩映，时而轻纱环笼。极光的变换非常迅速，突然间盈满夜空，甚至会旋转和舞动，但倏忽间又消隐不见。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0215/001ZzLsRzy78OjDxothff.jpeg" width="100%"/><figcaption>
-            <h4>图：极光</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0215/001ZzLsRzy78OjDxothff.jpeg" width="100%"><figcaption>
+      <h4>图：极光</h4>
+    </figcaption>
 </figure>
     </div>
     <div class="read-more">
@@ -211,9 +473,9 @@
 <p>清早吃了至今最好的一顿早餐，有口感肥美嫩弹的厚切鲜鲑（非烟熏），并且（难能可贵）有热牛奶。不过好花不常开，以后几天就没这种待遇了，毕竟Camp Ripan花费不赀（三星级）。</p>
 <p>雪地拖箱走3公里还是很痛苦的，所以花200克朗搭了酒店的转运车去火车站，搭火车转场纳尔维克（Narvik）。​</p>
 <p>火车站几乎是全裸的……人和汽车都可以毫无阻挡地进入站台，没有安检，也没有​验票闸机。车厢里也没几个人，上座率大约只有50%，其中2/3是中国人。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0212/001ZzLsRzy78IP7W6m3af.jpeg" width="100%"/><figcaption>
-            <h4>图 | Kiruna火车站月台</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0212/001ZzLsRzy78IP7W6m3af.jpeg" width="100%"><figcaption>
+      <h4>图 | Kiruna火车站月台</h4>
+    </figcaption>
 </figure>
 <p>火车还是上世纪的，运营稳健（车次稀疏，所以非常准点），座位宽敞。一个小细节让人不禁要再次吐槽瑞典的IT。网上订票时座位号都是连着的，然而实际上瑞典的火车单号和双号分别位于车厢两侧，所以按票坐肯定会被拆开。天朝乘客哪里忍得了这个，纷纷随机换座。后到的老外看到自己的座位被占，表情都很懵圈，但当他们发现座位号的坑爹性后，很快就跟着乐享其成了。</p>
     </div>
@@ -272,103 +534,13 @@
 <p>然而实际上斯德哥尔摩（59°N）并不冷，和上海（31°N）一个水平：4℃。出发时带了两件羽绒服，海淘了一双雪地靴，结果热了个半死。吃下去那么多黄油最后全都堆到血管里去了。</p>
 <p>股票岛（少打两个字，我喜欢）纬度还太低，当然看不到极光。但这里本身也很值得一玩。酒店位置很好，向南步行一公里便到老城Gamla Stan（城岛Stadsholmen，Stockholm原先就专指这个小岛）。</p>
 <p>正值上班高峰，沿途车流滚滚。所谓行万里路，笑尽人间鸡汤。还记得“中国式过马路”吗？在这里，大街小巷到处都是争先恐后闯红灯的瑞典人民，唯一不同的是他们用不着“中国式”地结队闯，单枪匹马就敢上。老老实实等红灯的，只有大眼瞪小眼的天朝游客。为什么呢？交通灯太反人类。即使按了过街按钮，机动车灯都绿了，步行灯还要继续红半天。这种算法设计水平，炒几百次鱿鱼都不够。但另一个重要原因则是机动车特别老实：只要有行人在马路中间，就乖乖等着。所以不要太苛责行人，哪里的行人都是没耐心的，高素质的日本人如此，高素质的瑞典人也如此。但高素质的司机把道路交通的逼格给撑起来了。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0211/001ZzLsRzy78Gn46lM8ac.jpeg" width="100%"/><figcaption>
-            <h4>图: 隔河相望的城岛和隔壁的骑士岛(尖顶教堂是骑士岛教堂)</h4>
-        </figcaption>
+<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0211/001ZzLsRzy78Gn46lM8ac.jpeg" width="100%"><figcaption>
+      <h4>图: 隔河相望的城岛和隔壁的骑士岛(尖顶教堂是骑士岛教堂)</h4>
+    </figcaption>
 </figure>
     </div>
     <div class="read-more">
       <a href="/post/scandinavia-aurora-trip-2017-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/scandinavia-aurora-trip-2017-1/">瑞典挪威逐光七日记(1)：Stockholm</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-02-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
-          </div>
-        <span class="more-meta"> 约 1498 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <div class="admonition info"><p class="admonition-title">点击</p>
-<p>（先翻墙）查看<a href="https://www.google.com/maps/d/viewer?mid=1VPcRM0UCYSvrJdjV_kFyojtUCuU&amp;ll=64.93481342886963%2C19.221822024999927&amp;z=3">GoogleMaps可视化游记</a></p>
-</div>
-<h2 id="序要快就不要讲逻辑">序：要快，就不要讲逻辑</h2>
-<p>决定要春节出游时，并没有想好去哪儿。吸取了之前过年跑成都的教训，还是到远点的地方吧，不会哪哪儿都放假，人也少些。想了一圈，鬼使神差地，素来最怕冷的某些干部同志，关键时刻意志不坚、立场动摇，竟想到了北欧。</p>
-<p>“咋不干脆上天，去北极呢？”</p>
-<p>“室内肯定有暖气啊。你看东北人进屋都穿短袖。”​</p>
-<p>也是，想到包邮区的冬天那副湿冷刺骨的惨状，一时难以反驳。</p>
-<p>“我们可以去看极光。”</p>
-<p>成。决策过程高效迅捷，惊天地泣鬼神。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/scandinavia-aurora-trip-2017-1/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/singapore-trip-2017-2/">2017元旦坡国举家跨年游（下）</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-01-11 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
-          </div>
-        <span class="more-meta"> 约 1919 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="11">1/1</h2>
-<h3 id="上午牛车水">上午：牛车水</h3>
-<p>新年第一天去牛车水。牛车水就是Chinatown，但又不全是。从Chinatown站出来就是Pagoda街，全在卖小商品。路中段是牛车水原貌馆，保留了一些历史旧貌。街上的房子都不是传统闽南或岭南风格​，而是马来风格，百叶窗窄窄的上圆下方，涂刷得五颜六色。街的尽头是个印度教寺庙。新年首日教徒们蜂拥来祈福，鞋子沿着墙根摆了一地。感受一下那种气味。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0111/001ZzLsRzy77Uxqrysv97.jpeg" width="100%"/><figcaption>
-            <h4>图：马里安曼兴都庙</h4>
-        </figcaption>
-</figure>
-<p>​隔壁就是小吃一条街Smith街，但就和城隍庙一样，主要面向外国人，所以比较贵。我们走过一个街区，来到麦士威熟食中心（Maxwell Food Centre）。这是本地人较多光顾的小吃集市，性价比高一些。由于是新年第一天，很多店铺打烊，但有一家依然很火爆，食客大排长龙——听口音很多是大陆和台湾来的——那就是天天海南鸡饭。海南鸡饭可谓坡国国饭，简单的白斩鸡加米饭，不甚稀奇，要做出名堂得有杀招。天天鸡饭的杀招是鸡油酱汁拌饭​。吃起来果然喷香可口，连鸡都可以不要了。</p>
-<figure class="center"><img src="https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2017/0111/001ZzLsRzy77UxrTayac6.jpeg" width="100%"/><figcaption>
-            <h4>图：天天海南鸡饭</h4>
-        </figcaption>
-</figure>
-<p>平摊下来一个人只要几块钱就能吃得很高兴，的确比较亲民。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/singapore-trip-2017-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/singapore-trip-2017-1/">2017元旦坡国举家跨年游（上）</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-01-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%97%85%E6%B8%B8/"> 旅游 </a>
-          </div>
-        <span class="more-meta"> 约 4110 字 </span>
-        <span class="more-meta"> 预计阅读 9 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      可视化游记 Google可视化游记 以往，坡国从没出现在我的旅行目的地列表中。半个多崇明岛那么大，自然景观、人文历史，要啥没啥，吸引力实在不突出
-    </div>
-    <div class="read-more">
-      <a href="/post/singapore-trip-2017-1/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -380,7 +552,10 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/7/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
@@ -404,7 +579,9 @@
       <a href="https://www.instagram.com/jandeaux/" class="iconfont icon-instagram" title="instagram"></a>
       <a href="https://gitlab.com/madlogos" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="https://space.bilibili.com/384080442" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://madlogos.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
+    <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -426,9 +603,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023
-    
-    <span class="author">madlogos</span>
+    2025<span>madlogos</span>
   </span>
 </div>
 
@@ -457,17 +632,6 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-68964085-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
   (function() {
