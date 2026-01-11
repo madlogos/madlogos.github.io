@@ -3,112 +3,133 @@
   
   <url>
     <loc>https://madlogos.github.io/categories/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/post/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E9%9D%A9%E5%91%BD%E7%AD%96%E7%95%A5/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <loc>https://madlogos.github.io/post/sum-up-2025-1/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E8%BA%AB%E4%BB%BD%E6%94%BF%E6%B2%BB/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/post/identity-politics-fallacy/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E6%82%B2%E8%A7%82%E4%B8%BB%E4%B9%89/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E7%90%86%E6%80%A7/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <loc>https://madlogos.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/categories/%E6%97%A0%E9%A2%98/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E9%9D%A9%E5%91%BD%E7%AD%96%E7%95%A5/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E8%BA%AB%E4%BB%BD%E6%94%BF%E6%B2%BB/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/post/identity-politics-fallacy/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/categories/%E6%97%B6%E8%AF%84/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%82%B2%E8%A7%82%E4%B8%BB%E4%B9%89/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E7%90%86%E6%80%A7/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/post/optimistic-pessimist/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/post/visualize-screening-among-low-prevalence/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/%E6%B5%81%E8%A1%8C/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/%E7%AD%9B%E6%9F%A5/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/tags/%E7%89%B9%E5%BC%82%E6%80%A7/</loc>
-    <lastmod>2025-01-06T22:58:48+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -178,28 +199,28 @@
   
   <url>
     <loc>https://madlogos.github.io/tags/%E5%A4%A7%E5%AD%A6%E8%B7%AF/</loc>
-    <lastmod>2025-01-06T00:48:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E6%A0%A1%E5%9B%AD/</loc>
-    <lastmod>2025-01-06T00:48:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://madlogos.github.io/tags/%E5%A4%9C%E8%A1%8C/</loc>
-    <lastmod>2025-01-06T00:48:42+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://madlogos.github.io/post/daxue-road-walk/</loc>
-    <lastmod>2025-01-06T00:48:42+08:00</lastmod>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E6%A0%A1%E5%9B%AD/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://madlogos.github.io/tags/%E5%A4%9C%E8%A1%8C/</loc>
+    <lastmod>2026-01-12T00:32:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -443,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%97%85%E6%B8%B8/</loc>
+    <loc>https://madlogos.github.io/categories/%E6%97%85%E6%B8%B8/</loc>
     <lastmod>2022-12-23T10:14:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/categories/%E6%97%85%E6%B8%B8/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%97%85%E6%B8%B8/</loc>
     <lastmod>2022-12-23T10:14:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1157,14 +1178,14 @@
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/tags/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <loc>https://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://madlogos.github.io/series/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
+    <loc>https://madlogos.github.io/tags/%E6%94%BF%E6%B2%BB%E5%9D%90%E6%A0%87/</loc>
     <lastmod>2021-05-09T21:28:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

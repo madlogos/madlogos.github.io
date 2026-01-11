@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>edX作业：用Flask建一个简易Web聊天室 - Libido Chateau</title>
+  <title>edX作业：用Flask建一个简易Web聊天室 - Libido Château</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="lO7fVN8Jm2sjiBOcR2knmNBKjtWcxS6KbuZYl2yELwA" />
 
 
-<meta name="generator" content="Hugo 0.140.2 with theme even" />
+<meta name="generator" content="Hugo 0.154.2 with theme even" />
 
 
 <link rel="canonical" href="https://madlogos.github.io/post/flask-socketio-site-demo/" />
@@ -35,13 +35,13 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.d44a1246947ecfc845da4330ab490988a552b8f9200c8a9bc12be624c304195a.css" rel="stylesheet">
+<link href="/sass/main.min.17f52a83c0d4ce635f57b7d8c2726dcb6dd181f03dacb95dbb33208499a3a12c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/custom.css">
 
 
 <meta property="og:url" content="https://madlogos.github.io/post/flask-socketio-site-demo/">
-  <meta property="og:site_name" content="Libido Chateau">
+  <meta property="og:site_name" content="Libido Château">
   <meta property="og:title" content="edX作业：用Flask建一个简易Web聊天室">
   <meta property="og:description" content="edx慕课的作业：用flask框架构建一个简易的聊天室应用">
   <meta property="og:locale" content="zh_cn">
@@ -78,7 +78,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Libido Chateau</a>
+    <a href="/" class="logo">Libido Château</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -109,7 +109,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Libido Chateau</a>
+  <a href="/" class="logo">Libido Château</a>
 </div>
 
 
@@ -158,7 +158,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#作业要求httpsdocscs50netweb2019xprojects2project2html"><a href="https://docs.cs50.net/web/2019/x/projects/2/project2.html">作业要求</a></a></li>
+    <li><a href="#作业要求">作业要求</a></li>
     <li><a href="#开工">开工</a>
       <ul>
         <li><a href="#准备">准备</a></li>
@@ -185,7 +185,7 @@
 <p><a href="https://v.youku.com/v_show/id_XNDQzNzYyNDU4MA==.html?spm=a2h3j.8428770.3416059.1">成品效果视频</a> @ 优酷：</p>
 <iframe height=498 width='100%' src='https://player.youku.com/embed/XNDQzNzYyNDU4MA==' frameborder=0 'allowfullscreen'></iframe>
 <p>这是哈佛 <strong>继续教育学院</strong> 开的的<a href="https://courses.edx.org/courses/course-v1:HarvardX+CS50W+Web/course/">用Python和Javascript撸网络编程</a> 第三个作业项目。</p>
-<h2 id="作业要求httpsdocscs50netweb2019xprojects2project2html"><a href="https://docs.cs50.net/web/2019/x/projects/2/project2.html">作业要求</a></h2>
+<h2 id="作业要求"><a href="https://docs.cs50.net/web/2019/x/projects/2/project2.html">作业要求</a></h2>
 <p>做一个仿<a href="www.slack.com">Slack</a>概念的聊天应用。这次不需要用数据库了，但得</p>
 <p>要实现以下功能：</p>
 <ol>
@@ -1183,7 +1183,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/* static/js/chat.js */</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// template for chatPost
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#chatPost&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#chatPost&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">format_chats</span><span class="p">(</span><span class="nx">json_data</span><span class="p">,</span> <span class="nx">act_user</span><span class="o">=</span><span class="nx">act_user</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json_data</span><span class="p">));</span>
@@ -1338,7 +1338,7 @@
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#msg&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">post_time</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// console.log(msg);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;send msg&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_user</span><span class="p">),</span> <span class="s1">&#39;time&#39;</span><span class="o">:</span> <span class="nx">post_time</span><span class="p">,</span> 
+</span></span></span><span class="line"><span class="cl">            <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;send msg&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_user</span><span class="p">),</span> <span class="s1">&#39;time&#39;</span><span class="o">:</span> <span class="nx">post_time</span><span class="p">,</span> 
 </span></span><span class="line"><span class="cl">                <span class="s1">&#39;msg&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">msg</span><span class="p">),</span> <span class="s1">&#39;channel&#39;</span><span class="o">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">act_channel</span><span class="p">)});</span>
 </span></span><span class="line"><span class="cl">        <span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
@@ -1654,7 +1654,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2025<span>madlogos</span>
+    2026<span>madlogos</span>
   </span>
 </div>
 

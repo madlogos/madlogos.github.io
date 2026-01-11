@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>无题 on Libido Chateau</title>
+    <title>无题 on Libido Château</title>
     <link>https://madlogos.github.io/categories/%E6%97%A0%E9%A2%98/</link>
-    <description>Recent content in 无题 on Libido Chateau</description>
+    <description>Recent content in 无题 on Libido Château</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>madlogos</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 22:58:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Jan 2026 00:32:44 +0800</lastBuildDate>
     <atom:link href="https://madlogos.github.io/categories/%E6%97%A0%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>回望2025（上）</title>
+      <link>https://madlogos.github.io/post/sum-up-2025-1/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://madlogos.github.io/post/sum-up-2025-1/</guid>
+      <description>&lt;p&gt;过去一年，我主要的精力聚焦在两件事，都跟AI有关：开发有品位的AI应用、帮助研发组织向AI原生转型。成不成功且不说，这是我第一次尝试跑进风口。事实证明，风口确实有点东西——虽然经济形势有目共睹，但任何老业务只要套上AI的皮，就还能多一丝机会。不过风口也有它的毛病：变化太快，顶模3个月洗一轮牌，任何最优实践都撑不了半年；无数新玩家前仆后继涌入赛道，拼命地迭代、变阵，逼得老登们片刻无休，每天盯着前沿不敢放松。形势瞬息万变，上个月还是华山之巅的六小龙八小虎，下个月就趴泥里了。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>做悲观主义者，享快乐人生</title>
       <link>https://madlogos.github.io/post/optimistic-pessimist/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://madlogos.github.io/post/optimistic-pessimist/</guid>
-      <description>&lt;p&gt;说一个反直觉的建议：做悲观主义者，享快乐人生。&lt;/p&gt;&#xA;&lt;p&gt;从小喝到大的心灵鸡汤总是教导我们，保持乐观是对抗精神危机的有力武器。但现实是，乐观主义者才更容易抑郁。一部分原因是他们编织世界图景的方法错误，另一部分原因在于现实世界本身在恶化。&lt;/p&gt;&#xA;&lt;p&gt;一个前置问题：抑郁是怎么来的？有遗传和器质性的部分，也有相当一部分来自后天，源于对世界的信念和现实之间慢性、不可调和的冲突张力。我们对世界的信念当然主要是好的，而和「好的信念」产生冲突张力的现实，只能就是「坏的现实」。于是问题来了，现实世界的本质到底是什么？&lt;/p&gt;&#xA;&lt;p&gt;**是坏的，是悲观的。**否则上述逻辑无法成立。&lt;/p&gt;</description>
+      <description>&lt;p&gt;说一个反直觉的建议：&lt;/p&gt;&#xA;&lt;div class=&#34;admonition quote&#34;&gt;&#xA;&lt;p&gt;做悲观主义者，享快乐人生。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;从小喝到大的心灵鸡汤总是教导我们，保持乐观是对抗精神危机的有力武器。但现实是，乐观主义者才更容易抑郁。一部分原因是他们编织世界图景的方法错误，另一部分原因在于现实世界本身在恶化。&lt;/p&gt;&#xA;&lt;h2 id=&#34;一个前置问题抑郁是怎么来的&#34;&gt;一个前置问题：抑郁是怎么来的？&lt;/h2&gt;&#xA;&lt;p&gt;有遗传和器质性的部分，也有相当一部分来自后天，源于对世界的信念和现实之间慢性、不可调和的冲突张力。我们对世界的信念当然主要是好的，而和「好的信念」产生冲突张力的现实，只能就是「坏的现实」。于是问题来了，&lt;/p&gt;&#xA;&lt;h2 id=&#34;现实世界的本质到底是什么&#34;&gt;现实世界的本质到底是什么？&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;是坏的，是悲观的。&lt;/strong&gt; 否则上述逻辑无法成立。&lt;/p&gt;</description>
     </item>
     <item>
       <title>低流行水平下，筛查特异性是如何崩塌的</title>
       <link>https://madlogos.github.io/post/visualize-screening-among-low-prevalence/</link>
       <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
       <guid>https://madlogos.github.io/post/visualize-screening-among-low-prevalence/</guid>
-      <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;引子&lt;/p&gt;&#xA;&lt;p&gt;在低流行人群中做普遍筛查，整体效益很低。在教科书里，这只是干巴巴一句结论。形象地理解，在治安很好的地方搞拉网式排查，一定抓不到几个贼，抓到的也多半是冤枉的，综合下来看，不合算。正好今天碰到一个例子，借此把这些关系具象地量化出来。&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;问题是这样的，「假设女性乳腺癌患病率为1‰，再假设乳腺癌检测敏感性是 90%（即100个真病人里，有90个会检出为阳性），假阳性率是 9%（即100个健康人去查，有9个会被误诊为阳性），那么一位女性检测呈阳性，她患乳腺癌的概率是多大？」&lt;/p&gt;&#xA;&lt;p&gt;用下表很容易算出来。1‰的患病率，那么假定有100个病人，99900个健康人。这100个病人里，90个被检出为阳性，10个漏诊；而余下99900个健康人里，有8991个（9%）被误诊为阳性。最后合计9081个阳性，里面真正的病人还是90个（只占0.99%）。这个0.99%，术语叫阳性预测值（PPV），在机器学习里叫精确度或查准率（precision）。&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;D+(有病)&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;D-(没病)&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;合计&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;T+(阳性)&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;strong&gt;90&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;8991&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;strong&gt;9081&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;T-(阴性)&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;10&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;90909&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;90919&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;合计&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;100&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;99900&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;100000&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
+      <description>&lt;div class=&#34;admonition abstract&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;引子&lt;/p&gt;&#xA;&lt;p&gt;在低流行人群中做普遍筛查，整体效益很低。在教科书里，这只是干巴巴一句结论。形象地理解，在治安很好的地方搞拉网式排查，一定抓不到几个贼，抓到的也多半是冤枉的，综合下来看，不合算。正好今天碰到一个例子，借此把这些关系具象地量化出来。&lt;/p&gt;&#xA;&lt;div class=&#34;admonition question&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;问题是这样的&lt;/p&gt;&#xA;  &lt;p&gt;假设女性乳腺癌患病率为1‰，再假设乳腺癌检测敏感性是 90%（即100个真病人里，有90个会检出为阳性），假阳性率是 9%（即100个健康人去查，有9个会被误诊为阳性），那么一位女性检测呈阳性，她患乳腺癌的概率是多大？&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;1&#34;&gt;1&lt;/h2&gt;&#xA;&lt;p&gt;用下表很容易算出来。1‰的患病率，那么假定有100个病人，对应有99900个健康人。这100个病人里，90个被检出为阳性，10个漏诊；而余下99900个健康人里，有8991个（9%）被误诊为阳性。最后合计9081个阳性，里面真正的病人还是90个（只占0.99%）。这个0.99%，术语叫阳性预测值（PPV），在机器学习里叫精确度或查准率（precision）。&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;D+(有病)&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;D-(没病)&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;合计&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;T+(阳性)&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;strong&gt;90&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;8991&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;strong&gt;9081&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;T-(阴性)&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;10&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;90909&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;90919&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;合计&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;100&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;99900&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;100000&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
     </item>
     <item>
       <title>权力本质是否定</title>
@@ -31,7 +38,7 @@
       <description>&lt;p&gt;权力的本质是「说不」，是个很负向的东西。做决策本身就很消耗心神，心理学有个名词叫「决策疲竭」(decision fatigue)，其实就是选择过载的表现。而权力，是把决策过程和单向影响力串在一起，行使单向影响力又是件很耗费心神的事。所以，长期执掌权力做决策的人，无不忧心忡忡、嘴角下压，可见这不是一件松弛快乐的事。&lt;/p&gt;&#xA;&lt;p&gt;然而，决策不是人人都爱，但权力多数人却求之不得。可见「单向影响力」苦归苦，是有成瘾性的。&lt;/p&gt;&#xA;&lt;p&gt;在政治学里，权力(power)是影响力的特殊表现形式，体现的是宰制(domination)关系——按米尔斯的定义，「即使对方反对，依然可以行使自己意志的能力」。所以，否决是权力的根本体现形式——上级可以说不，下级不行；甲方可以说不，乙方不行；五大流氓可以在安理会说不，其他国家不行。即使在正面场景里，权力本质上也是以否定形式起效的：「去做」，实际是「不许不做」的意思。&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;https://gh-1251443721.cos.ap-chengdu.myqcloud.com/2024/05/power-level.jpg&#34; width=&#34;80%&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;图 | 权力的三个层次&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;</description>
     </item>
     <item>
-      <title>夜行</title>
+      <title>大学路夜行</title>
       <link>https://madlogos.github.io/post/daxue-road-walk/</link>
       <pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
       <guid>https://madlogos.github.io/post/daxue-road-walk/</guid>
